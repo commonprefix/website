@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Layout from "components/layout"
+import { Image } from '@chakra-ui/react'
 import Member from "components/teamMember"
 import DownloadButton from "components/downloadButton"
 import { Box, Link } from "@chakra-ui/react"
@@ -79,7 +80,7 @@ export default function Harmony() {
       ),
     },
     {
-      name: "Dr. Dimitris Karakosta",
+      name: "Dr. Dimitris Karakostas",
       description: (
         <Box>
           Dimitris is a post-doctoral blockchain researcher at the University of Edinburgh where he works with professor
@@ -184,6 +185,7 @@ export default function Harmony() {
         <title>Common Prefix - Harmony</title>
         <link rel="icon" type="image/png" href="/philosopher-stone.png" />
       </Head>
+      <Image mb="10" width="190" height="190" src="/transmutation-circle.jpg" />
       <span>
         Common Prefix is a team of scientists and engineers specializing in blockchains. We work from first principles,
         with an eye for rigor and formal cryptographic security proofs. We contribute as the advisory team for Harmony's
