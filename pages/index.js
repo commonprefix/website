@@ -12,11 +12,6 @@ export default function Home() {
         <title>Common Prefix</title>
 
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css"
-        />
         <link rel="icon" type="image/png" href="/philosopher-stone.png" />
       </Head>
       <Image width="190" height="190" src="/transmutation-circle.jpg" />
