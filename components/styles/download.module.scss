@@ -1,0 +1,16 @@
+.link {
+  margin-top: 20px;
+}
+
+.button {
+  padding: 20px;
+  border-width: 1px;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+
+  &:hover {
+    background-color: #fafafa;
+    cursor: pointer;
+  }
+}
