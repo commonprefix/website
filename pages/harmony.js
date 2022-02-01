@@ -1,7 +1,7 @@
 import Head from "next/head"
 import Layout from "components/layout"
-import Member from "components/member"
-import Download from "components/download"
+import Member from "components/teamMember"
+import DownloadButton from "components/downloadButton"
 import { Box, Link } from "@chakra-ui/react"
 
 export default function Harmony() {
@@ -102,6 +102,77 @@ export default function Harmony() {
         </Box>
       ),
     },
+    {
+      name: "Prof. Dr. Lefteris Kokoris-Kogias",
+      description: (
+        <Box>
+          Lefteris is an assistant professor at IST Austria based in Vienna. He holds a PhD from EPFL, and an Electrical
+          and Computer Engineering degree from the National Technical University of Athens. He specializes in the
+          systems aspects of blockchains with a focus on scalability, decentralized randomness generation, and software
+          update dispersion. Among other venues, he has published in IEEE S&P (Oakland), USENIX Security, ACM CCS, PODC,
+          ESORICS, and Financial Crypto. Highlights of his research include the papers{" "}
+          <Link color="blue.500" href="https://infoscience.epfl.ch/record/255586/files/OmniLedger.pdf">
+            Omniledger: A secure, scale-out, decentralized ledger via sharding
+          </Link>
+          ,{" "}
+          <Link
+            color="blue.500"
+            href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7TOIlqkAAAAJ&citation_for_view=7TOIlqkAAAAJ:kw52XkFRtyQC"
+          >
+            Enhancing bitcoin security and performance with strong consistency via collective signing
+          </Link>
+          , and{" "}
+          <Link color="blue.500" href="https://discovery.ucl.ac.uk/id/eprint/10116632/1/Jovanovic_randomness.pdf">
+            Scalable bias-resistant distributed randomness
+          </Link>
+          .
+        </Box>
+      ),
+    },
+    {
+      name: "Dimitris Lamprinos",
+      description: (
+        <Box>
+          Dimitris is a software engineer based in Thessaloniki. He holds a degree in Computer Science from Aristotle
+          University of Thessaloniki. He works on smart contract development and basic consensus development. He has
+          significant experience in developing and scaling web applications as well as blockchain development in the
+          context of algorithmic trading. In the past, he has worked for{" "}
+          <Link color="blue.500" href="https://www.amondo.com/">
+            Amondo
+          </Link>{" "}
+          and{" "}
+          <Link color="blue.500" href="https://geekbot.com/">
+            Geekbot
+          </Link>
+          . In Harmony, he is working closely with the scientists to implement surgical changes in the consensus layer
+          pertaining to incentives, fees, and slashing.
+        </Box>
+      ),
+    },
+    {
+      name: "Dr. Dionysis Zindros",
+      description: (
+        <Box>
+          Dionysis is a post-doctoral blockchain researcher at Stanford University. He holds a PhD from the University
+          of Athens and an Electrical and Computer Engineering degree from the National Technical University of Athens.
+          He specializes in blockchain scalability via light clients and fast bootstrapping. Among other venues he has
+          published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and presented at Black Hat Europe and
+          Asia. Highlights of his research include the papers{" "}
+          <Link color="blue.500" href="https://eprint.iacr.org/2017/963.pdf">
+            Non-Interactive Proofs of Proof-of-Work
+          </Link>
+          ,{" "}
+          <Link color="blue.500" href="https://eprint.iacr.org/2018/1239.pdf">
+            Proof-of-Stake Sidechains
+          </Link>
+          , and{" "}
+          <Link color="blue.500" href="https://eprint.iacr.org/2018/1048.pdf">
+            Proof-of-Work Sidechains
+          </Link>
+          .
+        </Box>
+      ),
+    },
   ]
   return (
     <Layout>
@@ -117,7 +188,7 @@ export default function Harmony() {
         recommendations for changes in the protocol and codebase, technical reports for dissemination within the
         community, and peer-reviewed research papers published in top-tier academic conferences describing our findings.
       </span>
-      <Download />
+      <DownloadButton />
       {members.map((member) => (
         <Member key={member.name} member={member} />
       ))}

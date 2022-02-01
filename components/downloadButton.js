@@ -2,7 +2,7 @@ import { Box, LinkBox, LinkOverlay } from "@chakra-ui/react"
 import { DownloadIcon } from "@chakra-ui/icons"
 import styles from "./styles/download.module.scss"
 
-export default function Member({}) {
+export default function DownloadButton({}) {
   return (
     <LinkBox mt="10" href="/report.pdf" download>
       <LinkOverlay href="/report.pdf" download>
