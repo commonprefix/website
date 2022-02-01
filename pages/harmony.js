@@ -172,7 +172,7 @@ export default function Harmony() {
           .
         </Box>
       ),
-      image: "https://dionyziz.com/w/images/dionysis.png"
+      image: "https://dionyziz.com/w/images/dionysis.png",
     },
   ]
   return (
@@ -189,7 +189,7 @@ export default function Harmony() {
         recommendations for changes in the protocol and codebase, technical reports for dissemination within the
         community, and peer-reviewed research papers published in top-tier academic conferences describing our findings.
       </span>
-      <DownloadButton />
+      <DownloadButton file="/harmony_tech_report.pdf" />
       {members.map((member) => (
         <Member key={member.name} member={member} />
       ))}
