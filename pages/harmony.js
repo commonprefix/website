@@ -30,6 +30,7 @@ export default function Harmony() {
         </Box>
       ),
     },
+    /*
     {
       name: "Aleksis Brezas",
       description: (
@@ -51,6 +52,7 @@ export default function Harmony() {
         </Box>
       ),
     },
+    */
     {
       name: "Dr. Pyrros Chaidos",
       description: (
@@ -60,8 +62,43 @@ export default function Harmony() {
           Theoretical Computer Science from the University of Athens, and a BA in Mathematics from the University of
           Athens. He specializes in zero knowledge proof systems, with applications on proof-of-stake blockchains and
           voting in particular. Among other venues, he has published in EUROCRYPT, ACM CCS, PKC, ESORICS, and the
-          Journal of Cryptology. Highlights of his research include the papers <Link color="blue.500" href="https://eprint.iacr.org/2021/916.pdf">Mithril: Stake-based Threshold
-          Multisignatures</Link>, <Link color="blue.500" href="https://eprint.iacr.org/2016/263.pdf">Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting</Link>, and <Link color="blue.500" href="https://eprint.iacr.org/2016/368.pdf">Foundations of Fully Dynamic Group Signatures</Link>.
+          Journal of Cryptology. Highlights of his research include the papers{" "}
+          <Link color="blue.500" href="https://eprint.iacr.org/2021/916.pdf">
+            Mithril: Stake-based Threshold Multisignatures
+          </Link>
+          ,{" "}
+          <Link color="blue.500" href="https://eprint.iacr.org/2016/263.pdf">
+            Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting
+          </Link>
+          , and{" "}
+          <Link color="blue.500" href="https://eprint.iacr.org/2016/368.pdf">
+            Foundations of Fully Dynamic Group Signatures
+          </Link>
+          .
+        </Box>
+      ),
+    },
+    {
+      name: "Dr. Dimitris Karakosta",
+      description: (
+        <Box>
+          Dimitris is a post-doctoral blockchain researcher at the University of Edinburgh where he works with professor
+          Aggelos Kiayias. He holds a PhD from the University of Edinburgh and an Electrical and Computer Engineering
+          degree from the National Technical University of Athens. He specializes in cryptocurrency wallets and
+          macroeconomics, as well as chain checkpointing. Among other venues, he has published in Financial Crypto and
+          presented at Black Hat Europe and Asia. Highlights of his research include the papers{" "}
+          <Link color="blue.500" href="https://eprint.iacr.org/2019/034.pdf">
+            A Formal Treatment of Hardware Wallets
+          </Link>
+          ,{" "}
+          <Link color="blue.500" href="https://arxiv.org/pdf/1907.02434.pdf">
+            Cryptocurrency Egalitarianism: A Quantitative Approach
+          </Link>
+          , and{" "}
+          <Link color="blue.500" href="https://eprint.iacr.org/2020/173.pdf">
+            Securing Proof-of-Work Ledgers via Checkpointing
+          </Link>
+          .
         </Box>
       ),
     },
@@ -82,7 +119,7 @@ export default function Harmony() {
       </span>
       <Download />
       {members.map((member) => (
-        <Member member={member} />
+        <Member key={member.name} member={member} />
       ))}
     </Layout>
   )
