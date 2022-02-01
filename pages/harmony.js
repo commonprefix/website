@@ -172,6 +172,7 @@ export default function Harmony() {
           .
         </Box>
       ),
+      image: "https://dionyziz.com/w/images/dionysis.png"
     },
   ]
   return (
