@@ -30,6 +30,7 @@ export default function Harmony() {
           .
         </Box>
       ),
+      image: "team/zeta_avarikioti.jpeg"
     },
     /*
     {
@@ -102,6 +103,7 @@ export default function Harmony() {
           .
         </Box>
       ),
+      image: "/team/dimitris_karakostas.jpg",
     },
     {
       name: "Prof. Dr. Lefteris Kokoris-Kogias",
@@ -129,6 +131,7 @@ export default function Harmony() {
           .
         </Box>
       ),
+      image: "/team/lefteris_kokoris-kogias.jpeg"
     },
     {
       name: "Dimitris Lamprinos",
@@ -149,6 +152,7 @@ export default function Harmony() {
           pertaining to incentives, fees, and slashing.
         </Box>
       ),
+      image: "/team/dimitris_lamprinos.jpeg"
     },
     {
       name: "Dr. Dionysis Zindros",
@@ -173,19 +177,22 @@ export default function Harmony() {
           .
         </Box>
       ),
-      image: "https://dionyziz.com/w/images/dionysis.png",
+      image: "team/dionysis_zindros.png",
     },
   ]
   return (
     <Layout>
       <Head>
         <meta charSet="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Common Prefix - Harmony</title>
         <link rel="icon" type="image/png" href="/philosopher-stone.png" />
       </Head>
-      <Image mb="10" width="190" height="190" src="/transmutation-circle.jpg" />
+      <Box display="flex" flexWrap="wrap" alignItems="center" justifyContent="center" mb="10" >
+        <Image minWidth="190" width="190" height="190" src="/cp_logo.jpg" />
+        <Image minWidth="190" width="190" height="190" src="/harmony_logo.png" />
+      </Box>
       <span>
         Common Prefix is a team of scientists and engineers specializing in blockchains. We work from first principles,
         with an eye for rigor and formal cryptographic security proofs. We contribute as the advisory team for Harmony's
