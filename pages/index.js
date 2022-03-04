@@ -1,40 +1,38 @@
 import Head from "next/head"
 import Image from "next/image"
 import Layout from "components/layout"
+import { Box, Link } from "@chakra-ui/react"
 
 export default function Home() {
   return (
     <Layout>
       <Head>
         <meta charSet="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Common Prefix</title>
 
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
         <link rel="icon" type="image/png" href="/philosopher-stone.png" />
       </Head>
-      <Image width="190" height="190" src="/transmutation-circle.jpg" />
-      <h1 className="mx-auto m-4 text-center text-xl font-bold">Common Prefix</h1>
+      <Image width="190" height="190" src="/cp_logo.jpg" />
+      <Box mt="5" fontSize="23" color="black"><h1>Common Prefix</h1></Box>
 
-      <div className="text-justify p-2 max-w-sm m-auto">
-        <p className="my-4">
+      <Box mt="10" maxWidth="25rem">
+        <p>
           We are a small team of scientists and software engineers offering blockchain science consulting services.
         </p>
-
-        <p className="my-4">
+        <p>
           We work using rigorous cryptographic techniques to design simple and provably secure protocols from first
           principles and guide developers in implementing them successfully.
         </p>
-
-        <p className="my-4">
+        <p>
           For a quote, reach out to{" "}
-          <a className="text-pink-600 hover:underline" href="mailto:hello@commonprefix.com">
+          <Link color="pink.500"  href="mailto:hello@commonprefix.com">
             hello@commonprefix.com
-          </a>
+          </Link>
           .
         </p>
-      </div>
+      </Box>
     </Layout>
   )
 }
