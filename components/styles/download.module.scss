@@ -3,11 +3,19 @@
 }
 
 .link_button {
-  width: 100%;
+  width: 40rem;
+
+  .button {
+    transition: transform 0.1s ease-out;
+  }
 
   &:hover {
     .button {
-      font-size: 102%;
+      transform: scale(1.02);
+
+      small {
+        font-size: 80%;
+      }
     }
   }
 }

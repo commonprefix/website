@@ -202,7 +202,8 @@ export default function Harmony() {
         recommendations for changes in the protocol and codebase, technical reports for dissemination within the
         community, and peer-reviewed research papers published in top-tier academic conferences describing our findings.
       </span>
-      <DownloadButton file="/harmony_tech_report.pdf" />
+      <DownloadButton file="/harmony_privacy_report.pdf" text="DOWNLOAD PRIVACY REPORT"/>
+      <DownloadButton file="/harmony_tech_report_v2.pdf" text="DOWNLOAD TECHNICAL REPORT" version="2"/>
       {members.map((member) => (
         <Member key={member.name} member={member} />
       ))}
