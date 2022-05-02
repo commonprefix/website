@@ -3,7 +3,8 @@
 }
 
 .link_button {
-  width: 40rem;
+  width: 100%;
+  max-width: 40rem;
 
   .button {
     transition: transform 0.1s ease-out;
