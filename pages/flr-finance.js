@@ -135,8 +135,8 @@ export default function FLRFinance() {
         <link rel="icon" type="image/png" href="/philosopher-stone.png" />
       </Head>
       <Box display="flex" flexWrap="wrap" alignItems="center" justifyContent="center" mb="10">
-        <Image minWidth="190" width="190" height="190" src="/cp_logo.jpg" />
-        <Image height="75" src="/flr_finance_logo.png" />
+        <Image minWidth="190" width="190" height="190" src="/cp_logo.jpg" m="2" />
+        <Image height="75" src="/flr_finance_logo.png" m="2" />
       </Box>
       <span>
         Common Prefix is a team of scientists and engineers specializing in blockchains. We analyze and design simple
