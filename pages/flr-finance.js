@@ -48,8 +48,7 @@ export default function FLRFinance() {
             dailysteals
           </Link>
           . His blockchain development experience includes smart contract development as well as cryptocurrency
-          algorithmic trading. In Harmony, he is working closely with the scientists to implement surgical changes in
-          the consensus layer pertaining to incentives, fees, and slashing.
+          algorithmic trading.
         </Box>
       ),
     },
@@ -93,8 +92,7 @@ export default function FLRFinance() {
           <Link color="blue.500" href="https://geekbot.com/">
             Geekbot
           </Link>
-          . In Harmony, he is working closely with the scientists to implement surgical changes in the consensus layer
-          pertaining to incentives, fees, and slashing.
+          .
         </Box>
       ),
       image: "/team/dimitris_lamprinos.jpeg",
