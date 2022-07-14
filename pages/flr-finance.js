@@ -149,7 +149,7 @@ export default function FLRFinance() {
         ecosystem even further.
       </span>
       <DownloadButton file="/flr_finance_loans_post_mortem.pdf" text="LOANS INCIDENT POST-MORTEM" />
-      <DownloadButton file="/flr_finance_ftso_reward_manager.pdf" text="FTSORewardManager AUDIT" />
+      <DownloadButton file="/flr_finance_ftso_reward_manager_audit.pdf" text="FTSORewardManager AUDIT" />
       <DownloadButton file="/flr_finance_price_feed_ftso_connector_audit.pdf" text="PriceFeedFtsoConnector AUDIT" />
       <DownloadButton file="/flr_finance_loans_audit.pdf" text="LoansStable AUDIT" />
       {members.map((member) => (
