@@ -135,12 +135,12 @@ const members = {
         and Electronics Engineering from the Technical University of Crete. He has been programming for twenty-five years,
         with a focus on designing, developing, scaling, and maintaining web backends as well as on systems and data security.
         Stavros has worked in various sectors such as security, developing
+        {" "}
         <Link color="blue.500" href="https://www.silentcircle.com/products-and-solutions/silent-phone">
           Silent Phone
         </Link>
         ,{" "}
-        alongside Phil Zimmermann and Jon Callas, in healthcare, and in blockchain, developing the Internet Computer at DFINITY.{" "}
-        .
+        alongside Phil Zimmermann and Jon Callas, in healthcare, and in blockchain, developing the Internet Computer at DFINITY.
       </Box>
     ),
   },
