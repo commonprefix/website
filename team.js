@@ -185,6 +185,20 @@ const members = {
     ),
     image: "/team/dimitris_lamprinos.jpeg",
   },
+  themis: {
+    name: "Themis Papameletiou",
+    description: (
+      <Box>
+        Themis is a software engineer based in Athens.
+        He has significant experience developing software for a variety of projects
+        such as web applications, algorithmic traders and rockets.
+        He is pursuing a degree in Electrical and Computer Engineering from the National Technical University of Athens
+        and has also completed internships at Google and at the European Space Agency.
+        Currently, he is focused on smart contract development and testing.
+      </Box>
+    ),
+    image: "/team/themis_papameletiou.jpg",
+  },
   dionysis: {
     name: "Dr. Dionysis Zindros",
     description: (

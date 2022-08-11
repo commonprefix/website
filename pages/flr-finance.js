@@ -14,6 +14,7 @@ export default function FLRFinance() {
     team.dimitris,
     team.stavros,
     team.pkakelas,
+    team.themis,
     team.dionysis,
   ]
   return (
