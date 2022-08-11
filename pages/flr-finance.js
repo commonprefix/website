@@ -10,6 +10,7 @@ export default function FLRFinance() {
   const members = [
     team.zeta,
     team.aleksis,
+    team.nikolas,
     team.dimitris,
     team.stavros,
     team.pkakelas,

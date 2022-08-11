@@ -74,6 +74,27 @@ const members = {
       </Box>
     ),
   },
+  nikolas: {
+    name: "Nikolaos Kamarinakis",
+    description: (
+      <Box>
+        Nikolas is a software engineer based in Athens, Greece and Maryland, USA.
+        He is currently pursuing a bachelor's degree in Computer Science at the University of Maryland,
+        specializing in Cybersecurity.
+        He has multiple years of experience in full-stack software engineering and open-source development,
+        as well as some expierience in offensive security.
+        Nikolas is currently focused on smart contract development at Common Prefix
+        as well as at the
+        {" "}
+        <Link color="blue.500" href="https://researchdao.io">
+          Research DAO
+        </Link>,
+        {" "}
+        where he also coordinates operations.
+      </Box>
+    ),
+    image: "/team/nikolaos_kamarinakis.jpg",
+  },
   dimitris: {
     name: "Dr. Dimitris Karakostas",
     description: (
