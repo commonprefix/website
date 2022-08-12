@@ -226,7 +226,12 @@ const members = {
         Apostolos is a smart contract software engineer.
         He is pursuing a joint Bachelor and Master's degree in Electrical and Computer Engineering
         at the National Technical University of Athens.
-        Apostolos has extensive front-end software engineering experience working at Maya Insights,
+        Apostolos has extensive front-end software engineering experience working at
+        {" "}
+        <Link color="blue.500" href="https://www.mayainsights.com/">
+          Maya Insights
+        </Link>
+        ,{" "}
         as well as at NutriDice, where he took on a full-stack engineering role.
         He has worked with numerous programming languages and technical stacks.
       </Box>
