@@ -219,6 +219,20 @@ const members = {
     ),
     image: "/team/themis_papameletiou.jpg",
   },
+  apostolos: {
+    name: "Apostolos Tzinas",
+    description: (
+      <Box>
+        Apostolos is a smart contract software engineer.
+        He is pursuing a joint Bachelor and Master's degree in Electrical and Computer Engineering
+        at the National Technical University of Athens.
+        Apostolos has extensive front-end software engineering experience working at Maya Insights,
+        as well as at NutriDice, where he took on a full-stack engineering role.
+        He has worked with numerous programming languages and technical stacks.
+      </Box>
+    ),
+    image: "team/apostolos_tzinas.jpg",
+  },
   dionysis: {
     name: "Dr. Dionysis Zindros",
     description: (
