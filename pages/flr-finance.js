@@ -8,6 +8,7 @@ import team from "../team"
 
 export default function FLRFinance() {
   const members = [
+    team.shresth,
     team.zeta,
     team.nikolas,
     team.dimitris,

@@ -1,6 +1,25 @@
 import { Box, Link } from "@chakra-ui/react"
 
 const members = {
+  shresth: {
+    name: "Shresth Agrawal",
+    description: (
+      <Box>
+        Shresth is a smart contract and backend developer.
+        He holds a bachelor degree in Computer Science from Jacobs University Bremen.
+        He has experience building efficient and secure algorithms,
+        protocols, and smart contracts for several DeFi protocols.
+        Previously he worked at
+        {" "}
+        <Link color="blue.500" href="https://www.paraswap.io/">
+          ParaSwap
+        </Link>
+        {" "}
+        where he was responsible for developing a significant part of the core aggregation algorithm.
+        He is interested in Cryptography, Security, Consensus Protocols, Decentralised Finance, and Ethereum.
+      </Box>
+    ),
+  },
   zeta: {
     name: "Dr. Zeta Avarikioti",
     description: (
