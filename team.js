@@ -68,6 +68,7 @@ const members = {
         algorithmic trading.
       </Box>
     ),
+    image: "team/aleksis_brezas.jpg",
   },
   pyrros: {
     name: "Dr. Pyrros Chaidos",
