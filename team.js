@@ -19,6 +19,7 @@ const members = {
         He is interested in Cryptography, Security, Consensus Protocols, Decentralised Finance, and Ethereum.
       </Box>
     ),
+    image: "team/shresth_agrawal.jpg",
   },
   zeta: {
     name: "Dr. Zeta Avarikioti",
