@@ -164,6 +164,7 @@ const members = {
         alongside Phil Zimmermann and Jon Callas, in healthcare, and in blockchain, developing the Internet Computer at DFINITY.
       </Box>
     ),
+    image: "/team/stavros_korokithakis.jpeg",
   },
   pkakelas: {
     name: "Dimitris Lamprinos",
