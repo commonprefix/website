@@ -2,7 +2,7 @@ import Head from "next/head"
 import Layout from "components/layout"
 import { Image, Heading  } from "@chakra-ui/react"
 import Member from "components/teamMember"
-import team from "../team"
+import team from "../data/team"
 
 export default function Team() {
   const members = Object.values(team)
