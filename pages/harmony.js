@@ -4,7 +4,7 @@ import { Image } from '@chakra-ui/react'
 import Member from "components/teamMember"
 import DownloadButton from "components/downloadButton"
 import { Box, Link } from "@chakra-ui/react"
-import team from "../team"
+import team from "../data/team"
 
 export default function Harmony() {
   const members = [
