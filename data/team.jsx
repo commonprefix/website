@@ -1,4 +1,5 @@
-import { Box, Link } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
+import Link from "../components/link"
 
 const members = {
   shresth: {
@@ -11,7 +12,7 @@ const members = {
         protocols, and smart contracts for several DeFi protocols.
         Previously he worked at
         {" "}
-        <Link color="blue.500" href="https://www.paraswap.io/">
+        <Link href="https://www.paraswap.io/">
           ParaSwap
         </Link>
         {" "}
@@ -33,15 +34,15 @@ const members = {
         and the analysis of cryptoeconomic incentives.
         Among other venues, she has published in Financial Crypto, AFT and SODA.
         Highlights of her research include the papers{" "}
-        <Link color="blue.500" href="https://arxiv.org/pdf/1905.11360.pdf">
+        <Link href="https://arxiv.org/pdf/1905.11360.pdf">
           BRICK: Asynchronous Payment Channels
         </Link>
         ,{" "}
-        <Link color="blue.500" href="https://eprint.iacr.org/2019/1092.pdf">
+        <Link href="https://eprint.iacr.org/2019/1092.pdf">
           Cerberus Channels: Incentivizing Watchtowers for Bitcoin
         </Link>
         , and{" "}
-        <Link color="blue.500" href="https://arxiv.org/pdf/1910.10434.pdf">
+        <Link href="https://arxiv.org/pdf/1910.10434.pdf">
           Divide and Scale: Formalization of Distributed Ledger Sharding Protocols
         </Link>
         .
@@ -57,11 +58,11 @@ const members = {
         experience under his belt, he has worked with numerous programming languages and systems, with a particular
         taste for functional programming languages. He has worked on scaling web applications and in integrating
         heterogeneous systems and in large commercial web applications, and is the lead software architect behind{" "}
-        <Link color="blue.500" href="https://geekbot.com/">
+        <Link href="https://geekbot.com/">
           geekbot
         </Link>{" "}
         and{" "}
-        <Link color="blue.500" href="https://dailysteals.com/">
+        <Link href="https://dailysteals.com/">
           dailysteals
         </Link>
         . His blockchain development experience includes smart contract development as well as cryptocurrency
@@ -80,15 +81,15 @@ const members = {
         Athens. He specializes in zero knowledge proof systems, with applications on proof-of-stake blockchains and
         voting in particular. Among other venues, he has published in EUROCRYPT, ACM CCS, PKC, ESORICS, and the
         Journal of Cryptology. Highlights of his research include the papers{" "}
-        <Link color="blue.500" href="https://eprint.iacr.org/2021/916.pdf">
+        <Link href="https://eprint.iacr.org/2021/916.pdf">
           Mithril: Stake-based Threshold Multisignatures
         </Link>
         ,{" "}
-        <Link color="blue.500" href="https://eprint.iacr.org/2016/263.pdf">
+        <Link href="https://eprint.iacr.org/2016/263.pdf">
           Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting
         </Link>
         , and{" "}
-        <Link color="blue.500" href="https://eprint.iacr.org/2016/368.pdf">
+        <Link href="https://eprint.iacr.org/2016/368.pdf">
           Foundations of Fully Dynamic Group Signatures
         </Link>
         .
@@ -107,7 +108,7 @@ const members = {
         Nikolas is currently focused on smart contract development at Common Prefix
         as well as at the
         {" "}
-        <Link color="blue.500" href="https://researchdao.io">
+        <Link href="https://researchdao.io">
           Research DAO
         </Link>,
         {" "}
@@ -125,15 +126,15 @@ const members = {
         degree from the National Technical University of Athens. He specializes in cryptocurrency wallets and
         macroeconomics, as well as chain checkpointing. Among other venues, he has published in Financial Crypto and
         presented at Black Hat Europe and Asia. Highlights of his research include the papers{" "}
-        <Link color="blue.500" href="https://eprint.iacr.org/2019/034.pdf">
+        <Link href="https://eprint.iacr.org/2019/034.pdf">
           A Formal Treatment of Hardware Wallets
         </Link>
         ,{" "}
-        <Link color="blue.500" href="https://arxiv.org/pdf/1907.02434.pdf">
+        <Link href="https://arxiv.org/pdf/1907.02434.pdf">
           Cryptocurrency Egalitarianism: A Quantitative Approach
         </Link>
         , and{" "}
-        <Link color="blue.500" href="https://eprint.iacr.org/2020/173.pdf">
+        <Link href="https://eprint.iacr.org/2020/173.pdf">
           Securing Proof-of-Work Ledgers via Checkpointing
         </Link>
         .
@@ -150,18 +151,17 @@ const members = {
         systems aspects of blockchains with a focus on scalability, decentralized randomness generation, and software
         update dispersion. Among other venues, he has published in IEEE S&P (Oakland), USENIX Security, ACM CCS, PODC,
         ESORICS, and Financial Crypto. Highlights of his research include the papers{" "}
-        <Link color="blue.500" href="https://infoscience.epfl.ch/record/255586/files/OmniLedger.pdf">
+        <Link href="https://infoscience.epfl.ch/record/255586/files/OmniLedger.pdf">
           Omniledger: A secure, scale-out, decentralized ledger via sharding
         </Link>
         ,{" "}
         <Link
-          color="blue.500"
           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7TOIlqkAAAAJ&citation_for_view=7TOIlqkAAAAJ:kw52XkFRtyQC"
         >
           Enhancing bitcoin security and performance with strong consistency via collective signing
         </Link>
         , and{" "}
-        <Link color="blue.500" href="https://discovery.ucl.ac.uk/id/eprint/10116632/1/Jovanovic_randomness.pdf">
+        <Link href="https://discovery.ucl.ac.uk/id/eprint/10116632/1/Jovanovic_randomness.pdf">
           Scalable bias-resistant distributed randomness
         </Link>
         .
@@ -178,7 +178,7 @@ const members = {
         with a focus on designing, developing, scaling, and maintaining web backends as well as on systems and data security.
         Stavros has worked in various sectors such as security, developing
         {" "}
-        <Link color="blue.500" href="https://www.silentcircle.com/products-and-solutions/silent-phone">
+        <Link href="https://www.silentcircle.com/products-and-solutions/silent-phone">
           Silent Phone
         </Link>
         ,{" "}
@@ -195,11 +195,11 @@ const members = {
         University of Thessaloniki. He works on smart contract development and basic consensus development. He has
         significant experience in developing and scaling web applications as well as blockchain development in the
         context of algorithmic trading. In the past, he has worked for{" "}
-        <Link color="blue.500" href="https://www.amondo.com/">
+        <Link href="https://www.amondo.com/">
           Amondo
         </Link>{" "}
         and{" "}
-        <Link color="blue.500" href="https://geekbot.com/">
+        <Link href="https://geekbot.com/">
           Geekbot
         </Link>
         .
@@ -230,7 +230,7 @@ const members = {
         at the National Technical University of Athens.
         Apostolos has extensive front-end software engineering experience working at
         {" "}
-        <Link color="blue.500" href="https://www.mayainsights.com/">
+        <Link href="https://www.mayainsights.com/">
           Maya Insights
         </Link>
         ,{" "}
@@ -249,15 +249,15 @@ const members = {
         He specializes in blockchain scalability via light clients and fast bootstrapping. Among other venues he has
         published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and presented at Black Hat Europe and
         Asia. Highlights of his research include the papers{" "}
-        <Link color="blue.500" href="https://eprint.iacr.org/2017/963.pdf">
+        <Link href="https://eprint.iacr.org/2017/963.pdf">
           Non-Interactive Proofs of Proof-of-Work
         </Link>
         ,{" "}
-        <Link color="blue.500" href="https://eprint.iacr.org/2018/1239.pdf">
+        <Link href="https://eprint.iacr.org/2018/1239.pdf">
           Proof-of-Stake Sidechains
         </Link>
         , and{" "}
-        <Link color="blue.500" href="https://eprint.iacr.org/2018/1048.pdf">
+        <Link href="https://eprint.iacr.org/2018/1048.pdf">
           Proof-of-Work Sidechains
         </Link>
         .

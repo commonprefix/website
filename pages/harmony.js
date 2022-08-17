@@ -1,9 +1,8 @@
-import Head from "next/head"
 import Layout from "components/layout"
 import { Image } from '@chakra-ui/react'
 import Member from "components/teamMember"
 import DownloadButton from "components/downloadButton"
-import { Box, Link } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 import team from "../data/team"
 
 export default function Harmony() {
@@ -16,14 +15,7 @@ export default function Harmony() {
     team.dionysis,
   ]
   return (
-    <Layout>
-      <Head>
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Common Prefix - Harmony</title>
-        <link rel="icon" type="image/png" href="/philosopher-stone.png" />
-      </Head>
+    <Layout title="Harmony">
       <Box display="flex" flexWrap="wrap" alignItems="center" justifyContent="center" mb="10" >
         <Image minWidth="190" width="190" height="190" src="/cp_logo.jpg" />
         <Image minWidth="190" width="190" height="190" src="/harmony_logo.png" />
