@@ -2,7 +2,7 @@ import Layout from "components/layout"
 import { Image } from '@chakra-ui/react'
 import Member from "components/teamMember"
 import DownloadButton from "components/downloadButton"
-import { Box, Link } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 import team from "../data/team"
 
 export default function Harmony() {

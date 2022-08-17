@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Layout from "components/layout"
-import { Box, Link } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
+import Link from "../components/link"
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         </p>
         <p>
           For a quote, reach out to{" "}
-          <Link color="pink.500"  href="mailto:hello@commonprefix.com">
+          <Link href="mailto:hello@commonprefix.com">
             hello@commonprefix.com
           </Link>
           .
