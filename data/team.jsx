@@ -189,7 +189,7 @@ const members = {
     image: "/team/stavros_korokithakis.jpeg",
   },
   orfeas: {
-    name: "Orfeas Stefanos Thyfronitis Litos",
+    name: "Dr. Orfeas Stefanos Thyfronitis Litos",
     description: (
       <Box>
         Orfeas obtained his{" "}
