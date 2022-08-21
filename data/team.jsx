@@ -239,7 +239,7 @@ const members = {
     name: "Dimitris Lamprinos",
     description: (
       <Box>
-        Dimitris is a software engineer based in Thessaloniki. He holds a degree in Computer Science from Aristotle
+        Dimitris is a software engineer based in Thessaloniki. He holds a degree Bachelor's in Computer Science from Aristotle
         University of Thessaloniki. He works on smart contract development and basic consensus development. He has
         significant experience in developing and scaling web applications as well as blockchain development in the
         context of algorithmic trading. In the past, he has worked for{" "}
