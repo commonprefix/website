@@ -187,6 +187,53 @@ const members = {
     ),
     image: "/team/stavros_korokithakis.jpeg",
   },
+  orfeas: {
+    name: "Orfeas Stefanos Thyfronitis Litos",
+    description: (
+      <Box>
+        Orfeas obtained his{" "}
+        <Link href="https://gitlab.com/orfeasLitos/thesis/-/raw/master/thesis.pdf?inline=false">
+          PhD in Cryptography and Blockchains
+        </Link>{" "}
+        at the University of Edinburgh in 2021. He has worked on{" "}
+        <Link href="http://fc17.ifca.ai/preproceedings/paper_37.pdf">
+          building and analyzing
+        </Link>{" "}
+        decentralized applications on blockchains,{" "}
+        <Link href="https://fc20.ifca.ai/preproceedings/132.pdf">
+          layer-2 protocols
+        </Link>,{" "}
+        <Link href="https://eprint.iacr.org/2021/747.pdf">
+          payment channels
+        </Link>, and{" "}
+        <Link href="https://tokenomics2019.org/Documents/proceedings-full.pdf#page=17">
+          voting solutions
+        </Link>,{" "}
+        all through formal cryptographic methods. Among others, he has{" "}
+        <Link href="https://ieeexplore.ieee.org/abstract/document/9155145">
+          formally analyzed the security of the Lightning Network
+        </Link>{" "}
+        and created a{" "}
+        <Link href="https://eprint.iacr.org/2021/747.pdf">
+          novel virtual payment channel construction
+        </Link>.{" "}
+        He is knowledgeable in{" "}
+        <Link href="https://github.com/OrfeasLitos/virtual-payment-channels/tree/master/simulation">
+          software engineering
+        </Link>{" "}
+        and{" "}
+        <Link href="https://github.com/OrfeasLitos/cerberus-script">
+          secure architecture
+        </Link>.{" "}
+        His interests further include formal verification,{" "}
+        <Link href="http://fc22.ifca.ai/preproceedings/69.pdf">
+          incentive analysis
+        </Link>,{" "}
+        and provable security.
+      </Box>
+    ),
+    image: "/team/orfeas_litos.jpg",
+  },
   pkakelas: {
     name: "Dimitris Lamprinos",
     description: (
