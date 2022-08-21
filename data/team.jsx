@@ -262,7 +262,8 @@ const members = {
         Themis is a software engineer based in Athens.
         He has significant experience developing software for a variety of projects
         such as web applications, algorithmic traders and rockets.
-        He is pursuing a degree in Electrical and Computer Engineering from the National Technical University of Athens
+        He is pursuing a Master's degree in Electrical and Computer Engineering
+        from the National Technical University of Athens
         and has also completed internships at Google and at the European Space Agency.
         Currently, he is focused on smart contract development and testing.
       </Box>
