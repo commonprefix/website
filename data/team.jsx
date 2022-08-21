@@ -95,6 +95,7 @@ const members = {
         .
       </Box>
     ),
+    image: "team/pyrros_chaidos.jpeg",
   },
   nikolas: {
     name: "Nikolaos Kamarinakis",
