@@ -95,6 +95,7 @@ const members = {
         .
       </Box>
     ),
+    image: "team/pyrros_chaidos.jpeg",
   },
   nikolas: {
     name: "Nikolaos Kamarinakis",
@@ -187,11 +188,58 @@ const members = {
     ),
     image: "/team/stavros_korokithakis.jpeg",
   },
+  orfeas: {
+    name: "Orfeas Stefanos Thyfronitis Litos",
+    description: (
+      <Box>
+        Orfeas obtained his{" "}
+        <Link href="https://gitlab.com/orfeasLitos/thesis/-/raw/master/thesis.pdf?inline=false">
+          PhD in Cryptography and Blockchains
+        </Link>{" "}
+        at the University of Edinburgh in 2021. He has worked on{" "}
+        <Link href="http://fc17.ifca.ai/preproceedings/paper_37.pdf">
+          building and analyzing
+        </Link>{" "}
+        decentralized applications on blockchains,{" "}
+        <Link href="https://fc20.ifca.ai/preproceedings/132.pdf">
+          layer-2 protocols
+        </Link>,{" "}
+        <Link href="https://eprint.iacr.org/2021/747.pdf">
+          payment channels
+        </Link>, and{" "}
+        <Link href="https://tokenomics2019.org/Documents/proceedings-full.pdf#page=17">
+          voting solutions
+        </Link>,{" "}
+        all through formal cryptographic methods. Among others, he has{" "}
+        <Link href="https://ieeexplore.ieee.org/abstract/document/9155145">
+          formally analyzed the security of the Lightning Network
+        </Link>{" "}
+        and created a{" "}
+        <Link href="https://eprint.iacr.org/2021/747.pdf">
+          novel virtual payment channel construction
+        </Link>.{" "}
+        He is knowledgeable in{" "}
+        <Link href="https://github.com/OrfeasLitos/virtual-payment-channels/tree/master/simulation">
+          software engineering
+        </Link>{" "}
+        and{" "}
+        <Link href="https://github.com/OrfeasLitos/cerberus-script">
+          secure architecture
+        </Link>.{" "}
+        His interests further include formal verification,{" "}
+        <Link href="http://fc22.ifca.ai/preproceedings/69.pdf">
+          incentive analysis
+        </Link>,{" "}
+        and provable security.
+      </Box>
+    ),
+    image: "/team/orfeas_litos.jpg",
+  },
   pkakelas: {
     name: "Dimitris Lamprinos",
     description: (
       <Box>
-        Dimitris is a software engineer based in Thessaloniki. He holds a degree in Computer Science from Aristotle
+        Dimitris is a software engineer based in Thessaloniki. He holds a Bachelor's degree in Computer Science from Aristotle
         University of Thessaloniki. He works on smart contract development and basic consensus development. He has
         significant experience in developing and scaling web applications as well as blockchain development in the
         context of algorithmic trading. In the past, he has worked for{" "}
@@ -214,7 +262,8 @@ const members = {
         Themis is a software engineer based in Athens.
         He has significant experience developing software for a variety of projects
         such as web applications, algorithmic traders and rockets.
-        He is pursuing a degree in Electrical and Computer Engineering from the National Technical University of Athens
+        He is pursuing a Master's degree in Electrical and Computer Engineering
+        from the National Technical University of Athens
         and has also completed internships at Google and at the European Space Agency.
         Currently, he is focused on smart contract development and testing.
       </Box>
