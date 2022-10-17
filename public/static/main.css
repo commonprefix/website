@@ -155,8 +155,6 @@ label,
 }
 
 a {
-	font-family: 'CM_Serif_Slanted';
-	font-style: italic;
 	-webkit-text-decoration-line: underline;
 	text-decoration-line: underline;
 	text-underline-offset: 2px;
