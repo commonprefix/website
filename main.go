@@ -135,13 +135,14 @@ func main() {
 	}
 	// sort team members
 	sort.Slice(team, func(i, j int) bool {
-		trimPos := func(n string) string {
+		lastname := func(n string) string {
 			n = strings.TrimPrefix(n, "Prof. ")
 			n = strings.TrimPrefix(n, "Dr. ")
+			n = strings.Split(n, " ")[1]
 			return n
 		}
-		n1 := trimPos(team[i].Name)
-		n2 := trimPos(team[j].Name)
+		n1 := lastname(team[i].Name)
+		n2 := lastname(team[j].Name)
 		return n1 < n2
 	})
 
