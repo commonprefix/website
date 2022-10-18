@@ -1,0 +1,39 @@
+{{define "content"}}
+<main>
+	<section>
+		<h1>Meet the team</h1>
+		<p>
+			We are a small team of scientists and software engineers offering
+			blockchain science consulting services.
+		</p>
+	</section>
+
+	<section>
+		{{range .Members}}
+		<div class="team-member" id="{{.Handle}}">
+			<img
+				loading="lazy"
+				draggable="false"
+				src="/static/team/{{.Image}}"
+				alt="{{.Name}}"
+			/>
+			<div>
+				<div class="team-member__summary">
+					<img
+						loading="lazy"
+						draggable="false"
+						src="/static/team/{{.Image}}"
+						alt="{{.Name}}"
+					/>
+					<div>
+						<h2>{{.Name}}</h2>
+						<h4 class="label">{{.Specialization}}</h4>
+					</div>
+				</div>
+				<p>{{.Desc}}</p>
+			</div>
+		</div>
+		{{end}}
+	</section>
+</main>
+{{end}}
