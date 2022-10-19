@@ -49,22 +49,30 @@
 			</div>
 			
 			<a download href="/static/projects/flr-finance/flr_finance_loans_post_mortem.pdf" class="finding">
-				<span class="finding__name">Download FLRLoans incident post-mortem</span>
+				<div>
+					<span class="finding__name un">Download FLRLoans incident post-mortem</span>
+				</div>
 				<span class="finding__ext with-arrow-down">.pdf</span>
 			</a>
 			
 			<a download href="/static/projects/flr-finance/flr_finance_ftso_reward_manager_audit.pdf" class="finding">
-				<span class="finding__name">Download FTSORewardManager smart contract audit</span>
+				<div>
+					<span class="finding__name un">Download FTSORewardManager smart contract audit</span>
+				</div>
 				<span class="finding__ext with-arrow-down">.pdf</span>
 			</a>
 			
 			<a download href="/static/projects/flr-finance/flr_finance_price_feed_ftso_connector_audit.pdf" class="finding">
-				<span class="finding__name">Download PriceFeedFtsoConnector smart contract audit</span>
+				<div>
+					<span class="finding__name un">Download PriceFeedFtsoConnector smart contract audit</span>
+				</div>
 				<span class="finding__ext with-arrow-down">.pdf</span>
 			</a>
 			
 			<a download href="/static/projects/flr-finance/flr_finance_loans_audit.pdf" class="finding">
-				<span class="finding__name">Download FLRLoans smart contract audit</span>
+				<div>
+					<span class="finding__name un">Download FLRLoans smart contract audit</span>
+				</div>
 				<span class="finding__ext with-arrow-down">.pdf</span>
 			</a>
 			
@@ -164,9 +172,12 @@
 					<footer>
 						<div>
 							<h3>Get in touch</h3>
-							<a class="mbtn" href="mailto:hello@commonprefix.com"
-								>hello@commonprefix.com</a
+							<a
+								class="mbtn"
+								href="mailto:hello@commonprefix.com"
 							>
+								<span class="un">hello@commonprefix.com</span>
+							</a>
 						</div>
 						<div class="footer__easter-egg">
 							<img
@@ -245,7 +256,7 @@
 					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
 
 					function reveal(e) {
-						var pos = e.target.getBoundingClientRect()
+						var pos = graphic.getBoundingClientRect()
 						var x = e.clientX - pos.left - 150
 						var y = e.clientY - pos.top + 150
 
@@ -253,12 +264,7 @@
 						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
 					}
 
-					graphic.addEventListener('mouseleave', function () {
-						var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
-						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
-					})
-
-					graphic.addEventListener('mousemove', function (e) {
+					window.addEventListener('mousemove', function (e) {
 						requestAnimationFrame(() => reveal(e))
 					})
 				}

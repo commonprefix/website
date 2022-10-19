@@ -168,7 +168,9 @@
 			security.
 		</p>
 
-		<a class="with-arrow mbtn mbtn-fit" href="/team">Meet the team</a>
+		<a class="with-arrow mbtn mbtn-fit" href="/team">
+			<span class="un">Meet the team</span>
+		</a>
 	</section>
 
 	<section>
@@ -225,9 +227,12 @@
 					<footer>
 						<div>
 							<h3>Get in touch</h3>
-							<a class="mbtn" href="mailto:hello@commonprefix.com"
-								>hello@commonprefix.com</a
+							<a
+								class="mbtn"
+								href="mailto:hello@commonprefix.com"
 							>
+								<span class="un">hello@commonprefix.com</span>
+							</a>
 						</div>
 						<div class="footer__easter-egg">
 							<img
@@ -306,7 +311,7 @@
 					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
 
 					function reveal(e) {
-						var pos = e.target.getBoundingClientRect()
+						var pos = graphic.getBoundingClientRect()
 						var x = e.clientX - pos.left - 150
 						var y = e.clientY - pos.top + 150
 
@@ -314,12 +319,7 @@
 						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
 					}
 
-					graphic.addEventListener('mouseleave', function () {
-						var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
-						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
-					})
-
-					graphic.addEventListener('mousemove', function (e) {
+					window.addEventListener('mousemove', function (e) {
 						requestAnimationFrame(() => reveal(e))
 					})
 				}
