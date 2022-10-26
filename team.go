@@ -29,15 +29,9 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			She specializes in distributed systems, scaling blockchains via sharding and channels,
 			and the analysis of cryptoeconomic incentives.
 			Among other venues, she has published in Financial Crypto, AFT and SODA.
-			<a href="https://arxiv.org/pdf/1905.11360.pdf">
-			  BRICK: Asynchronous Payment Channels
-			</a>
-			<a href="https://eprint.iacr.org/2019/1092.pdf">
-			  Cerberus Channels: Incentivizing Watchtowers for Bitcoin
-			</a>, and
-			<a href="https://arxiv.org/pdf/1910.10434.pdf">
-			  Divide and Scale: Formalization of Distributed Ledger Sharding Protocols
-			</a>
+			<a href="https://arxiv.org/pdf/1905.11360.pdf">BRICK: Asynchronous Payment Channels</a>, 
+			<a href="https://eprint.iacr.org/2019/1092.pdf">Cerberus Channels: Incentivizing Watchtowers for Bitcoin</a> and
+			<a href="https://arxiv.org/pdf/1910.10434.pdf">Divide and Scale: Formalization of Distributed Ledger Sharding Protocols</a>
 			.
 		`),
 		Image: "zeta_avarikioti.jpg",

@@ -14,7 +14,9 @@
 			</div>
 			{{range .Project.Findings}}
 			<a download href="{{.Url}}" class="finding">
-				<span class="finding__name">Download {{ .Name }}</span>
+				<div>
+					<span class="finding__name un">Download {{ .Name }}</span>
+				</div>
 				<span class="finding__ext with-arrow-down">.{{ .Ext }}</span>
 			</a>
 			{{end}}
