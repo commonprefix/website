@@ -6,6 +6,7 @@
 		<p>{{.Project.Body}}</p>
 	</section>
 
+    {{if .Project.Findings}}
 	<section>
 		<div class="findings">
 			<div>
@@ -19,6 +20,7 @@
 			{{end}}
 		</div>
 	</section>
+    {{end}}
 
 	<section>
 		<h3>Team on this project</h3>
