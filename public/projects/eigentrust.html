@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Common Prefix — EigenTrust</title>
+		<link rel="preload" href="/static/main.css" as="style" />
+		<link rel="stylesheet" href="/static/main.css" />
+		<link rel="icon" type="image/png" href="/static/favicon.png" />
+	</head>
+	<body>
+		<div class="logo-graphic">
+			<img draggable="false" src="/static/commonprefix_logo.jpg" alt="" />
+			<img
+				style="visibility: hidden"
+				class="logo-graphic__clip"
+				draggable="false"
+				src="/static/commonprefix_logo.jpg"
+				alt=""
+			/>
+		</div>
+
+		<div class="outer-container">
+			<div class="container">
+				<div class="small-container">
+					<header>
+						<a href="/" class="header__company-name"
+							><h2>Common <span>⎵</span> Prefix</h2>
+						</a>
+					</header>
+
+					
+<main>
+	<section>
+		<div class="project__logo"><svg viewBox="0 0 150 40" xmlns="http://www.w3.org/2000/svg">
+			<text x="50%" y="50%" alignment-baseline="middle" dominant-baseline="middle" text-anchor="middle" font-size="30" fill="currentColor">EigenTrust</text>
+		</svg></div>
+		<h2 class="visuallyhidden">EigenTrust</h2>
+		<p>EigenTrust is a growing startup solving the problem of trust and reputation in the web3 space. Contrary to centralized solutions which make use of traditional identity techniques from passports to fingerprints, EigenTrust is innovating by using an eigenvector-based technique to extract trust from the web-of-trust network of its users. Leveraging classical algorithms, such as the <a href="https://nlp.stanford.edu/pubs/eigentrust.pdf">original EigenTrust paper</a>, and related works, such as PageRank, they create trust metrics that are sybil resilient but are open and do not rely on any central authority to maintain. As the technical and scientific advisors of EigenTrust, and leveraging our team’s expertise and previous publications in the field (such as <a href="https://eprint.iacr.org/2017/156">Trust is Risk</a> and <a href="https://arxiv.org/abs/1810.01719">A Puff of Steam</a>), we are working with EigenTrust to tweak their protocols and prove that they are sybil-resilient in the cryptographic and rational model.</p>
+	</section>
+
+	<section>
+		<div class="findings">
+			<div>
+				<h3>Findings</h3>
+			</div>
+			
+		</div>
+	</section>
+
+	<section>
+		<h3>Team on this project</h3>
+		<div class="team-avatars">
+			
+			<a href="/team#orfeas">
+				<img
+					src="/static/team/orfeas_litos.jpg"
+					alt="Dr. Orfeas Stefanos Thyfronitis Litos"
+					title="Dr. Orfeas Stefanos Thyfronitis Litos"
+				/>
+			</a>
+			
+			<a href="/team#pkakelas">
+				<img
+					src="/static/team/dimitris_lamprinos.jpg"
+					alt="Dimitris Lamprinos"
+					title="Dimitris Lamprinos"
+				/>
+			</a>
+			
+			<a href="/team#aleksis">
+				<img
+					src="/static/team/aleksis_brezas.jpg"
+					alt="Aleksis Brezas"
+					title="Aleksis Brezas"
+				/>
+			</a>
+			
+			<a href="/team#stavros">
+				<img
+					src="/static/team/stavros_korokithakis.jpg"
+					alt="Stavros Korokithakis"
+					title="Stavros Korokithakis"
+				/>
+			</a>
+			
+			<a href="/team#dionysis">
+				<img
+					src="/static/team/dionysis_zindros.jpg"
+					alt="Dr. Dionysis Zindros"
+					title="Dr. Dionysis Zindros"
+				/>
+			</a>
+			
+		</div>
+	</section>
+
+	<div class="project__next-project">
+		<label class="label">Next Project</label>
+		<a href="/projects/dcspark">
+			<h2 class="with-arrow with-arrow-pink">
+				<span>dcSpark</span>
+			</h2>
+		</a>
+	</div>
+</main>
+
+
+					<footer>
+						<div>
+							<h3>Get in touch</h3>
+							<a class="mbtn" href="mailto:hello@commonprefix.com"
+								>hello@commonprefix.com</a
+							>
+						</div>
+						<div class="footer__easter-egg">
+							<img
+								width="220px"
+								style="opacity: 0.5"
+								src="/static/footer_eq.svg"
+								draggable="false"
+								alt=""
+							/>
+							<img
+								width="220px"
+								style="mix-blend-mode: multiply"
+								src="/static/footer_blockchain.png"
+								draggable="false"
+								alt=""
+							/>
+							<p>
+								Rumpitur paritas cum sequens probatio operis
+								invenitur et ramus maior fit.
+							</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			;(function () {
+				
+				document.querySelector('.footer__easter-egg').children[
+					Math.floor(Math.random() * 3)
+				].style.visibility = 'visible'
+
+				
+				window.requestAnimationFrame =
+					window.requestAnimationFrame ||
+					function (C) {
+						return setTimeout(function () {
+							C(+new Date())
+						}, 30)
+					}
+
+				function isTouchDevice() {
+					var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ')
+					var mq = function (query) {
+						return window.matchMedia(query).matches
+					}
+
+					if (
+						'ontouchstart' in window ||
+						(window.DocumentTouch &&
+							document instanceof DocumentTouch)
+					) {
+						return true
+					}
+
+					var query = [
+						'(',
+						prefixes.join('touch-enabled),('),
+						'heartz',
+						')',
+					].join('')
+					return mq(query)
+				}
+
+				var touchDevice = isTouchDevice()
+				if (touchDevice) {
+					document.body.classList.add('touchdevice')
+				}
+
+				var graphic = document.querySelector('.logo-graphic')
+				var clip = document.querySelector('.logo-graphic__clip')
+
+				if (!touchDevice) {
+					var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
+					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+
+					function reveal(e) {
+						var pos = e.target.getBoundingClientRect()
+						var x = e.clientX - pos.left - 150
+						var y = e.clientY - pos.top + 150
+
+						var v = `radial-gradient(circle at ${x}px ${y}px, black 0px, black 60px, transparent 120px)`
+						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+					}
+
+					graphic.addEventListener('mouseleave', function () {
+						var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
+						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+					})
+
+					graphic.addEventListener('mousemove', function (e) {
+						requestAnimationFrame(() => reveal(e))
+					})
+				}
+			})()
+		</script>
+	</body>
+</html>
