@@ -36,19 +36,6 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "zeta_avarikioti.jpg",
 	},
-	"aleksis": {
-		Handle:         "aleksis",
-		Name:           "Aleksis Brezas",
-		Specialization: " smart contract development, algorithmic trading, programming languages, software engineering, testing",
-		Desc: template.HTML(`
-			Aleksis is a senior software engineer based in Thessaloniki. With a dozen years of software engineering
-			experience under his belt, he has worked with numerous programming languages and systems, with a particular
-			taste for functional programming languages. He has worked on scaling web applications and in integrating
-			<a href="https://geekbot.com/">geekbot</a>, and <a href="https://dailysteals.com/">dailysteals</a>.
-			His blockchain development experience includes smart contract development as well as cryptocurrency algorithmic trading.
-		`),
-		Image: "aleksis_brezas.jpg",
-	},
 	"pyrros": {
 		Handle:         "pyrros",
 		Name:           "Dr. Pyrros Chaidos",
