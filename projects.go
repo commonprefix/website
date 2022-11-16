@@ -39,7 +39,16 @@ var Projects []Project = []Project{
 		Team: []TeamMember{
 			Members["dionysis"],
 		},
-		Findings: []Finding{},
+        Findings: []Finding{
+			{
+				Url:  "/static/projects/axelar/axelar_gateway_audit.pdf",
+				Name: "Axelar Gateway v1 smart contract audit",
+			},
+			{
+				Url:  "/static/projects/axelar/axelar_gateway_v2_audit.pdf",
+				Name: "Axelar Gateway v2.1 smart contract audit",
+			},
+        },
 	},
 	{
 		Handle: "dcspark",
