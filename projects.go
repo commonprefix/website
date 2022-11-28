@@ -151,12 +151,12 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/harmony/harmony_privacy_report.pdf",
-				Name: "Privacy Report",
-			},
-			{
 				Url:  "/static/projects/harmony/harmony_tech_report_v2.pdf",
 				Name: "Tech Report v2",
+			},
+			{
+				Url:  "/static/projects/harmony/harmony_privacy_report.pdf",
+				Name: "Privacy Report",
 			},
 		},
 	},
