@@ -55,7 +55,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "smart contract development, testing, software engineering, offensive security",
 		Desc: template.HTML(`
 			Nikolas is a software engineer based in Athens, Greece and Maryland, USA.
-			He is currently pursuing a bachelor's degree in Computer Science at the University of Maryland,
+			He is currently pursuing a bachelor&rsquo;s degree in Computer Science at the University of Maryland,
 			specializing in Cybersecurity.
 			He has multiple years of experience in full-stack software engineering and open-source development,
 			as well as some expierience in offensive security.
@@ -95,7 +95,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Stavros Korokithakis",
 		Specialization: "DevOps, OpSec, backend development",
 		Desc: template.HTML(`
-			Stavros is a software developer based in Thessaloniki, Greece. He holds a bachelor's degree in Computer Science
+			Stavros is a software developer based in Thessaloniki, Greece. He holds a bachelor&rsquo;s degree in Computer Science
 			and Electronics Engineering from the Technical University of Crete. He has been programming for twenty-five years,
 			with a focus on designing, developing, scaling, and maintaining web backends as well as on systems and data security.
 			Stavros has worked in various sectors such as security, developing <a href="https://www.silentcircle.com/products-and-solutions/silent-phone">Silent Phone</a>, alongside Phil Zimmermann and Jon Callas, in healthcare, and in blockchain, developing the Internet Computer at DFINITY.
@@ -130,7 +130,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Dimitris Lamprinos",
 		Specialization: "smart contract development, large scale system design, software engineering, consensus, DevOps",
 		Desc: template.HTML(`
-			Dimitris is a software engineer based in Thessaloniki. He holds a Bachelor's degree in Computer Science from Aristotle
+			Dimitris is a software engineer based in Thessaloniki. He holds a Bachelor&rsquo;s degree in Computer Science from Aristotle
 			University of Thessaloniki. He works on smart contract development and basic consensus development. He has
 			significant experience in developing and scaling web applications as well as blockchain development in the
 			<a href="https://www.amondo.com/">Amondo</a>, and <a href="https://geekbot.com/">Geekbot</a>.
@@ -145,7 +145,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			Themis is a software engineer based in Athens.
 			He has significant experience developing software for a variety of projects
 			such as web applications, algorithmic traders and rockets.
-			He is pursuing a Master's degree in Electrical and Computer Engineering
+			He is pursuing a Master&rsquo;s degree in Electrical and Computer Engineering
 			from the National Technical University of Athens
 			and has also completed internships at Google and at the European Space Agency.
 			Currently, he is focused on smart contract development and testing.
@@ -158,7 +158,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "smart contract development, algorithms, software engineering",
 		Desc: template.HTML(`
 			Apostolos is a smart contract software engineer.
-			He is pursuing a joint Bachelor and Master's degree in Electrical and Computer Engineering
+			He is pursuing a joint Bachelor and Master&rsquo;s degree in Electrical and Computer Engineering
 			at the National Technical University of Athens.
 			Apostolos has extensive front-end software engineering experience working at
 			<a href="https://www.mayainsights.com/">Maya Insights</a>,
