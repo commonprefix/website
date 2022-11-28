@@ -128,7 +128,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 	"pkakelas": {
 		Handle:         "pkakelas",
 		Name:           "Dimitris Lamprinos",
-		Specialization: "smart contract development, large scale system design, software engineering, consensus, DevOp",
+		Specialization: "smart contract development, large scale system design, software engineering, consensus, DevOps",
 		Desc: template.HTML(`
 			Dimitris is a software engineer based in Thessaloniki. He holds a Bachelor's degree in Computer Science from Aristotle
 			University of Thessaloniki. He works on smart contract development and basic consensus development. He has
