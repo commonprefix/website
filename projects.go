@@ -16,7 +16,16 @@ var Projects []Project = []Project{
 			Members["dimitris"],
 			Members["dionysis"],
 		},
-		Findings: []Finding{},
+        Findings: []Finding{
+			{
+				Url:  "/static/projects/celestia/celestia_report_private_networks.pdf",
+				Name: "Evaluation of private networks for Celestia",
+			},
+			{
+				Url:  "/static/projects/celestia/celestia_report_selective_disclosure_attack.pdf",
+				Name: "Research analysis of the selective disclosure attack in Celestia",
+			},
+        },
 	},
 	{
 		Handle: "axelar",
