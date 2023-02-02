@@ -78,18 +78,6 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "dimitris_karakostas.jpg",
 	},
-	"lefteris": {
-		Handle:         "lefteris",
-		Name:           "Prof. Dr. Lefteris Kokoris-Kogias",
-		Specialization: "blockchain scalability, decentralized randomness generation, software update dispersion",
-		Desc: template.HTML(`
-			Lefteris is an assistant professor at IST Austria based in Vienna. He holds a PhD from EPFL, and an Electrical
-			and Computer Engineering degree from the National Technical University of Athens. He specializes in the
-			systems aspects of blockchains with a focus on scalability, decentralized randomness generation, and software
-			update dispersion. Among other venues, he has published in IEEE S&P (Oakland, USENIX Security, ACM CCS, PODC, <a href="https://infoscience.epfl.ch/record/255586/files/OmniLedger.pdf">Omniledger: A secure, scale-out, decentralized ledger via sharding</a>, <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7TOIlqkAAAAJ&citation_for_view=7TOIlqkAAAAJ:kw52XkFRtyQC">Enhancing bitcoin security and performance with strong consistency via collective signing</a>, and <a href="https://discovery.ucl.ac.uk/id/eprint/10116632/1/Jovanovic_randomness.pdf">Scalable bias-resistant distributed randomness</a>.
-		`),
-		Image: "lefteris_kokoris-kogias.jpg",
-	},
 	"stavros": {
 		Handle:         "stavros",
 		Name:           "Stavros Korokithakis",
