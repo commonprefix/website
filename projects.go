@@ -154,7 +154,6 @@ var Projects []Project = []Project{
 			Members["zeta"],
 			Members["pyrros"],
 			Members["dimitris"],
-			Members["lefteris"],
 			Members["pkakelas"],
 			Members["dionysis"],
 		},
