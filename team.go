@@ -79,7 +79,10 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			Aggelos Kiayias. He holds a PhD from the University of Edinburgh and an Electrical and Computer Engineering
 			degree from the National Technical University of Athens. He specializes in cryptocurrency wallets and
 			macroeconomics, as well as chain checkpointing. Among other venues, he has published in Financial Crypto and
-			<a href="https://eprint.iacr.org/2019/034.pdf">A Formal Treatment of Hardware Wallets</a>, <a href="https://arxiv.org/pdf/1907.02434.pdf">Cryptocurrency Egalitarianism: A Quantitative Approach</a>, and <a href="https://eprint.iacr.org/2020/173.pdf">Securing Proof-of-Work Ledgers via Checkpointing</a>.
+			presented at Black Hat Europe and Asia. Highlights of his research include the papers
+            <a href="https://eprint.iacr.org/2019/034.pdf">A Formal Treatment of Hardware Wallets</a>,
+            <a href="https://arxiv.org/pdf/1907.02434.pdf">Cryptocurrency Egalitarianism: A Quantitative Approach</a>, and
+            <a href="https://eprint.iacr.org/2020/173.pdf">Securing Proof-of-Work Ledgers via Checkpointing</a>.
 		`),
 		Image: "dimitris_karakostas.jpg",
 	},
