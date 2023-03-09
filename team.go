@@ -28,9 +28,9 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			National Technical University of Athens and a masters degree from National Kapodistian University of Athens.
 			She specializes in distributed systems, scaling blockchains via sharding and channels,
 			and the analysis of cryptoeconomic incentives.
-			Among other venues, she has published in Financial Crypto, AFT and SODA.
+			Among other venues, she has published in Financial Crypto, AFT and SODA. Highlights of her research include the papers
 			<a href="https://arxiv.org/pdf/1905.11360.pdf">BRICK: Asynchronous Payment Channels</a>, 
-			<a href="https://eprint.iacr.org/2019/1092.pdf">Cerberus Channels: Incentivizing Watchtowers for Bitcoin</a> and
+			<a href="https://eprint.iacr.org/2019/1092.pdf">Cerberus Channels: Incentivizing Watchtowers for Bitcoin</a>, and
 			<a href="https://arxiv.org/pdf/1910.10434.pdf">Divide and Scale: Formalization of Distributed Ledger Sharding Protocols</a>
 			.
 		`),
