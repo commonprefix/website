@@ -80,7 +80,12 @@ var Projects []Project = []Project{
 			Members["dimitris"],
 			Members["dionysis"],
 		},
-		Findings: []Finding{},
+        Findings: []Finding{
+			{
+				Url:  "/static/projects/dcspark/milkomeda_rollup.pdf",
+				Name: "Milkomeda Rollup report",
+			},
+        },
 	},
 	{
 		Handle: "deviantart",
