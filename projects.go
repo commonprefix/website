@@ -14,7 +14,6 @@ var Projects []Project = []Project{
 		Team: []TeamMember{
 			Members["pyrros"],
 			Members["dimitris"],
-			Members["dionysis"],
 		},
         Findings: []Finding{
 			{
@@ -78,7 +77,6 @@ var Projects []Project = []Project{
 			Members["zeta"],
 			Members["pkakelas"],
 			Members["dimitris"],
-			Members["dionysis"],
 		},
         Findings: []Finding{
 			{
