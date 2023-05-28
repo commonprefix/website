@@ -119,7 +119,6 @@ var Projects []Project = []Project{
 		Team: []TeamMember{
 			Members["orfeas"],
 			Members["pkakelas"],
-			Members["stavros"],
 			Members["dionysis"],
 		},
 		Findings: []Finding{},
