@@ -102,18 +102,6 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "dimitris_karakostas.jpg",
 	},
-	"stavros": {
-		Handle:         "stavros",
-		Name:           "Stavros Korokithakis",
-		Specialization: "DevOps, OpSec, backend development",
-		Desc: template.HTML(`
-			Stavros is a software developer based in Thessaloniki, Greece. He holds a bachelor&rsquo;s degree in Computer Science
-			and Electronics Engineering from the Technical University of Crete. He has been programming for twenty-five years,
-			with a focus on designing, developing, scaling, and maintaining web backends as well as on systems and data security.
-			Stavros has worked in various sectors such as security, developing <a href="https://www.silentcircle.com/products-and-solutions/silent-phone">Silent Phone</a>, alongside Phil Zimmermann and Jon Callas, in healthcare, and in blockchain, developing the Internet Computer at DFINITY.
-		`),
-		Image: "stavros_korokithakis.jpg",
-	},
 	"orfeas": {
 		Handle:         "orfeas",
 		Name:           "Dr. Orfeas Stefanos Thyfronitis Litos",

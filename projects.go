@@ -183,7 +183,6 @@ var Projects []Project = []Project{
 			Members["zeta"],
 			Members["nikolas"],
 			Members["dimitris"],
-			Members["stavros"],
 			Members["pkakelas"],
 			Members["themis"],
 			Members["apostolos"],
