@@ -14,6 +14,8 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			protocols, and smart contracts for several DeFi protocols.
 			Previously, he worked at <a href="https://www.paraswap.io/">ParaSwap</a> where he was responsible for developing a significant part of the core aggregation algorithm.
 			He is interested in Cryptography, Security, Consensus Protocols, Decentralised Finance, and Ethereum.
+			One of Shresth&rsquo;s research highlights is the paper
+			<a href="https://arxiv.org/pdf/2209.08673.pdf">Proofs of Proof-of-Stake with Sublinear Complexity</a>.
 		`),
 		Image: "shresth_agrawal.jpg",
 	},
