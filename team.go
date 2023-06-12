@@ -12,7 +12,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			He holds a bachelor degree in Computer Science from Jacobs University Bremen.
 			He has experience building efficient and secure algorithms,
 			protocols, and smart contracts for several DeFi protocols.
-			Previously he worked at <a href="https://www.paraswap.io/">ParaSwap</a> where he was responsible for developing a significant part of the core aggregation algorithm.
+			Previously, he worked at <a href="https://www.paraswap.io/">ParaSwap</a> where he was responsible for developing a significant part of the core aggregation algorithm.
 			He is interested in Cryptography, Security, Consensus Protocols, Decentralised Finance, and Ethereum.
 		`),
 		Image: "shresth_agrawal.jpg",
