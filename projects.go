@@ -268,7 +268,12 @@ var Projects []Project = []Project{
 			Members["zeta"],
 			Members["dimitris"],
 		},
-		Findings: []Finding{},
+		Findings: []Finding{
+			{
+				Url:  "/static/projects/snowfork/snowfork_beefy_client_audit.pdf",
+				Name: "Beefy client audit",
+			},
+		},
 	},
 	{
 		Handle: "mysten",
