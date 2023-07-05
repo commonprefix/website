@@ -26,7 +26,22 @@ var Projects []Project = []Project{
 				<path d="M3687 1349 c-263 -30 -486 -256 -516 -523 -18 -157 21 -303 112 -425 56 -76 79 -98 161 -152 152 -100 358 -123 533 -57 84 31 197 111 248 175 89 110 145 265 145 394 0 67 -26 175 -58 243 -115 243 -357 377 -625 345z"/>
 			</g>
 		</svg>`),
-		Body: template.HTML(`Mysten Labs is the team behind the SUI blockchain and MOVE programming language. SUI is an L1 that utilizes a unique DAG-based consensus mechanism based on Narwal and Bullshark. Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols. So far, Common Prefix has audited various components of the fastcrypto library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1. The SUI implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers. Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality.`),
+		Body: template.HTML(`
+			Mysten Labs is the team behind the
+			<a href="https://sui.io/">SUI blockchain</a>
+			and
+			<a href="https://move-language.github.io/move/">MOVE programming language</a>.
+			SUI is an L1 that utilizes a unique DAG-based consensus mechanism based on
+			<a href="https://arxiv.org/pdf/2105.11827.pdf">Narwhal</a>
+			and
+			<a href="https://arxiv.org/pdf/2201.05677.pdf">Bullshark</a>.
+			Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols.
+			So far, Common Prefix has audited various components of the
+			<a href="https://github.com/MystenLabs/fastcrypto">fastcrypto</a>
+			library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1.
+			The SUI implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers.
+			Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality.
+		`),
 		Team: []TeamMember{
 			Members["shresth"],
 			Members["pyrros"],
