@@ -381,7 +381,12 @@ footer {
 	width: 60px;
 	height: 60px;
 	border-radius: 30px;
-	mix-blend-mode: luminosity;
+	filter: grayscale(1);
+	transition: all 1s ease-in-out;
+}
+
+.team-avatars img:hover {
+	filter: grayscale(0);
 }
 
 /* team members on the team page */
