@@ -276,6 +276,14 @@ var Projects []Project = []Project{
 				Url:  "/static/projects/enosys/enosys_loans_audit.pdf",
 				Name: "FLRLoans smart contract audit",
 			},
+			{
+				Url:  "/static/projects/enosys/enosys_stake_helper_audit.pdf",
+				Name: "StakeHelper smart contract audit",
+			},
+			{
+				Url:  "/static/projects/enosys/enosys_stake_helper_complementary_audit.pdf",
+				Name: "StakeHelper complementary smart contract audit",
+			},
 		},
 	},
 	{
