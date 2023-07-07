@@ -261,19 +261,19 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/flr-finance/flr_finance_loans_post_mortem.pdf",
+				Url:  "/static/projects/enosys/enosys_loans_post_mortem.pdf",
 				Name: "FLRLoans incident post-mortem",
 			},
 			{
-				Url:  "/static/projects/flr-finance/flr_finance_ftso_reward_manager_audit.pdf",
+				Url:  "/static/projects/enosys/enosys_ftso_reward_manager_audit.pdf",
 				Name: "FTSORewardManager smart contract audit",
 			},
 			{
-				Url:  "/static/projects/flr-finance/flr_finance_price_feed_ftso_connector_audit.pdf",
+				Url:  "/static/projects/enosys/enosys_price_feed_ftso_connector_audit.pdf",
 				Name: "PriceFeedFtsoConnector smart contract audit",
 			},
 			{
-				Url:  "/static/projects/flr-finance/flr_finance_loans_audit.pdf",
+				Url:  "/static/projects/enosys/enosys_loans_audit.pdf",
 				Name: "FLRLoans smart contract audit",
 			},
 		},
