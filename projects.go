@@ -248,7 +248,7 @@ var Projects []Project = []Project{
 			<path d="M250.096 29.0254C249.714 30.6157 249.047 32.3147 248.666 33.905C258.768 35.6584 268.503 36.3244 277.762 36.2973V32.6273C266.611 32.6681 259.191 31.8662 250.082 29.0254H250.096Z" fill="currentColor" />
 			<path d="M302.266 29.0254C302.647 30.6157 302.647 32.3147 303.028 33.905C292.926 35.6584 283.844 36.3244 274.586 36.2973V32.6273C285.737 32.6681 293.157 31.8662 302.266 29.0254Z" fill="currentColor" />
 		</svg>`),
-		Body: template.HTML(`Ēnosys is an ecosystem of smart contract protocols, deployed on the Flare Network. We help ensure that Ēnosys can uphold its promise to keep its community safe by delivering concrete recommendations for improvements of its protocols, codebase, and operational security, by ensuring high code quality, and by enhancing its testing pipeline. Our smart contract audits and technical reports are published openly for dissemination within the community. Additionally, we develop novel protocols that expand the Ēnosys ecosystem even further.`),
+		Body: template.HTML(`Ēnosys (previously FLR Finance) is an ecosystem of smart contract protocols, deployed on the Flare Network. We help ensure that Ēnosys can uphold its promise to keep its community safe by delivering concrete recommendations for improvements of its protocols, codebase, and operational security, by ensuring high code quality, and by enhancing its testing pipeline. Our smart contract audits and technical reports are published openly for dissemination within the community. Additionally, we develop novel protocols that expand the Ēnosys ecosystem even further.`),
 		Team: []TeamMember{
 			Members["shresth"],
 			Members["zeta"],
