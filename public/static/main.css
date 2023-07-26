@@ -382,7 +382,7 @@ footer {
 	height: 60px;
 	border-radius: 30px;
 	filter: grayscale(1);
-	transition: all 1s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 .team-avatars img:hover {
