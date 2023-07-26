@@ -324,8 +324,13 @@ var Projects []Project = []Project{
 			<path d="M418 102V48H430V60H444V72H430V102C430 105.314 432.686 108 436 108H444V120H436C426.059 120 418 111.941 418 102Z" />
 			<path d="M112 60H92L32 120H72L112 60Z" />
 		</svg>`),
-		Body:     template.HTML(`Bifrost is a DeFi protocol on Polkadot providing cross-chain liquid staking services for multiple (para)chains. Common Prefix has performed a security audit of Bifrost's <a href="https://wiki.polkadot.network/docs/learn-xcm">XCM Actions</a> smart contracts. These contracts allow users of Polkadot's <a href="https://astar.network/">Astar</a> and <a href="https://moonbeam.network/">Moonbeam</a> parachains to interact with Bifrost. Cross-chain communication is possible only if the <a href="https://substrate.io/vision/substrate-and-polkadot/">Substrate</a> address that corresponds to a given EVM address is known. The procedure of transforming one address format to the other requires the use of the Blake2b hash function. Common Prefix has also audited Bifrost's implementation of the Blake2b function.`),
-		Team:     []TeamMember{},
-		Findings: []Finding{},
+		Body: template.HTML(`Bifrost is a DeFi protocol on Polkadot providing cross-chain liquid staking services for multiple (para)chains. Common Prefix has performed a security audit of Bifrost's <a href="https://wiki.polkadot.network/docs/learn-xcm">XCM Actions</a> smart contracts. These contracts allow users of Polkadot's <a href="https://astar.network/">Astar</a> and <a href="https://moonbeam.network/">Moonbeam</a> parachains to interact with Bifrost. Cross-chain communication is possible only if the <a href="https://substrate.io/vision/substrate-and-polkadot/">Substrate</a> address that corresponds to a given EVM address is known. The procedure of transforming one address format to the other requires the use of the Blake2b hash function. Common Prefix has also audited Bifrost's implementation of the Blake2b function.`),
+		Team: []TeamMember{},
+		Findings: []Finding{
+			{
+				Url:  "/static/projects/bifrost/bifrost_xcm_actions_audit.pdf",
+				Name: "XCM Actions smart contract audit",
+			},
+		},
 	},
 }
