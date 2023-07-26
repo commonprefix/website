@@ -88,6 +88,21 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "nikolaos_kamarinakis.jpg",
 	},
+	"haris": {
+		Handle:         "haris",
+		Name:           "Haris Karavasilis",
+		Specialization: "business development, project management, quantitative finance, risk management",
+		Desc: template.HTML(`
+            Haris works on the business side of things at Common Prefix.
+            His background includes roles at Amazon and Piraeus Bank,
+            where he gained valuable experience in operations, finance and risk management.
+            He holds a Master's degree in Quantitative Finance and Risk Management from Bocconi University
+            and an Electrical & Electronic Engineering Bachelor's degree from the University of Manchester.
+            At Common Prefix, he contributes to both business development and project management,
+            aiming to improve operational and financial efficiency.
+		`),
+		Image: "haris_karavasilis.png",
+	},
 	"dimitris": {
 		Handle:         "dimitris",
 		Name:           "Dr. Dimitris Karakostas",
