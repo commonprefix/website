@@ -148,6 +148,10 @@ var Projects []Project = []Project{
 				Url:  "/static/projects/harmony/harmony_privacy_report.pdf",
 				Name: "Privacy Report",
 			},
+			{
+				Url:  "/static/projects/harmony/harmony_onewallet_security_analysis.pdf",
+				Name: "Preliminary Security Analysis of ONEWallet",
+			},
 		},
 	},
 	{
