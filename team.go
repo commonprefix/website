@@ -192,7 +192,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			Dionysis is a post-doctoral blockchain researcher at Stanford University. He holds a PhD from the University
 			of Athens and an Electrical and Computer Engineering degree from the National Technical University of Athens.
 			He specializes in blockchain scalability via light clients and fast bootstrapping. Among other venues he has
-			published in IEEE S&P (Oakland, ACM CCS, ESORICS, and Financial Crypto, and presented at Black Hat Europe and Asia. Highlights of his research include the papers
+			published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and presented at Black Hat Europe and Asia. Highlights of his research include the papers
 			<a href="https://eprint.iacr.org/2017/963.pdf">Non-Interactive Proofs of Proof-of-Work</a>,
 			<a href="https://eprint.iacr.org/2018/1239.pdf">Proof-of-Stake Sidechains</a>, and
 			<a href="https://eprint.iacr.org/2018/1048.pdf">Proof-of-Work Sidechains</a>.
