@@ -26,7 +26,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Desc: template.HTML(`
 			Zeta is an upcoming Assistant Professor at the Technical University of Vienna (TU Wien) in Austria.
 			She is currently a post-doctoral blockchain researcher at TU Wien working with professor Matteo Maffei.
-			She graduated with a PhD from ETH Zürich and holds an engineering degree from the
+			She graduated with a PhD from ETH Zürich, advised by Roger Wattenhofer, and holds an engineering degree from the
 			National Technical University of Athens and a masters degree from National Kapodistian University of Athens.
 			She specializes in distributed systems, scaling blockchains via sharding and channels,
 			and the analysis of cryptoeconomic incentives.
@@ -43,7 +43,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "zero-knowledge proofs, voting",
 		Desc: template.HTML(`
 			Pyrros is a post-doctoral blockchain researcher at the University of Athens. He holds a PhD from the
-			University College of London, an MSc in Information Security from the University College of London, an MSc in
+			University College of London, advised by Jens Groth and Allan Sikk, an MSc in Information Security from the University College of London, an MSc in
 			Theoretical Computer Science from the University of Athens, and a BA in Mathematics from the University of
 			Athens. He specializes in zero knowledge proof systems, with applications on proof-of-stake blockchains and
 			voting in particular. Among other venues, he has published in EUROCRYPT, ACM CCS, PKC, ESORICS, and the Journal
@@ -63,7 +63,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
             Bernardo David is an Associate Professor at the IT University of Copenhagen, working on cryptographic protocols
             for multiparty computation and blockchain consensus/applications with the support of Concordium Foundation,
             Independent Research Fund Denmark and Protocol Labs research grants. He holds a Ph.D. in Computer Science
-            from Aarhus University and was previously an Assistant Professor at the Tokyo Institute of Technology,
+            from Aarhus University, under the supervision of Ivan Damgård and Jesper Buus Nielsen, and was previously an Assistant Professor at the Tokyo Institute of Technology,
             where his work was supported by a JSPS research grant. Bernardo&rsquo;s research has been published as over 30 articles in
             scientific journals and conferences. Among his main contributions is
 			<a href="https://eprint.iacr.org/2016/889.pdf">the first provably secure protocol for proof-of-stake blockchains</a>.
@@ -106,7 +106,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "cryptocurrency wallets, macroeconomics, checkpointing",
 		Desc: template.HTML(`
 			Dimitris is a post-doctoral blockchain researcher at the University of Edinburgh where he works with professor
-			Aggelos Kiayias. He holds a PhD from the University of Edinburgh and an Electrical and Computer Engineering
+			Aggelos Kiayias. He holds a PhD from the University of Edinburgh, advised by Aggelos Kiayias, and an Electrical and Computer Engineering
 			degree from the National Technical University of Athens. He specializes in cryptocurrency wallets and
 			macroeconomics, as well as chain checkpointing. Among other venues, he has published in Financial Crypto and
 			presented at Black Hat Europe and Asia. Highlights of his research include the papers
@@ -124,7 +124,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Orfeas obtained his
 		<a
 			href="https://gitlab.com/orfeasLitos/thesis/-/raw/master/thesis.pdf?inline=false"
-		>PhD in Cryptography and Blockchains</a> at the University of Edinburgh in 2021. He has worked on <a href="http://fc17.ifca.ai/preproceedings/paper_37.pdf">building and analyzing</a> decentralized applications on blockchains,
+		>PhD in Cryptography and Blockchains</a> at the University of Edinburgh in 2021, under the supervision of Aggelos Kiayias. He has worked on <a href="http://fc17.ifca.ai/preproceedings/paper_37.pdf">building and analyzing</a> decentralized applications on blockchains,
 		<a href="https://fc20.ifca.ai/preproceedings/132.pdf">layer-2 protocols</a>,
 		<a href="https://eprint.iacr.org/2021/747.pdf">payment channels</a>, and
 		<a href="https://tokenomics2019.org/Documents/proceedings-full.pdf#page=17">voting solutions</a>, all through formal cryptographic methods. Among others, he has
@@ -190,7 +190,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "scaling blockchains, light clients, fast bootstrapping, algorithms, software engineering",
 		Desc: template.HTML(`
 			Dionysis is a post-doctoral blockchain researcher at Stanford University. He holds a PhD from the University
-			of Athens and an Electrical and Computer Engineering degree from the National Technical University of Athens.
+			of Athens, advised by Aggelos Kiayias, and an Electrical and Computer Engineering degree from the National Technical University of Athens.
 			He specializes in blockchain scalability via light clients and fast bootstrapping. Among other venues he has
 			published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and presented at Black Hat Europe and Asia. Highlights of his research include the papers
 			<a href="https://eprint.iacr.org/2017/963.pdf">Non-Interactive Proofs of Proof-of-Work</a>,
