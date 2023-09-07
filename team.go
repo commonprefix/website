@@ -78,8 +78,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "smart contract development, testing, software engineering, offensive security",
 		Desc: template.HTML(`
 			Nikolas is a software engineer based in Athens, Greece and Maryland, USA.
-			He is currently pursuing a bachelor&rsquo;s degree in Computer Science at the University of Maryland,
-			specializing in Cybersecurity.
+			He holds a Bachelor&rsquo;s degree in Computer Science with a minor in Cybersecurity from the University of Maryland.
 			He has multiple years of experience in full-stack software engineering and open-source development,
 			as well as some expierience in offensive security.
 			Nikolas is currently focused on smart contract development at Common Prefix.
