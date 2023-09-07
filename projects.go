@@ -46,8 +46,21 @@ var Projects []Project = []Project{
 			Members["shresth"],
 			Members["pyrros"],
 		},
-		Findings: []Finding{},
-	},
+		Findings: []Finding{
+			{
+				Url:  "/static/projects/mysten/mysten_fastcrypto_ecdsa_secp256k1_audit.pdf",
+				Name: "Fastcrypto ECDSA Secp256k1 Audit",
+			},
+			{
+				Url:  "/static/projects/mysten/mysten_fastcrypto_bls12381_audit.pdf",
+				Name: "Fastcrypto BLS12381 Audit",
+			},
+			{
+				Url:  "/static/projects/mysten/mysten_fastcrypto_ecvrf_ristretto255_audit.pdf",
+				Name: "Fastcrypto ECVRF and Ristretto255 Audit",
+			},
+	    },
+    },
 	{
 		Handle: "axelar",
 		Name:   "Axelar",
