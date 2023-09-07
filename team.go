@@ -82,9 +82,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			specializing in Cybersecurity.
 			He has multiple years of experience in full-stack software engineering and open-source development,
 			as well as some expierience in offensive security.
-			Nikolas is currently focused on smart contract development at Common Prefix
-			as well as at the <a href="https://researchdao.io">Research DAO</a>,
-			where he also coordinates operations.
+			Nikolas is currently focused on smart contract development at Common Prefix.
 		`),
 		Image: "nikolaos_kamarinakis.jpg",
 	},
