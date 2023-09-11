@@ -28,10 +28,10 @@ var Projects []Project = []Project{
 		</svg>`),
 		Body: template.HTML(`
 			Mysten Labs is the team behind the
-			<a href="https://sui.io/">SUI blockchain</a>
+			<a href="https://sui.io/">Sui blockchain</a>
 			and
-			<a href="https://move-language.github.io/move/">MOVE programming language</a>.
-			SUI is an L1 that utilizes a unique DAG-based consensus mechanism based on
+			<a href="https://move-language.github.io/move/">Move programming language</a>.
+			Sui is an L1 that utilizes a unique DAG-based consensus mechanism based on
 			<a href="https://arxiv.org/pdf/2105.11827.pdf">Narwhal</a>
 			and
 			<a href="https://arxiv.org/pdf/2201.05677.pdf">Bullshark</a>.
@@ -39,7 +39,7 @@ var Projects []Project = []Project{
 			So far, Common Prefix has audited various components of the
 			<a href="https://github.com/MystenLabs/fastcrypto">fastcrypto</a>
 			library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1.
-			The SUI implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers.
+			The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers.
 			Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality.
 		`),
 		Team: []TeamMember{
