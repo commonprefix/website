@@ -144,10 +144,19 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Dimitris Lamprinos",
 		Specialization: "smart contract development, large scale system design, software engineering, consensus, DevOps",
 		Desc: template.HTML(`
-			Dimitris is a software engineer based in Thessaloniki. He holds a Bachelor&rsquo;s degree in Computer Science from Aristotle
-			University of Thessaloniki. He works on smart contract development and basic consensus development. He has
-			significant experience in developing and scaling web applications as well as blockchain development in the
-			<a href="https://www.amondo.com/">Amondo</a>, and <a href="https://geekbot.com/">Geekbot</a>.
+			Dimitris is a software engineer based in Athens, Greece.
+			He holds a Bachelor's degree in Computer Science
+			from Aristotle University of Thessaloniki.
+			At Common Prefix, he is a software engineer focusing on
+			Solidity smart contracts and basic consensus development.
+			Besides his web3 expertise, Dimitris has significant experience
+			in building and scaling web applications.
+			Before joining Common Prefix, he worked at
+			<a href="https://geekbot.com/">Geekbot</a>,
+			one of the most popular Slack bots, and
+			<a href="https://www.amondo.com/">Amondo</a>,
+			a social media startup with over a million users,
+			where he led the infrastructure team.
 		`),
 		Image: "dimitris_lamprinos.jpg",
 	},
