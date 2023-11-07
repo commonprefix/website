@@ -187,9 +187,10 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			<a href="https://www.mayainsights.com/">Maya Insights</a>,
 			as well as at NutriDice, where he took on a full-stack engineering role.
 			He has worked with numerous programming languages and technical stacks.
-			One of Apostolos&rsquo;s research highlights is the paper
+			Apostolos&rsquo;s research highlights include
 			<a href="https://eprint.iacr.org/2023/605.pdf">The Principal–Agent Problem in Liquid Staking</a>,
-			published in Financial Cryptography 2023&rsquo;s 7th Workshop on Trusted Smart Contracts (WTSC).
+			published in Financial Cryptography 2023&rsquo;s 7th Workshop on Trusted Smart Contracts (WTSC),
+            and <a href="https://eprint.iacr.org/2023/1648.pdf">On-Chain Timestamps Are Accurate</a>.
 		`),
 		Image: "apostolos_tzinas.jpg",
 	},
