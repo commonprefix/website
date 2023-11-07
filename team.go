@@ -121,7 +121,8 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Dr. Orfeas Stefanos Thyfronitis Litos",
 		Specialization: "software engineering, payment channels, voting, cryptoeconomic incentive analysis",
 		Desc: template.HTML(`
-		Orfeas obtained his
+		Orfeas is currently a research associate at Imperial College London.
+		He obtained his
 		<a
 			href="https://gitlab.com/orfeasLitos/thesis/-/raw/master/thesis.pdf?inline=false"
 		>PhD in Cryptography and Blockchains</a> at the University of Edinburgh in 2021, under the supervision of Aggelos Kiayias. He has worked on <a href="http://fc17.ifca.ai/preproceedings/paper_37.pdf">building and analyzing</a> decentralized applications on blockchains,
