@@ -17,16 +17,18 @@ const (
 	tmplDir   = "./templates"
 	buildDir  = "./public"
 
-	layoutTmplName  = "layout.html"
-	indexTmplName   = "index.html"
-	teamTmplName    = "team.html"
-	projectTmplName = "project.html"
+	layoutTmplName   = "layout.html"
+	indexTmplName    = "index.html"
+	teamTmplName     = "team.html"
+	projectTmplName  = "project.html"
+	researchTmplName = "research.html"
 )
 
 var layoutPath = filepath.Join(tmplDir, layoutTmplName)
 var homeTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, indexTmplName)))
 var teamTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, teamTmplName)))
 var projectTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, projectTmplName)))
+var researchTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
 
 // Data structures
 
@@ -57,11 +59,20 @@ type Project struct {
 	Team     []TeamMember
 }
 
+type Paper struct {
+	Handle     string
+	Name       string
+	Conference string
+	Authors    string
+	Url        string
+}
+
 type Page struct {
 	SmallContainer bool
 	Title          string
 	Members        []TeamMember
 	Projects       []Project
+	Research       []Paper
 }
 
 type ProjectPage struct {
@@ -69,6 +80,12 @@ type ProjectPage struct {
 	Title          string
 	Project        Project
 	NextProject    Project
+}
+
+type ResearchPage struct {
+	Title        string
+	Research     Paper
+	NextResearch Paper
 }
 
 var team = []TeamMember{}
@@ -126,6 +143,21 @@ func build() {
 		f.Close()
 		fmt.Printf("📖  projects/%s.html sucessfully generated.\n", p.Handle)
 	}
+
+	//
+	// Build research page
+	//
+	researchPage := filepath.Join(buildDir, researchTmplName)
+	// Remove the old version
+	os.Remove(researchPage)
+	// Create new file
+	f, err = os.Create(researchPage)
+	if err != nil {
+		log.Fatalf("can't create %s", researchTmplName)
+	}
+	researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research", Research: Research})
+	f.Close()
+	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
 }
 
 func main() {

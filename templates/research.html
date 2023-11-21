@@ -1,0 +1,25 @@
+{{define "content"}}
+<main>
+	<section>
+		<h1>Our Research</h1>
+		<p>
+			Our team specializes in the areas of proof-of-stake, proof-of-work, auctions, Layer-2s, sharding, channels, bootstrapping, light clients, wallets, smart contracts, interoperability, zero-knowledge, and multiparty computation.
+			Here are some of our team's research highlights.
+		</p>
+	</section>
+
+	<section>
+		<div class="research">
+			{{range .Research}}
+			<div class="paper__card" id={{.Handle}}>
+				<a href={{.Url}}>
+					<h1>{{.Name}}</h1>
+				</a>
+				<h2>{{.Authors}}</h2>
+				<h3>{{.Conference}}</h3>
+			</div>
+			{{end}}
+		</div>
+	</section>
+</main>
+{{end}}
