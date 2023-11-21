@@ -59,7 +59,7 @@ type Project struct {
 	Team     []TeamMember
 }
 
-type Paper struct {
+type ResearchPaper struct {
 	Handle     string
 	Name       string
 	Conference string
@@ -72,7 +72,7 @@ type Page struct {
 	Title          string
 	Members        []TeamMember
 	Projects       []Project
-	Research       []Paper
+	Research       []ResearchPaper
 }
 
 type ProjectPage struct {
@@ -83,9 +83,9 @@ type ProjectPage struct {
 }
 
 type ResearchPage struct {
-	Title        string
-	Research     Paper
-	NextResearch Paper
+	Title             string
+	ResearchPaper     ResearchPaper
+	NextResearchPaper ResearchPaper
 }
 
 var team = []TeamMember{}

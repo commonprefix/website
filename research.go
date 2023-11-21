@@ -1,6 +1,6 @@
 package main
 
-var Research []Paper = []Paper{
+var Research []ResearchPaper = []ResearchPaper{
 	{
 		Handle: "popos",
 		Name:   "Proofs of Proof-of-Stake with Sublinear Complexity",
