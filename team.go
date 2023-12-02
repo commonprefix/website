@@ -176,6 +176,23 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "themis_papameletiou.jpg",
 	},
+	"semeli": {
+		Handle:         "semeli",
+		Name:           "Semeli Spanou",
+		Specialization: "operations, logistics, biotech, data analytics",
+		Desc: template.HTML(`
+            Semeli is a member of the Operations team at Common Prefix,
+            where she collaborates with a diverse range of stakeholders
+            to drive operational efficiency and effectiveness.
+            She holds a Master's degree in Biotechnology,
+            from the Agricultural University of Athens,
+            with a focus on bioinformatics and data analysis.
+            Semeli's organisational and analytical skills contribute to
+            enhancing operational procedures, streamline reporting,
+            and strengthening our logistics management.
+		`),
+		Image: "semeli_spanou.jpg",
+	},
 	"apostolos": {
 		Handle:         "apostolos",
 		Name:           "Apostolos Tzinas",
