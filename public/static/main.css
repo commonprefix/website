@@ -647,3 +647,31 @@ a.finding {
 .paper__card h2, h3 {
 	font-size: 16px;
 }
+
+.paper__card .tags {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+	gap: 8px;
+}
+
+.paper__card .tags li {
+	padding: 2px 5px;
+	border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .research {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 495px) {
+    .research {
+        grid-template-columns: 1fr;
+    }
+}

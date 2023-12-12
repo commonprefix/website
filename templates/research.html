@@ -1,3 +1,12 @@
+{{define "head"}}
+<style>
+	{{range $tag, $color := .Research.TagToColor}}
+        .{{$tag}} {
+            background-color: {{$color}};
+        }
+    {{end}}
+</style>
+{{end}}
 {{define "content"}}
 <main>
 	<section>
@@ -10,13 +19,20 @@
 
 	<section>
 		<div class="research">
-			{{range .Research}}
+			{{range .Research.ResearchPapers}}
 			<div class="paper__card" id={{.Handle}}>
 				<a href={{.Url}}>
 					<h1>{{.Name}}</h1>
 				</a>
 				<h2>{{.Authors}}</h2>
 				<h3>{{.Conference}}</h3>
+                {{if .Tags}}
+					<ul class="tags">
+						{{range .Tags}}
+							<li class="{{.}}">{{.}}</li>
+						{{end}}
+					</ul>
+                {{end}}
 			</div>
 			{{end}}
 		</div>

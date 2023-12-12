@@ -65,6 +65,12 @@ type ResearchPaper struct {
 	Conference string
 	Authors    string
 	Url        string
+	Tags       []Tag
+}
+
+type Research struct {
+	ResearchPapers []ResearchPaper
+	TagToColor     map[Tag]string
 }
 
 type Page struct {
@@ -72,7 +78,7 @@ type Page struct {
 	Title          string
 	Members        []TeamMember
 	Projects       []Project
-	Research       []ResearchPaper
+	Research       Research
 }
 
 type ProjectPage struct {
@@ -83,9 +89,8 @@ type ProjectPage struct {
 }
 
 type ResearchPage struct {
-	Title             string
-	ResearchPaper     ResearchPaper
-	NextResearchPaper ResearchPaper
+	Title      string
+	TagToColor map[Tag]string
 }
 
 var team = []TeamMember{}
@@ -155,7 +160,15 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", researchTmplName)
 	}
-	researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research", Research: Research})
+	// for _, r := range Research {
+	// 	Authors = ``
+	// 	for _, a := range r.Authors {
+	// 		if Slice.Contains(team, a) {
+	// 			Authors += `<a href="/team#` + a.Handle + `>` + a.Name + `</a>, `
+	// 		}
+	// 	}
+	// }
+	researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research", Research: Research{ResearchPapers: ResearchPapers, TagToColor: TagToColor}})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
 }
