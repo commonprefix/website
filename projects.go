@@ -208,10 +208,14 @@ var Projects []Project = []Project{
 			Members["dimitris"],
 		},
 		Findings: []Finding{
-			/*{
+			{
 				Url:  "/static/projects/snowfork/snowfork_beefy_client_audit.pdf",
 				Name: "Beefy client audit",
-			},*/
+			},
+			{
+				Url:  "/static/projects/snowfork/snowfork_beefy_client_v2_audit.pdf",
+				Name: "Beefy client v2 audit",
+			},
 		},
 	},
 	{
