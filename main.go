@@ -10,6 +10,8 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/microcosm-cc/bluemonday"
 )
 
 const (
@@ -23,6 +25,8 @@ const (
 	projectTmplName  = "project.html"
 	researchTmplName = "research.html"
 )
+
+const description string = "Common Prefix is a small team of scientists and software engineers offering blockchain science consulting services."
 
 var layoutPath = filepath.Join(tmplDir, layoutTmplName)
 var homeTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, indexTmplName)))
@@ -76,6 +80,7 @@ type Research struct {
 type Page struct {
 	SmallContainer bool
 	Title          string
+	Description    string
 	Members        []TeamMember
 	Projects       []Project
 	Research       Research
@@ -84,6 +89,7 @@ type Page struct {
 type ProjectPage struct {
 	SmallContainer bool
 	Title          string
+	Description    string
 	Project        Project
 	NextProject    Project
 }
@@ -94,6 +100,12 @@ type ResearchPage struct {
 }
 
 var team = []TeamMember{}
+
+func htmlToFormattedString(s template.HTML) string {
+	bmp := bluemonday.StripTagsPolicy()
+	replacer := strings.NewReplacer("\n", " ", "\t", "")
+	return replacer.Replace(strings.TrimSpace(bmp.Sanitize(string(s))))
+}
 
 func build() {
 	//
@@ -107,7 +119,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", indexTmplName)
 	}
-	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Members: team, Projects: Projects})
+	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Projects: Projects})
 	f.Close()
 	fmt.Printf("🏠  %s sucessfully generated.\n", indexTmplName)
 
@@ -122,7 +134,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", teamTmplName)
 	}
-	teamTmpl.ExecuteTemplate(f, "base", Page{Title: " — Team", Members: team, Projects: Projects})
+	teamTmpl.ExecuteTemplate(f, "base", Page{Title: " — Team", Members: team, Description: description, Projects: Projects})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", teamTmplName)
 
@@ -144,7 +156,7 @@ func build() {
 			log.Fatal("can't create projects/" + p.Handle + ".html")
 		}
 
-		projectTmpl.ExecuteTemplate(f, "base", ProjectPage{SmallContainer: true, Title: " — " + p.Name, Project: p, NextProject: nextP})
+		projectTmpl.ExecuteTemplate(f, "base", ProjectPage{SmallContainer: true, Title: " — " + p.Name, Description: htmlToFormattedString(p.Body), Project: p, NextProject: nextP})
 		f.Close()
 		fmt.Printf("📖  projects/%s.html sucessfully generated.\n", p.Handle)
 	}
@@ -168,7 +180,7 @@ func build() {
 	// 		}
 	// 	}
 	// }
-	researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research", Research: Research{ResearchPapers: ResearchPapers, TagToColor: TagToColor}})
+	researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research", Description: description, Research: Research{ResearchPapers: ResearchPapers, TagToColor: TagToColor}})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
 }
