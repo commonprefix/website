@@ -95,6 +95,10 @@ var Projects []Project = []Project{
 				Url:  "/static/projects/axelar/axelar_gateway_v2_audit.pdf",
 				Name: "Axelar Gateway v2.1 smart contract audit",
 			},
+			{
+				Url:  "/static/projects/axelar/axelar_light_client_grant_proposal.pdf",
+				Name: "Ethereum Light Client on Axelar Grant Proposal",
+			},
 		},
 	},
 	{
