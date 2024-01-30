@@ -176,6 +176,21 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "themis_papameletiou.jpg",
 	},
+	"giulia": {
+		Handle:         "giulia",
+		Name:           "Giulia Scaffino",
+		Specialization: "scaling blockchains, blockchain interoperability, cryptoeconomic incentive analysis",
+		Desc: template.HTML(`
+            Giulia is a doctoral blockchain researcher at the Technical University of Vienna (TU Wien),
+            working in the Security and Privacy group with Prof. Matteo Maffei.
+            She holds a Master's degree in Nuclear Physics from the University of Pavia, Italy,
+            and she has worked as a Salesforce developer at Deloitte Digital in Milan.
+            She specializes in blockchain interoperability and scalability protocols,
+            light clients, layer-2 solutions, and crypto-economic incentives.
+            Among other venues, she has published in the USENIX Security Symposium.
+		`),
+		Image: "giulia_scaffino.png",
+	},
 	"semeli": {
 		Handle:         "semeli",
 		Name:           "Semeli Spanou",
