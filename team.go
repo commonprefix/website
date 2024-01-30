@@ -80,7 +80,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			Nikolas is a software engineer based in Athens, Greece and Maryland, USA.
 			He holds a Bachelor&rsquo;s degree in Computer Science with a minor in Cybersecurity from the University of Maryland.
 			He has multiple years of experience in full-stack software engineering and open-source development,
-			as well as some expierience in offensive security.
+			as well as some experience in offensive security.
 			Nikolas is currently focused on smart contract development at Common Prefix.
 		`),
 		Image: "nikolaos_kamarinakis.jpg",
