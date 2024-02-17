@@ -35,6 +35,7 @@
 				<span hidden class="value"></span>
 				<button hidden title="Clear this filter.">x</button>
 			</div>
+			<button class="clear-all" hidden>Clear all filters</button>
 		</div>
 	</section>
 
@@ -73,6 +74,7 @@ const filters = {
 }
 
 const filterElements = document.querySelectorAll('.filter')
+const clearAllBtn = document.querySelectorAll('button.clear-all')
 
 function render() {
 	// Show/hide papers based on filters
@@ -102,6 +104,10 @@ function render() {
 		discard.hidden = !value
 		el.innerText = value
 	})
+
+	// Show clear all filters button
+	const hasFilters = Object.values(filters).some(f => f)
+	document.querySelector('button.clear-all').hidden = !hasFilters
 }
 
 // Clear filters on click
@@ -109,6 +115,14 @@ filterElements.forEach(f => {
 	f.querySelector('button').addEventListener('click', e => {
 		const filter = f.dataset.filter
 		filters[filter] = ''
+		render()
+	})
+})
+
+// Clear all filters on click
+clearAllBtn.forEach(c => {
+	c.addEventListener('click', e => {
+		Object.keys(filters).forEach(k => filters[k] = '')
 		render()
 	})
 })

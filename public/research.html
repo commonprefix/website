@@ -233,6 +233,7 @@
 				<span hidden class="value"></span>
 				<button hidden title="Clear this filter.">x</button>
 			</div>
+			<button class="clear-all" hidden>Clear all filters</button>
 		</div>
 	</section>
 
@@ -3029,6 +3030,7 @@ const filters = {
 }
 
 const filterElements = document.querySelectorAll('.filter')
+const clearAllBtn = document.querySelectorAll('button.clear-all')
 
 function render() {
 	
@@ -3058,6 +3060,10 @@ function render() {
 		discard.hidden = !value
 		el.innerText = value
 	})
+
+	
+	const hasFilters = Object.values(filters).some(f => f)
+	document.querySelector('button.clear-all').hidden = !hasFilters
 }
 
 
@@ -3069,8 +3075,17 @@ filterElements.forEach(f => {
 	})
 })
 
+
+clearAllBtn.forEach(c => {
+	c.addEventListener('click', e => {
+		Object.keys(filters).forEach(k => filters[k] = '')
+		render()
+	})
+})
+
 const tags = document.querySelectorAll('.tags > button');
 const papers = document.querySelectorAll('.paper__card');
+
 
 tags.forEach(t => {
 	t.addEventListener('click', e => {
@@ -3081,6 +3096,7 @@ tags.forEach(t => {
 })
 
 papers.forEach(p => {
+	
 	p.querySelectorAll('.authors > span').forEach(a => {
 		a.addEventListener('click', e => {
 			const author = e.target.innerText
@@ -3089,6 +3105,7 @@ papers.forEach(p => {
 		})
 	})
 
+	
 	p.querySelector('.conference').addEventListener('click', e => {
 		const conference = e.target.innerText
 		filters.conference = conference

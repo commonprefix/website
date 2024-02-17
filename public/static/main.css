@@ -634,7 +634,7 @@ a.finding {
 	display: flex;
 	padding: 15px;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: flex-start;
 	background-color: var(--c-beige);
 	color: var(--c-gray);
 	border-radius: 4px;
@@ -701,6 +701,12 @@ a.finding {
 	flex-wrap: wrap;
 }
 
+.research__filters p,
+.research__filters .clear-all {
+	font-size: 14px;
+	font-style: italic;
+}
+
 .research__filters .filter {
 	background-color: var(--c-beige);
 	border-radius: 4px;
@@ -723,13 +729,16 @@ a.finding {
 	letter-spacing: 0.3px;
 }
 
-.research__filters .filter button {
+.research__filters button {
 	appearance: none;
 	border: none;
 	box-shadow: none;
 	background: none;
 	cursor: pointer;
+	padding: 0 2px;
+}
+
+.research__filters .filter button {
 	height: 22px;
 	font-size: 16px;
-	padding: 0 2px;
 }
