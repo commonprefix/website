@@ -9,12 +9,33 @@
 {{end}}
 {{define "content"}}
 <main>
-	<section>
+	<section class="small-container">
 		<h1>Our Research</h1>
 		<p>
 			Our team specializes in the areas of proof-of-stake, proof-of-work, auctions, Layer-2s, sharding, channels, bootstrapping, light clients, wallets, smart contracts, interoperability, zero-knowledge, and multiparty computation.
 			Here are some of our team's research highlights.
 		</p>
+	</section>
+
+	<section>
+		<div class="research__filters">
+			<p>Filters</p>
+			<div class="filter" data-filter="author">
+				<span>Authors</span>
+				<span hidden class="value"></span>
+				<button hidden title="Clear this filter.">x</button>
+			</div>
+			<div class="filter" data-filter="conference">
+				<span>Conferences</span>
+				<span hidden class="value"></span>
+				<button hidden title="Clear this filter.">x</button>
+			</div>
+			<div class="filter" data-filter="tag">
+				<span>Tags</span>
+				<span hidden class="value"></span>
+				<button hidden title="Clear this filter.">x</button>
+			</div>
+		</div>
 	</section>
 
 	<section>
@@ -24,12 +45,17 @@
 				<a href={{.Url}}>
 					<h1>{{.Name}}</h1>
 				</a>
-				<h2>{{.Authors}}</h2>
-				<h3>{{.Conference}}</h3>
+				<h2 class="authors">
+					{{ $length := len .Authors }}
+					{{range $index, $element := .Authors}}
+						<span title="Filter by this author.">{{.}}</span>{{if ne $index (sub $length 1)}}, {{end}}
+					{{end}}
+				</h2>
+				<h3 class="conference" title="Filter by this conference.">{{.Conference}}</h3>
                 {{if .Tags}}
 					<ul class="tags">
 						{{range .Tags}}
-							<li class="{{.}}">{{.}}</li>
+							<button title="Filter by this tag." class="{{.}}">{{.}}</button>
 						{{end}}
 					</ul>
                 {{end}}
@@ -38,4 +64,83 @@
 		</div>
 	</section>
 </main>
+
+<script>
+const filters = {
+	author: '',
+	conference: '',
+	tag: '',
+}
+
+const filterElements = document.querySelectorAll('.filter')
+
+function render() {
+	// Show/hide papers based on filters
+	papers.forEach(p => {
+		let hidden = false
+		if(filters.tag) {
+			hidden = !p.querySelector(`.${filters.tag}`)
+		}
+		if(filters.conference) {
+			hidden = hidden || p.querySelector('.conference').innerText !== filters.conference
+		}
+		if(filters.author) {
+			const hasAuthor = Array.from(p.querySelectorAll('.authors > span')).find(a => a.innerText === filters.author)
+			hidden = hidden || !hasAuthor
+		}
+
+		p.setAttribute('hidden', hidden)
+	});
+
+	// Update filter values
+	filterElements.forEach(f => {
+		const filter = f.dataset.filter
+		const value = filters[filter]
+		const el = f.querySelector('.value')
+		const discard = f.querySelector('button')
+		el.hidden = !value
+		discard.hidden = !value
+		el.innerText = value
+	})
+}
+
+// Clear filters on click
+filterElements.forEach(f => {
+	f.querySelector('button').addEventListener('click', e => {
+		const filter = f.dataset.filter
+		filters[filter] = ''
+		render()
+	})
+})
+
+const tags = document.querySelectorAll('.tags > button');
+const papers = document.querySelectorAll('.paper__card');
+
+// Attach tag filters
+tags.forEach(t => {
+	t.addEventListener('click', e => {
+		const tag = e.target.innerText
+		filters.tag = tag
+		render()
+	})
+})
+
+papers.forEach(p => {
+	// Attach author filters
+	p.querySelectorAll('.authors > span').forEach(a => {
+		a.addEventListener('click', e => {
+			const author = e.target.innerText
+			filters.author = author
+			render()
+		})
+	})
+
+	// Attach conference filters
+	p.querySelector('.conference').addEventListener('click', e => {
+		const conference = e.target.innerText
+		filters.conference = conference
+		render()
+	})
+})
+</script>
 {{end}}

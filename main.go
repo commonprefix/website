@@ -32,7 +32,11 @@ var layoutPath = filepath.Join(tmplDir, layoutTmplName)
 var homeTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, indexTmplName)))
 var teamTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, teamTmplName)))
 var projectTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, projectTmplName)))
-var researchTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
+var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
+	"sub": func(a, b int) int {
+		return a - b
+	},
+}).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
 
 // Data structures
 
@@ -67,7 +71,7 @@ type ResearchPaper struct {
 	Handle     string
 	Name       string
 	Conference string
-	Authors    string
+	Authors    []string
 	Url        string
 	Tags       []Tag
 }
@@ -180,7 +184,16 @@ func build() {
 	// 		}
 	// 	}
 	// }
-	researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research", Description: description, Research: Research{ResearchPapers: ResearchPapers, TagToColor: TagToColor}})
+	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research",
+		Description: description,
+		Research: Research{ResearchPapers: ResearchPapers,
+			TagToColor: TagToColor,
+		}})
+	if err != nil {
+		log.Println(err)
+		log.Fatalf("can't generate  %s", researchTmplName)
+	}
+
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
 }
