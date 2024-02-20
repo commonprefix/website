@@ -12,6 +12,7 @@ import (
 	"strings"
 
 	"github.com/microcosm-cc/bluemonday"
+	"golang.org/x/exp/slices"
 )
 
 const (
@@ -35,6 +36,19 @@ var projectTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tm
 var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 	"sub": func(a, b int) int {
 		return a - b
+	},
+	"teamHandle": func(name string) string {
+		idx := slices.IndexFunc(team, func(m TeamMember) bool {
+			n := m.Name
+			n = strings.TrimPrefix(n, "Prof. ")
+			n = strings.TrimPrefix(n, "Dr. ")
+			return n == name
+		})
+		if idx == -1 {
+			return ""
+		}
+		member := team[idx]
+		return member.Handle
 	},
 }).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
 

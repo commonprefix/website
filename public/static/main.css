@@ -660,6 +660,19 @@ a.finding {
 	text-decoration: underline;
 }
 
+.paper__card .authors sup {
+	font-size: 12px;
+	font-style: italic;
+	-webkit-font-feature-settings: 'sups' on;
+	font-feature-settings: 'sups' on;
+	font-weight: 500;
+	letter-spacing: 0.3px;
+}
+
+.paper__card .authors sup:hover {
+	text-decoration: underline;
+}
+
 .paper__card .tags {
 	list-style: none;
 	padding: 0;
