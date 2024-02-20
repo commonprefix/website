@@ -661,7 +661,7 @@ a.finding {
 }
 
 .paper__card .authors sup {
-	font-size: 12px;
+	font-size: 11px;
 	font-style: italic;
 	-webkit-font-feature-settings: 'sups' on;
 	font-feature-settings: 'sups' on;
