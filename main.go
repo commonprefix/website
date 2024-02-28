@@ -62,6 +62,12 @@ type TeamMember struct {
 	Image          string
 }
 
+// john_doe.jpg -> john_doe_w150.jpg
+func (m *TeamMember) ImageLow() string {
+	bits := strings.Split(m.Image, ".")
+	return fmt.Sprintf("%s_w150.%s", bits[0], bits[1])
+}
+
 type Finding struct {
 	Url  string
 	Name string

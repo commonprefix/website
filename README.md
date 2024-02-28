@@ -10,4 +10,4 @@
 
 ## Static files
 
-`/public/static` holds all static files: stylesheets, images, fonts and documents.
+`/public/static` holds all static files: stylesheets, images, fonts and documents. For team member pictures, add a smaller version with a suffix of `_w150` (e.g. `john_doe_w150.jpg`). You can run `sips -Z 150 john_doe_w150.jpg` to downsize the image.
