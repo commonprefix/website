@@ -51,7 +51,7 @@
 					{{range $index, $element := .Authors}}
 						{{ $handle := teamHandle . }}
 						<span title="Filter by this author.">{{.}}</span>{{ if $handle }}<a href="/team#{{$handle}}">
-							<sup title="View this author's profile.">❖</sup></a>{{end}}{{if ne $index (sub $length 1)}}, {{end}}
+							<sup title="View {{.}}'s profile.">❖</sup></a>{{end}}{{if ne $index (sub $length 1)}}, {{end}}
 					{{end}}
 				</h2>
 				<h3 class="conference" data-conf="{{.Conference}}" title="Filter by this conference.">{{.Conference}}<span> {{.ConferenceYear}}</h3>
