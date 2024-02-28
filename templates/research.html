@@ -51,10 +51,10 @@
 					{{range $index, $element := .Authors}}
 						{{ $handle := teamHandle . }}
 						<span title="Filter by this author.">{{.}}</span>{{ if $handle }}<a href="/team#{{$handle}}">
-							<sup>View profile</sup></a>{{end}}{{if ne $index (sub $length 1)}}, {{end}}
+							<sup title="View this author's profile.">❖</sup></a>{{end}}{{if ne $index (sub $length 1)}}, {{end}}
 					{{end}}
 				</h2>
-				<h3 class="conference" title="Filter by this conference.">{{.Conference}}</h3>
+				<h3 class="conference" data-conf="{{.Conference}}" title="Filter by this conference.">{{.Conference}}<span> {{.ConferenceYear}}</h3>
                 {{if .Tags}}
 					<ul class="tags">
 						{{range .Tags}}
@@ -86,7 +86,7 @@ function render() {
 			hidden = !p.querySelector(`.${filters.tag}`)
 		}
 		if(filters.conference) {
-			hidden = hidden || p.querySelector('.conference').innerText !== filters.conference
+			hidden = hidden || p.querySelector('.conference').dataset.conf !== filters.conference
 		}
 		if(filters.author) {
 			const hasAuthor = Array.from(p.querySelectorAll('.authors > span')).find(a => a.innerText === filters.author)
@@ -153,7 +153,7 @@ papers.forEach(p => {
 
 	// Attach conference filters
 	p.querySelector('.conference').addEventListener('click', e => {
-		const conference = e.target.innerText
+		const conference = e.target.dataset.conf
 		filters.conference = conference
 		render()
 	})

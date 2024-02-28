@@ -82,12 +82,13 @@ type Project struct {
 }
 
 type ResearchPaper struct {
-	Handle     string
-	Name       string
-	Conference string
-	Authors    []string
-	Url        string
-	Tags       []Tag
+	Handle         string
+	Name           string
+	Conference     string
+	ConferenceYear int
+	Authors        []string
+	Url            string
+	Tags           []Tag
 }
 
 type Research struct {
