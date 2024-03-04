@@ -288,6 +288,18 @@ header nav a:hover {
   text-decoration: underline;
 }
 
+@media (min-width: 768px) {
+  header {
+    display: flex;
+    align-items: center;
+  }
+
+  header nav {
+    margin-top: 0;
+    margin-left: 40px;
+  }
+}
+
 /* graphic */
 
 .logo-graphic {

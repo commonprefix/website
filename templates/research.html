@@ -108,7 +108,7 @@ function render() {
 	})
 
 	// Show clear all filters button
-	const hasFilters = Object.values(filters).some(f => f)
+	const hasFilters = Object.values(filters).some(f => f.length > 0)
 	document.querySelector('button.clear-all').hidden = !hasFilters
 }
 
