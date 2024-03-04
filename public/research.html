@@ -2239,7 +2239,7 @@
 						<span title="Filter by this author.">Bernardo Machado David</span>
 					
 				</h2>
-				<h3 class="conference" data-conf="Dissertation 2016, Department of Computer Science, University of Aarhus" title="Filter by this conference.">Dissertation 2016, Department of Computer Science, University of Aarhus<span> 0</h3>
+				<h3 class="conference" data-conf="Dissertation 2016, Department of Computer Science, University of Aarhus" title="Filter by this conference.">Dissertation 2016, Department of Computer Science, University of Aarhus<span> </h3>
                 
 					<ul class="tags">
 						
@@ -2597,7 +2597,7 @@
 						<span title="Filter by this author.">William J. Knottenbelt</span>
 					
 				</h2>
-				<h3 class="conference" data-conf="DPM 2020, CBT 2020: Data Privacy Management, Cryptocurrencies and Blockchain Technology" title="Filter by this conference.">DPM 2020, CBT 2020: Data Privacy Management, Cryptocurrencies and Blockchain Technology<span> 0</h3>
+				<h3 class="conference" data-conf="DPM 2020, CBT 2020: Data Privacy Management, Cryptocurrencies and Blockchain Technology" title="Filter by this conference.">DPM 2020, CBT 2020: Data Privacy Management, Cryptocurrencies and Blockchain Technology<span> </h3>
                 
 					<ul class="tags">
 						
@@ -2624,7 +2624,7 @@
 						<span title="Filter by this author.">Roger Wattenhofer</span>
 					
 				</h2>
-				<h3 class="conference" data-conf="DPM 2019, CBT 2019: Data Privacy Management, Cryptocurrencies and Blockchain Technology" title="Filter by this conference.">DPM 2019, CBT 2019: Data Privacy Management, Cryptocurrencies and Blockchain Technology<span> 0</h3>
+				<h3 class="conference" data-conf="DPM 2019, CBT 2019: Data Privacy Management, Cryptocurrencies and Blockchain Technology" title="Filter by this conference.">DPM 2019, CBT 2019: Data Privacy Management, Cryptocurrencies and Blockchain Technology<span> </h3>
                 
 					<ul class="tags">
 						
@@ -2682,7 +2682,7 @@
 						<span title="Filter by this author.">Ioannis Psarros</span>
 					
 				</h2>
-				<h3 class="conference" data-conf="Algorithmica" title="Filter by this conference.">Algorithmica<span> 0</h3>
+				<h3 class="conference" data-conf="Algorithmica" title="Filter by this conference.">Algorithmica<span> </h3>
                 
 			</div>
 			
@@ -2750,7 +2750,7 @@
 							<sup title="View Orfeas Stefanos Thyfronitis Litos's profile.">❖</sup></a>
 					
 				</h2>
-				<h3 class="conference" data-conf="Financial Cryptography and Data Security" title="Filter by this conference.">Financial Cryptography and Data Security<span> 0</h3>
+				<h3 class="conference" data-conf="Financial Cryptography and Data Security" title="Filter by this conference.">Financial Cryptography and Data Security<span> </h3>
                 
 					<ul class="tags">
 						
@@ -3542,7 +3542,7 @@
 const filters = {
 	author: '',
 	conference: '',
-	tag: '',
+	tag: [],
 }
 
 const filterElements = document.querySelectorAll('.filter')
@@ -3552,8 +3552,8 @@ function render() {
 	
 	papers.forEach(p => {
 		let hidden = false
-		if(filters.tag) {
-			hidden = !p.querySelector(`.${filters.tag}`)
+		if(filters.tag.length > 0) {
+			hidden = !filters.tag.every(t => p.querySelector(`.${t}`))
 		}
 		if(filters.conference) {
 			hidden = hidden || p.querySelector('.conference').dataset.conf !== filters.conference
@@ -3572,9 +3572,9 @@ function render() {
 		const value = filters[filter]
 		const el = f.querySelector('.value')
 		const discard = f.querySelector('button')
-		el.hidden = !value
-		discard.hidden = !value
-		el.innerText = value
+		el.hidden = value.length === 0
+		discard.hidden = value.length === 0
+		el.innerText = Array.isArray(value) ? value.join(', ') : value
 	})
 
 	
@@ -3585,8 +3585,12 @@ function render() {
 
 filterElements.forEach(f => {
 	f.querySelector('button').addEventListener('click', e => {
-		const filter = f.dataset.filter
-		filters[filter] = ''
+		const filterName = f.dataset.filter
+		if(filterName === 'tag') {
+			filters[filterName] = []
+		} else {
+			filters[filterName] = ''
+		}
 		render()
 	})
 })
@@ -3594,7 +3598,14 @@ filterElements.forEach(f => {
 
 clearAllBtn.forEach(c => {
 	c.addEventListener('click', e => {
-		Object.keys(filters).forEach(k => filters[k] = '')
+		Object.keys(filters).forEach(k => {
+			
+			if(k === 'tag') {
+				filters[k] = []
+			} else {
+				filters[k] = ''
+			}
+		})
 		render()
 	})
 })
@@ -3606,7 +3617,11 @@ const papers = document.querySelectorAll('.paper__card');
 tags.forEach(t => {
 	t.addEventListener('click', e => {
 		const tag = e.target.innerText
-		filters.tag = tag
+		if(filters.tag.includes(tag)) {
+			filters.tag = filters.tag.filter(t => t !== tag)
+		} else {
+			filters.tag.push(tag)
+		}
 		render()
 	})
 })

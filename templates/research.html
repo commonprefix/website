@@ -54,7 +54,7 @@
 							<sup title="View {{.}}'s profile.">❖</sup></a>{{end}}{{if ne $index (sub $length 1)}}, {{end}}
 					{{end}}
 				</h2>
-				<h3 class="conference" data-conf="{{.Conference}}" title="Filter by this conference.">{{.Conference}}<span> {{.ConferenceYear}}</h3>
+				<h3 class="conference" data-conf="{{.Conference}}" title="Filter by this conference.">{{.Conference}}<span> {{if .ConferenceYear}}{{.ConferenceYear}}{{end}}</h3>
                 {{if .Tags}}
 					<ul class="tags">
 						{{range .Tags}}
@@ -72,7 +72,7 @@
 const filters = {
 	author: '',
 	conference: '',
-	tag: '',
+	tag: [],
 }
 
 const filterElements = document.querySelectorAll('.filter')
@@ -82,8 +82,8 @@ function render() {
 	// Show/hide papers based on filters
 	papers.forEach(p => {
 		let hidden = false
-		if(filters.tag) {
-			hidden = !p.querySelector(`.${filters.tag}`)
+		if(filters.tag.length > 0) {
+			hidden = !filters.tag.every(t => p.querySelector(`.${t}`))
 		}
 		if(filters.conference) {
 			hidden = hidden || p.querySelector('.conference').dataset.conf !== filters.conference
@@ -102,9 +102,9 @@ function render() {
 		const value = filters[filter]
 		const el = f.querySelector('.value')
 		const discard = f.querySelector('button')
-		el.hidden = !value
-		discard.hidden = !value
-		el.innerText = value
+		el.hidden = value.length === 0
+		discard.hidden = value.length === 0
+		el.innerText = Array.isArray(value) ? value.join(', ') : value
 	})
 
 	// Show clear all filters button
@@ -115,8 +115,12 @@ function render() {
 // Clear filters on click
 filterElements.forEach(f => {
 	f.querySelector('button').addEventListener('click', e => {
-		const filter = f.dataset.filter
-		filters[filter] = ''
+		const filterName = f.dataset.filter
+		if(filterName === 'tag') {
+			filters[filterName] = []
+		} else {
+			filters[filterName] = ''
+		}
 		render()
 	})
 })
@@ -124,7 +128,14 @@ filterElements.forEach(f => {
 // Clear all filters on click
 clearAllBtn.forEach(c => {
 	c.addEventListener('click', e => {
-		Object.keys(filters).forEach(k => filters[k] = '')
+		Object.keys(filters).forEach(k => {
+			// reset filters
+			if(k === 'tag') {
+				filters[k] = []
+			} else {
+				filters[k] = ''
+			}
+		})
 		render()
 	})
 })
@@ -136,7 +147,11 @@ const papers = document.querySelectorAll('.paper__card');
 tags.forEach(t => {
 	t.addEventListener('click', e => {
 		const tag = e.target.innerText
-		filters.tag = tag
+		if(filters.tag.includes(tag)) {
+			filters.tag = filters.tag.filter(t => t !== tag)
+		} else {
+			filters.tag.push(tag)
+		}
 		render()
 	})
 })
