@@ -790,3 +790,8 @@ a.finding {
   height: 22px;
   font-size: 16px;
 }
+
+.research button,
+.research__filters button {
+  color: var(--c-black);
+}
