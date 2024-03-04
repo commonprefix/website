@@ -12,6 +12,7 @@ import (
 	"strings"
 
 	"github.com/microcosm-cc/bluemonday"
+	"golang.org/x/exp/slices"
 )
 
 const (
@@ -32,7 +33,24 @@ var layoutPath = filepath.Join(tmplDir, layoutTmplName)
 var homeTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, indexTmplName)))
 var teamTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, teamTmplName)))
 var projectTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, projectTmplName)))
-var researchTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
+var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
+	"sub": func(a, b int) int {
+		return a - b
+	},
+	"teamHandle": func(name string) string {
+		idx := slices.IndexFunc(team, func(m TeamMember) bool {
+			n := m.Name
+			n = strings.TrimPrefix(n, "Prof. ")
+			n = strings.TrimPrefix(n, "Dr. ")
+			return n == name
+		})
+		if idx == -1 {
+			return ""
+		}
+		member := team[idx]
+		return member.Handle
+	},
+}).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
 
 // Data structures
 
@@ -42,6 +60,12 @@ type TeamMember struct {
 	Specialization string
 	Desc           template.HTML
 	Image          string
+}
+
+// john_doe.jpg -> john_doe_w150.jpg
+func (m *TeamMember) ImageLow() string {
+	bits := strings.Split(m.Image, ".")
+	return fmt.Sprintf("%s_w150.%s", bits[0], bits[1])
 }
 
 type Finding struct {
@@ -64,12 +88,13 @@ type Project struct {
 }
 
 type ResearchPaper struct {
-	Handle     string
-	Name       string
-	Conference string
-	Authors    string
-	Url        string
-	Tags       []Tag
+	Handle         string
+	Name           string
+	Conference     string
+	ConferenceYear int
+	Authors        []string
+	Url            string
+	Tags           []Tag
 }
 
 type Research struct {
@@ -180,7 +205,16 @@ func build() {
 	// 		}
 	// 	}
 	// }
-	researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research", Description: description, Research: Research{ResearchPapers: ResearchPapers, TagToColor: TagToColor}})
+	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research",
+		Description: description,
+		Research: Research{ResearchPapers: ResearchPapers,
+			TagToColor: TagToColor,
+		}})
+	if err != nil {
+		log.Println(err)
+		log.Fatalf("can't generate  %s", researchTmplName)
+	}
+
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
 }
