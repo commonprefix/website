@@ -3540,7 +3540,7 @@
 
 <script>
 const filters = {
-	author: '',
+	author: [],
 	conference: '',
 	tag: [],
 }
@@ -3559,8 +3559,8 @@ function render() {
 			hidden = hidden || p.querySelector('.conference').dataset.conf !== filters.conference
 		}
 		if(filters.author) {
-			const hasAuthor = Array.from(p.querySelectorAll('.authors > span')).find(a => a.innerText === filters.author)
-			hidden = hidden || !hasAuthor
+			const hasAuthors = filters.author.every(author => Array.from(p.querySelectorAll('.authors > span')).find(a => a.innerText === author))
+			hidden = hidden || !hasAuthors
 		}
 
 		p.setAttribute('hidden', hidden)
@@ -3586,10 +3586,10 @@ function render() {
 filterElements.forEach(f => {
 	f.querySelector('button').addEventListener('click', e => {
 		const filterName = f.dataset.filter
-		if(filterName === 'tag') {
-			filters[filterName] = []
-		} else {
+		if(filterName === 'conference') {
 			filters[filterName] = ''
+		} else {
+			filters[filterName] = []
 		}
 		render()
 	})
@@ -3600,10 +3600,10 @@ clearAllBtn.forEach(c => {
 	c.addEventListener('click', e => {
 		Object.keys(filters).forEach(k => {
 			
-			if(k === 'tag') {
-				filters[k] = []
-			} else {
+			if(k === 'conference') {
 				filters[k] = ''
+			} else {
+				filters[k] = []
 			}
 		})
 		render()
@@ -3631,7 +3631,11 @@ papers.forEach(p => {
 	p.querySelectorAll('.authors > span').forEach(a => {
 		a.addEventListener('click', e => {
 			const author = e.target.innerText
-			filters.author = author
+			if(filters.author.includes(author)) {
+				filters.author = filters.author.filter(a => a !== author)
+			} else {
+				filters.author.push(author)
+			}
 			render()
 		})
 	})
