@@ -211,19 +211,21 @@ var Members map[string]TeamMember = map[string]TeamMember{
 	"apostolos": {
 		Handle:         "apostolos",
 		Name:           "Apostolos Tzinas",
-		Specialization: "smart contract development, algorithms, software engineering",
+		Specialization: "smart contract development, algorithms, software engineering, consensus",
 		Desc: template.HTML(`
-			Apostolos is a smart contract software engineer.
-			He is pursuing a joint Bachelor and Master&rsquo;s degree in Electrical and Computer Engineering
-			at the National Technical University of Athens.
-			Apostolos has extensive front-end software engineering experience working at
-			<a href="https://www.mayainsights.com/">Maya Insights</a>,
-			as well as at NutriDice, where he took on a full-stack engineering role.
-			He has worked with numerous programming languages and technical stacks.
-			Apostolos&rsquo;s research highlights include
+            Apostolos is a blockchain researcher and engineer at Common Prefix,
+            specialising in blockchain consensus and decentralised finance.
+            His research highlights include
+            <a href="https://eprint.iacr.org/2023/1648.pdf">On-Chain Timestamps Are Accurate</a>,
+            published in Financial Cryptography 2024, and
 			<a href="https://eprint.iacr.org/2023/605.pdf">The Principal–Agent Problem in Liquid Staking</a>,
-			published in Financial Cryptography 2023&rsquo;s 7th Workshop on Trusted Smart Contracts (WTSC),
-            and <a href="https://eprint.iacr.org/2023/1648.pdf">On-Chain Timestamps Are Accurate</a>.
+            published in Financial Cryptography 2023&rsquo;s 7th Workshop on Trusted Smart Contracts (WTSC).
+            Apostolos also has extensive experience in deploying and managing both validators and full-nodes
+            across the Ethereum and Cosmos ecosystems.
+            In the past, as a web engineer at
+			<a href="https://www.mayainsights.com/">Maya Insights</a> and NutriDice,
+            he has gained extensive experience with a wide range of programming languages and technical stacks.
+            Apostolos has a background in algorithms, having competed at national and balkan olympiads in informatics.
 		`),
 		Image: "apostolos_tzinas.jpg",
 	},
