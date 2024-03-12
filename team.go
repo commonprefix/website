@@ -48,11 +48,11 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			Theoretical Computer Science from the University of Athens, and a BA in Mathematics from the University of
 			Athens. He specializes in zero knowledge proof systems, with applications on proof-of-stake blockchains and
 			voting in particular. Among other venues, he has published in EUROCRYPT, ACM CCS, PKC, ESORICS, and the Journal
-            of Cryptology. Highlights of his research include the papers
-            <a href="https://eprint.iacr.org/2021/916.pdf">Mithril: Stake-based Threshold Multisignatures</a>,
-            <a href="https://eprint.iacr.org/2016/263.pdf">Efficient Zero-Knowledge Arguments for Arithmetic Circuits in
-            the Discrete Log Setting</a>, and
-            <a href="https://eprint.iacr.org/2016/368.pdf">Foundations of Fully Dynamic Group Signatures</a>.
+			of Cryptology. Highlights of his research include the papers
+			<a href="https://eprint.iacr.org/2021/916.pdf">Mithril: Stake-based Threshold Multisignatures</a>,
+			<a href="https://eprint.iacr.org/2016/263.pdf">Efficient Zero-Knowledge Arguments for Arithmetic Circuits in
+			the Discrete Log Setting</a>, and
+			<a href="https://eprint.iacr.org/2016/368.pdf">Foundations of Fully Dynamic Group Signatures</a>.
 		`),
 		Image: "pyrros_chaidos.jpg",
 	},
@@ -61,15 +61,15 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Prof. Bernardo David",
 		Specialization: "multiparty computation, consensus",
 		Desc: template.HTML(`
-            Bernardo David is an Associate Professor at the IT University of Copenhagen, working on cryptographic protocols
-            for multiparty computation and blockchain consensus/applications with the support of Concordium Foundation,
-            Independent Research Fund Denmark and Protocol Labs research grants. He holds a Ph.D. in Computer Science
-            from Aarhus University, under the supervision of Ivan Damgård and Jesper Buus Nielsen, and was previously an Assistant Professor at the Tokyo Institute of Technology,
-            where his work was supported by a JSPS research grant. Bernardo&rsquo;s research has been published as over 30 articles in
-            scientific journals and conferences. Among his main contributions is
+			Bernardo David is an Associate Professor at the IT University of Copenhagen, working on cryptographic protocols
+			for multiparty computation and blockchain consensus/applications with the support of Concordium Foundation,
+			Independent Research Fund Denmark and Protocol Labs research grants. He holds a Ph.D. in Computer Science
+			from Aarhus University, under the supervision of Ivan Damgård and Jesper Buus Nielsen, and was previously an Assistant Professor at the Tokyo Institute of Technology,
+			where his work was supported by a JSPS research grant. Bernardo&rsquo;s research has been published as over 30 articles in
+			scientific journals and conferences. Among his main contributions is
 			<a href="https://eprint.iacr.org/2016/889.pdf">the first provably secure protocol for proof-of-stake blockchains</a>.
 			Besides academic activities, he has been a consultant for a number of industry projects
-            on blockchains and information security, having served as scientific advisor to Cardano and Concordium.
+			on blockchains and information security, having served as scientific advisor to Cardano and Concordium.
 		`),
 		Image: "bernardo_david.jpg",
 	},
@@ -91,13 +91,13 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Haris Karavasilis",
 		Specialization: "business development, project management, quantitative finance, risk management",
 		Desc: template.HTML(`
-            Haris works on the business side of things at Common Prefix.
-            His background includes roles at Amazon and Piraeus Bank,
-            where he gained valuable experience in operations, finance and risk management.
-            He holds a Master's degree in Quantitative Finance and Risk Management from Bocconi University
-            and an Electrical & Electronic Engineering Bachelor's degree from the University of Manchester.
-            At Common Prefix, he contributes to both business development and project management,
-            aiming to improve operational and financial efficiency.
+			Haris works on the business side of things at Common Prefix.
+			His background includes roles at Amazon and Piraeus Bank,
+			where he gained valuable experience in operations, finance and risk management.
+			He holds a Master's degree in Quantitative Finance and Risk Management from Bocconi University
+			and an Electrical & Electronic Engineering Bachelor's degree from the University of Manchester.
+			At Common Prefix, he contributes to both business development and project management,
+			aiming to improve operational and financial efficiency.
 		`),
 		Image: "haris_karavasilis.png",
 	},
@@ -111,9 +111,9 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			degree from the National Technical University of Athens. He specializes in cryptocurrency wallets and
 			macroeconomics, as well as chain checkpointing. Among other venues, he has published in Financial Crypto and
 			presented at Black Hat Europe and Asia. Highlights of his research include the papers
-            <a href="https://eprint.iacr.org/2019/034.pdf">A Formal Treatment of Hardware Wallets</a>,
-            <a href="https://arxiv.org/pdf/1907.02434.pdf">Cryptocurrency Egalitarianism: A Quantitative Approach</a>, and
-            <a href="https://eprint.iacr.org/2020/173.pdf">Securing Proof-of-Work Ledgers via Checkpointing</a>.
+			<a href="https://eprint.iacr.org/2019/034.pdf">A Formal Treatment of Hardware Wallets</a>,
+			<a href="https://arxiv.org/pdf/1907.02434.pdf">Cryptocurrency Egalitarianism: A Quantitative Approach</a>, and
+			<a href="https://eprint.iacr.org/2020/173.pdf">Securing Proof-of-Work Ledgers via Checkpointing</a>.
 		`),
 		Image: "dimitris_karakostas.jpg",
 	},
@@ -182,13 +182,13 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Giulia Scaffino",
 		Specialization: "scaling blockchains, blockchain interoperability, cryptoeconomic incentive analysis",
 		Desc: template.HTML(`
-            Giulia is a doctoral blockchain researcher at the Technical University of Vienna (TU Wien),
-            working in the Security and Privacy group with Prof. Matteo Maffei.
-            She holds a Master's degree in Nuclear Physics from the University of Pavia, Italy,
-            and she has worked as a Salesforce developer at Deloitte Digital in Milan.
-            She specializes in blockchain interoperability and scalability protocols,
-            light clients, layer-2 solutions, and crypto-economic incentives.
-            Among other venues, she has published in the USENIX Security Symposium.
+			Giulia is a doctoral blockchain researcher at the Technical University of Vienna (TU Wien),
+			working in the Security and Privacy group with Prof. Matteo Maffei.
+			She holds a Master's degree in Nuclear Physics from the University of Pavia, Italy,
+			and she has worked as a Salesforce developer at Deloitte Digital in Milan.
+			She specializes in blockchain interoperability and scalability protocols,
+			light clients, layer-2 solutions, and crypto-economic incentives.
+			Among other venues, she has published in the USENIX Security Symposium.
 		`),
 		Image: "giulia_scaffino.png",
 	},
@@ -197,15 +197,15 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Semeli Spanou",
 		Specialization: "operations, logistics, biotech, data analytics",
 		Desc: template.HTML(`
-            Semeli is a member of the Operations team at Common Prefix,
-            where she collaborates with a diverse range of stakeholders
-            to drive operational efficiency and effectiveness.
-            She holds a Master's degree in Biotechnology,
-            from the Agricultural University of Athens,
-            with a focus on bioinformatics and data analysis.
-            Semeli's organisational and analytical skills contribute to
-            enhancing operational procedures, streamline reporting,
-            and strengthening our logistics management.
+			Semeli is a member of the Operations team at Common Prefix,
+			where she collaborates with a diverse range of stakeholders
+			to drive operational efficiency and effectiveness.
+			She holds a Master's degree in Biotechnology,
+			from the Agricultural University of Athens,
+			with a focus on bioinformatics and data analysis.
+			Semeli's organisational and analytical skills contribute to
+			enhancing operational procedures, streamline reporting,
+			and strengthening our logistics management.
 		`),
 		Image: "semeli_spanou.jpg",
 	},
@@ -214,19 +214,19 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Apostolos Tzinas",
 		Specialization: "smart contract development, algorithms, software engineering, consensus",
 		Desc: template.HTML(`
-            Apostolos is a blockchain researcher and engineer at Common Prefix,
-            specialising in blockchain consensus and decentralised finance.
-            His research highlights include
-            <a href="https://eprint.iacr.org/2023/1648.pdf">On-Chain Timestamps Are Accurate</a>,
-            published in Financial Cryptography 2024, and
+			Apostolos is a blockchain researcher and engineer at Common Prefix,
+			specialising in blockchain consensus and decentralised finance.
+			His research highlights include
+			<a href="https://eprint.iacr.org/2023/1648.pdf">On-Chain Timestamps Are Accurate</a>,
+			published in Financial Cryptography 2024, and
 			<a href="https://eprint.iacr.org/2023/605.pdf">The Principal–Agent Problem in Liquid Staking</a>,
-            published in Financial Cryptography 2023&rsquo;s 7th Workshop on Trusted Smart Contracts (WTSC).
-            Apostolos also has extensive experience in deploying and managing both validators and full-nodes
-            across the Ethereum and Cosmos ecosystems.
-            In the past, as a web engineer at
+			published in Financial Cryptography 2023&rsquo;s 7th Workshop on Trusted Smart Contracts (WTSC).
+			Apostolos also has extensive experience in deploying and managing both validators and full-nodes
+			across the Ethereum and Cosmos ecosystems.
+			In the past, as a web engineer at
 			<a href="https://www.mayainsights.com/">Maya Insights</a> and NutriDice,
-            he has gained extensive experience with a wide range of programming languages and technical stacks.
-            Apostolos has a background in algorithms, having competed at national and balkan olympiads in informatics.
+			he has gained extensive experience with a wide range of programming languages and technical stacks.
+			Apostolos has a background in algorithms, having competed at national and balkan olympiads in informatics.
 		`),
 		Image: "apostolos_tzinas.jpg",
 	},
@@ -235,14 +235,14 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Dr. Dionysis Zindros",
 		Specialization: "consensus, light clients, bridges, interoperability, fast bootstrapping, algorithms, software engineering",
 		Desc: template.HTML(`
-            Dionysis is a co-founder and researcher at Common Prefix
-            focusing on consensus, light clients, bridges, interoperability, and fast bootstrapping.
-            He did his post-doc at Stanford University, advised by David Tse.
-            He holds a PhD from the University of Athens, advised by Aggelos Kiayias,
-            and an Electrical and Computer Engineering degree from the National Technical University of Athens.
-            Among other venues, he has published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and
-            presented at Black Hat Europe and Asia.
-            Highlights of his research include the papers
+			Dionysis is a co-founder and researcher at Common Prefix
+			focusing on consensus, light clients, bridges, interoperability, and fast bootstrapping.
+			He did his post-doc at Stanford University, advised by David Tse.
+			He holds a PhD from the University of Athens, advised by Aggelos Kiayias,
+			and an Electrical and Computer Engineering degree from the National Technical University of Athens.
+			Among other venues, he has published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and
+			presented at Black Hat Europe and Asia.
+			Highlights of his research include the papers
 			<a href="https://eprint.iacr.org/2017/963.pdf">Non-Interactive Proofs of Proof-of-Work</a>,
 			<a href="https://eprint.iacr.org/2018/1239.pdf">Proof-of-Stake Sidechains</a>, and
 			<a href="https://eprint.iacr.org/2018/1048.pdf">Proof-of-Work Sidechains</a>.
