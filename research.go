@@ -38,6 +38,8 @@ const (
 	VDF                Tag = "verifiable-delay-functions"
 	WITNESS_ENCRYPTION Tag = "witness-encryption"
 	DECENTRALIZATION   Tag = "decentralization"
+	TIMELINESS         Tag = "timeliness"
+	SUPERSAFETY        Tag = "supersafety"
 )
 
 var TagToColor = map[Tag]string{
@@ -76,9 +78,20 @@ var TagToColor = map[Tag]string{
 	VDF:                "#c2c2d1",
 	WITNESS_ENCRYPTION: "#ffd4e6",
 	DECENTRALIZATION:   "#f0deba",
+	TIMELINESS:         "#fabf8b",
+	SUPERSAFETY:        "#1fea33",
 }
 
 var ResearchPapers []ResearchPaper = []ResearchPaper{
+	{
+		Handle:         "timeliness",
+		Name:           "On-Chain Timestamps Are Accurate",
+		Conference:     "Financial Cryptography and Data Security",
+		ConferenceYear: 2024,
+		Authors:        []string{"Apostolos Tzinas", "Srivatsan Sridhar", "Dionysis Zindros"},
+		Url:            "https://eprint.iacr.org/2023/1648.pdf",
+		Tags:           []Tag{TIMELINESS, SUPERSAFETY},
+	},
 	{
 		Handle:         "popos",
 		Name:           "Proofs of Proof-of-Stake with Sublinear Complexity",
