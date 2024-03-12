@@ -232,12 +232,16 @@ var Members map[string]TeamMember = map[string]TeamMember{
 	"dionysis": {
 		Handle:         "dionysis",
 		Name:           "Dr. Dionysis Zindros",
-		Specialization: "scaling blockchains, light clients, fast bootstrapping, algorithms, software engineering",
+		Specialization: "consensus, light clients, bridges, interoperability, fast bootstrapping, algorithms, software engineering",
 		Desc: template.HTML(`
-			Dionysis is a post-doctoral blockchain researcher at Stanford University. He holds a PhD from the University
-			of Athens, advised by Aggelos Kiayias, and an Electrical and Computer Engineering degree from the National Technical University of Athens.
-			He specializes in blockchain scalability via light clients and fast bootstrapping. Among other venues he has
-			published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and presented at Black Hat Europe and Asia. Highlights of his research include the papers
+            Dionysis is a co-founder and researcher at Common Prefix
+            focusing on consensus, light clients, bridges, interoperability, and fast bootstrapping.
+            He did his post-doc at Stanford University, advised by David Tse.
+            He holds a PhD from the University of Athens, advised by Aggelos Kiayias,
+            and an Electrical and Computer Engineering degree from the National Technical University of Athens.
+            Among other venues, he has published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and
+            presented at Black Hat Europe and Asia.
+            Highlights of his research include the papers
 			<a href="https://eprint.iacr.org/2017/963.pdf">Non-Interactive Proofs of Proof-of-Work</a>,
 			<a href="https://eprint.iacr.org/2018/1239.pdf">Proof-of-Stake Sidechains</a>, and
 			<a href="https://eprint.iacr.org/2018/1048.pdf">Proof-of-Work Sidechains</a>.
