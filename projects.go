@@ -360,6 +360,10 @@ var Projects []Project = []Project{
 				Url:  "/static/projects/bifrost/bifrost_xcm_actions_audit.pdf",
 				Name: "XCM Actions smart contract audit",
 			},
+			{
+				Url:  "/static/projects/bifrost/bifrost_slpx_for_astar_zkevm_audit.pdf",
+				Name: "SLPx for Astar zkEVM smart contract audit",
+			},
 		},
 	},
 	{
