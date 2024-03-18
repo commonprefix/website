@@ -48,6 +48,14 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
+				Url:  "/static/projects/mysten/mysten_fastcrypto_bls12381_group_audit.pdf",
+				Name: "Fastcrypto BLS12381 Group Audit",
+			},
+			{
+				Url:  "/static/projects/mysten/mysten_fastcrypto_groth16_audit.pdf",
+				Name: "Fastcrypto Groth16 Audit",
+			},
+			{
 				Url:  "/static/projects/mysten/mysten_fastcrypto_ecdsa_secp256r1_audit.pdf",
 				Name: "Fastcrypto ECDSA Secp256r1 Audit",
 			},
