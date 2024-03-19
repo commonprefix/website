@@ -172,6 +172,11 @@ a:hover .un {
   background-position: 0 100%;
 }
 
+footer .socials {
+  display: flex;
+  flex-direction: column;
+}
+
 .visuallyhidden {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
