@@ -7,6 +7,11 @@
         "source": "/projects/:path*",
         "destination": "/clients/:path*",
         "permanent": true
+      },
+      {
+        "source": "/static/projects/:path*",
+        "destination": "/static/clients/:path*",
+        "permanent": true
       }
     ]
 }
