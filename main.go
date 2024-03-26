@@ -23,7 +23,7 @@ const (
 	layoutTmplName   = "layout.html"
 	indexTmplName    = "index.html"
 	teamTmplName     = "team.html"
-	projectTmplName  = "project.html"
+	clientTmplName  = "client.html"
 	researchTmplName = "research.html"
 )
 
@@ -32,7 +32,7 @@ const description string = "Common Prefix is a small team of scientists and soft
 var layoutPath = filepath.Join(tmplDir, layoutTmplName)
 var homeTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, indexTmplName)))
 var teamTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, teamTmplName)))
-var projectTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, projectTmplName)))
+var clientTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, clientTmplName)))
 var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 	"sub": func(a, b int) int {
 		return a - b
@@ -78,7 +78,7 @@ func (f *Finding) Ext() string {
 	return bits[len(bits)-1]
 }
 
-type Project struct {
+type Client struct {
 	Handle   string
 	Name     string
 	Body     template.HTML
@@ -107,16 +107,16 @@ type Page struct {
 	Title          string
 	Description    string
 	Members        []TeamMember
-	Projects       []Project
+	Clients        []Client
 	Research       Research
 }
 
-type ProjectPage struct {
+type ClientPage struct {
 	SmallContainer bool
 	Title          string
 	Description    string
-	Project        Project
-	NextProject    Project
+	Client         Client
+	NextClient     Client
 }
 
 type ResearchPage struct {
@@ -144,7 +144,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", indexTmplName)
 	}
-	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Projects: Projects})
+	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients})
 	f.Close()
 	fmt.Printf("🏠  %s sucessfully generated.\n", indexTmplName)
 
@@ -159,31 +159,31 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", teamTmplName)
 	}
-	teamTmpl.ExecuteTemplate(f, "base", Page{Title: " — Team", Members: team, Description: description, Projects: Projects})
+	teamTmpl.ExecuteTemplate(f, "base", Page{Title: " — Team", Members: team, Description: description, Clients: Clients})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", teamTmplName)
 
 	//
-	// Build projects directory
+	// Build clients directory
 	//
-	psf := filepath.Join(buildDir, "projects")
+	psf := filepath.Join(buildDir, "clients")
 	_ = os.Mkdir(psf, os.ModePerm)
 
-	// Build project pages
-	for idx, p := range Projects {
-		nextP := Projects[(idx+1)%len(Projects)]
-		pf := filepath.Join(buildDir, "projects", p.Handle+".html")
+	// Build clients pages
+	for idx, p := range Clients {
+		nextP := Clients[(idx+1)%len(Clients)]
+		pf := filepath.Join(buildDir, "clients", p.Handle+".html")
 		// Remove the old version
 		os.Remove(pf)
 		// Create new file
 		f, err = os.Create(pf)
 		if err != nil {
-			log.Fatal("can't create projects/" + p.Handle + ".html")
+			log.Fatal("can't create clients/" + p.Handle + ".html")
 		}
 
-		projectTmpl.ExecuteTemplate(f, "base", ProjectPage{SmallContainer: true, Title: " — " + p.Name, Description: htmlToFormattedString(p.Body), Project: p, NextProject: nextP})
+		clientTmpl.ExecuteTemplate(f, "base", ClientPage{SmallContainer: true, Title: " — " + p.Name, Description: htmlToFormattedString(p.Body), Client: p, NextClient: nextP})
 		f.Close()
-		fmt.Printf("📖  projects/%s.html sucessfully generated.\n", p.Handle)
+		fmt.Printf("📖  clients/%s.html sucessfully generated.\n", p.Handle)
 	}
 
 	//
@@ -247,7 +247,7 @@ func main() {
 		fs := http.FileServer(http.Dir(buildDir))
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 			// Clean urls
-			if strings.HasPrefix(r.URL.Path, "/projects") || strings.HasPrefix(r.URL.Path, "/team") {
+			if strings.HasPrefix(r.URL.Path, "/clients") || strings.HasPrefix(r.URL.Path, "/team") {
 				if !strings.HasSuffix(r.URL.Path, ".html") {
 					r.URL.Path = r.URL.Path + ".html"
 				}

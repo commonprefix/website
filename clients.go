@@ -2,7 +2,7 @@ package main
 
 import "html/template"
 
-var Projects []Project = []Project{
+var Clients []Client = []Client{
 	{
 		Handle: "mysten",
 		Name:   "Mysten Labs",
@@ -48,27 +48,27 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/mysten/mysten_fastcrypto_bls12381_group_audit.pdf",
+				Url:  "/static/clients/mysten/mysten_fastcrypto_bls12381_group_audit.pdf",
 				Name: "Fastcrypto BLS12381 Group Audit",
 			},
 			{
-				Url:  "/static/projects/mysten/mysten_fastcrypto_groth16_audit.pdf",
+				Url:  "/static/clients/mysten/mysten_fastcrypto_groth16_audit.pdf",
 				Name: "Fastcrypto Groth16 Audit",
 			},
 			{
-				Url:  "/static/projects/mysten/mysten_fastcrypto_ecdsa_secp256r1_audit.pdf",
+				Url:  "/static/clients/mysten/mysten_fastcrypto_ecdsa_secp256r1_audit.pdf",
 				Name: "Fastcrypto ECDSA Secp256r1 Audit",
 			},
 			{
-				Url:  "/static/projects/mysten/mysten_fastcrypto_ecdsa_secp256k1_audit.pdf",
+				Url:  "/static/clients/mysten/mysten_fastcrypto_ecdsa_secp256k1_audit.pdf",
 				Name: "Fastcrypto ECDSA Secp256k1 Audit",
 			},
 			{
-				Url:  "/static/projects/mysten/mysten_fastcrypto_bls12381_audit.pdf",
+				Url:  "/static/clients/mysten/mysten_fastcrypto_bls12381_audit.pdf",
 				Name: "Fastcrypto BLS12381 Audit",
 			},
 			{
-				Url:  "/static/projects/mysten/mysten_fastcrypto_ecvrf_ristretto255_audit.pdf",
+				Url:  "/static/clients/mysten/mysten_fastcrypto_ecvrf_ristretto255_audit.pdf",
 				Name: "Fastcrypto ECVRF and Ristretto255 Audit",
 			},
 		},
@@ -96,15 +96,15 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/axelar/axelar_gateway_audit.pdf",
+				Url:  "/static/clients/axelar/axelar_gateway_audit.pdf",
 				Name: "Axelar Gateway v1 smart contract audit",
 			},
 			{
-				Url:  "/static/projects/axelar/axelar_gateway_v2_audit.pdf",
+				Url:  "/static/clients/axelar/axelar_gateway_v2_audit.pdf",
 				Name: "Axelar Gateway v2.1 smart contract audit",
 			},
 			{
-				Url:  "/static/projects/axelar/axelar_light_client_grant_proposal.pdf",
+				Url:  "/static/clients/axelar/axelar_light_client_grant_proposal.pdf",
 				Name: "Ethereum Light Client on Axelar Grant Proposal",
 			},
 		},
@@ -123,11 +123,11 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/celestia/celestia_report_private_networks.pdf",
+				Url:  "/static/clients/celestia/celestia_report_private_networks.pdf",
 				Name: "Evaluation of private networks for Celestia",
 			},
 			{
-				Url:  "/static/projects/celestia/celestia_report_selective_disclosure_attack.pdf",
+				Url:  "/static/clients/celestia/celestia_report_selective_disclosure_attack.pdf",
 				Name: "Research analysis of the selective disclosure attack in Celestia",
 			},
 		},
@@ -216,11 +216,11 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/snowfork/snowfork_beefy_client_audit.pdf",
+				Url:  "/static/clients/snowfork/snowfork_beefy_client_audit.pdf",
 				Name: "Beefy client audit",
 			},
 			{
-				Url:  "/static/projects/snowfork/snowfork_beefy_client_v2_audit.pdf",
+				Url:  "/static/clients/snowfork/snowfork_beefy_client_v2_audit.pdf",
 				Name: "Beefy client v2 audit",
 			},
 		},
@@ -247,7 +247,7 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/dcspark/milkomeda_rollup.pdf",
+				Url:  "/static/clients/dcspark/milkomeda_rollup.pdf",
 				Name: "Milkomeda Rollup report",
 			},
 		},
@@ -293,27 +293,27 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/enosys/enosys_loans_post_mortem.pdf",
+				Url:  "/static/clients/enosys/enosys_loans_post_mortem.pdf",
 				Name: "FLRLoans incident post-mortem",
 			},
 			{
-				Url:  "/static/projects/enosys/enosys_ftso_reward_manager_audit.pdf",
+				Url:  "/static/clients/enosys/enosys_ftso_reward_manager_audit.pdf",
 				Name: "FTSORewardManager smart contract audit",
 			},
 			{
-				Url:  "/static/projects/enosys/enosys_price_feed_ftso_connector_audit.pdf",
+				Url:  "/static/clients/enosys/enosys_price_feed_ftso_connector_audit.pdf",
 				Name: "PriceFeedFtsoConnector smart contract audit",
 			},
 			{
-				Url:  "/static/projects/enosys/enosys_loans_audit.pdf",
+				Url:  "/static/clients/enosys/enosys_loans_audit.pdf",
 				Name: "FLRLoans smart contract audit",
 			},
 			{
-				Url:  "/static/projects/enosys/enosys_stake_helper_audit.pdf",
+				Url:  "/static/clients/enosys/enosys_stake_helper_audit.pdf",
 				Name: "StakeHelper smart contract audit",
 			},
 			{
-				Url:  "/static/projects/enosys/enosys_stake_helper_complementary_audit.pdf",
+				Url:  "/static/clients/enosys/enosys_stake_helper_complementary_audit.pdf",
 				Name: "StakeHelper complementary smart contract audit",
 			},
 		},
@@ -360,11 +360,11 @@ var Projects []Project = []Project{
 		Team: []TeamMember{},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/bifrost/bifrost_xcm_actions_audit.pdf",
+				Url:  "/static/clients/bifrost/bifrost_xcm_actions_audit.pdf",
 				Name: "XCM Actions smart contract audit",
 			},
 			{
-				Url:  "/static/projects/bifrost/bifrost_slpx_for_astar_zkevm_audit.pdf",
+				Url:  "/static/clients/bifrost/bifrost_slpx_for_astar_zkevm_audit.pdf",
 				Name: "SLPx for Astar zkEVM smart contract audit",
 			},
 		},
@@ -385,15 +385,15 @@ var Projects []Project = []Project{
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/projects/harmony/harmony_tech_report_v2.pdf",
+				Url:  "/static/clients/harmony/harmony_tech_report_v2.pdf",
 				Name: "Tech Report v2",
 			},
 			{
-				Url:  "/static/projects/harmony/harmony_privacy_report.pdf",
+				Url:  "/static/clients/harmony/harmony_privacy_report.pdf",
 				Name: "Privacy Report",
 			},
 			{
-				Url:  "/static/projects/harmony/harmony_onewallet_security_analysis.pdf",
+				Url:  "/static/clients/harmony/harmony_onewallet_security_analysis.pdf",
 				Name: "Preliminary Security Analysis of ONEWallet",
 			},
 		},

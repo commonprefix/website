@@ -1,5 +1,12 @@
 {
 	"framework": null,
 	"outputDirectory": "public",
-	"cleanUrls": true
+	"cleanUrls": true,
+    "redirects": [
+      {
+        "source": "/projects/:path*",
+        "destination": "/clients/:path*",
+        "permanent": true
+      }
+    ]
 }

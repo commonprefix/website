@@ -493,15 +493,15 @@ footer {
   }
 }
 
-/* projects */
+/* clients */
 
-.projects {
+.clients {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
 
-a.projects__card {
+a.clients__card {
   display: flex;
   height: 120px;
   justify-content: center;
@@ -517,45 +517,45 @@ a.projects__card {
     color 0.2s;
 }
 
-.projects__card:hover {
+.clients__card:hover {
   background-color: var(--c-pink);
   color: var(--c-white);
 }
 
-.projects__card svg {
+.clients__card svg {
   width: 150px;
   max-width: 80%;
   mix-blend-mode: luminosity;
   opacity: 0.4;
 }
 
-.projects__card:hover svg {
+.clients__card:hover svg {
   mix-blend-mode: none;
   opacity: 1;
 }
 
-/* project page */
+/* client page */
 
-.project__logo {
+.client__logo {
   max-width: 180px;
   color: var(--c-gray);
   mix-blend-mode: luminosity;
 }
 
-/* next project section */
+/* next client section */
 
-.project__next-project {
+.client__next-client {
   border-top: 1px solid var(--c-beige-dark);
   padding: 40px 0;
   text-align: center;
 }
 
-.project__next-project label {
+.client__next-client label {
   display: block;
   margin-bottom: 8px;
 }
 
-.project__next-project a {
+.client__next-client a {
   text-decoration: none;
   color: var(--c-black);
   font-style: normal;
@@ -563,13 +563,13 @@ a.projects__card {
   display: inline-block;
 }
 
-.project__next-project .with-arrow::after {
+.client__next-client .with-arrow::after {
   top: -3px;
   position: relative;
 }
 
 @media (min-width: 480px) {
-  .project__next-project {
+  .client__next-client {
     text-align: left;
     padding: 40px 0 80px;
   }

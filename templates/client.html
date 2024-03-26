@@ -2,18 +2,18 @@
 {{define "content"}}
 <main>
 	<section>
-		<div class="project__logo">{{.Project.Image}}</div>
-		<h2 class="visuallyhidden">{{.Project.Name}}</h2>
-		<p>{{.Project.Body}}</p>
+		<div class="client__logo">{{.Client.Image}}</div>
+		<h2 class="visuallyhidden">{{.Client.Name}}</h2>
+		<p>{{.Client.Body}}</p>
 	</section>
 
-	{{if .Project.Findings}}
+	{{if .Client.Findings}}
 	<section>
 		<div class="findings">
 			<div>
 				<h3>Findings</h3>
 			</div>
-			{{range .Project.Findings}}
+			{{range .Client.Findings}}
 			<a download href="{{.Url}}" class="finding">
 				<div>
 					<span class="finding__name un">Download {{ .Name }}</span>
@@ -25,11 +25,11 @@
 	</section>
 	{{end}}
 
-	{{ if gt (len .Project.Team) 1 }}
+	{{ if gt (len .Client.Team) 1 }}
 	<section>
-		<h3>Team on this project</h3>
+		<h3>Team on this Client</h3>
 		<div class="team-avatars">
-			{{range .Project.Team}}
+			{{range .Client.Team}}
 			<a href="/team#{{.Handle}}">
 				<img
 					src="/static/team/{{.Image}}"
@@ -42,11 +42,11 @@
 	</section>
 	{{end}}
 
-	<div class="project__next-project">
-		<label class="label">Next Project</label>
-		<a href="/projects/{{.NextProject.Handle}}">
+	<div class="client__next-client">
+		<label class="label">Next Client</label>
+		<a href="/clients/{{.NextClient.Handle}}">
 			<h2 class="with-arrow with-arrow-pink">
-				<span>{{.NextProject.Name}}</span>
+				<span>{{.NextClient.Name}}</span>
 			</h2>
 		</a>
 	</div>
