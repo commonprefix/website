@@ -25,6 +25,7 @@ const (
 	teamTmplName     = "team.html"
 	clientTmplName  = "client.html"
 	researchTmplName = "research.html"
+	bridgesTmplName = "bridges.html"
 )
 
 const description string = "Common Prefix is a small team of scientists and software engineers offering blockchain science consulting services."
@@ -51,6 +52,7 @@ var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 		return member.Handle
 	},
 }).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
+var bridgesTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, bridgesTmplName)))
 
 // Data structures
 
@@ -217,6 +219,22 @@ func build() {
 
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
+
+	//
+	// Build bridges page
+	//
+	bridgesPage := filepath.Join(buildDir, bridgesTmplName)
+	// Remove the old version
+	os.Remove(bridgesPage)
+	// Create new file
+	f, err = os.Create(bridgesPage)
+	if err != nil {
+		log.Fatalf("can't create %s", bridgesTmplName)
+	}
+	bridgesTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: " — Bridges", Description: description})
+
+	f.Close()
+	fmt.Printf("🌉  %s sucessfully generated.\n", bridgesTmplName)
 }
 
 func main() {
