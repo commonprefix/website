@@ -19,13 +19,15 @@ const (
 	servePort = "8100"
 	tmplDir   = "./templates"
 	buildDir  = "./public"
+	blogDir   = "./blog"
 
 	layoutTmplName   = "layout.html"
 	indexTmplName    = "index.html"
 	teamTmplName     = "team.html"
-	clientTmplName  = "client.html"
+	postTmplName     = "post.html"
+	clientTmplName   = "client.html"
 	researchTmplName = "research.html"
-	bridgesTmplName = "bridges.html"
+	bridgesTmplName  = "bridges.html"
 )
 
 const description string = "Common Prefix is a small team of scientists and software engineers offering blockchain science consulting services."
@@ -53,6 +55,7 @@ var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 	},
 }).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
 var bridgesTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, bridgesTmplName)))
+var postTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, postTmplName)))
 
 // Data structures
 
@@ -219,6 +222,11 @@ func build() {
 
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
+
+	//
+	// Build blog posts
+	//
+	genBlog()
 
 	//
 	// Build bridges page

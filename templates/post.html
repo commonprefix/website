@@ -1,0 +1,27 @@
+{{define "head"}}
+{{ if .IsDraft}}<meta name="robots" content="noindex">{{end}}
+{{end}}
+{{define "content"}}
+<main class="blog-post">
+	<h1>{{ .Title }}</h1>
+	<h5 class="mono light post-date">{{ .Date }} | <a href="/team#{{.Author.Handle}}">{{.Author.Name}}</a>{{ if .IsDraft}} — DRAFT{{end}}</h5>
+	<span>{{ .ReadingTime }} minutes</span>
+
+	<div class="team-avatars">
+		<a href="/team#{{.Author.Handle}}">
+			<img
+				src="/static/team/{{.Author.ImageLow}}"
+				alt="{{.Author.Name}}"
+				title="{{.Author.Name}}"
+				width="60px"
+				height="60px"
+				data-loading
+			/>
+		</a>
+	</div>
+
+	<section class="content">
+		{{ .HTMLBody }}
+	</section>
+</main>
+{{end}}
