@@ -800,3 +800,9 @@ a.finding {
 .research__filters button {
   color: var(--c-black);
 }
+
+/* Blog */
+
+.blog-post h1 {
+  margin-bottom: 40px;
+}
