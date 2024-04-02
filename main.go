@@ -92,6 +92,7 @@ func sortTeamMembers(team []TeamMember) {
 type Finding struct {
 	Url  string
 	Name string
+	Date string // optional
 }
 
 func (f *Finding) Ext() string {
@@ -102,6 +103,7 @@ func (f *Finding) Ext() string {
 type ProjectLink struct {
 	Url  string
 	Name string
+	Date string // optional
 }
 
 func (f *ProjectLink) Ext() string {

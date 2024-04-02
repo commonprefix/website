@@ -18,6 +18,7 @@
 			<a href="{{.Url}}" class="finding">
 				<div>
 					<span class="finding__name un">{{ if .IsFile }}Download {{end}}{{ .Name }}</span>
+					{{ if .Date }}<small class="finding__date">{{.Date}}</small>{{end}}
 				</div>
 				<span class="finding__ext {{ if .IsFile }}with-arrow-down{{else}}with-arrow{{end}}">{{ if .IsFile }}.{{ .Ext }}{{end}}</span>
 			</a>
@@ -35,6 +36,7 @@
 			<a href="{{.Url}}" class="finding">
 				<div>
 					<span class="finding__name un">Download {{ .Name }}</span>
+					{{ if .Date }}<small class="finding__date">{{.Date}}</small>{{end}}
 				</div>
 				<span class="finding__ext with-arrow-down">.{{ .Ext }}</span>
 			</a>

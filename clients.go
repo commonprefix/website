@@ -97,36 +97,27 @@ var Clients []Client = []Client{
 		Projects: []Project{
 			{
 				Title: "Axelar Gateway",
-				Desc:  template.HTML(`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac purus sit amet nisl tincidunt tincidunt. Nullam nec purus nec nunc tincidunt aliquam.`),
-				Date:  "28/01/2024",
+				Desc:  template.HTML(`The Axelar Gateway Solidity smart contract is deployed to every Axelar-supported EVM chain, enabling communication between the Axelar network and the connected chain. Common Prefix was commissioned to audit two versions of the Gateway smart contract (v1 and v2.1).`),
+				// Date:  "28/01/2024",
 				Links: []ProjectLink{
-					{
-						Url:  "https://axelar.network",
-						Name: "Axelar Network",
-					},
-					{
-						Url:  "https://github.com/commonprefix/axelar-light-client",
-						Name: "Axelar Light Client Implementation",
-					},
 					{
 						Url:  "/static/clients/axelar/axelar_gateway_audit.pdf",
 						Name: "Axelar Gateway v1 smart contract audit",
+						Date: "22/11/2021",
+					},
+					{
+						Url:  "/static/clients/axelar/axelar_gateway_v2_audit.pdf",
+						Name: "Axelar Gateway v2.1 smart contract audit",
+						Date: "01/03/2022",
 					},
 				},
 			},
 		},
 		Findings: []Finding{
 			{
-				Url:  "/static/clients/axelar/axelar_gateway_audit.pdf",
-				Name: "Axelar Gateway v1 smart contract audit",
-			},
-			{
-				Url:  "/static/clients/axelar/axelar_gateway_v2_audit.pdf",
-				Name: "Axelar Gateway v2.1 smart contract audit",
-			},
-			{
 				Url:  "/static/clients/axelar/axelar_light_client_grant_proposal.pdf",
 				Name: "Ethereum Light Client on Axelar Grant Proposal",
+				Date: "01/05/2023",
 			},
 		},
 	},

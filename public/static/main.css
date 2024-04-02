@@ -595,6 +595,11 @@ a.finding {
   margin-right: 8px;
 }
 
+.finding__date {
+  display: block;
+  color: var(--c-black);
+}
+
 .finding__ext {
   margin-left: auto;
   color: var(--c-black);
