@@ -1,0 +1,41 @@
+{{define "head"}}
+{{ if .IsDraft}}<meta name="robots" content="noindex">{{end}}
+<link href="/static/prism.css" rel="stylesheet" />
+{{end}}
+{{define "content"}}
+<main class="blog-post">
+	<h1>{{ .Title }}</h1>
+	<h5 class="mono light blog-post__date">{{ .Date }}{{ if .IsDraft}} — DRAFT{{end}}<br />
+		{{range .Authors}}
+		<div class="blog-post__authors">
+		<a href="/team#{{.Handle}}">{{.Name}}</a>
+		{{end}}
+	</h5>
+	<h5>Reading time: {{ .ReadingTime }} minutes</h5>
+
+	<!-- <div class="team-avatars">
+		{{range .Authors}}
+		<a href="/team#{{.Handle}}">
+			<img
+				src="/static/team/{{.ImageLow}}"
+				alt="{{.Name}}"
+				title="{{.Name}}"
+				width="60px"
+				height="60px"
+				data-loading
+			/>
+		</a>
+		{{end}}
+	</div> -->
+
+	<section class="content">
+		{{ .HTMLBody }}
+	</section>
+
+	<script
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+	  type="text/javascript">
+	</script>
+	<script src="/static/prism.js"></script>
+</main>
+{{end}}

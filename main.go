@@ -19,13 +19,15 @@ const (
 	servePort = "8100"
 	tmplDir   = "./templates"
 	buildDir  = "./public"
+	blogDir   = "./blog"
 
 	layoutTmplName   = "layout.html"
 	indexTmplName    = "index.html"
 	teamTmplName     = "team.html"
-	clientTmplName  = "client.html"
+	postTmplName     = "post.html"
+	clientTmplName   = "client.html"
 	researchTmplName = "research.html"
-	bridgesTmplName = "bridges.html"
+	bridgesTmplName  = "bridges.html"
 )
 
 const description string = "Common Prefix is a small team of scientists and software engineers offering blockchain science consulting services."
@@ -53,6 +55,7 @@ var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 	},
 }).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
 var bridgesTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, bridgesTmplName)))
+var postTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, postTmplName)))
 
 // Data structures
 
@@ -68,6 +71,20 @@ type TeamMember struct {
 func (m *TeamMember) ImageLow() string {
 	bits := strings.Split(m.Image, ".")
 	return fmt.Sprintf("%s_w150.%s", bits[0], bits[1])
+}
+
+func sortTeamMembers(team []TeamMember) {
+	sort.Slice(team, func(i, j int) bool {
+		lastname := func(n string) string {
+			n = strings.TrimPrefix(n, "Prof. ")
+			n = strings.TrimPrefix(n, "Dr. ")
+			n = strings.Split(n, " ")[1]
+			return n
+		}
+		n1 := lastname(team[i].Name)
+		n2 := lastname(team[j].Name)
+		return n1 < n2
+	})
 }
 
 type Finding struct {
@@ -221,6 +238,11 @@ func build() {
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
 
 	//
+	// Build blog posts
+	//
+	genBlog()
+
+	//
 	// Build bridges page
 	//
 	bridgesPage := filepath.Join(buildDir, bridgesTmplName)
@@ -242,18 +264,7 @@ func main() {
 	for _, m := range Members {
 		team = append(team, m)
 	}
-	// sort team members
-	sort.Slice(team, func(i, j int) bool {
-		lastname := func(n string) string {
-			n = strings.TrimPrefix(n, "Prof. ")
-			n = strings.TrimPrefix(n, "Dr. ")
-			n = strings.Split(n, " ")[1]
-			return n
-		}
-		n1 := lastname(team[i].Name)
-		n2 := lastname(team[j].Name)
-		return n1 < n2
-	})
+	sortTeamMembers(team)
 
 	serve := flag.Bool("serve", false, "serve mode")
 	port := flag.String("p", servePort, "port to serve on")
