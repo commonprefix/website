@@ -8,12 +8,12 @@
 		<title>Common Prefix{{if .Title}} — {{.Title}}{{end}}</title>
 		<meta name="description" content="{{.Description}}" />
 
-		<meta property="og:title" content="Common Prefix{{.Title}}">
+		<meta property="og:title" content="Common Prefix{{if .Title}} — {{.Title}}{{end}}">
 		<meta property="og:description" content="{{.Description}}">
 		<meta property="og:url" content="https://commonprefix.com/">
 		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
 
-		<meta name="twitter:title" content="Common Prefix{{.Title}}">
+		<meta name="twitter:title" content="Common Prefix{{if .Title}} — {{.Title}}{{end}}">
 		<meta name="twitter:description" content="{{.Description}}">
 		<meta property="twitter:url" content="https://commonprefix.com/">
 		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
