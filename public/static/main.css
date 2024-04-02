@@ -806,3 +806,9 @@ a.finding {
 .blog-post h1 {
   margin-bottom: 40px;
 }
+
+.blog-post__authors {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

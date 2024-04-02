@@ -73,6 +73,20 @@ func (m *TeamMember) ImageLow() string {
 	return fmt.Sprintf("%s_w150.%s", bits[0], bits[1])
 }
 
+func sortTeamMembers(team []TeamMember) {
+	sort.Slice(team, func(i, j int) bool {
+		lastname := func(n string) string {
+			n = strings.TrimPrefix(n, "Prof. ")
+			n = strings.TrimPrefix(n, "Dr. ")
+			n = strings.Split(n, " ")[1]
+			return n
+		}
+		n1 := lastname(team[i].Name)
+		n2 := lastname(team[j].Name)
+		return n1 < n2
+	})
+}
+
 type Finding struct {
 	Url  string
 	Name string
@@ -250,18 +264,7 @@ func main() {
 	for _, m := range Members {
 		team = append(team, m)
 	}
-	// sort team members
-	sort.Slice(team, func(i, j int) bool {
-		lastname := func(n string) string {
-			n = strings.TrimPrefix(n, "Prof. ")
-			n = strings.TrimPrefix(n, "Dr. ")
-			n = strings.Split(n, " ")[1]
-			return n
-		}
-		n1 := lastname(team[i].Name)
-		n2 := lastname(team[j].Name)
-		return n1 < n2
-	})
+	sortTeamMembers(team)
 
 	serve := flag.Bool("serve", false, "serve mode")
 	port := flag.String("p", servePort, "port to serve on")

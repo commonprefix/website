@@ -40,6 +40,7 @@
 
 		
 <meta name="robots" content="noindex">
+<link href="/static/prism.css" rel="stylesheet" />
 
 	</head>
 	<body>
@@ -71,26 +72,21 @@
 					
 <main class="blog-post">
 	<h1>Test Blog Post</h1>
-	<h5 class="mono light post-date">28/03/2024 | <a href="/team#nikolas">Nikolaos Kamarinakis</a> — DRAFT</h5>
-	<span>2 minutes</span>
+	<h5 class="mono light blog-post__date">28/03/2024 — DRAFT<br />
+		
+		<div class="blog-post__authors">
+		<a href="/team#nikolas">Nikolaos Kamarinakis</a>
+		
+		<div class="blog-post__authors">
+		<a href="/team#dionysis">Dr. Dionysis Zindros</a>
+		
+	</h5>
+	<h5>Reading time: 2 minutes</h5>
 
-	<div class="team-avatars">
-		<a href="/team#nikolas">
-			<img
-				src="/static/team/nikolaos_kamarinakis_w150.jpg"
-				alt="Nikolaos Kamarinakis"
-				title="Nikolaos Kamarinakis"
-				width="60px"
-				height="60px"
-				data-loading
-			/>
-		</a>
-	</div>
+	
 
 	<section class="content">
-		<h1 id="h1-heading-8">h1 Heading 8-)</h1>
-
-<h2 id="h2-heading">h2 Heading</h2>
+		<h2 id="h2-heading">h2 Heading</h2>
 
 <h3 id="h3-heading">h3 Heading</h3>
 
@@ -206,7 +202,7 @@ line 3 of code
 
 <p>Syntax highlighting</p>
 
-<pre><code class="language-js">var foo = function (bar) {
+<pre><code class="language-ts">var foo = function (bar) {
   return bar++;
 };
 
@@ -363,15 +359,56 @@ with lazy continuation.</p></dd>
 
 <p>It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxHTMLyyy&rdquo; and so on.</p>
 
-<p>*[HTML]: Hyper Text Markup Language</p>
-
-<h3 id="custom-containers-https-github-com-markdown-it-markdown-it-container"><a href="https://github.com/markdown-it/markdown-it-container" target="_blank">Custom containers</a></h3>
-
-<p>::: warning
+<dl>
+<dt>*[HTML]: Hyper Text Markup Language</dt>
+<dt>::: warning
 <em>here be dragons</em>
-:::</p>
+:::</dt>
+</dl>
+<p><span class="math display">\[
+y = ax^2 + bx + c
+\]</span></p><p>This is an inline equation: <span class="math inline">\(V_{sphere} = \frac{4}{3}\pi r^3\)</span>,<br>
+followed by a display style equation:</p>
+<p><span class="math display">\[V_{sphere} = \frac{4}{3}\pi r^3\]</span></p><p>Here is a simple Rust code:</p>
+
+<pre><code class="language-rust">unsafe {
+    let b = [13u8, 17u8];
+    let a = &amp;b[0] as *const u8;
+    assert_eq!(*a, 13);
+    assert_eq!(*a.offset(1), 17);
+}
+
+let a = unsafe { an_unsafe_fn() };
+</code></pre>
+
+<p>Here is a simple Solidity contract:</p>
+
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+contract Gas {
+    uint256 public i = 0;
+
+    // Using up all of the gas that you send causes your transaction to fail.
+    // State changes are undone.
+    // Gas spent are not refunded.
+    function forever() public {
+        // Here we run a loop until all of the gas are spent
+        // and the transaction fails
+        while (true) {
+            i += 1;
+        }
+    }
+}
+</code></pre>
 
 	</section>
+
+	<script
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+	  type="text/javascript">
+	</script>
+	<script src="/static/prism.js"></script>
 </main>
 
 

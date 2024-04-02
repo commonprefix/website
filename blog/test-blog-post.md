@@ -2,11 +2,9 @@
 title: "Test Blog Post"
 date: "28/03/2024"
 desc: "This is a test blog post."
-author: "nikolas"
+authors: "nikolas,dionysis"
 draft: true
 ---
-
-# h1 Heading 8-)
 
 ## h2 Heading
 
@@ -103,7 +101,7 @@ Sample text here...
 
 Syntax highlighting
 
-```js
+```ts
 var foo = function (bar) {
   return bar++;
 };
@@ -222,8 +220,50 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
 
 \*[HTML]: Hyper Text Markup Language
 
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
 ::: warning
 _here be dragons_
 :::
+
+$$
+y = ax^2 + bx + c
+$$
+
+This is an inline equation: $V_{sphere} = \frac{4}{3}\pi r^3$,<br>
+followed by a display style equation:
+
+$$V_{sphere} = \frac{4}{3}\pi r^3$$
+
+Here is a simple Rust code:
+
+```rust
+unsafe {
+    let b = [13u8, 17u8];
+    let a = &b[0] as *const u8;
+    assert_eq!(*a, 13);
+    assert_eq!(*a.offset(1), 17);
+}
+
+let a = unsafe { an_unsafe_fn() };
+```
+
+Here is a simple Solidity contract:
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+contract Gas {
+    uint256 public i = 0;
+
+    // Using up all of the gas that you send causes your transaction to fail.
+    // State changes are undone.
+    // Gas spent are not refunded.
+    function forever() public {
+        // Here we run a loop until all of the gas are spent
+        // and the transaction fails
+        while (true) {
+            i += 1;
+        }
+    }
+}
+```

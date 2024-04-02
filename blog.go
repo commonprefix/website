@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 	"time"
 
@@ -25,12 +26,12 @@ type Post struct {
 	SmallContainer bool
 	Slug           string
 	WordCount      int
-	ReadingTime    int        // in minutes
-	Title          string     `yaml:"title"`
-	AuthorHandle   string     `yaml:"author"`
-	Author         TeamMember `yaml:"ignore"`
-	IsDraft        bool       `yaml:"draft"`
-	Date           string     `yaml:"date"`
+	ReadingTime    int          // in minutes
+	Title          string       `yaml:"title"`
+	AuthorHandles  string       `yaml:"authors"`
+	Authors        []TeamMember `yaml:"ignore"`
+	IsDraft        bool         `yaml:"draft"`
+	Date           string       `yaml:"date"`
 	DateTime       time.Time
 	Description    string `yaml:"desc"`
 	DescBody       template.HTML
@@ -87,20 +88,19 @@ func newPost(fn string) (*Post, error) {
 	}
 
 	// Get author by handle
-	var author TeamMember
+	authors := []TeamMember{}
+	handles := strings.Split(p.AuthorHandles, ",")
 	for _, member := range Members {
-		if member.Handle == p.AuthorHandle {
-			author = member
+		if slices.Contains(handles, member.Handle) {
+			authors = append(authors, member)
 		}
 	}
-	if author.Handle == "" {
-		return nil, fmt.Errorf("Author not found: %s", p.AuthorHandle)
-	}
-	p.Author = author
+	sortTeamMembers(authors)
+	p.Authors = authors
 
 	p.DescBody = template.HTML(p.Description)
 	// parser
-	extensions := parser.CommonExtensions | parser.AutoHeadingIDs
+	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.MathJax
 	parser := parser.NewWithExtensions(extensions)
 	// renderer
 	htmlFlags := html.CommonFlags | html.HrefTargetBlank
