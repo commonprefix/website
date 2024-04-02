@@ -595,6 +595,11 @@ a.finding {
   margin-right: 8px;
 }
 
+.finding__date {
+  display: block;
+  color: var(--c-black);
+}
+
 .finding__ext {
   margin-left: auto;
   color: var(--c-black);
@@ -605,12 +610,17 @@ a.finding {
   flex-shrink: 0;
 }
 
-.finding .with-arrow-down:after {
+.finding .with-arrow-down:after,
+.finding .with-arrow:after {
   transition: transform 0.3s;
 }
 
 .finding:hover .with-arrow-down:after {
   transform: translateY(4px);
+}
+
+.finding:hover .with-arrow:after {
+  transform: translateX(4px);
 }
 
 @media (min-width: 480px) {
@@ -620,6 +630,9 @@ a.finding {
   }
   .findings > div {
     padding: 16px 0;
+  }
+  .findings p {
+    margin: 24px 0 8px;
   }
   a.finding {
     padding: 16px 0;

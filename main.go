@@ -6,10 +6,12 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/microcosm-cc/bluemonday"
 	"golang.org/x/exp/slices"
@@ -90,6 +92,7 @@ func sortTeamMembers(team []TeamMember) {
 type Finding struct {
 	Url  string
 	Name string
+	Date string // optional
 }
 
 func (f *Finding) Ext() string {
@@ -97,11 +100,38 @@ func (f *Finding) Ext() string {
 	return bits[len(bits)-1]
 }
 
+type ProjectLink struct {
+	Url  string
+	Name string
+	Date string // optional
+}
+
+func (f *ProjectLink) Ext() string {
+	bits := strings.Split(f.Url, ".")
+	return bits[len(bits)-1]
+}
+
+func (f *ProjectLink) IsFile() bool {
+	// primitive check
+	u, _ := url.Parse(f.Url)
+	return strings.Contains(u.Path, ".")
+}
+
+type Project struct {
+	Title    string
+	Desc     template.HTML
+	Date     string // example 28/03/2024
+	DateTime time.Time
+	Findings []Finding
+	Links    []ProjectLink
+}
+
 type Client struct {
 	Handle   string
 	Name     string
 	Body     template.HTML
 	Image    template.HTML
+	Projects []Project
 	Findings []Finding
 	Team     []TeamMember
 }
