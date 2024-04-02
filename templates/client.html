@@ -6,7 +6,25 @@
 		<h2 class="visuallyhidden">{{.Client.Name}}</h2>
 		<p>{{.Client.Body}}</p>
 	</section>
-
+	{{ range .Client.Projects }}
+	<section>
+		<div class="findings">
+			<div>
+				<h3>{{ .Title }}</h3>
+				{{ if .Date }}<small>{{.Date}}</small>{{end}}
+				{{ if .Desc }}<p>{{.Desc}}</p>{{end}}
+			</div>
+			{{range .Links}}
+			<a href="{{.Url}}" class="finding">
+				<div>
+					<span class="finding__name un">{{ if .IsFile }}Download {{end}}{{ .Name }}</span>
+				</div>
+				<span class="finding__ext {{ if .IsFile }}with-arrow-down{{else}}with-arrow{{end}}">{{ if .IsFile }}.{{ .Ext }}{{end}}</span>
+			</a>
+			{{end}}
+		</div>
+	</section>
+	{{end}}
 	{{if .Client.Findings}}
 	<section>
 		<div class="findings">

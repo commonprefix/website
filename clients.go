@@ -94,6 +94,27 @@ var Clients []Client = []Client{
 		Team: []TeamMember{
 			Members["dionysis"],
 		},
+		Projects: []Project{
+			{
+				Title: "Axelar Gateway",
+				Desc:  template.HTML(`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac purus sit amet nisl tincidunt tincidunt. Nullam nec purus nec nunc tincidunt aliquam.`),
+				Date:  "28/01/2024",
+				Links: []ProjectLink{
+					{
+						Url:  "https://axelar.network",
+						Name: "Axelar Network",
+					},
+					{
+						Url:  "https://github.com/commonprefix/axelar-light-client",
+						Name: "Axelar Light Client Implementation",
+					},
+					{
+						Url:  "/static/clients/axelar/axelar_gateway_audit.pdf",
+						Name: "Axelar Gateway v1 smart contract audit",
+					},
+				},
+			},
+		},
 		Findings: []Finding{
 			{
 				Url:  "/static/clients/axelar/axelar_gateway_audit.pdf",
