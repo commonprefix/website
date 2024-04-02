@@ -208,7 +208,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", teamTmplName)
 	}
-	teamTmpl.ExecuteTemplate(f, "base", Page{Title: " — Team", Members: team, Description: description, Clients: Clients})
+	teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Clients: Clients})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", teamTmplName)
 
@@ -230,7 +230,7 @@ func build() {
 			log.Fatal("can't create clients/" + p.Handle + ".html")
 		}
 
-		clientTmpl.ExecuteTemplate(f, "base", ClientPage{SmallContainer: true, Title: " — " + p.Name, Description: htmlToFormattedString(p.Body), Client: p, NextClient: nextP})
+		clientTmpl.ExecuteTemplate(f, "base", ClientPage{SmallContainer: true, Title: p.Name, Description: htmlToFormattedString(p.Body), Client: p, NextClient: nextP})
 		f.Close()
 		fmt.Printf("📖  clients/%s.html sucessfully generated.\n", p.Handle)
 	}
@@ -254,7 +254,7 @@ func build() {
 	// 		}
 	// 	}
 	// }
-	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: " — Research",
+	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: "Research",
 		Description: description,
 		Research: Research{ResearchPapers: ResearchPapers,
 			TagToColor: TagToColor,
@@ -283,7 +283,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", bridgesTmplName)
 	}
-	bridgesTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: " — Bridges", Description: description})
+	bridgesTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "Bridges", Description: description})
 
 	f.Close()
 	fmt.Printf("🌉  %s sucessfully generated.\n", bridgesTmplName)
