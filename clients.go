@@ -96,7 +96,7 @@ var Clients []Client = []Client{
 		},
 		Projects: []Project{
 			{
-				Title: "Axelar Gateway",
+				Title: "Axelar Gateway audit",
 				Desc:  template.HTML(`The Axelar Gateway Solidity smart contract is deployed to every Axelar-supported EVM chain, enabling communication between the Axelar network and the connected chain. Common Prefix was commissioned to audit two versions of the Gateway smart contract (v1 and v2.1).`),
 				// Date:  "28/01/2024",
 				Links: []ProjectLink{
