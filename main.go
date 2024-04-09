@@ -149,6 +149,9 @@ type ResearchPaper struct {
 type Research struct {
 	ResearchPapers []ResearchPaper
 	TagToColor     map[Tag]string
+	AllAuthors     []string
+	AllTags        []Tag
+	AllConferences []string
 }
 
 type Page struct {
@@ -254,10 +257,38 @@ func build() {
 	// 		}
 	// 	}
 	// }
+	allAuthors := []string{}
+	for _, r := range ResearchPapers {
+		for _, a := range r.Authors {
+			if !slices.Contains(allAuthors, a) {
+				allAuthors = append(allAuthors, a)
+			}
+		}
+	}
+
+	allTags := []Tag{}
+	for _, r := range ResearchPapers {
+		for _, t := range r.Tags {
+			if !slices.Contains(allTags, t) {
+				allTags = append(allTags, t)
+			}
+		}
+	}
+
+	allConferences := []string{}
+	for _, r := range ResearchPapers {
+		if !slices.Contains(allConferences, r.Conference) {
+			allConferences = append(allConferences, r.Conference)
+		}
+	}
+
 	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: "Research",
 		Description: description,
 		Research: Research{ResearchPapers: ResearchPapers,
-			TagToColor: TagToColor,
+			TagToColor:     TagToColor,
+			AllAuthors:     allAuthors,
+			AllTags:        allTags,
+			AllConferences: allConferences,
 		}})
 	if err != nil {
 		log.Println(err)

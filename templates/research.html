@@ -24,16 +24,25 @@
 				<span>Author</span>
 				<span hidden class="value"></span>
 				<button hidden title="Clear this filter.">x</button>
+				<div class="dropdown" hidden>
+					{{range .Research.AllAuthors}}<button title="Filter by this author.">{{.}}</button>{{end}}
+				</div>
 			</div>
 			<div class="filter" data-filter="conference">
 				<span>Conference</span>
 				<span hidden class="value"></span>
 				<button hidden title="Clear this filter.">x</button>
+				<div class="dropdown" hidden style="width:100vw;max-width:450px;">
+					{{range .Research.AllConferences}}<button title="Filter by this conference.">{{.}}</button>{{end}}
+				</div>
 			</div>
 			<div class="filter" data-filter="tag">
 				<span>Tag</span>
 				<span hidden class="value"></span>
 				<button hidden title="Clear this filter.">x</button>
+				<div class="dropdown" hidden>
+					{{range .Research.AllTags}}<button title="Filter by this tag.">{{.}}</button>{{end}}
+				</div>
 			</div>
 			<button class="clear-all" hidden>Clear all filters</button>
 		</div>
@@ -75,8 +84,13 @@ const filters = {
 	tag: [],
 }
 
+let dropdownShown = ''
+
 const filterElements = document.querySelectorAll('.filter')
 const clearAllBtn = document.querySelectorAll('button.clear-all')
+
+const tags = document.querySelectorAll('.tags > button');
+const papers = document.querySelectorAll('.paper__card');
 
 function render() {
 	// Show/hide papers based on filters
@@ -110,10 +124,56 @@ function render() {
 	// Show clear all filters button
 	const hasFilters = Object.values(filters).some(f => f.length > 0)
 	document.querySelector('button.clear-all').hidden = !hasFilters
+
+	// Show/hide dropdowns
+	document.querySelectorAll('.dropdown').forEach(d => {
+		d.hidden = d.parentElement.dataset.filter !== dropdownShown
+	})
+
+	// Highlight dropdown values
+	document.querySelectorAll('.dropdown button').forEach(b => {
+		const filterName = b.parentElement.parentElement.dataset.filter
+		let active = false
+		if(filterName === 'conference') {
+			active = filters[filterName] === b.innerText
+		} else {
+			active = filters[filterName].includes(b.innerText)
+		}
+		b.classList.toggle('active', active)
+	})
 }
 
-// Clear filters on click
+function handleTagClick(e) {
+	const tag = e.target.innerText
+	if(filters.tag.includes(tag)) {
+		filters.tag = filters.tag.filter(t => t !== tag)
+	} else {
+		filters.tag.push(tag)
+	}
+	render()
+}
+
+function handleAuthorClick(e) {
+	const author = e.target.innerText
+	if(filters.author.includes(author)) {
+		filters.author = filters.author.filter(a => a !== author)
+	} else {
+		filters.author.push(author)
+	}
+	render()
+}
+
 filterElements.forEach(f => {
+	// Show dropdowns on click
+	f.addEventListener('click', e => {
+		if(['span', 'div'].includes(event.target.localName)) {
+			dropdownShown = f.dataset.filter
+			render()
+		}
+	})
+
+
+	// Clear filters on click
 	f.querySelector('button').addEventListener('click', e => {
 		const filterName = f.dataset.filter
 		if(filterName === 'conference') {
@@ -121,6 +181,7 @@ filterElements.forEach(f => {
 		} else {
 			filters[filterName] = []
 		}
+		dropdownShown = ''
 		render()
 	})
 })
@@ -140,34 +201,51 @@ clearAllBtn.forEach(c => {
 	})
 })
 
-const tags = document.querySelectorAll('.tags > button');
-const papers = document.querySelectorAll('.paper__card');
-
 // Attach tag filters
 tags.forEach(t => {
 	t.addEventListener('click', e => {
-		const tag = e.target.innerText
-		if(filters.tag.includes(tag)) {
-			filters.tag = filters.tag.filter(t => t !== tag)
-		} else {
-			filters.tag.push(tag)
-		}
-		render()
+		handleTagClick(e)
 	})
 })
 
+// Dropdowns
+document.querySelectorAll('[data-filter=author] .dropdown button').forEach(b => {
+	b.addEventListener('click', e => {
+		dropdownShown = ''
+		handleAuthorClick(e)
+	})
+})
+document.querySelectorAll('[data-filter=conference] .dropdown button').forEach(b => {
+	b.addEventListener('click', e => {
+		dropdownShown = ''
+		filters.conference = e.target.innerText
+		render()
+	})
+})
+document.querySelectorAll('[data-filter=tag] .dropdown button').forEach(b => {
+	b.addEventListener('click', e => {
+		dropdownShown = ''
+		handleTagClick(e)
+	})
+})
+
+// Hide dropdowns on outside click
+document.addEventListener('click', function(event) {
+	if(dropdownShown) {
+		const filterEl = document.querySelector(`.filter[data-filter="${dropdownShown}"]`)
+		const outsideClick = !filterEl.contains(event.target);
+		if(outsideClick) {
+			dropdownShown = ''
+			render()
+		}
+	}
+});
+
+// Papers
 papers.forEach(p => {
 	// Attach author filters
 	p.querySelectorAll('.authors > span').forEach(a => {
-		a.addEventListener('click', e => {
-			const author = e.target.innerText
-			if(filters.author.includes(author)) {
-				filters.author = filters.author.filter(a => a !== author)
-			} else {
-				filters.author.push(author)
-			}
-			render()
-		})
+		a.addEventListener('click', handleAuthorClick)
 	})
 
 	// Attach conference filters
