@@ -795,6 +795,7 @@ a.finding {
   border-radius: 4px;
   overflow-y: auto;
   padding: 6px 10px;
+  z-index: 10;
 }
 
 .research__filters .filter .dropdown button {
@@ -806,6 +807,7 @@ a.finding {
   text-align: left;
   text-overflow: ellipsis;
   width: 100%;
+  font-size: 14px;
 }
 
 .research__filters .filter .dropdown button.active {

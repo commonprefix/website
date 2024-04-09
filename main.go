@@ -89,6 +89,20 @@ func sortTeamMembers(team []TeamMember) {
 	})
 }
 
+func sortNames(names []string) {
+	sort.Slice(names, func(i, j int) bool {
+		lastname := func(n string) string {
+			n = strings.TrimPrefix(n, "Prof. ")
+			n = strings.TrimPrefix(n, "Dr. ")
+			n = strings.Split(n, " ")[1]
+			return n
+		}
+		n1 := lastname(names[i])
+		n2 := lastname(names[j])
+		return n1 < n2
+	})
+}
+
 type Finding struct {
 	Url  string
 	Name string
@@ -265,6 +279,7 @@ func build() {
 			}
 		}
 	}
+	sortNames(allAuthors)
 
 	allTags := []Tag{}
 	for _, r := range ResearchPapers {
