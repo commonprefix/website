@@ -89,20 +89,6 @@ func sortTeamMembers(team []TeamMember) {
 	})
 }
 
-func sortNames(names []string) {
-	sort.Slice(names, func(i, j int) bool {
-		lastname := func(n string) string {
-			n = strings.TrimPrefix(n, "Prof. ")
-			n = strings.TrimPrefix(n, "Dr. ")
-			n = strings.Split(n, " ")[1]
-			return n
-		}
-		n1 := lastname(names[i])
-		n2 := lastname(names[j])
-		return n1 < n2
-	})
-}
-
 type Finding struct {
 	Url  string
 	Name string
@@ -263,23 +249,18 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", researchTmplName)
 	}
-	// for _, r := range Research {
-	// 	Authors = ``
-	// 	for _, a := range r.Authors {
-	// 		if Slice.Contains(team, a) {
-	// 			Authors += `<a href="/team#` + a.Handle + `>` + a.Name + `</a>, `
-	// 		}
-	// 	}
-	// }
+
 	allAuthors := []string{}
-	for _, r := range ResearchPapers {
-		for _, a := range r.Authors {
-			if !slices.Contains(allAuthors, a) {
-				allAuthors = append(allAuthors, a)
+	for _, tm := range team {
+		for _, r := range ResearchPapers {
+			name := tm.Name
+			name = strings.TrimPrefix(name, "Prof. ")
+			name = strings.TrimPrefix(name, "Dr. ")
+			if slices.Contains(r.Authors, name) && !slices.Contains(allAuthors, name) {
+				allAuthors = append(allAuthors, name)
 			}
 		}
 	}
-	sortNames(allAuthors)
 
 	allTags := []Tag{}
 	for _, r := range ResearchPapers {

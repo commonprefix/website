@@ -80,7 +80,7 @@
 <script>
 const filters = {
 	author: [],
-	conference: '',
+	conference: [],
 	tag: [],
 }
 
@@ -99,8 +99,9 @@ function render() {
 		if(filters.tag.length > 0) {
 			hidden = !filters.tag.every(t => p.querySelector(`.${t}`))
 		}
-		if(filters.conference) {
-			hidden = hidden || p.querySelector('.conference').dataset.conf !== filters.conference
+		if(filters.conference.length > 0) {
+			const hasConferece = filters.conference.includes(p.querySelector('.conference').dataset.conf)
+			hidden = hidden || !hasConferece
 		}
 		if(filters.author) {
 			const hasAuthors = filters.author.every(author => Array.from(p.querySelectorAll('.authors > span')).find(a => a.innerText === author))
@@ -118,7 +119,8 @@ function render() {
 		const discard = f.querySelector('button')
 		el.hidden = value.length === 0
 		discard.hidden = value.length === 0
-		el.innerText = Array.isArray(value) ? value.join(', ') : value
+		el.innerHTML = (Array.isArray(value) ? value : [value]).map(v => `<span>${v}</span>`).join('')
+		// el.innerText = Array.isArray(value) ? value.join(', ') : value
 	})
 
 	// Show clear all filters button
@@ -142,11 +144,7 @@ function render() {
 	document.querySelectorAll('.dropdown button').forEach(b => {
 		const filterName = b.parentElement.parentElement.dataset.filter
 		let active = false
-		if(filterName === 'conference') {
-			active = filters[filterName] === b.innerText
-		} else {
-			active = filters[filterName].includes(b.innerText)
-		}
+		active = filters[filterName].includes(b.innerText)
 		b.classList.toggle('active', active)
 	})
 }
@@ -170,6 +168,15 @@ function handleAuthorClick(e) {
 	}
 	render()
 }
+function handleConferenceClick(e) {
+	const value = e.target.innerText
+	if(filters.conference.includes(value)) {
+		filters.conference = filters.conference.filter(a => a !== value)
+	} else {
+		filters.conference.push(value)
+	}
+	render()
+}
 
 filterElements.forEach(f => {
 	// Show dropdowns on click
@@ -184,11 +191,7 @@ filterElements.forEach(f => {
 	// Clear filters on click
 	f.querySelector('button').addEventListener('click', e => {
 		const filterName = f.dataset.filter
-		if(filterName === 'conference') {
-			filters[filterName] = ''
-		} else {
-			filters[filterName] = []
-		}
+		filters[filterName] = []
 		dropdownShown = ''
 		render()
 	})
@@ -199,11 +202,7 @@ clearAllBtn.forEach(c => {
 	c.addEventListener('click', e => {
 		Object.keys(filters).forEach(k => {
 			// reset filters
-			if(k === 'conference') {
-				filters[k] = ''
-			} else {
-				filters[k] = []
-			}
+			filters[k] = []
 		})
 		render()
 	})
@@ -226,8 +225,7 @@ document.querySelectorAll('[data-filter=author] .dropdown button').forEach(b => 
 document.querySelectorAll('[data-filter=conference] .dropdown button').forEach(b => {
 	b.addEventListener('click', e => {
 		dropdownShown = ''
-		filters.conference = e.target.innerText
-		render()
+		handleConferenceClick(e)
 	})
 })
 document.querySelectorAll('[data-filter=tag] .dropdown button').forEach(b => {
