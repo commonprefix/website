@@ -149,6 +149,9 @@ type ResearchPaper struct {
 type Research struct {
 	ResearchPapers []ResearchPaper
 	TagToColor     map[Tag]string
+	AllAuthors     []string
+	AllTags        []Tag
+	AllConferences []string
 }
 
 type Page struct {
@@ -246,18 +249,42 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", researchTmplName)
 	}
-	// for _, r := range Research {
-	// 	Authors = ``
-	// 	for _, a := range r.Authors {
-	// 		if Slice.Contains(team, a) {
-	// 			Authors += `<a href="/team#` + a.Handle + `>` + a.Name + `</a>, `
-	// 		}
-	// 	}
-	// }
+
+	allAuthors := []string{}
+	for _, tm := range team {
+		for _, r := range ResearchPapers {
+			name := tm.Name
+			name = strings.TrimPrefix(name, "Prof. ")
+			name = strings.TrimPrefix(name, "Dr. ")
+			if slices.Contains(r.Authors, name) && !slices.Contains(allAuthors, name) {
+				allAuthors = append(allAuthors, name)
+			}
+		}
+	}
+
+	allTags := []Tag{}
+	for _, r := range ResearchPapers {
+		for _, t := range r.Tags {
+			if !slices.Contains(allTags, t) {
+				allTags = append(allTags, t)
+			}
+		}
+	}
+
+	allConferences := []string{}
+	for _, r := range ResearchPapers {
+		if !slices.Contains(allConferences, r.Conference) {
+			allConferences = append(allConferences, r.Conference)
+		}
+	}
+
 	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: "Research",
 		Description: description,
 		Research: Research{ResearchPapers: ResearchPapers,
-			TagToColor: TagToColor,
+			TagToColor:     TagToColor,
+			AllAuthors:     allAuthors,
+			AllTags:        allTags,
+			AllConferences: allConferences,
 		}})
 	if err != nil {
 		log.Println(err)

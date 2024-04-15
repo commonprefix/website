@@ -780,9 +780,44 @@ a.finding {
   display: inline-flex;
   gap: 8px;
   align-items: center;
+  position: relative;
+  cursor: pointer;
 }
 
-.research__filters .value {
+.research__filters .filter .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 280px;
+  height: 188px;
+  background: var(--c-beige);
+  margin-top: 6px;
+  border-radius: 4px;
+  overflow-y: auto;
+  padding: 6px 10px;
+  z-index: 10;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.research__filters .filter .dropdown button {
+  display: block;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 100%;
+  font-size: 14px;
+}
+
+.research__filters .filter .dropdown button.active {
+  font-weight: bold;
+}
+
+.research__filters .value span {
   color: var(--c-beige-dark);
   background-color: var(--c-gray);
   padding: 2px 8px;
@@ -793,6 +828,14 @@ a.finding {
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: 0.3px;
+  margin-right: 2px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.research__filters .value span:last-child {
+  margin-right: 0;
 }
 
 .research__filters button {
