@@ -44,6 +44,14 @@
 					{{range .Research.AllTags}}<button title="Filter by this tag.">{{.}}</button>{{end}}
 				</div>
 			</div>
+			<div class="filter" data-filter="year">
+				<span>Year</span>
+				<span hidden class="value"></span>
+				<button hidden title="Clear this filter.">x</button>
+				<div class="dropdown" hidden>
+					{{range .Research.AllYears}}<button title="Filter by this year.">{{.}}</button>{{end}}
+				</div>
+			</div>
 			<button class="clear-all" hidden>Clear all filters</button>
 		</div>
 	</section>
@@ -63,7 +71,7 @@
 							<sup title="View {{.}}'s profile.">❖</sup></a>{{end}}{{if ne $index (sub $length 1)}}, {{end}}
 					{{end}}
 				</h2>
-				<h3 class="conference" data-conf="{{.Conference}}" title="Filter by this conference.">{{.Conference}}<span> {{if .ConferenceYear}}{{.ConferenceYear}}{{end}}</h3>
+				<h3 class="conference" data-conf="{{.Conference}}" data-conf-year={{.ConferenceYear}} title="Filter by this conference.">{{.Conference}}<span> {{if .ConferenceYear}}{{.ConferenceYear}}{{end}}</h3>
                 {{if .Tags}}
 					<ul class="tags">
 						{{range .Tags}}
@@ -82,6 +90,13 @@ const filters = {
 	author: [],
 	conference: [],
 	tag: [],
+	year: [],
+}
+const filterLogic = {
+	author: 'AND',
+	conference: 'OR',
+	tag: 'AND',
+	year: 'OR',
 }
 
 let dropdownShown = ''
@@ -103,9 +118,13 @@ function render() {
 			const hasConferece = filters.conference.includes(p.querySelector('.conference').dataset.conf)
 			hidden = hidden || !hasConferece
 		}
-		if(filters.author) {
+		if(filters.author.length > 0) {
 			const hasAuthors = filters.author.every(author => Array.from(p.querySelectorAll('.authors > span')).find(a => a.innerText === author))
 			hidden = hidden || !hasAuthors
+		}
+		if(filters.year.length > 0) {
+			const hasYear = filters.year.includes(p.querySelector('.conference').dataset.confYear)
+			hidden = hidden || !hasYear
 		}
 
 		p.setAttribute('hidden', hidden)
@@ -119,7 +138,7 @@ function render() {
 		const discard = f.querySelector('button')
 		el.hidden = value.length === 0
 		discard.hidden = value.length === 0
-		el.innerHTML = (Array.isArray(value) ? value : [value]).map(v => `<span>${v}</span>`).join('')
+		el.innerHTML = (Array.isArray(value) ? value : [value]).map(v => `<span>${v}</span>`).join(filterLogic[filter] ? `<i>${filterLogic[filter]}</i>` : '')
 		// el.innerText = Array.isArray(value) ? value.join(', ') : value
 	})
 
@@ -177,12 +196,22 @@ function handleConferenceClick(e) {
 	}
 	render()
 }
+function handleYearClick(e) {
+	const value = e.target.innerText
+	if(filters.year.includes(value)) {
+		filters.year = filters.year.filter(a => a !== value)
+	} else {
+		filters.year.push(value)
+	}
+	render()
+}
 
 filterElements.forEach(f => {
 	// Show dropdowns on click
 	f.addEventListener('click', e => {
-		if(['span', 'div'].includes(event.target.localName)) {
+		if(['span', 'div', 'i'].includes(event.target.localName)) {
 			dropdownShown = f.dataset.filter
+			e.stopPropagation()
 			render()
 		}
 	})
@@ -218,24 +247,27 @@ tags.forEach(t => {
 // Dropdowns
 document.querySelectorAll('[data-filter=author] .dropdown button').forEach(b => {
 	b.addEventListener('click', e => {
-		dropdownShown = ''
 		handleAuthorClick(e)
 	})
 })
 document.querySelectorAll('[data-filter=conference] .dropdown button').forEach(b => {
 	b.addEventListener('click', e => {
-		dropdownShown = ''
 		handleConferenceClick(e)
 	})
 })
 document.querySelectorAll('[data-filter=tag] .dropdown button').forEach(b => {
 	b.addEventListener('click', e => {
-		dropdownShown = ''
 		handleTagClick(e)
+	})
+})
+document.querySelectorAll('[data-filter=year] .dropdown button').forEach(b => {
+	b.addEventListener('click', e => {
+		handleYearClick(e)
 	})
 })
 
 // Hide dropdowns on outside click
+// note: filter clicks will stop propagation so this will not be triggered
 document.addEventListener('click', function(event) {
 	if(dropdownShown) {
 		const filterEl = document.querySelector(`.filter[data-filter="${dropdownShown}"]`)
