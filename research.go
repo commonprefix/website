@@ -3,21 +3,21 @@ package main
 type Tag string
 
 const (
-	PROOF_OF_STAKE     Tag = "proof-of-stake"
-	PROOF_OF_WORK      Tag = "proof-of-work"
-	LIQUID_STAKING     Tag = "liquid-staking"
-	LIGHT_CLIENTS      Tag = "light-clients"
-	INTEROPERABILITY   Tag = "interoperability"
-	WALLETS            Tag = "wallets"
-	PAYMENT_CHANNELS   Tag = "payment-channels"
-	ZERO_KNOWLEDGE     Tag = "zero-knowledge"
-	SIGNATURES         Tag = "signatures"
-	LIGHTNING_NETWORK  Tag = "lightning-network"
-	SMART_CONTRACTS    Tag = "smart-contracts"
-	PVSS               Tag = "pvss"
-	RANDOMNESS         Tag = "randomness"
-	CONSENSUS          Tag = "consensus"
-	IDENTIFICATION     Tag = "identification"
+	PROOF_OF_STAKE   Tag = "proof-of-stake"
+	PROOF_OF_WORK    Tag = "proof-of-work"
+	LIQUID_STAKING   Tag = "liquid-staking"
+	LIGHT_CLIENTS    Tag = "light-clients"
+	INTEROPERABILITY Tag = "interoperability"
+	// WALLETS           Tag = "wallets"
+	PAYMENT_CHANNELS  Tag = "payment-channels"
+	ZERO_KNOWLEDGE    Tag = "zero-knowledge"
+	SIGNATURES        Tag = "signatures"
+	LIGHTNING_NETWORK Tag = "lightning-network"
+	SMART_CONTRACTS   Tag = "smart-contracts"
+	PVSS              Tag = "pvss"
+	RANDOMNESS        Tag = "randomness"
+	CONSENSUS         Tag = "consensus"
+	// IDENTIFICATION     Tag = "identification"
 	MPC                Tag = "mpc"
 	PRIVACY            Tag = "privacy"
 	FAIRNESS           Tag = "fairness"
@@ -27,10 +27,10 @@ const (
 	DEFI               Tag = "defi"
 	COMMITMENTS        Tag = "commitments"
 	OBLIVIOUS_TRANSFER Tag = "oblivious-transfer"
-	ANONYMITY          Tag = "anonymity"
-	MEV                Tag = "mev"
-	YOSO               Tag = "yoso"
-	ROM                Tag = "random-oracle"
+	// ANONYMITY          Tag = "anonymity"
+	// MEV                Tag = "mev"
+	YOSO Tag = "yoso"
+	// ROM                Tag = "random-oracle"
 	HOMOMORPHISM       Tag = "homomorphism"
 	BITCOIN            Tag = "bitcoin"
 	VOTING             Tag = "voting"
@@ -38,26 +38,26 @@ const (
 	VDF                Tag = "verifiable-delay-functions"
 	WITNESS_ENCRYPTION Tag = "witness-encryption"
 	DECENTRALIZATION   Tag = "decentralization"
-	TIMELINESS         Tag = "timeliness"
-	SUPERSAFETY        Tag = "supersafety"
+	// TIMELINESS         Tag = "timeliness"
+	// SUPERSAFETY        Tag = "supersafety"
 )
 
 var TagToColor = map[Tag]string{
-	PROOF_OF_STAKE:     "#e4cbf4",
-	PROOF_OF_WORK:      "#ffc0c0",
-	LIQUID_STAKING:     "#e6e6fa",
-	LIGHT_CLIENTS:      "#fff3b0",
-	INTEROPERABILITY:   "#a5d0ec",
-	WALLETS:            "#e1ddad",
-	PAYMENT_CHANNELS:   "#c5e2b5",
-	ZERO_KNOWLEDGE:     "#e0b5e9",
-	SIGNATURES:         "#fae2d9",
-	LIGHTNING_NETWORK:  "#d4e2d4",
-	SMART_CONTRACTS:    "#f9e6fa",
-	PVSS:               "#d9e4f5",
-	RANDOMNESS:         "#d1f0fc",
-	CONSENSUS:          "#e8d4b3",
-	IDENTIFICATION:     "#f6f0c4",
+	PROOF_OF_STAKE:   "#e4cbf4",
+	PROOF_OF_WORK:    "#ffc0c0",
+	LIQUID_STAKING:   "#e6e6fa",
+	LIGHT_CLIENTS:    "#fff3b0",
+	INTEROPERABILITY: "#a5d0ec",
+	// WALLETS:            "#e1ddad",
+	PAYMENT_CHANNELS:  "#c5e2b5",
+	ZERO_KNOWLEDGE:    "#e0b5e9",
+	SIGNATURES:        "#fae2d9",
+	LIGHTNING_NETWORK: "#d4e2d4",
+	SMART_CONTRACTS:   "#f9e6fa",
+	PVSS:              "#d9e4f5",
+	RANDOMNESS:        "#d1f0fc",
+	CONSENSUS:         "#e8d4b3",
+	// IDENTIFICATION:     "#f6f0c4",
 	MPC:                "#e5dcca",
 	PRIVACY:            "#abc4c7",
 	FAIRNESS:           "#d0f5d0",
@@ -67,10 +67,10 @@ var TagToColor = map[Tag]string{
 	DEFI:               "#e8ccf5",
 	COMMITMENTS:        "#ffead4",
 	OBLIVIOUS_TRANSFER: "#a8e8e8",
-	ANONYMITY:          "#c7d2d9",
-	MEV:                "#f3b0e0",
-	YOSO:               "#ffd1b3",
-	ROM:                "#8cd1a4",
+	// ANONYMITY:          "#c7d2d9",
+	// MEV:                "#f3b0e0",
+	YOSO: "#ffd1b3",
+	// ROM:                "#8cd1a4",
 	HOMOMORPHISM:       "#e6a1a1",
 	BITCOIN:            "#ffb732",
 	VOTING:             "#d4b39e",
@@ -78,8 +78,8 @@ var TagToColor = map[Tag]string{
 	VDF:                "#c2c2d1",
 	WITNESS_ENCRYPTION: "#ffd4e6",
 	DECENTRALIZATION:   "#f0deba",
-	TIMELINESS:         "#fabf8b",
-	SUPERSAFETY:        "#1fea33",
+	// TIMELINESS:         "#fabf8b",
+	// SUPERSAFETY:        "#1fea33",
 }
 
 var ResearchPapers []ResearchPaper = []ResearchPaper{
@@ -90,7 +90,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2024,
 		Authors:        []string{"Apostolos Tzinas", "Srivatsan Sridhar", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2023/1648.pdf",
-		Tags:           []Tag{TIMELINESS, SUPERSAFETY},
+		Tags:           []Tag{}, // TIMELINESS, SUPERSAFETY
 	},
 	{
 		Handle:         "popos",
@@ -135,7 +135,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2019,
 		Authors:        []string{"Myrto Arapinis", "Andriana Gkaniatsou", "Dimitris Karakostas", "Aggelos Kiayias"},
 		Url:            "https://eprint.iacr.org/2019/034.pdf",
-		Tags:           []Tag{WALLETS},
+		Tags:           []Tag{}, // WALLETS
 	},
 	{
 		Handle:         "brick",
@@ -216,7 +216,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2011,
 		Authors:        []string{"Laerte Peotta", "Marcelo Holtz", "Bernardo David", "Flavio Deus", "RT de Sousa"},
 		Url:            "https://airccse.org/journal/jcsit/0211ijcsit13.pdf",
-		Tags:           []Tag{IDENTIFICATION},
+		Tags:           []Tag{}, // IDENTIFICATION
 	},
 	{
 		Handle:         "albatross",
@@ -297,7 +297,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2017,
 		Authors:        []string{"Paulo SLM Barreto", "Bernardo David", "Rafael Dowsley", "Kirill Morozov", "Anderson CA Nascimento"},
 		Url:            "https://eprint.iacr.org/2017/993.pdf",
-		Tags:           []Tag{UC, ROM, OBLIVIOUS_TRANSFER},
+		Tags:           []Tag{UC, OBLIVIOUS_TRANSFER}, // ROM
 	},
 	{
 		Handle:         "private-ml-classification",
@@ -333,7 +333,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2022,
 		Authors:        []string{"Carsten Baum", "James Hsin-yu Chiang", "Bernardo David", "Tore Kasper Frederiksen", "Lorenzo Gentile"},
 		Url:            "https://eprint.iacr.org/2021/1628.pdf",
-		Tags:           []Tag{DEFI, FRONT_RUNNING, MEV},
+		Tags:           []Tag{DEFI, FRONT_RUNNING}, // MEV
 	},
 	{
 		Handle:         "anonymous-timelock",
@@ -342,7 +342,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2022,
 		Authors:        []string{"Matteo Campanelli", "Bernardo David", "Hamidreza Khoshakhlagh", "Anders Konring", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2021/1423.pdf",
-		Tags:           []Tag{TIMELOCK, WITNESS_ENCRYPTION},
+		Tags:           []Tag{TIMELOCK}, // WITNESS_ENCRYPTION
 	},
 	{
 		Handle:         "gearbox",
@@ -378,7 +378,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2022,
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David", "Lydia Garms", "Anders Konring"},
 		Url:            "https://eprint.iacr.org/2022/242.pdf",
-		Tags:           []Tag{PVSS, YOSO, ANONYMITY},
+		Tags:           []Tag{PVSS, YOSO}, // ANONYMITY
 	},
 	{
 		Handle:         "uc-oblivious-transfer",
@@ -651,12 +651,13 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Tags:           []Tag{TIMELOCK, VDF},
 	},
 	{
-		Handle:     "uc-homomorphic-commitments",
-		Name:       "A Framework For Efficient Homomorphic Universally Composable Commitments",
-		Conference: "Dissertation 2016, Department of Computer Science, University of Aarhus",
-		Authors:    []string{"Bernardo Machado David"},
-		Url:        "https://pure.au.dk/ws/portalfiles/portal/114777545/Bernardo_Machado_Davids_thesis.pdf",
-		Tags:       []Tag{UC, COMMITMENTS},
+		Handle:         "uc-homomorphic-commitments",
+		Name:           "A Framework For Efficient Homomorphic Universally Composable Commitments",
+		Conference:     "Dissertation 2016, Department of Computer Science, University of Aarhus",
+		ConferenceYear: 2016,
+		Authors:        []string{"Bernardo Machado David"},
+		Url:            "https://pure.au.dk/ws/portalfiles/portal/114777545/Bernardo_Machado_Davids_thesis.pdf",
+		Tags:           []Tag{UC, COMMITMENTS},
 	},
 	{
 		Handle:         "uc-committed-oblivious-transfer-with-trusted-initializer",
@@ -784,12 +785,13 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Tags:           []Tag{PAYMENT_CHANNELS},
 	},
 	{
-		Handle:     "high-dimensional-approximate-r-nets",
-		Name:       "High-dimensional approximate r-nets",
-		Conference: "Algorithmica",
-		Authors:    []string{"Zeta Avarikioti", "Ioannis Z Emiris", "Loukas Kavouras", "Ioannis Psarros"},
-		Url:        "https://epubs.siam.org/doi/pdf/10.1137/1.9781611974782.2",
-		Tags:       []Tag{},
+		Handle:         "high-dimensional-approximate-r-nets",
+		Name:           "High-dimensional approximate r-nets",
+		Conference:     "Algorithmica",
+		ConferenceYear: 2020,
+		Authors:        []string{"Zeta Avarikioti", "Ioannis Z Emiris", "Loukas Kavouras", "Ioannis Psarros"},
+		Url:            "https://epubs.siam.org/doi/pdf/10.1137/1.9781611974782.2",
+		Tags:           []Tag{},
 	},
 	{
 		Handle:         "approximate-near-neighbors-in-high-dimension",
@@ -810,12 +812,13 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Tags:           []Tag{},
 	},
 	{
-		Handle:     "suborn-channels",
-		Name:       "Suborn Channels: Incentives Against Timelock Bribes",
-		Conference: "Financial Cryptography and Data Security",
-		Authors:    []string{"Zeta Avarikioti", "Orfeas Stefanos Thyfronitis Litos"},
-		Url:        "https://eprint.iacr.org/2022/814.pdf",
-		Tags:       []Tag{LIGHTNING_NETWORK, BITCOIN, PAYMENT_CHANNELS},
+		Handle:         "suborn-channels",
+		Name:           "Suborn Channels: Incentives Against Timelock Bribes",
+		Conference:     "Financial Cryptography and Data Security",
+		ConferenceYear: 2022,
+		Authors:        []string{"Zeta Avarikioti", "Orfeas Stefanos Thyfronitis Litos"},
+		Url:            "https://eprint.iacr.org/2022/814.pdf",
+		Tags:           []Tag{LIGHTNING_NETWORK, BITCOIN, PAYMENT_CHANNELS},
 	},
 	{
 		Handle:         "wiser",
