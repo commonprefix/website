@@ -230,6 +230,16 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "apostolos_tzinas.jpg",
 	},
+	"ristic": {
+		Handle:         "ristic",
+		Name:           "Nikola Ristić",
+		Specialization: "smart contract development, full-stack web development, software engineering, algorithms, circus acrobatics",
+		Desc: template.HTML(`
+			Nikola is a self-taught software engineer based in Belgrade, Serbia. He started with algorithms in elementary school and won 2 gold medals in national high-school competitions in Serbia. Before his web3 journey he has helped various startups scale their products and teams, notably <a href="https://hellosuper.com">Super</a> and <a href="https://www.amondo.com">Amondo</a>, and has 10 years of freelance experience as a full-stack web developer.
+
+		`),
+		Image: "nikola_ristic.jpg",
+	},
 	"dionysis": {
 		Handle:         "dionysis",
 		Name:           "Dr. Dionysis Zindros",
