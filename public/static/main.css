@@ -828,13 +828,18 @@ a.finding {
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: 0.3px;
-  margin-right: 2px;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  margin-right: 2px;
 }
 
-.research__filters .value span:last-child {
+.research__filters .value i {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.research__filters .value > *:last-child {
   margin-right: 0;
 }
 

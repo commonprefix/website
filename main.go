@@ -152,6 +152,7 @@ type Research struct {
 	AllAuthors     []string
 	AllTags        []Tag
 	AllConferences []string
+	AllYears       []int
 }
 
 type Page struct {
@@ -278,6 +279,15 @@ func build() {
 		}
 	}
 
+	allYears := []int{}
+	for _, r := range ResearchPapers {
+		if r.ConferenceYear != 0 && !slices.Contains(allYears, r.ConferenceYear) {
+			allYears = append(allYears, r.ConferenceYear)
+		}
+	}
+	slices.Sort(allYears)
+	slices.Reverse(allYears)
+
 	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: "Research",
 		Description: description,
 		Research: Research{ResearchPapers: ResearchPapers,
@@ -285,6 +295,7 @@ func build() {
 			AllAuthors:     allAuthors,
 			AllTags:        allTags,
 			AllConferences: allConferences,
+			AllYears:       allYears,
 		}})
 	if err != nil {
 		log.Println(err)
