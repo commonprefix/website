@@ -91,9 +91,14 @@ var Clients []Client = []Client{
 			</g>
 		</svg>`),
 		Body: template.HTML(`Axelar is the leading interoperability solution for moving assets from one blockchain to another. A pioneer in the bridging of assets, they are the first in the field to implement a broadly deployed bridge that does not rely on a fixed committee or federation, unlike typical multisig bridges. Instead, they rely only on their underlying proof-of-stake security assumptions, by leveraging their population of Cosmos validators. We have worked together with Axelar as their technical advisor since the project's inception and have helped them audit their smart contracts that allow bridging into and out of EVM-compatible chains over multiple iterations.`),
-		Team: []TeamMember{
+        Team: []TeamMember{
+			Members["shresth"],
+			Members["nikolas"],
+			Members["dimitris"],
+			Members["pkakelas"],
+			Members["themis"],
 			Members["dionysis"],
-		},
+        },
 		Projects: []Project{
 			{
 				Title: "Axelar Gateway audit",
@@ -112,14 +117,45 @@ var Clients []Client = []Client{
 					},
 				},
 			},
-		},
-		Findings: []Finding{
 			{
-				Url:  "/static/clients/axelar/axelar_light_client_grant_proposal.pdf",
-				Name: "Ethereum Light Client on Axelar Grant Proposal",
-				Date: "01/05/2023",
+				Title: "Ethereum Light Client on Axelar implementation",
+				Desc:  template.HTML(`Common Prefix collaborated with Axelar to develop a light client that employs Ethereum's Sync Committee protocol to bridge events from Ethereum to Axelar.`),
+				Links: []ProjectLink{
+                    {
+                        Url:  "/static/clients/axelar/axelar_light_client_grant_proposal.pdf",
+                        Name: "Grant proposal report",
+                        Date: "01/05/2023",
+                    },
+                    {
+                        Url:  "https://commonprefix.notion.site/Light-Client-Architecture-8fe5486c958e479ab41cdfc36a3d59ed",
+                        Name: "Architecture documentation",
+                        Date: "29/01/2024",
+                    },
+                    {
+                        Url:  "https://github.com/commonprefix/axelar-light-client",
+                        Name: "Implementation GitHub repo",
+                        Date: "28/08/2023 - 19/02/2024",
+                    },
+				},
+			},
+			{
+				Title: "Axelar integration with XRPL",
+				Desc:  template.HTML(`Common Prefix has partnered with Axelar to integrate Ripple's XRPL network with Axelar's Amplifier bridging infrastructure.`),
+				Links: []ProjectLink{
+                    {
+                        Url: "https://github.com/axelarnetwork/axelar-amplifier/pull/227",
+                        Name:  "Axelar Amplifier XRPL integration pull request",
+                        Date: "20/11/2023 - Present",
+                    },
+                    {
+                        Url:  "https://github.com/commonprefix/axelar-xrpl-relayer",
+                        Name: "Axelar Amplifier XRPL relayer implementation GitHub repo",
+                        Date: "20/02/2024 - Present",
+                    },
+				},
 			},
 		},
+		Findings: []Finding{},
 	},
 	{
 		Handle: "celestia",
