@@ -101,19 +101,18 @@ var Clients []Client = []Client{
 		},
 		Projects: []Project{
 			{
-				Title: "Axelar Gateway audit",
-				Desc:  template.HTML(`The Axelar Gateway Solidity smart contract is deployed to every Axelar-supported EVM chain, enabling communication between the Axelar network and the connected chain. Common Prefix was commissioned to audit two versions of the Gateway smart contract (v1 and v2.1).`),
-				// Date:  "28/01/2024",
+				Title: "Axelar integration with XRPL",
+				Desc:  template.HTML(`Common Prefix has partnered with Axelar to integrate Ripple's XRPL network with Axelar's Amplifier bridging infrastructure.`),
 				Links: []ProjectLink{
 					{
-						Url:  "/static/clients/axelar/axelar_gateway_audit.pdf",
-						Name: "Axelar Gateway v1 smart contract audit",
-						Date: "22/11/2021",
+						Url:  "https://github.com/axelarnetwork/axelar-amplifier/pull/227",
+						Name: "Axelar Amplifier XRPL integration pull request",
+						Date: "20/11/2023 - Present",
 					},
 					{
-						Url:  "/static/clients/axelar/axelar_gateway_v2_audit.pdf",
-						Name: "Axelar Gateway v2.1 smart contract audit",
-						Date: "01/03/2022",
+						Url:  "https://github.com/commonprefix/axelar-xrpl-relayer",
+						Name: "Axelar Amplifier XRPL relayer implementation GitHub repo",
+						Date: "20/02/2024 - Present",
 					},
 				},
 			},
@@ -139,18 +138,19 @@ var Clients []Client = []Client{
 				},
 			},
 			{
-				Title: "Axelar integration with XRPL",
-				Desc:  template.HTML(`Common Prefix has partnered with Axelar to integrate Ripple's XRPL network with Axelar's Amplifier bridging infrastructure.`),
+				Title: "Axelar Gateway audit",
+				Desc:  template.HTML(`The Axelar Gateway Solidity smart contract is deployed to every Axelar-supported EVM chain, enabling communication between the Axelar network and the connected chain. Common Prefix was commissioned to audit two versions of the Gateway smart contract (v1 and v2.1).`),
+				// Date:  "28/01/2024",
 				Links: []ProjectLink{
 					{
-						Url:  "https://github.com/axelarnetwork/axelar-amplifier/pull/227",
-						Name: "Axelar Amplifier XRPL integration pull request",
-						Date: "20/11/2023 - Present",
+						Url:  "/static/clients/axelar/axelar_gateway_audit.pdf",
+						Name: "Axelar Gateway v1 smart contract audit",
+						Date: "22/11/2021",
 					},
 					{
-						Url:  "https://github.com/commonprefix/axelar-xrpl-relayer",
-						Name: "Axelar Amplifier XRPL relayer implementation GitHub repo",
-						Date: "20/02/2024 - Present",
+						Url:  "/static/clients/axelar/axelar_gateway_v2_audit.pdf",
+						Name: "Axelar Gateway v2.1 smart contract audit",
+						Date: "01/03/2022",
 					},
 				},
 			},
@@ -483,8 +483,8 @@ var Clients []Client = []Client{
 		},
 		Findings: []Finding{},
 		Projects: []Project{},
-    },
-    {
+	},
+	{
 		Handle: "bob",
 		Name:   "BOB",
 		Image: template.HTML(`<svg width="86" height="31" viewBox="0 0 86 31" fill="none" xmlns="http://www.w3.org/2000/svg">
