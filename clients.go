@@ -391,6 +391,11 @@ var Clients []Client = []Client{
 						Date: "26/09/2022 - 05/06/2023",
 					},
 					{
+						Url:  "https://enosys.global/products/bridge",
+						Name: "Product page",
+						Date: "08/06/2023",
+					},
+					{
 						Url:  "https://flrfinance.github.io/flr-wraps-contracts/",
 						Name: "Solidity NatSpec API documentation",
 						Date: "26/09/2022 - 05/06/2023",
