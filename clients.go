@@ -397,6 +397,27 @@ var Clients []Client = []Client{
 					},
 				},
 			},
+			{
+				Title: "Ermis protocol implementation",
+				Desc:  template.HTML(`<em>Phygital tokens</em>, or simply <em>phygitals</em>, bridge the gap between the digital and physical domains by tying phygital NFTs with physical items. Common Prefix collaborated with Ēnosys to develop Ermis, a protocol that enables the redemption of a phygital in exchange for its associated physical item with minimal trust, by tapping into the assurances of the EVM blockchain it is deployed on. It allows vendors and buyers to connect directly via a simple smart contract.`),
+				Links: []ProjectLink{
+					{
+						Url:  "https://enosys.global/papers/ermisWhitepaper.pdf",
+						Name: "Whitepaper",
+						Date: "03/05/2023",
+					},
+					{
+						Url:  "https://ermis.enosys.global/",
+						Name: "Product page",
+						Date: "08/11/2023",
+					},
+					{
+						Url:  "https://flrfinance.github.io/phygital-redemptions-contracts/",
+						Name: "Solidity NatSpec API documentation",
+						Date: "19/07/2022 - 26/01/2023",
+					},
+				},
+			},
 		},
 		Findings: []Finding{},
 	},
