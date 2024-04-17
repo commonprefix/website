@@ -341,6 +341,36 @@ var Clients []Client = []Client{
 		},
 		Projects: []Project{
 			{
+				Title: "Audits",
+				Desc:  template.HTML(`Ēnosys has commissioned Common Prefix to perform smart contract audits for numerous of its protocols.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/enosys/enosys_loans_post_mortem.pdf",
+						Name: "FLRLoans incident post-mortem",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_ftso_reward_manager_audit.pdf",
+						Name: "FTSORewardManager smart contract audit",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_price_feed_ftso_connector_audit.pdf",
+						Name: "PriceFeedFtsoConnector smart contract audit",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_loans_audit.pdf",
+						Name: "FLRLoans smart contract audit",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_stake_helper_audit.pdf",
+						Name: "StakeHelper smart contract audit",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_stake_helper_complementary_audit.pdf",
+						Name: "StakeHelper complementary smart contract audit",
+					},
+				},
+			},
+			{
 				Title: "Ēnosys Bridge implementation",
 				Desc:  template.HTML(`Common Prefix collaborated with Ēnosys to develop an EVM-to-EVM committee-based bridge. At the time of writing, the Ēnosys Bridge enables token transfers between Ethereum, Flare Networks, and XDC, with <a href="https://defillama.com/protocol/enosys-bridge">$3.3 million in TVL</a>.`),
 				Links: []ProjectLink{
@@ -362,32 +392,7 @@ var Clients []Client = []Client{
 				},
 			},
 		},
-		Findings: []Finding{
-			{
-				Url:  "/static/clients/enosys/enosys_loans_post_mortem.pdf",
-				Name: "FLRLoans incident post-mortem",
-			},
-			{
-				Url:  "/static/clients/enosys/enosys_ftso_reward_manager_audit.pdf",
-				Name: "FTSORewardManager smart contract audit",
-			},
-			{
-				Url:  "/static/clients/enosys/enosys_price_feed_ftso_connector_audit.pdf",
-				Name: "PriceFeedFtsoConnector smart contract audit",
-			},
-			{
-				Url:  "/static/clients/enosys/enosys_loans_audit.pdf",
-				Name: "FLRLoans smart contract audit",
-			},
-			{
-				Url:  "/static/clients/enosys/enosys_stake_helper_audit.pdf",
-				Name: "StakeHelper smart contract audit",
-			},
-			{
-				Url:  "/static/clients/enosys/enosys_stake_helper_complementary_audit.pdf",
-				Name: "StakeHelper complementary smart contract audit",
-			},
-		},
+		Findings: []Finding{},
 	},
 	{
 		Handle: "deviantart",
