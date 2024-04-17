@@ -345,28 +345,34 @@ var Clients []Client = []Client{
 				Desc:  template.HTML(`Ēnosys has commissioned Common Prefix to perform smart contract audits for numerous of its protocols.`),
 				Links: []ProjectLink{
 					{
-						Url:  "/static/clients/enosys/enosys_loans_post_mortem.pdf",
-						Name: "FLRLoans incident post-mortem",
-					},
-					{
-						Url:  "/static/clients/enosys/enosys_ftso_reward_manager_audit.pdf",
-						Name: "FTSORewardManager smart contract audit",
-					},
-					{
-						Url:  "/static/clients/enosys/enosys_price_feed_ftso_connector_audit.pdf",
-						Name: "PriceFeedFtsoConnector smart contract audit",
-					},
-					{
-						Url:  "/static/clients/enosys/enosys_loans_audit.pdf",
-						Name: "FLRLoans smart contract audit",
+						Url:  "/static/clients/enosys/enosys_stake_helper_complementary_audit.pdf",
+						Name: "StakeHelper complementary smart contract audit",
+						Date: "28/06/2023",
 					},
 					{
 						Url:  "/static/clients/enosys/enosys_stake_helper_audit.pdf",
 						Name: "StakeHelper smart contract audit",
+						Date: "20/02/2023",
 					},
 					{
-						Url:  "/static/clients/enosys/enosys_stake_helper_complementary_audit.pdf",
-						Name: "StakeHelper complementary smart contract audit",
+						Url:  "/static/clients/enosys/enosys_ftso_reward_manager_audit.pdf",
+						Name: "FTSORewardManager smart contract audit",
+						Date: "04/07/2022",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_loans_post_mortem.pdf",
+						Name: "FLRLoans incident post-mortem",
+						Date: "04/07/2022",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_price_feed_ftso_connector_audit.pdf",
+						Name: "PriceFeedFtsoConnector smart contract audit",
+						Date: "18/04/2022",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_loans_audit.pdf",
+						Name: "FLRLoans smart contract audit",
+						Date: "21/02/2022",
 					},
 				},
 			},
