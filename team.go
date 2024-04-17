@@ -19,6 +19,25 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "shresth_agrawal.jpg",
 	},
+	"orestis": {
+		Handle:         "orestis",
+		Name:           "Dr. Orestis Alpos",
+		Specialization: "consensus, distributed systems, threshold cryptography, applied cryptography",
+		Desc: template.HTML(`
+			Orestis is a blockchain researcher based in Bern, Switzerland.
+			He holds a PhD from the University of Bern, advised by Christian Cachin,
+			and a Computer Engineering MSc degree from the National Technical University of Athens.
+			He specializes in distributed systems and applied cryptography.
+			His publications include protocols for
+			<a href="https://eprint.iacr.org/2023/1103.pdf">asynchronous PoS consensus</a>,
+			<a href="https://arxiv.org/pdf/2307.02954.pdf">front-running prevention</a>,
+			<a href="https://arxiv.org/pdf/2006.04616.pdf">consensus</a> and
+			<a href="https://eprint.iacr.org/2022/1767.pdf">cryptography</a>
+			with flexible trust assumptions, as well as results on
+			<a href="https://arxiv.org/pdf/2107.11331.pdf">composing distributed systems</a>.
+		`),
+		Image: "orestis_alpos.jpg",
+	},
 	"zeta": {
 		Handle:         "zeta",
 		Name:           "Dr. Zeta Avarikioti",
