@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Common Prefix — The Battle of Blockchains: PoW vs PoS Unveiled</title>
+		<meta name="description" content="A perspective on the long-standing battle between proof-of-work and proof-of-stake blockchains." />
+
+		<meta property="og:title" content="Common Prefix — The Battle of Blockchains: PoW vs PoS Unveiled">
+		<meta property="og:description" content="A perspective on the long-standing battle between proof-of-work and proof-of-stake blockchains.">
+		<meta property="og:url" content="https://commonprefix.com/">
+		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
+
+		<meta name="twitter:title" content="Common Prefix — The Battle of Blockchains: PoW vs PoS Unveiled">
+		<meta name="twitter:description" content="A perspective on the long-standing battle between proof-of-work and proof-of-stake blockchains.">
+		<meta property="twitter:url" content="https://commonprefix.com/">
+		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="commonprefix.com">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/png" href="/static/favicon/favicon.png" />
+		<link rel="manifest" href="/static/site.webmanifest">
+
+		<link rel="preload" href="/static/main.css" as="style" />
+		<link rel="stylesheet" href="/static/main.css" />
+		<script src="/static/main.js"></script>
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVFWK2DDQF"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){ dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'G-ZVFWK2DDQF');
+		</script>
+
+		
+<meta name="robots" content="noindex">
+<link href="/static/prism.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="logo-graphic">
+			<img draggable="false" src="/static/commonprefix_logo.jpg" alt="" />
+			<img
+				style="visibility: hidden"
+				class="logo-graphic__clip"
+				draggable="false"
+				src="/static/commonprefix_logo.jpg"
+				alt=""
+			/>
+		</div>
+
+		<div class="outer-container">
+			<div class="container">
+				<div class="small-container">
+					<header>
+						<a href="/" class="header__company-name"
+							><h2>Common <span>⎵</span> Prefix</h2>
+						</a>
+						<nav>
+							<a href="/team.html">Team</a>
+							<a href="/research.html">Research</a>
+							<a href="/#clients">Clients</a>
+						</nav>
+					</header>
+
+					
+<main class="blog-post">
+	<h1>The Battle of Blockchains: PoW vs PoS Unveiled</h1>
+	<h5 class="mono light blog-post__date">17/04/2024 — DRAFT<br />
+		
+		<div class="blog-post__authors">
+		<a href="/team#zeta">Dr. Zeta Avarikioti</a>
+		
+	</h5>
+	<h5>Reading time: 4 minutes</h5>
+
+	
+
+	<section class="content">
+		<p>Since the dawn of civilization, we have managed to escape many physical
+barriers of nature. With enough money, a human construct devoid of any
+physical worth, one can buy the essentials to cover all their basic
+needs. Yet our bodies exemplify the intangible nature of money: for
+instance, the fruits of physical exercise, such as a healthier and
+longer lifespan on average, can only be reaped through effort and cannot
+be bought. Nonetheless, a debate arises when considering the advantages
+that financial resources can bring, such as access to health supplements
+or advanced exercise equipment, thus posing the question of their true
+worth. <em>Is the essence of effort so easily substituted by financial
+resources?</em></p>
+
+<p>The quest to answer this question is pivotal for the fabric of modern
+society as well as the realm of blockchains. Indeed, it is a common
+belief that blockchains operate optimally when users with more money
+imply their wealth to secure blockchains. We contest this folklore
+wisdom, advocating for blockchains operated via effort or ,in machine
+language, computational power; the so-called Proof-of-Work (PoW). Put
+simply, we argue that blockchains, much like our bodies, are more secure
+with &ldquo;work&rdquo;.</p>
+
+<p>Delving into the foundations of blockchains, two properties prevail as
+their backbone [@bitcoinbackboneprotocol]: safety, ensuring that
+transactions confirmed by an honest node will be eventually confirmed by
+all honest nodes, and liveness, guaranteeing that a transaction that is
+provided to honest nodes for a long enough period of time will be
+eventually confirmed by all honest nodes. These properties ensure that
+blockchains produce an ordered sequence of transactions, commonly known
+as a transaction ledger, which is immutable and keeps making progress.</p>
+
+<p>Bitcoin made blockchains possible in a permissionless and dynamic
+network where parties can join and leave at will at any point in time
+without fulfilling any requirements. Newly joining nodes can trustlessly
+verify the correctness of the transaction ledger, given they connect to
+at least one honest node when bootstrapping in the network. In other
+words, when a node joins the Bitcoin network, they may receive several
+different versions of the ledger (i.e., different transaction
+orderings), but they can locally identify the &ldquo;correct one&rdquo; as long as
+it is among the received ones. Note that by &ldquo;correct one&rdquo; we mean the
+transaction order that the honest nodes in the system have agreed upon
+so far. This ability safeguards the transaction order integrity, the
+manifestation of safety in a dynamic, permissionless network.</p>
+
+<p>To achieve this strong property, Bitcoin leverages PoW to elect block
+proposers in a fair unbiasable manner and adopts the longest chain
+selection rule to determine which chain is the &ldquo;correct one&rdquo;. PoW
+effectively secures the blockchain against adversaries that control less
+than 50% of the computational power of the entire system. Coupled with
+the longest chain selection rule, PoW allows newly joining nodes to
+identify which of the received versions of the ledger holds more work
+and accept it as the &ldquo;correct one&rdquo;.</p>
+
+<p>Alternative approaches to PoW have been proposed, where the block
+proposer election is proportional to the amount of coins (i.e., stake)
+one owns within the system (e.g., [@kiayias2017ouroboros]). This
+mechanism is known as Proof-of-Stake (PoS), and it is usually coupled
+with the longest chain selection rule, akin to the one of PoW. Although
+these approaches seem similar, PoS is vulnerable to safety attacks when
+the network is dynamic. Let us illustrate this vulnerability with an
+example. Consider a PoS blockchain that in its 100th operation day has
+10% of its total stake active, with honest nodes holding 6% and an
+adversary holding 4%. Then, at a later point in time, e.g. on its 200th
+operation day, the total stake active is 50%, with honest nodes holding
+30% and the adversary 20%. On the 200th operation day, the blockchain is
+not safe anymore, as the adversary can now use its 20% stake to rewrite
+<em>a posteriori</em> the transaction order of the blockchain. This is feasible
+because the adversary&rsquo;s current controlling share is 20% of the total
+stake in the system and can thus outpower the old 10% of total active
+stake: adversarial block proposers corresponding to that 20% simply need
+to sign fake past blocks and forge a longer chain, thus fooling newly
+joining nodes to choose it as the &ldquo;correct one&rdquo;. Remarkably, the
+attacker can break the security of the blockchain swiftly and at no
+cost, as no effort is required.</p>
+
+<p>In essence, PoW blockchains function similarly to building a structure,
+while PoS resemble the process of buying land. Given the funds, the
+former demands a cumulative amount of work, whereas the latter requires
+effortless signatures. As such, the safety of pure PoS systems is
+predicated on the adversary controlling a minority of active stake
+comparatively to any point in time, including the past.</p>
+
+<p>This class of attacks, referred to as posterior attacks, are feasible
+because the adversary can retroactively create past blocks. The crux of
+this vulnerability is thus the absence of an <em>&ldquo;arrow of time&rdquo;</em>, i.e., a
+temporal structure that prevents tampering with the past. This arrow of
+time is inherently enforced by the very same nature of PoW but lacks in
+PoS. To impose an artificial arrow of time, at a much lesser cost than
+PoW, recent works propose to couple PoS with Verifiable Delay Functions
+(VDFs), i.e., functions that force users to perform sequential and
+non-parallelizable
+operations [@boneh2018verifiable; @wesolowski2019efficient; @pietrzak2019simple].</p>
+
+<p>With the use of VDFs, PoS blockchains can defend against posterior
+safety attacks in dynamic settings. Still, the security of PoS protocols
+employing VDFs does not match those of PoW. For example, imagine Satoshi
+Nakamoto bootstrapped Bitcoin in 2009 and, at that point, they
+controlled more than 50% of the power invested in Bitcoin (a very
+reasonable assumption!). Today, Satoshi most probably cannot override
+the Bitcoin blockchain (i.e., replace it with a longer one), as this
+would entail them maintaining the majority of power on average
+throughout the execution of Bitcoin (from 2009 until now). Let us now
+imagine the same scenario in a PoS-VDF blockchain where the entity that
+bootstraps the protocol has an initial advantage and can privately
+create an alternative blockchain. In fact, PoS blockchains typically
+bootstrap in a centralized manner where the &ldquo;creator&rdquo; controls 100% of
+the circulating coins. For how long shall this entity maintain more than
+50% of the stake to successfully fool newly joining nodes at a later
+point in time? Alarmingly, a single moment of majority control is
+sufficient to compromise safety, as the creator could initiate a private
+blockchain from the genesis block, always controlling over 50% of the
+stake. The integration of VDFs in PoS blockchains fails to safeguard
+them against attacks where an attacker with a temporary majority creates
+a private blockchain <em>in parallel</em> to the &ldquo;correct&rdquo; one.</p>
+
+<p>Notably, the difference between these protocols is the cumulative nature
+of PoW versus the non-cumulative nature of VDFs. The question that
+arises is thus: can one create a blockchain that is equally secure in a
+dynamic network as Bitcoin but without relying on cumulative work? We
+assert that the answer to this question is no. To capture the
+fundamental difference across these mechanisms, consider this thought
+experiment: <em>Given the public key that will win the lottery for
+proposing the next block, what is the required computational overhead to
+actually produce the next block?</em></p>
+
+<p>In the context of PoW, knowing the winning public key in advance does
+little to alleviate the computational workload; the system must still
+undergo the same computational waste to identify the correct nonce.
+Conversely, in PoS blockchains that integrate VDFs, the computational
+overhead is reduced to executing the VDF with the pre-identified winning
+key. In a pure PoS blockchain, this process is merely a constant
+operation. We posit that this theoretical exercise constitutes a
+separator among such mechanisms, encapsulating the essence of their
+safety in dynamic networks; demonstrating how (proof of) work prevails
+in blockchains as it does in nature.</p>
+
+<h4 id="acknowledgments">Acknowledgments:</h4>
+
+<p>We thank Giulia Scaffino for her valuable feedback on this post.</p>
+
+	</section>
+
+	<script
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+	  type="text/javascript">
+	</script>
+	<script src="/static/prism.js"></script>
+</main>
+
+
+					<footer>
+						<div class="socials">
+							<h3>Get in touch</h3>
+							<a
+								class="mbtn"
+								href="mailto:hello@commonprefix.com"
+							>
+								<span class="un">hello@commonprefix.com</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://twitter.com/CommonPrefix"
+							>
+								<span class="un">@commonprefix</span>
+							</a>
+						</div>
+						<div class="footer__easter-egg">
+							<img
+								width="220px"
+								style="opacity: 0.5"
+								src="/static/footer_eq.svg"
+								draggable="false"
+								alt=""
+							/>
+							<img
+								width="220px"
+								style="mix-blend-mode: multiply"
+								src="/static/footer_blockchain.png"
+								draggable="false"
+								alt=""
+							/>
+							<p>
+								Rumpetur paritas cum sequens probatio operis
+								invenietur et ramus maior fiet.
+							</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			;(function () {
+				
+				document.querySelector('.footer__easter-egg').children[
+					Math.floor(Math.random() * 3)
+				].style.visibility = 'visible'
+
+				
+				window.requestAnimationFrame =
+					window.requestAnimationFrame ||
+					function (C) {
+						return setTimeout(function () {
+							C(+new Date())
+						}, 30)
+					}
+
+				function isTouchDevice() {
+					var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ')
+					var mq = function (query) {
+						return window.matchMedia(query).matches
+					}
+
+					if (
+						'ontouchstart' in window ||
+						(window.DocumentTouch &&
+							document instanceof DocumentTouch)
+					) {
+						return true
+					}
+
+					var query = [
+						'(',
+						prefixes.join('touch-enabled),('),
+						'heartz',
+						')',
+					].join('')
+					return mq(query)
+				}
+
+				var touchDevice = isTouchDevice()
+				if (touchDevice) {
+					document.body.classList.add('touchdevice')
+				}
+
+				var graphic = document.querySelector('.logo-graphic')
+				var clip = document.querySelector('.logo-graphic__clip')
+
+				if (!touchDevice) {
+					var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
+					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+
+					function reveal(e) {
+						var pos = graphic.getBoundingClientRect()
+						var x = e.clientX - pos.left - 150
+						var y = e.clientY - pos.top + 150
+
+						var v = `radial-gradient(circle at ${x}px ${y}px, black 0px, black 60px, transparent 120px)`
+						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+					}
+
+					window.addEventListener('mousemove', function (e) {
+						requestAnimationFrame(() => reveal(e))
+					})
+				}
+			})()
+		</script>
+	</body>
+</html>
