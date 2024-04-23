@@ -813,6 +813,10 @@ a.finding {
   font-size: 14px;
 }
 
+.research__filters .filter .dropdown button:hover {
+  text-decoration: underline;
+}
+
 .research__filters .filter .dropdown button.active {
   font-weight: bold;
 }
