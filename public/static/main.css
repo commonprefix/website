@@ -877,3 +877,27 @@ a.finding {
   align-items: center;
   gap: 20px;
 }
+
+.blog-index figure figcaption {
+  font-size: 26px;
+  color: var(--c-black);
+}
+
+.blog-index figure p {
+  margin: 0;
+  color: var(--c-gray);
+}
+
+.blog-index figure p a {
+  color: var(--c-black);
+}
+
+.blog-index figure p a:hover {
+  text-decoration: underline;
+}
+
+.blog-index figure small {
+  color: var(--c-gray);
+  opacity: 0.8;
+  font-style: italic;
+}

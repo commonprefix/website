@@ -1,0 +1,28 @@
+{{define "head"}}{{end}}
+{{define "content"}}
+<main class="blog-index">
+	<section class="small-container">
+		<h1>Blog</h1>
+		<p>
+			Our team specializes in the areas of proof-of-stake, proof-of-work, auctions, Layer-2s, sharding, channels, bootstrapping, light clients, wallets, smart contracts, interoperability, zero-knowledge, and multiparty computation.
+		</p>
+	</section>
+
+	<section>
+		{{ range .Posts }}
+		{{ if not .IsDraft}}
+		<figure>
+			<a href="/blog/{{ .Slug }}">
+				<figcaption>
+					<span>{{ .Title }}</span>
+				</figcaption>
+			</a>
+			<p>on {{ .FormatDate }} by {{range .Authors}}<a href="/team#{{.Handle}}">{{.Name}}</a> {{end}}</p>
+			<small>Reading time: {{ .ReadingTime }} minutes</small>
+		</figure>
+		{{end}}
+		{{ end }}
+	</section>
+
+</main>
+{{end}}

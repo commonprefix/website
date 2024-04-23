@@ -26,6 +26,7 @@ const (
 	layoutTmplName   = "layout.html"
 	indexTmplName    = "index.html"
 	teamTmplName     = "team.html"
+	blogTmplName     = "blog.html"
 	postTmplName     = "post.html"
 	clientTmplName   = "client.html"
 	researchTmplName = "research.html"
@@ -58,6 +59,7 @@ var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 }).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
 var bridgesTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, bridgesTmplName)))
 var postTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, postTmplName)))
+var blogTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, blogTmplName)))
 
 // Data structures
 
@@ -162,6 +164,7 @@ type Page struct {
 	Members        []TeamMember
 	Clients        []Client
 	Research       Research
+	Posts          []*Post
 }
 
 type ClientPage struct {

@@ -6,10 +6,11 @@
 <main class="blog-post">
 	<h1>{{ .Title }}</h1>
 	<h5 class="mono light blog-post__date">{{ .Date }}{{ if .IsDraft}} — DRAFT{{end}}<br />
-		{{range .Authors}}
 		<div class="blog-post__authors">
-		<a href="/team#{{.Handle}}">{{.Name}}</a>
+		{{range .Authors}}
+			<a href="/team#{{.Handle}}">{{.Name}}</a>
 		{{end}}
+		</div>
 	</h5>
 	<h5>Reading time: {{ .ReadingTime }} minutes</h5>
 
