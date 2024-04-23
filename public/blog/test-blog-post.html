@@ -104,6 +104,10 @@
 
 <hr>
 
+<h2 id="references">References</h2>
+
+<p>Here is a reference<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
+
 <h2 id="typographic-replacements">Typographic replacements</h2>
 
 <p>Enable typographer option to see result.</p>
@@ -315,20 +319,13 @@ console.log(foo(5));
 
 <h3 id="footnotes-https-github-com-markdown-it-markdown-it-footnote"><a href="https://github.com/markdown-it/markdown-it-footnote" target="_blank">Footnotes</a></h3>
 
-<p>Footnote 1 link[^first].</p>
+<p>Footnote 1 link<sup class="footnote-ref" id="fnref:first"><a href="#fn:first">2</a></sup>.</p>
 
-<p>Footnote 2 link[^second].</p>
+<p>Footnote 2 link<sup class="footnote-ref" id="fnref:second"><a href="#fn:second">3</a></sup>.</p>
 
-<p>Inline footnote^[Text of inline footnote] definition.</p>
+<p>Inline footnote<sup class="footnote-ref" id="fnref:Text-of-inline-f"><a href="#fn:Text-of-inline-f">4</a></sup> definition.</p>
 
-<p>Duplicated footnote reference[^second].</p>
-
-<p>[^first]: Footnote <strong>can have markup</strong></p>
-
-<pre><code>and multiple paragraphs.
-</code></pre>
-
-<p>[^second]: Footnote text.</p>
+<p>Duplicated footnote reference<sup class="footnote-ref" id="fnref:second"><a href="#fn:second">3</a></sup>.</p>
 
 <h3 id="definition-lists-https-github-com-markdown-it-markdown-it-deflist"><a href="https://github.com/markdown-it/markdown-it-deflist" target="_blank">Definition lists</a></h3>
 
@@ -401,6 +398,23 @@ contract Gas {
     }
 }
 </code></pre>
+
+<div class="footnotes">
+
+
+<ol>
+<li id="fn:1">Here is the footnote.</li>
+
+<li id="fn:first"><p>Footnote <strong>can have markup</strong></p>
+
+<p>and multiple paragraphs.</p></li>
+
+<li id="fn:second">Footnote text.</li>
+
+<li id="fn:Text-of-inline-f">Text of inline footnote</li>
+</ol>
+
+</div>
 
 	</section>
 

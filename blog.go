@@ -123,10 +123,10 @@ func newPost(fn string) (*Post, error) {
 
 	p.DescBody = template.HTML(p.Description)
 	// parser
-	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.MathJax
+	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.MathJax | parser.Footnotes
 	parser := parser.NewWithExtensions(extensions)
 	// renderer
-	htmlFlags := html.CommonFlags | html.HrefTargetBlank
+	htmlFlags := html.CommonFlags | html.HrefTargetBlank | html.FootnoteNoHRTag
 	opts := html.RendererOptions{Flags: htmlFlags}
 	renderer := html.NewRenderer(opts)
 	p.HTMLBody = template.HTML(markdown.ToHTML(content, parser, renderer))

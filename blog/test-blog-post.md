@@ -24,6 +24,12 @@ draft: false
 
 ---
 
+## References
+
+Here is a reference[^1]
+
+[^1]: Here is the footnote.
+
 ## Typographic replacements
 
 Enable typographer option to see result.

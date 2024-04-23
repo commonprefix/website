@@ -1,4 +1,4 @@
-/* Reset */
+\/* Reset */
 
 *,
 *::before,
@@ -876,6 +876,10 @@ a.finding {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.blog-post .footnotes {
+  margin-top: 24px;
 }
 
 .blog-index figure figcaption {
