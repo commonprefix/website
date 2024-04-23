@@ -168,41 +168,40 @@ function render() {
 	})
 }
 
-function handleTagClick(e) {
-	const tag = e.target.innerText
-	if(filters.tag.includes(tag)) {
-		filters.tag = filters.tag.filter(t => t !== tag)
-	} else {
-		filters.tag.push(tag)
-	}
-	render()
+function getFiltersFromSP() {
+	// get filters from URL SearchParams
+	const url = new URL(window.location.href)
+	const searchParams = url.searchParams
+	Object.entries(filters).forEach(([key, value]) => {
+		const spValue = searchParams.getAll(key)
+		if(spValue.length > 0) {
+			filters[key] = spValue
+		}
+	})
 }
 
-function handleAuthorClick(e) {
-	const author = e.target.innerText
-	if(filters.author.includes(author)) {
-		filters.author = filters.author.filter(a => a !== author)
-	} else {
-		filters.author.push(author)
-	}
-	render()
+function syncSP() {
+	// sync filters in the URL
+	const url = new URL(window.location.href)
+	const searchParams = new URLSearchParams()
+	Object.entries(filters).forEach(([key, value]) => {
+		value.forEach(v => searchParams.append(key, v))
+	})
+	// replace history
+	window.history.replaceState({}, '', `${url.pathname}${searchParams.toString() ? '?' : ''}${searchParams.toString()}`)
 }
-function handleConferenceClick(e) {
-	const value = e.target.innerText
-	if(filters.conference.includes(value)) {
-		filters.conference = filters.conference.filter(a => a !== value)
-	} else {
-		filters.conference.push(value)
+
+function setFilter(name, value) {
+	if(!filters[name]) {
+		console.error(`Filter ${name} does not exist`)
+		return
 	}
-	render()
-}
-function handleYearClick(e) {
-	const value = e.target.innerText
-	if(filters.year.includes(value)) {
-		filters.year = filters.year.filter(a => a !== value)
+	if(filters[name].includes(value)) {
+		filters[name] = filters[name].filter(t => t !== value)
 	} else {
-		filters.year.push(value)
+		filters[name].push(value)
 	}
+	syncSP()
 	render()
 }
 
@@ -222,6 +221,7 @@ filterElements.forEach(f => {
 		const filterName = f.dataset.filter
 		filters[filterName] = []
 		dropdownShown = ''
+		syncSP()
 		render()
 	})
 })
@@ -233,6 +233,7 @@ clearAllBtn.forEach(c => {
 			// reset filters
 			filters[k] = []
 		})
+		syncSP()
 		render()
 	})
 })
@@ -240,29 +241,29 @@ clearAllBtn.forEach(c => {
 // Attach tag filters
 tags.forEach(t => {
 	t.addEventListener('click', e => {
-		handleTagClick(e)
+		setFilter('tag', e.target.innerText)
 	})
 })
 
 // Dropdowns
 document.querySelectorAll('[data-filter=author] .dropdown button').forEach(b => {
 	b.addEventListener('click', e => {
-		handleAuthorClick(e)
+		setFilter('author', e.target.innerText)
 	})
 })
 document.querySelectorAll('[data-filter=conference] .dropdown button').forEach(b => {
 	b.addEventListener('click', e => {
-		handleConferenceClick(e)
+		setFilter('conference', e.target.innerText)
 	})
 })
 document.querySelectorAll('[data-filter=tag] .dropdown button').forEach(b => {
 	b.addEventListener('click', e => {
-		handleTagClick(e)
+		setFilter('tag', e.target.innerText)
 	})
 })
 document.querySelectorAll('[data-filter=year] .dropdown button').forEach(b => {
 	b.addEventListener('click', e => {
-		handleYearClick(e)
+		setFilter('year', e.target.innerText)
 	})
 })
 
@@ -283,15 +284,23 @@ document.addEventListener('click', function(event) {
 papers.forEach(p => {
 	// Attach author filters
 	p.querySelectorAll('.authors > span').forEach(a => {
-		a.addEventListener('click', handleAuthorClick)
+		a.addEventListener('click', (e) => {
+			setFilter('author', e.target.innerText)
+		})
 	})
 
 	// Attach conference filters
 	p.querySelector('.conference').addEventListener('click', e => {
-		const conference = e.target.dataset.conf
-		filters.conference = conference
-		render()
+		setFilter('conference', e.target.dataset.conf)
 	})
 })
+
+
+// Setup
+
+getFiltersFromSP()
+render()
+
+
 </script>
 {{end}}
