@@ -105,7 +105,7 @@ simply, we argue that blockchains, much like our bodies, are more secure
 with &ldquo;work&rdquo;.</p>
 
 <p>Delving into the foundations of blockchains, two properties prevail as
-their backbone [@bitcoinbackboneprotocol]: safety, ensuring that
+their backbone [^bitcoinbackboneprotocol]: safety, ensuring that
 transactions confirmed by an honest node will be eventually confirmed by
 all honest nodes, and liveness, guaranteeing that a transaction that is
 provided to honest nodes for a long enough period of time will be
@@ -137,7 +137,7 @@ and accept it as the &ldquo;correct one&rdquo;.</p>
 
 <p>Alternative approaches to PoW have been proposed, where the block
 proposer election is proportional to the amount of coins (i.e., stake)
-one owns within the system (e.g., [@kiayias2017ouroboros]). This
+one owns within the system (e.g., [^kiayias2017ouroboros]). This
 mechanism is known as Proof-of-Stake (PoS), and it is usually coupled
 with the longest chain selection rule, akin to the one of PoW. Although
 these approaches seem similar, PoS is vulnerable to safety attacks when
@@ -173,7 +173,7 @@ PoS. To impose an artificial arrow of time, at a much lesser cost than
 PoW, recent works propose to couple PoS with Verifiable Delay Functions
 (VDFs), i.e., functions that force users to perform sequential and
 non-parallelizable
-operations [@boneh2018verifiable; @wesolowski2019efficient; @pietrzak2019simple].</p>
+operations [^boneh2018verifiable] [^wesolowski2019efficient] [^pietrzak2019simple].</p>
 
 <p>With the use of VDFs, PoS blockchains can defend against posterior
 safety attacks in dynamic settings. Still, the security of PoS protocols
@@ -221,6 +221,14 @@ in blockchains as it does in nature.</p>
 <h4 id="acknowledgments">Acknowledgments:</h4>
 
 <p>We thank Giulia Scaffino for her valuable feedback on this post.</p>
+
+<h3 id="references">References</h3>
+
+<p>[^bitcoinbackboneprotocol]: Juan A. Garay, Aggelos Kiayias, Nikos Leonardos. &ldquo;The Bitcoin Backbone Protocol: Analysis and Applications.&rdquo; <em>Journal of the ACM (to appear)</em>, 2024.
+[^kiayias2017ouroboros]: Aggelos Kiayias, Alexander Russell, Bernardo David, Roman Oliynykov. &ldquo;Ouroboros: A provably secure proof-of-stake blockchain protocol.&rdquo; In <em>Annual international cryptology conference</em>, pp. 357&ndash;388, 2017. Springer.
+[^boneh2018verifiable]: Dan Boneh, Joseph Bonneau, Benedikt Bünz, Ben Fisch. &ldquo;Verifiable delay functions.&rdquo; In <em>Annual international cryptology conference</em>, pp. 757&ndash;788, 2018. Springer.
+[^wesolowski2019efficient]: Benjamin Wesolowski. &ldquo;Efficient verifiable delay functions.&rdquo; In <em>Advances in Cryptology&ndash;EUROCRYPT 2019: 38th Annual International Conference on the Theory and Applications of Cryptographic Techniques, Darmstadt, Germany, May 19&ndash;23, 2019, Proceedings, Part III 38</em>, pp. 379&ndash;407, 2019. Springer.
+[^pietrzak2019simple]: Krzysztof Pietrzak. &ldquo;Simple verifiable delay functions.&rdquo; In <em>10th innovations in theoretical computer science conference (itcs 2019)</em>, 2019. Schloss-Dagstuhl-Leibniz Zentrum für Informatik.</p>
 
 	</section>
 
