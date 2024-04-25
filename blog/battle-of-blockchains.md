@@ -7,8 +7,8 @@ draft: true
 ---
 
 Since the dawn of civilization, we have managed to escape many physical
-barriers of nature. With enough money, a human construct devoid of any
-physical worth, one can buy the essentials to cover all their basic
+barriers of nature. With enough money -- a human construct devoid of any
+physical worth -- one can buy the essentials to cover all their basic
 needs. Yet our bodies exemplify the intangible nature of money: for
 instance, the fruits of physical exercise, such as a healthier and
 longer lifespan on average, can only be reaped through effort and cannot
@@ -21,8 +21,8 @@ resources?*
 The quest to answer this question is pivotal for the fabric of modern
 society as well as the realm of blockchains. Indeed, it is a common
 belief that blockchains operate optimally when users with more money
-imply their wealth to secure blockchains. We contest this folklore
-wisdom, advocating for blockchains operated via effort or ,in machine
+implicate their wealth to secure blockchains. We contest this folklore
+wisdom, advocating for blockchains operated via effort or, in machine
 language, computational power; the so-called Proof-of-Work (PoW). Put
 simply, we argue that blockchains, much like our bodies, are more secure
 with "work".
