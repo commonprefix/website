@@ -19,7 +19,7 @@ import (
 )
 
 const (
-	wordsPerMinute = 382
+	wordsPerMinute = 200
 )
 
 type Post struct {
@@ -57,8 +57,31 @@ func createPage(p *Post) error {
 		return err
 	}
 
-	fmt.Printf("📔  %s sucessfully generated.\n", p.Slug)
+	fmt.Printf("📔  blog/%s.html sucessfully generated.\n", p.Slug)
 	return nil
+}
+
+func createBlogIndex(posts []*Post) error {
+	fp := filepath.Join(buildDir, "blog", "index.html")
+	os.Remove(fp)
+
+	f, err := os.Create(fp)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	err = blogTmpl.ExecuteTemplate(f, "base", Page{
+		Title: "Blog",
+		Posts: posts,
+	})
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("📚  blog/index.html sucessfully generated.\n")
+	return nil
+
 }
 
 func newPost(fn string) (*Post, error) {
@@ -100,10 +123,10 @@ func newPost(fn string) (*Post, error) {
 
 	p.DescBody = template.HTML(p.Description)
 	// parser
-	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.MathJax
+	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.MathJax | parser.Footnotes
 	parser := parser.NewWithExtensions(extensions)
 	// renderer
-	htmlFlags := html.CommonFlags | html.HrefTargetBlank
+	htmlFlags := html.CommonFlags | html.HrefTargetBlank | html.FootnoteNoHRTag
 	opts := html.RendererOptions{Flags: htmlFlags}
 	renderer := html.NewRenderer(opts)
 	p.HTMLBody = template.HTML(markdown.ToHTML(content, parser, renderer))
@@ -146,5 +169,12 @@ func genBlog() {
 		if err != nil {
 			log.Fatal(err)
 		}
+	}
+
+	// Create blog index
+
+	err = createBlogIndex(posts)
+	if err != nil {
+		log.Fatal(err)
 	}
 }

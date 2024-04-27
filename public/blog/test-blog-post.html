@@ -6,15 +6,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Common Prefix — Test Blog Post</title>
-		<meta name="description" content="This is a test blog post." />
+		<meta name="description" content="This is a test blog post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat aliquam velit." />
 
 		<meta property="og:title" content="Common Prefix — Test Blog Post">
-		<meta property="og:description" content="This is a test blog post.">
+		<meta property="og:description" content="This is a test blog post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat aliquam velit.">
 		<meta property="og:url" content="https://commonprefix.com/">
 		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
 
 		<meta name="twitter:title" content="Common Prefix — Test Blog Post">
-		<meta name="twitter:description" content="This is a test blog post.">
+		<meta name="twitter:description" content="This is a test blog post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat aliquam velit.">
 		<meta property="twitter:url" content="https://commonprefix.com/">
 		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
 		<meta name="twitter:card" content="summary_large_image">
@@ -39,7 +39,7 @@
 		</script>
 
 		
-<meta name="robots" content="noindex">
+
 <link href="/static/prism.css" rel="stylesheet" />
 
 	</head>
@@ -72,16 +72,16 @@
 					
 <main class="blog-post">
 	<h1>Test Blog Post</h1>
-	<h5 class="mono light blog-post__date">28/03/2024 — DRAFT<br />
-		
+	<h5 class="mono light blog-post__date">28/03/2024<br />
 		<div class="blog-post__authors">
-		<a href="/team#nikolas">Nikolaos Kamarinakis</a>
 		
-		<div class="blog-post__authors">
-		<a href="/team#dionysis">Dr. Dionysis Zindros</a>
+			<a href="/team#nikolas">Nikolaos Kamarinakis</a>
 		
+			<a href="/team#dionysis">Dr. Dionysis Zindros</a>
+		
+		</div>
 	</h5>
-	<h5>Reading time: 2 minutes</h5>
+	<h5>Reading time: 4 minutes</h5>
 
 	
 
@@ -103,6 +103,10 @@
 <hr>
 
 <hr>
+
+<h2 id="references">References</h2>
+
+<p>Here is a reference<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
 
 <h2 id="typographic-replacements">Typographic replacements</h2>
 
@@ -315,20 +319,13 @@ console.log(foo(5));
 
 <h3 id="footnotes-https-github-com-markdown-it-markdown-it-footnote"><a href="https://github.com/markdown-it/markdown-it-footnote" target="_blank">Footnotes</a></h3>
 
-<p>Footnote 1 link[^first].</p>
+<p>Footnote 1 link<sup class="footnote-ref" id="fnref:first"><a href="#fn:first">2</a></sup>.</p>
 
-<p>Footnote 2 link[^second].</p>
+<p>Footnote 2 link<sup class="footnote-ref" id="fnref:second"><a href="#fn:second">3</a></sup>.</p>
 
-<p>Inline footnote^[Text of inline footnote] definition.</p>
+<p>Inline footnote<sup class="footnote-ref" id="fnref:Text-of-inline-f"><a href="#fn:Text-of-inline-f">4</a></sup> definition.</p>
 
-<p>Duplicated footnote reference[^second].</p>
-
-<p>[^first]: Footnote <strong>can have markup</strong></p>
-
-<pre><code>and multiple paragraphs.
-</code></pre>
-
-<p>[^second]: Footnote text.</p>
+<p>Duplicated footnote reference<sup class="footnote-ref" id="fnref:second"><a href="#fn:second">3</a></sup>.</p>
 
 <h3 id="definition-lists-https-github-com-markdown-it-markdown-it-deflist"><a href="https://github.com/markdown-it/markdown-it-deflist" target="_blank">Definition lists</a></h3>
 
@@ -401,6 +398,23 @@ contract Gas {
     }
 }
 </code></pre>
+
+<div class="footnotes">
+
+
+<ol>
+<li id="fn:1">Here is the footnote.</li>
+
+<li id="fn:first"><p>Footnote <strong>can have markup</strong></p>
+
+<p>and multiple paragraphs.</p></li>
+
+<li id="fn:second">Footnote text.</li>
+
+<li id="fn:Text-of-inline-f">Text of inline footnote</li>
+</ol>
+
+</div>
 
 	</section>
 
