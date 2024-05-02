@@ -50,7 +50,7 @@ so far. This ability safeguards the transaction order integrity, the
 manifestation of safety in a dynamic, permissionless network.
 
 To achieve this strong property, Bitcoin leverages PoW to elect block
-proposers in a fair unbiasable manner and adopts the longest chain
+proposers in a fair, unbiasable manner and adopts the longest chain
 selection rule to determine which chain is the "correct one". PoW
 effectively secures the blockchain against adversaries that control less
 than 50% of the computational power of the entire system. Coupled with
@@ -65,9 +65,9 @@ mechanism is known as Proof-of-Stake (PoS), and it is usually coupled
 with the longest chain selection rule, akin to the one of PoW. Although
 these approaches seem similar, PoS is vulnerable to safety attacks when
 the network is dynamic. Let us illustrate this vulnerability with an
-example. Consider a PoS blockchain that in its 100th operation day has
+example. Consider a PoS blockchain that, in its 100th operation day, has
 10% of its total stake active, with honest nodes holding 6% and an
-adversary holding 4%. Then, at a later point in time, e.g. on its 200th
+adversary holding 4%. Then, at a later point in time, e.g., on its 200th
 operation day, the total stake active is 50%, with honest nodes holding
 30% and the adversary 20%. On the 200th operation day, the blockchain is
 not safe anymore, as the adversary can now use its 20% stake to rewrite
@@ -100,12 +100,12 @@ operations [^boneh2018verifiable] [^wesolowski2019efficient] [^pietrzak2019simpl
 
 With the use of VDFs, PoS blockchains can defend against posterior
 safety attacks in dynamic settings. Still, the security of PoS protocols
-employing VDFs does not match those of PoW. For example, imagine Satoshi
+employing VDFs does not match those of PoW. For example, imagine if Satoshi
 Nakamoto bootstrapped Bitcoin in 2009 and, at that point, they
 controlled more than 50% of the power invested in Bitcoin (a very
 reasonable assumption!). Today, Satoshi most probably cannot override
 the Bitcoin blockchain (i.e., replace it with a longer one), as this
-would entail them maintaining the majority of power on average
+would entail them maintaining the majority of power, on average,
 throughout the execution of Bitcoin (from 2009 until now). Let us now
 imagine the same scenario in a PoS-VDF blockchain where the entity that
 bootstraps the protocol has an initial advantage and can privately
@@ -125,7 +125,7 @@ of PoW versus the non-cumulative nature of VDFs. The question that
 arises is thus: can one create a blockchain that is equally secure in a
 dynamic network as Bitcoin but without relying on cumulative work? We
 assert that the answer to this question is no. To capture the
-fundamental difference across these mechanisms, consider this thought
+fundamental difference across these mechanisms, consider the following thought
 experiment: *Given the public key that will win the lottery for
 proposing the next block, what is the required computational overhead to
 actually produce the next block?*
