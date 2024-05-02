@@ -882,6 +882,14 @@ a.finding {
   margin-top: 24px;
 }
 
+.blog-index figure {
+  margin-bottom: 50px;
+}
+
+.blog-index figure:last-child {
+  margin-bottom: 0;
+}
+
 .blog-index figure figcaption {
   font-size: 26px;
   color: var(--c-black);
