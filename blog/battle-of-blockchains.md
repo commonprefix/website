@@ -3,7 +3,6 @@ title: "The Battle of Blockchains: PoW vs PoS Unveiled"
 date: "17/04/2024"
 desc: "A perspective on the long-standing battle between proof-of-work and proof-of-stake blockchains."
 authors: "zeta"
-draft: true
 ---
 
 Since the dawn of civilization, we have managed to escape many physical
