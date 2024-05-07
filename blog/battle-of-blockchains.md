@@ -146,8 +146,8 @@ We thank Giulia Scaffino for her valuable feedback on this post.
 
 ### References
 
-[^bitcoinbackboneprotocol]: Juan A. Garay, Aggelos Kiayias, Nikos Leonardos. "The Bitcoin Backbone Protocol: Analysis and Applications." _Journal of the ACM (to appear)_, 2024.
-[^kiayias2017ouroboros]: Aggelos Kiayias, Alexander Russell, Bernardo David, Roman Oliynykov. "Ouroboros: A provably secure proof-of-stake blockchain protocol." In _Annual international cryptology conference_, pp. 357--388, 2017. Springer.
-[^boneh2018verifiable]: Dan Boneh, Joseph Bonneau, Benedikt Bünz, Ben Fisch. "Verifiable delay functions." In _Annual international cryptology conference_, pp. 757--788, 2018. Springer.
-[^wesolowski2019efficient]: Benjamin Wesolowski. "Efficient verifiable delay functions." In _Advances in Cryptology--EUROCRYPT 2019: 38th Annual International Conference on the Theory and Applications of Cryptographic Techniques, Darmstadt, Germany, May 19--23, 2019, Proceedings, Part III 38_, pp. 379--407, 2019. Springer.
-[^pietrzak2019simple]: Krzysztof Pietrzak. "Simple verifiable delay functions." In _10th innovations in theoretical computer science conference (itcs 2019)_, 2019. Schloss-Dagstuhl-Leibniz Zentrum für Informatik.
+[^bitcoinbackboneprotocol]: Juan A. Garay, Aggelos Kiayias, Nikos Leonardos. "The Bitcoin Backbone Protocol: Analysis and Applications." _Journal of the ACM (to appear)_, 2024. [https://eprint.iacr.org/2014/765.pdf](https://eprint.iacr.org/2014/765.pdf).
+[^kiayias2017ouroboros]: Aggelos Kiayias, Alexander Russell, Bernardo David, Roman Oliynykov. "Ouroboros: A provably secure proof-of-stake blockchain protocol." In _Annual international cryptology conference_, pp. 357--388, 2017. Springer. [https://eprint.iacr.org/2016/889.pdf](https://eprint.iacr.org/2016/889.pdf).
+[^boneh2018verifiable]: Dan Boneh, Joseph Bonneau, Benedikt Bünz, Ben Fisch. "Verifiable delay functions." In _Annual international cryptology conference_, pp. 757--788, 2018. Springer. [https://eprint.iacr.org/2018/601.pdf](https://eprint.iacr.org/2018/601.pdf).
+[^wesolowski2019efficient]: Benjamin Wesolowski. "Efficient verifiable delay functions." In _Advances in Cryptology--EUROCRYPT 2019: 38th Annual International Conference on the Theory and Applications of Cryptographic Techniques, Darmstadt, Germany, May 19--23, 2019, Proceedings, Part III 38_, pp. 379--407, 2019. Springer. [https://eprint.iacr.org/2018/623.pdf](https://eprint.iacr.org/2018/623.pdf).
+[^pietrzak2019simple]: Krzysztof Pietrzak. "Simple verifiable delay functions." In _10th innovations in theoretical computer science conference (itcs 2019)_, 2019. Schloss-Dagstuhl-Leibniz Zentrum für Informatik. [https://eprint.iacr.org/2018/627.pdf](https://eprint.iacr.org/2018/627.pdf).
