@@ -11,11 +11,33 @@
             style="aspect-ratio:1"
             width="1024px"
         />
-		<p>I dip my bare foot into the crystal-clear waters of the Arachthos river, and the freezing cold brings shivers up my spine. Lifting up my jeans, I touch the stony bottom. Rumour has it dragons roamed these waters in ancient times.</p>
-        <p>Forty-five craftsmen and sixty apprentices were commissioned to build the stone bridge of Arta that crosses it. Every day, they would build it with sweat and blood under the sun. And at night, the bridge would fall. It was not until they sacrificed the master craftsman's wife into the foundations that the bridge kept standing. Her spirit is the secret ingredient that holds it.</p>
-        <p>Since the 3rd century BC, with the occasional repairs, the bridge still proudly stands, to this day. Every little stone is cut by the mason and placed meticulously among its neighbours. A marvel of engineering, she is made of stone, and stone only with no adhesive patchwork. Through the centuries, she was crossed by villagers, by the horses of tradesmen, and by soldiers in the world wars. She was crossed by rich kings, by cunning thieves, and by newlywed wives leaving their maternal home to go live with their husbands under the cries of polyphonic song. She withstood windy winters and the swollen river waters as she watched the ancient dragons fly across the stormy skies above.</p>
-        <p>As we leave the river, like countless have before, my fellow craftsmen and I cross the bridge with our apprentices and go sit under the plane trees. We plug in to our digital world. We're the craftsmen of the new millenium. The bridges we build are made of code. They connect blockchains and ledgers. They, too, are built with sweat. Like the forty-five craftsmen and the sixty apprentices, we too have learned painful lessons from bridges collapsing under heavy weather. Our bridges, too, generously serve whoever takes the step to cross, standing neutral and without judgement; the rich king, the tradesman, the cunning thief, the dragon.</p>
+		<p><em>“I dip my bare foot into the crystal-clear waters of the Arachthos river, and the freezing cold brings shivers up my spine. Lifting up my jeans, I touch the stony bottom. Rumour has it dragons roamed these waters in ancient times.</em></p>
+		<p><em>Forty-five craftsmen and sixty apprentices were commissioned to build the stone bridge of Arta that crosses it. Every day, they would build it with sweat and blood under the sun. And at night, the bridge would fall. It was not until they sacrificed the master craftsman's wife into the foundations that the bridge kept standing. Her spirit is the secret ingredient that holds it.</em></p>
+		<p><em>Since the 3rd century BC, with the occasional repairs, the bridge still proudly stands, to this day. Every little stone is cut by the mason and placed meticulously among its neighbours. A marvel of engineering, she is made of stone, and stone only with no adhesive patchwork. Through the centuries, she was crossed by villagers, by the horses of tradesmen, and by soldiers in the world wars. She was crossed by rich kings, by cunning thieves, and by newlywed wives leaving their maternal home to go live with their husbands under the cries of polyphonic song. She withstood windy winters and the swollen river waters as she watched the ancient dragons fly across the stormy skies above.</em></p>
+		<p><em>As we leave the river, like countless have before, my fellow craftsmen and I cross the bridge with our apprentices and go sit under the plane trees. We plug in to our digital world. We're the craftsmen of the new millenium. The bridges we build are made of code. They connect blockchains and ledgers. They, too, are built with sweat. Like the forty-five craftsmen and the sixty apprentices, we too have learned painful lessons from bridges collapsing under heavy weather. Our bridges, too, generously serve whoever takes the step to cross, standing neutral and without judgement; the rich king, the tradesman, the cunning thief, the dragon.”</em></p>
+		<br />
         <p>At Common Prefix, we are expert bridge-builders. With a nod to tradition, scientific training at the PhD level, and engineering craftsmanship with decades of experience in scalable technologies, we build digital bridges that stand the test of time. Connecting Cosmos, Ethereum, Bitcoin, or Ripple, we're the masons that craft the code and size it to fit between existing infrastructure. We get our hands dirty and stand behind the major bridges of our time.</p>
 	</section>
+
+	{{ range .Projects }}
+	<section>
+		<div class="findings">
+			<div>
+				<h3>{{ .Title }}</h3>
+				{{ if .Date }}<small>{{.Date}}</small>{{end}}
+				{{ if .Desc }}<p>{{.Desc}}</p>{{end}}
+			</div>
+			{{range .Links}}
+			<a href="{{.Url}}" target="_blank" rel="noopener noreferrer" class="finding">
+				<div>
+					<span class="finding__name un">{{ .Name }}</span>
+					{{ if .Date }}<small class="finding__date">{{.Date}}</small>{{end}}
+				</div>
+				<span class="finding__ext {{ if .IsFile }}with-arrow-down{{else}}with-arrow{{end}}">{{ if .IsFile }}.{{ .Ext }}{{end}}</span>
+			</a>
+			{{end}}
+		</div>
+	</section>
+	{{end}}
 </main>
 {{end}}

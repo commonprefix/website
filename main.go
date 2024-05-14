@@ -126,6 +126,7 @@ type Project struct {
 	DateTime time.Time
 	Findings []Finding
 	Links    []ProjectLink
+	IsBridge bool
 }
 
 type Client struct {
@@ -165,6 +166,13 @@ type Page struct {
 	Clients        []Client
 	Research       Research
 	Posts          []*Post
+}
+
+type BridgesPage struct {
+	SmallContainer bool
+	Title          string
+	Description    string
+	Projects       []Project
 }
 
 type ClientPage struct {
@@ -316,6 +324,15 @@ func build() {
 	//
 	// Build bridges page
 	//
+	bridgeProjects := []Project{}
+	for _, c := range Clients {
+		for _, p := range c.Projects {
+			if p.IsBridge {
+				bridgeProjects = append(bridgeProjects, p)
+			}
+		}
+	}
+
 	bridgesPage := filepath.Join(buildDir, bridgesTmplName)
 	// Remove the old version
 	os.Remove(bridgesPage)
@@ -324,7 +341,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", bridgesTmplName)
 	}
-	bridgesTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "Bridges", Description: description})
+	bridgesTmpl.ExecuteTemplate(f, "base", BridgesPage{SmallContainer: true, Title: "Bridges", Description: description, Projects: bridgeProjects})
 
 	f.Close()
 	fmt.Printf("🌉  %s sucessfully generated.\n", bridgesTmplName)

@@ -33,8 +33,9 @@ var Clients []Client = []Client{
 		},
 		Projects: []Project{
 			{
-				Title: "Axelar integration with XRPL",
-				Desc:  template.HTML(`Common Prefix has partnered with Axelar to integrate Ripple's XRPL network with Axelar's Amplifier bridging infrastructure.`),
+				Title:    "Axelar integration with XRPL",
+				IsBridge: true,
+				Desc:     template.HTML(`Common Prefix has partnered with Axelar to integrate Ripple's XRPL network with Axelar's Amplifier bridging infrastructure.`),
 				Links: []ProjectLink{
 					{
 						Url:  "https://github.com/axelarnetwork/axelar-amplifier/pull/227",
@@ -49,8 +50,9 @@ var Clients []Client = []Client{
 				},
 			},
 			{
-				Title: "Ethereum Light Client on Axelar implementation",
-				Desc:  template.HTML(`Common Prefix collaborated with Axelar to develop a light client that employs Ethereum's Sync Committee protocol to bridge events from Ethereum to Axelar.`),
+				Title:    "Ethereum Light Client on Axelar implementation",
+				IsBridge: true,
+				Desc:     template.HTML(`Common Prefix collaborated with Axelar to develop a light client that employs Ethereum's Sync Committee protocol to bridge events from Ethereum to Axelar.`),
 				Links: []ProjectLink{
 					{
 						Url:  "/static/clients/axelar/axelar_light_client_grant_proposal.pdf",
@@ -395,8 +397,9 @@ var Clients []Client = []Client{
 				},
 			},
 			{
-				Title: "Ēnosys Bridge implementation",
-				Desc:  template.HTML(`Common Prefix collaborated with Ēnosys to develop an EVM-to-EVM committee-based bridge. At the time of writing, the Ēnosys Bridge enables token transfers between Ethereum, Flare Networks, and XDC, with <a href="https://defillama.com/protocol/enosys-bridge">$3.3 million in TVL</a>.`),
+				Title:    "Ēnosys Bridge implementation",
+				IsBridge: true,
+				Desc:     template.HTML(`Common Prefix collaborated with Ēnosys to develop an EVM-to-EVM committee-based bridge. At the time of writing, the Ēnosys Bridge enables token transfers between Ethereum, Flare Networks, and XDC, with <a href="https://defillama.com/protocol/enosys-bridge">$3.3 million in TVL</a>.`),
 				Links: []ProjectLink{
 					{
 						Url:  "https://enosys.global/papers/EnosysBridgeWhitepaper.pdf",
