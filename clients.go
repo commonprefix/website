@@ -26,6 +26,7 @@ var Clients []Client = []Client{
 			Members["nikolas"],
 			Members["dimitris"],
 			Members["pkakelas"],
+			Members["orfeas"],
 			Members["themis"],
 			Members["ristic"],
 			Members["dionysis"],
