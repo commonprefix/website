@@ -27,6 +27,7 @@ var Clients []Client = []Client{
 			Members["dimitris"],
 			Members["pkakelas"],
 			Members["themis"],
+			Members["ristic"],
 			Members["dionysis"],
 		},
 		Projects: []Project{
@@ -351,6 +352,7 @@ var Clients []Client = []Client{
 			Members["dimitris"],
 			Members["pkakelas"],
 			Members["themis"],
+			Members["ristic"],
 			Members["apostolos"],
 			Members["dionysis"],
 		},
