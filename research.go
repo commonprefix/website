@@ -8,7 +8,7 @@ const (
 	LIQUID_STAKING   Tag = "liquid-staking"
 	LIGHT_CLIENTS    Tag = "light-clients"
 	INTEROPERABILITY Tag = "interoperability"
-	// WALLETS           Tag = "wallets"
+	WALLETS           Tag = "wallets"
 	PAYMENT_CHANNELS  Tag = "payment-channels"
 	ZERO_KNOWLEDGE    Tag = "zero-knowledge"
 	SIGNATURES        Tag = "signatures"
@@ -48,7 +48,7 @@ var TagToColor = map[Tag]string{
 	LIQUID_STAKING:   "#e6e6fa",
 	LIGHT_CLIENTS:    "#fff3b0",
 	INTEROPERABILITY: "#a5d0ec",
-	// WALLETS:            "#e1ddad",
+	WALLETS:            "#e1ddad",
 	PAYMENT_CHANNELS:  "#c5e2b5",
 	ZERO_KNOWLEDGE:    "#e0b5e9",
 	SIGNATURES:        "#fae2d9",
@@ -135,7 +135,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2019,
 		Authors:        []string{"Myrto Arapinis", "Andriana Gkaniatsou", "Dimitris Karakostas", "Aggelos Kiayias"},
 		Url:            "https://eprint.iacr.org/2019/034.pdf",
-		Tags:           []Tag{}, // WALLETS
+		Tags:           []Tag{WALLETS},
 	},
 	{
 		Handle:         "brick",
@@ -342,8 +342,8 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2022,
 		Authors:        []string{"Matteo Campanelli", "Bernardo David", "Hamidreza Khoshakhlagh", "Anders Konring", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2021/1423.pdf",
-		Tags:           []Tag{TIMELOCK}, // WITNESS_ENCRYPTION
-	},
+		Tags:           []Tag{TIMELOCK, WITNESS_ENCRYPTION},
+    },
 	{
 		Handle:         "gearbox",
 		Name:           "GearBox: An Efficient UC Sharded Ledger Leveraging the Safety-Liveness Dichotomy.",
@@ -1116,5 +1116,77 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orestis Alpos", "Christian Cachin"},
 		Url:            "https://eprint.iacr.org/2022/1767.pdf",
 		Tags:           []Tag{},
+	},
+	{
+		Handle:         "lazy-light-clients",
+		Name:           "Light Clients for Lazy Blockchains",
+		Conference:     "Financial Cryptography and Data Security",
+		ConferenceYear: 2024,
+		Authors:        []string{"Ertem Nusret Tas", "Dionysis Zindros", "Lei Yang", "David Tse"},
+		Url:            "https://arxiv.org/pdf/2203.15968v2",
+		Tags:           []Tag{LIGHT_CLIENTS},
+	},
+	{
+		Handle:         "hours-of-horus",
+		Name:           "Hours of Horus: Keyless Cryptocurrency Wallets",
+		Conference:     "Financial Cryptography and Data Security",
+		ConferenceYear: 2022,
+		Authors:        []string{"Dionysis Zindros"},
+		Url:            "https://eprint.iacr.org/2021/715.pdf",
+		Tags:           []Tag{WALLETS, TIMELOCK, WITNESS_ENCRYPTION},
+	},
+	{
+		Handle:         "better-safe-than-sorry",
+		Name:           "Better Safe than Sorry: Recovering after Adversarial Majority",
+		Conference:     "arXiv",
+		ConferenceYear: 2023,
+		Authors:        []string{"Srivatsan Sridhar", "Dionysis Zindros", "David Tse"},
+		Url:            "https://arxiv.org/pdf/2310.06338",
+		Tags:           []Tag{CONSENSUS},
+	},
+	{
+		Handle:         "blink",
+		Name:           "Blink: An Optimal Proof of Proof-of-Work",
+		Conference:     "Cryptology ePrint Archive",
+		ConferenceYear: 2024,
+		Authors:        []string{"Lukas Aumayr", "Zeta Avarikioti", "Matteo Maffei", "Giulia Scaffino", "Dionysis Zindros"},
+		Url:            "https://eprint.iacr.org/2024/692.pdf",
+		Tags:           []Tag{PROOF_OF_WORK, LIGHT_CLIENTS, INTEROPERABILITY},
+	},
+	{
+		Handle:         "rollerblade",
+		Name:           "Rollerblade: Replicated Distributed Protocol Emulation on Top of Ledgers",
+		Conference:     "Cryptology ePrint Archive",
+		ConferenceYear: 2024,
+		Authors:        []string{"Dionysis Zindros", "Apostolos Tzinas", "David Tse"},
+		Url:            "https://eprint.iacr.org/2024/210.pdf",
+		Tags:           []Tag{},
+	},
+	{
+		Handle:         "cassiopeia",
+		Name:           "Cassiopeia: Practical On-Chain Witness Encryption",
+		Conference:     "Financial Cryptography and Data Security",
+		ConferenceYear: 2023,
+		Authors:        []string{"Schwinn Saereesitthipitak", "Dionysis Zindros"},
+		Url:            "https://eprint.iacr.org/2023/635.pdf",
+		Tags:           []Tag{WITNESS_ENCRYPTION, PVSS, SMART_CONTRACTS},
+	},
+	{
+		Handle:         "better-pow-fork-rule",
+		Name:           "A Better Proof-of-Work Fork Choice Rule",
+		Conference:     "Cryptology ePrint Archive",
+		ConferenceYear: 2024,
+		Authors:        []string{"Karl Kreder", "Shreekara Shastry", "Apostolos Tzinas", "Sriram Vishwanath", "Dionysis Zindros"},
+		Url:            "https://eprint.iacr.org/2024/200.pdf",
+		Tags:           []Tag{PROOF_OF_WORK, CONSENSUS},
+	},
+	{
+		Handle:         "smart-contract-derivatives",
+		Name:           "Smart Contract Derivatives",
+		Conference:     "Mathematical Research for Blockchain Economy",
+		ConferenceYear: 2020,
+		Authors:        []string{"Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
+		Url:            "https://eprint.iacr.org/2020/138.pdf",
+		Tags:           []Tag{SMART_CONTRACTS},
 	},
 }
