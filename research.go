@@ -28,7 +28,7 @@ const (
 	COMMITMENTS        Tag = "commitments"
 	OBLIVIOUS_TRANSFER Tag = "oblivious-transfer"
 	// ANONYMITY          Tag = "anonymity"
-	// MEV                Tag = "mev"
+	MEV                Tag = "mev"
 	YOSO Tag = "yoso"
 	// ROM                Tag = "random-oracle"
 	HOMOMORPHISM       Tag = "homomorphism"
@@ -68,7 +68,7 @@ var TagToColor = map[Tag]string{
 	COMMITMENTS:        "#ffead4",
 	OBLIVIOUS_TRANSFER: "#a8e8e8",
 	// ANONYMITY:          "#c7d2d9",
-	// MEV:                "#f3b0e0",
+	MEV:                "#f3b0e0",
 	YOSO: "#ffd1b3",
 	// ROM:                "#8cd1a4",
 	HOMOMORPHISM:       "#e6a1a1",
@@ -333,7 +333,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2022,
 		Authors:        []string{"Carsten Baum", "James Hsin-yu Chiang", "Bernardo David", "Tore Kasper Frederiksen", "Lorenzo Gentile"},
 		Url:            "https://eprint.iacr.org/2021/1628.pdf",
-		Tags:           []Tag{DEFI, FRONT_RUNNING}, // MEV
+		Tags:           []Tag{DEFI, FRONT_RUNNING, MEV},
 	},
 	{
 		Handle:         "anonymous-timelock",
@@ -1044,5 +1044,77 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Aggelos Kiayias", "Benjamin Livshits", "Andrés Monteoliva Mosteiro", "Orfeas Stefanos Thyfronitis Litos"},
 		Url:            "https://www.pure.ed.ac.uk/ws/portalfiles/portal/129969711/A_Puff_of_Steem_KIAYIAS_DOA13012020_VOR_CC_BY.pdf",
 		Tags:           []Tag{DECENTRALIZATION},
+	},
+	{
+		Handle:         "trust-strangers",
+		Name:           "How to Trust Strangers: Composition of Byzantine Quorum Systems",
+		Conference:     "International Symposium on Reliable Distributed Systems",
+		ConferenceYear: 2021,
+		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Luca Zanolini"},
+		Url:            "https://arxiv.org/pdf/2107.11331",
+		Tags:           []Tag{CONSENSUS},
+	},
+	{
+		Handle:         "eating-sandwiches",
+		Name:           "Eating sandwiches: Modular and lightweight elimination of transaction reordering attacks",
+		Conference:     "ArXiv",
+		ConferenceYear: 2023,
+		Authors:        []string{"Orestis Alpos", "Ignacio Amores-Sesar", "Christian Cachin", "Michelle Yeo"},
+		Url:            "https://arxiv.org/pdf/2307.02954",
+		Tags:           []Tag{MEV, FRONT_RUNNING},
+	},
+	{
+		Handle:         "sync-power",
+		Name:           "On the Synchronization Power of Token Smart Contracts",
+		Conference:     "International Conference on Distributed Computing Systems",
+		ConferenceYear: 2021,
+		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Giorgia Azzurra Marson", "Luca Zanolini"},
+		Url:            "https://arxiv.org/pdf/2101.05543",
+		Tags:           []Tag{SMART_CONTRACTS},
+	},
+	{
+		Handle:         "consensus-beyond-thresholds",
+		Name:           "Consensus Beyond Thresholds: Generalized Byzantine Quorums Made Live",
+		Conference:     "International Symposium on Reliable Distributed Systems",
+		ConferenceYear: 2020,
+		Authors:        []string{"Orestis Alpos", "Christian Cachin"},
+		Url:            "https://arxiv.org/pdf/2006.04616",
+		Tags:           []Tag{CONSENSUS},
+	},
+	{
+		Handle:         "pos-atob",
+		Name:           "Practical Large-Scale Proof-of-Stake Asynchronous Total-Order Broadcast",
+		Conference:     "Cryptology ePrint Archive",
+		ConferenceYear: 2023,
+		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Simon Holmgaard Kamp", "Jesper Buus Nielsen"},
+		Url:            "https://eprint.iacr.org/2023/1103.pdf",
+		Tags:           []Tag{CONSENSUS, PROOF_OF_STAKE},
+	},
+	{
+		Handle:         "dske",
+		Name:           "DSKE: Digital Signatures with Key Extraction",
+		Conference:     "Cryptology ePrint Archive",
+		ConferenceYear: 2022,
+		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Simon Holmgaard Kamp", "Jesper Buus Nielsen"},
+		Url:            "https://eprint.iacr.org/2022/1753.pdf",
+		Tags:           []Tag{SIGNATURES},
+	},
+	{
+		Handle:         "thetacrypt",
+		Name:           "Thetacrypt: A Distributed Service for Threshold Cryptography On-Demand",
+		Conference:     "International Middleware Conference",
+		ConferenceYear: 2023,
+		Authors:        []string{"Orestis Alpos", "Mariarosaria Barbaraci", "Christian Cachin", "Noah Schmid", "Michael Senn"},
+		Url:            "https://dl.acm.org/doi/pdf/10.1145/3626564.3629100",
+		Tags:           []Tag{},
+	},
+	{
+		Handle:         "do-not-trust-in-numbers",
+		Name:           "Do Not Trust in Numbers: Practical Distributed Cryptography With General Trust",
+		Conference:     "International Symposium on Stabilizing, Safety, and Security of Distributed Systems",
+		ConferenceYear: 2023,
+		Authors:        []string{"Orestis Alpos", "Christian Cachin"},
+		Url:            "https://eprint.iacr.org/2022/1767.pdf",
+		Tags:           []Tag{},
 	},
 }
