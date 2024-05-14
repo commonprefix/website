@@ -560,7 +560,9 @@ var Clients []Client = []Client{
 			</defs>
 		</svg>`),
 		Body:     template.HTML(`BOB ("Build on Bitcoin") is a hybrid Layer-2 powered by Bitcoin and Ethereum. By combining the security, liquidity, userbase, and innovation of the two largest blockchain ecosystems, BOB aims to close the gap between Bitcoin as a vehicle for mass adoption and Ethereum as a hub for innovation.`),
-		Team:     []TeamMember{},
+        Team:     []TeamMember{
+            Members["ristic"],
+        },
 		Findings: []Finding{},
 		Projects: []Project{
 			{
