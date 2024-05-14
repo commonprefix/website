@@ -3,7 +3,7 @@ title: "Test Blog Post"
 date: "28/03/2024"
 desc: "This is a test blog post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat aliquam velit."
 authors: "nikolas,dionysis"
-draft: false
+draft: true
 ---
 
 ## h2 Heading
