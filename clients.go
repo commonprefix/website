@@ -209,6 +209,7 @@ var Clients []Client = []Client{
 		Body: template.HTML(`Babylon is a Cosmos zone that brings Bitcoin-level security to the Cosmos ecosystem using IBC. They achieve this by allowing any Cosmos blockchain to checkpoint to Babylon, then aggregate these checkpoints into a short summary using BLS signatures. The summary is then occasionally posted on the Bitcoin blockchain and referenced to make consensus decisions. The result is that slashable safety can be guaranteed within a short time period, and the bonding period is reduced from 21 days down to 7 hours. We help Babylon augment their cryptographic protocol in the area of performance and efficiency with respect to light clients and bridging, providing proofs of security in various availability models.`),
 		Team: []TeamMember{
 			Members["shresth"],
+			Members["bernardo"],
 			Members["dimitris"],
 			Members["dionysis"],
 		},
