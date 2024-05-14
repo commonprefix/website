@@ -137,40 +137,40 @@ var Clients []Client = []Client{
 				Title: "Audits",
 				Desc:  template.HTML(`Mysten Labs has commissioned Common Prefix to audit components of the fastcrypto library.`),
 				Links: []ProjectLink{
-                    {
-                        Url:  "/static/clients/mysten/mysten_fastcrypto_bls12381_group_audit.pdf",
-                        Name: "Fastcrypto BLS12381 Group Audit",
+					{
+						Url:  "/static/clients/mysten/mysten_fastcrypto_bls12381_group_audit.pdf",
+						Name: "Fastcrypto BLS12381 Group Audit",
 						Date: "2023-11-15",
-                    },
-                    {
-                        Url:  "/static/clients/mysten/mysten_fastcrypto_groth16_audit.pdf",
-                        Name: "Fastcrypto Groth16 Audit",
+					},
+					{
+						Url:  "/static/clients/mysten/mysten_fastcrypto_groth16_audit.pdf",
+						Name: "Fastcrypto Groth16 Audit",
 						Date: "2023-10-19",
-                    },
-                    {
-                        Url:  "/static/clients/mysten/mysten_fastcrypto_ecdsa_secp256r1_audit.pdf",
-                        Name: "Fastcrypto ECDSA Secp256r1 Audit",
+					},
+					{
+						Url:  "/static/clients/mysten/mysten_fastcrypto_ecdsa_secp256r1_audit.pdf",
+						Name: "Fastcrypto ECDSA Secp256r1 Audit",
 						Date: "2023-06-08",
-                    },
-                    {
-                        Url:  "/static/clients/mysten/mysten_fastcrypto_ecdsa_secp256k1_audit.pdf",
-                        Name: "Fastcrypto ECDSA Secp256k1 Audit",
+					},
+					{
+						Url:  "/static/clients/mysten/mysten_fastcrypto_ecdsa_secp256k1_audit.pdf",
+						Name: "Fastcrypto ECDSA Secp256k1 Audit",
 						Date: "2023-05-15",
-                    },
-                    {
-                        Url:  "/static/clients/mysten/mysten_fastcrypto_bls12381_audit.pdf",
-                        Name: "Fastcrypto BLS12381 Audit",
+					},
+					{
+						Url:  "/static/clients/mysten/mysten_fastcrypto_bls12381_audit.pdf",
+						Name: "Fastcrypto BLS12381 Audit",
 						Date: "2023-04-21",
-                    },
-                    {
-                        Url:  "/static/clients/mysten/mysten_fastcrypto_ecvrf_ristretto255_audit.pdf",
-                        Name: "Fastcrypto ECVRF and Ristretto255 Audit",
+					},
+					{
+						Url:  "/static/clients/mysten/mysten_fastcrypto_ecvrf_ristretto255_audit.pdf",
+						Name: "Fastcrypto ECVRF and Ristretto255 Audit",
 						Date: "2023-03-23",
-                    },
-		        },
-            },
-	    },
-    },
+					},
+				},
+			},
+		},
+	},
 	{
 		Handle: "celestia",
 		Name:   "Celestia",
@@ -559,10 +559,10 @@ var Clients []Client = []Client{
 				</clipPath>
 			</defs>
 		</svg>`),
-		Body:     template.HTML(`BOB ("Build on Bitcoin") is a hybrid Layer-2 powered by Bitcoin and Ethereum. By combining the security, liquidity, userbase, and innovation of the two largest blockchain ecosystems, BOB aims to close the gap between Bitcoin as a vehicle for mass adoption and Ethereum as a hub for innovation.`),
-        Team:     []TeamMember{
-            Members["ristic"],
-        },
+		Body: template.HTML(`BOB ("Build on Bitcoin") is a hybrid Layer-2 powered by Bitcoin and Ethereum. By combining the security, liquidity, userbase, and innovation of the two largest blockchain ecosystems, BOB aims to close the gap between Bitcoin as a vehicle for mass adoption and Ethereum as a hub for innovation.`),
+		Team: []TeamMember{
+			Members["ristic"],
+		},
 		Findings: []Finding{},
 		Projects: []Project{
 			{
