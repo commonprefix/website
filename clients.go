@@ -234,8 +234,10 @@ var Clients []Client = []Client{
 			<a href="https://arxiv.org/pdf/2005.10484.pdf">Everything is a Race model</a>.
 			Together, the scientists of Quai and Common Prefix are working on an academic paper showing PoEM is secure and analyzing its benefits, in latency and throughput, compared to traditional longest-chain proof-of-work protocols such as Bitcoin, both analytically and experimentally. We are also engaging with Quai to understand the composability properties of their multichain system, and the incentive-compatibility aspects of their planned reward mechanism.`),
 		Team: []TeamMember{
-			Members["dionysis"],
+			Members["zeta"],
+			Members["dimitris"],
 			Members["apostolos"],
+			Members["dionysis"],
 		},
 		Findings: []Finding{},
 	},
