@@ -125,7 +125,7 @@ arises is thus: can one create a blockchain that is equally secure in a
 dynamic network as Bitcoin but without relying on cumulative work? We
 assert that the answer to this question is no. To capture the
 fundamental difference across these mechanisms, consider the following thought
-experiment: *Given the public key that will win the lottery for
+experiment: *Given the key pair that will win the lottery for
 proposing the next block, what is the required computational overhead to
 actually produce the next block?*
 
