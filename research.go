@@ -845,7 +845,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2019,
 		Authors:        []string{"Peter Gaži", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2018/1239.pdf",
-		Tags:           []Tag{PROOF_OF_STAKE, INTEROPERABILITY},
+		Tags:           []Tag{PROOF_OF_STAKE, LIGHT_CLIENTS, INTEROPERABILITY},
 	},
 	{
 		Handle:         "sok-distributed-ledger-communication",
@@ -872,7 +872,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2019,
 		Authors:        []string{"Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2018/1048.pdf",
-		Tags:           []Tag{PROOF_OF_WORK, INTEROPERABILITY},
+		Tags:           []Tag{PROOF_OF_WORK, LIGHT_CLIENTS, INTEROPERABILITY},
 	},
 	{
 		Handle:         "trust-is-risk",
