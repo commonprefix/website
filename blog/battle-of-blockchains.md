@@ -63,7 +63,9 @@ one owns within the system (e.g., [^kiayias2017ouroboros]). This
 mechanism is known as Proof-of-Stake (PoS), and it is usually coupled
 with the longest chain selection rule, akin to the one of PoW. Although
 these approaches seem similar, PoS is vulnerable to safety attacks when
-the network is dynamic. Let us illustrate this vulnerability with an
+the network is dynamic.
+
+Let us illustrate this vulnerability with an
 example. Consider a PoS blockchain that, in its 100th operation day, has
 10% of its total stake active, with honest nodes holding 6% and an
 adversary holding 4%. Then, at a later point in time, e.g., on its 200th
@@ -78,6 +80,8 @@ to sign fake past blocks and forge a longer chain, thus fooling newly
 joining nodes to choose it as the "correct one". Remarkably, the
 attacker can break the security of the blockchain swiftly and at no
 cost, as no effort is required.
+
+![Dynamic PoS Network Stake Distribution Example](/static/blog/battle-of-blockchains/dynamic_network_stake_distribution_attack.png)
 
 In essence, PoW blockchains function similarly to building a structure,
 while PoS resemble the process of buying land. Given the funds, the
