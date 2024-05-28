@@ -80,10 +80,10 @@
 
 		<div class="clients">
 			{{range .Clients}}
-			<a href="/clients/{{.Handle}}" class="clients__card">
+			{{if .HideOnIndex }}{{else}}<a href="/clients/{{.Handle}}" class="clients__card">
 				<h2 class="visuallyhidden">{{.Name}}</h2>
 				{{.Image}}
-			</a>
+			</a>{{end}}
 			{{end}}
 		</div>
 	</section>

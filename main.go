@@ -130,13 +130,14 @@ type Project struct {
 }
 
 type Client struct {
-	Handle   string
-	Name     string
-	Body     template.HTML
-	Image    template.HTML
-	Projects []Project
-	Findings []Finding
-	Team     []TeamMember
+	Handle      string
+	Name        string
+	Body        template.HTML
+	Image       template.HTML
+	Projects    []Project
+	Findings    []Finding
+	Team        []TeamMember
+	HideOnIndex bool
 }
 
 type ResearchPaper struct {

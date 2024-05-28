@@ -527,7 +527,8 @@ var Clients []Client = []Client{
 		Team: []TeamMember{
 			Members["dionysis"],
 		},
-		Findings: []Finding{},
+		Findings:    []Finding{},
+		HideOnIndex: true,
 	},
 	{
 		Handle: "bifrost",
