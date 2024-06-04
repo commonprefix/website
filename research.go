@@ -1,13 +1,14 @@
 package main
 
 type Tag string
+type ConferenceAbbreviation string
 
 const (
-	PROOF_OF_STAKE   Tag = "proof-of-stake"
-	PROOF_OF_WORK    Tag = "proof-of-work"
-	LIQUID_STAKING   Tag = "liquid-staking"
-	LIGHT_CLIENTS    Tag = "light-clients"
-	INTEROPERABILITY Tag = "interoperability"
+	PROOF_OF_STAKE    Tag = "proof-of-stake"
+	PROOF_OF_WORK     Tag = "proof-of-work"
+	LIQUID_STAKING    Tag = "liquid-staking"
+	LIGHT_CLIENTS     Tag = "light-clients"
+	INTEROPERABILITY  Tag = "interoperability"
 	WALLETS           Tag = "wallets"
 	PAYMENT_CHANNELS  Tag = "payment-channels"
 	ZERO_KNOWLEDGE    Tag = "zero-knowledge"
@@ -28,7 +29,7 @@ const (
 	COMMITMENTS        Tag = "commitments"
 	OBLIVIOUS_TRANSFER Tag = "oblivious-transfer"
 	// ANONYMITY          Tag = "anonymity"
-	MEV                Tag = "mev"
+	MEV  Tag = "mev"
 	YOSO Tag = "yoso"
 	// ROM                Tag = "random-oracle"
 	HOMOMORPHISM       Tag = "homomorphism"
@@ -43,12 +44,12 @@ const (
 )
 
 var TagToColor = map[Tag]string{
-	PROOF_OF_STAKE:   "#e4cbf4",
-	PROOF_OF_WORK:    "#ffc0c0",
-	LIQUID_STAKING:   "#e6e6fa",
-	LIGHT_CLIENTS:    "#fff3b0",
-	INTEROPERABILITY: "#a5d0ec",
-	WALLETS:            "#e1ddad",
+	PROOF_OF_STAKE:    "#e4cbf4",
+	PROOF_OF_WORK:     "#ffc0c0",
+	LIQUID_STAKING:    "#e6e6fa",
+	LIGHT_CLIENTS:     "#fff3b0",
+	INTEROPERABILITY:  "#a5d0ec",
+	WALLETS:           "#e1ddad",
 	PAYMENT_CHANNELS:  "#c5e2b5",
 	ZERO_KNOWLEDGE:    "#e0b5e9",
 	SIGNATURES:        "#fae2d9",
@@ -68,7 +69,7 @@ var TagToColor = map[Tag]string{
 	COMMITMENTS:        "#ffead4",
 	OBLIVIOUS_TRANSFER: "#a8e8e8",
 	// ANONYMITY:          "#c7d2d9",
-	MEV:                "#f3b0e0",
+	MEV:  "#f3b0e0",
 	YOSO: "#ffd1b3",
 	// ROM:                "#8cd1a4",
 	HOMOMORPHISM:       "#e6a1a1",
@@ -82,11 +83,112 @@ var TagToColor = map[Tag]string{
 	// SUPERSAFETY:        "#1fea33",
 }
 
+const (
+	FC           ConferenceAbbreviation = "FC"
+	FCWTS        ConferenceAbbreviation = "FCWTS"
+	AFT          ConferenceAbbreviation = "AFT"
+	CRYPTO       ConferenceAbbreviation = "CRYPTO"
+	EUROCRYPT    ConferenceAbbreviation = "EUROCRYPT"
+	ACNS         ConferenceAbbreviation = "ACNS"
+	CSF          ConferenceAbbreviation = "CSF"
+	PKC          ConferenceAbbreviation = "PKC"
+	CCS          ConferenceAbbreviation = "CCS"
+	ASIACRYPT    ConferenceAbbreviation = "ASIACRYPT"
+	IJCSIT       ConferenceAbbreviation = "IJCSIT"
+	IJCSE        ConferenceAbbreviation = "IJCSE"
+	REVISTA      ConferenceAbbreviation = "Revista Telecommun"
+	CANS         ConferenceAbbreviation = "CANS"
+	EPRINT       ConferenceAbbreviation = "ePrint"
+	PROVSEC      ConferenceAbbreviation = "PROVSEC"
+	TIFS         ConferenceAbbreviation = "TIFS"
+	ICITS        ConferenceAbbreviation = "ICITS"
+	CTRSA        ConferenceAbbreviation = "CTRSA"
+	ABEAT        ConferenceAbbreviation = "ABEAT"
+	CRYBLOCK     ConferenceAbbreviation = "CRYBLOCK"
+	ICOFCS       ConferenceAbbreviation = "ICOFCS"
+	IEICET       ConferenceAbbreviation = "IEICET"
+	DEC          ConferenceAbbreviation = "DEC"
+	ACISP        ConferenceAbbreviation = "ACISP"
+	ISTT         ConferenceAbbreviation = "ISTT"
+	IWT          ConferenceAbbreviation = "IWT"
+	ITASEC       ConferenceAbbreviation = "ITASEC"
+	SIROCCO      ConferenceAbbreviation = "SIROCCO"
+	ARXIV        ConferenceAbbreviation = "arXiv"
+	ESORICS      ConferenceAbbreviation = "ESORICS"
+	ISAAC        ConferenceAbbreviation = "ISAAC"
+	ALGORITHMICA ConferenceAbbreviation = "ALGORITHMICA"
+	DPMCBT       ConferenceAbbreviation = "DPMCBT"
+	ICDCS        ConferenceAbbreviation = "ICDCS"
+	SP           ConferenceAbbreviation = "SP"
+	TOKENOMICS   ConferenceAbbreviation = "TOKENOMICS"
+	MARBLE       ConferenceAbbreviation = "MARBLE"
+	SIGSAC       ConferenceAbbreviation = "SIGSAC"
+	ICBC         ConferenceAbbreviation = "ICBC"
+	SCN          ConferenceAbbreviation = "SCN"
+	SRDS         ConferenceAbbreviation = "SRDS"
+	MIDDLEWARE   ConferenceAbbreviation = "MIDDLEWARE"
+	SSS          ConferenceAbbreviation = "SSS"
+	AAAI         ConferenceAbbreviation = "AAAI"
+	USENIX       ConferenceAbbreviation = "USENIX"
+	FOSAD        ConferenceAbbreviation = "FOSAD"
+	AUCS         ConferenceAbbreviation = "AUCS"
+	SBSEG        ConferenceAbbreviation = "SBSEG"
+)
+
+var ConferenceAbbreviationToName = map[ConferenceAbbreviation]string{
+	FC:           "Financial Cryptography and Data Security",
+	FCWTS:        "Financial Cryptography and Data Security, Workshop in Trusted Smart Contracts",
+	AFT:          "ACM Advances in Financial Technologies",
+	CRYPTO:       "International Cryptology Conference–CRYPTO",
+	EUROCRYPT:    "International Conference on the Theory and Applications of Cryptographic Techniques–EUROCRYPT",
+	ACNS:         "International Conference on Applied Cryptography and Network Security",
+	CSF:          "IEEE Computer Security Foundations Symposium",
+	PKC:          "Public-Key Cryptography",
+	CCS:          "ACM Conference on Computer and Communications Security",
+	ASIACRYPT:    "International Conference on the Theory and Application of Cryptology and Information Security–ASIACRYPT",
+	IJCSIT:       "International Journal of Computer Science & Information Technology–IJCSIT",
+	IJCSE:        "International Journal of Computer Science and Engineering–IJCSE",
+	REVISTA:      "Revista Telecommun",
+	CANS:         "International Conference on Cryptology And Network Security–CANS",
+	EPRINT:       "Cryptology ePrint Archive",
+	PROVSEC:      "International Conference on Provable Security",
+	TIFS:         "IEEE Transactions on Information Forensics and Security",
+	ICITS:        "International Conference on Information Technology & Systems",
+	CTRSA:        "The Cryptographers' Track at RSA Conference",
+	ABEAT:        "Brazilian Association of High Technology Experts",
+	CRYBLOCK:     "Workshop on Cryptocurrencies and Blockchains",
+	DEC:          "ACM Data Economy Workshop",
+	ACISP:        "Australasian Conference on Information Security and Privacy",
+	IWT:          "International Workshop on Trust",
+	ITASEC:       "Italian Conference on Cybersecurity",
+	SIROCCO:      "International Colloquium on Structural Information and Communication Complexity",
+	ARXIV:        "arXiv",
+	ESORICS:      "European Symposium on Research in Computer Security",
+	ISAAC:        "International Symposium on Algorithms and Computation",
+	ALGORITHMICA: "Algorithmica",
+	DPMCBT:       "Data Privacy Management, Cryptocurrencies and Blockchain Technology",
+	ICDCS:        "International Conference on Distributed Computing Systems",
+	SP:           "IEEE Symposium on Security and Privacy",
+	TOKENOMICS:   "International Conference on Blockchain Economics, Security and Protocols",
+	MARBLE:       "International Conference on Mathematical Research for Blockchain Economy",
+	SIGSAC:       "ACM Special Interest Group on Security, Audit and Control",
+	ICBC:         "IEEE International Conference on Blockchain and Cryptocurrency",
+	SCN:          "International Conference on Security and Communication Networks",
+	SRDS:         "IEEE Symposium on Reliable Distributed Systems",
+	MIDDLEWARE:   "International Middleware Conference",
+	SSS:          "International Symposium on Stabilization, Safety, and Security of Distributed Systems",
+	AAAI:         "Association for the Advancement of Artificial Intelligence",
+	USENIX:       "USENIX Security Symposium",
+	FOSAD:        "International School on Foundations of Security Analysis and Design",
+	AUCS:         "Aarhus University, Computer Science Department, Dissertation",
+	SBSEG:        "Brazilian Symposium on Information and Computer System Security",
+}
+
 var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "timeliness",
 		Name:           "On-Chain Timestamps Are Accurate",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2024,
 		Authors:        []string{"Apostolos Tzinas", "Srivatsan Sridhar", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2023/1648.pdf",
@@ -95,7 +197,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "popos",
 		Name:           "Proofs of Proof-of-Stake with Sublinear Complexity",
-		Conference:     "ACM Advances in Financial Technologies",
+		Conference:     AFT,
 		ConferenceYear: 2023,
 		Authors:        []string{"Shresth Agrawal", "Joachim Neu", "Ertem Nusret Tas", "Dionysis Zindros"},
 		Url:            "https://arxiv.org/pdf/2209.08673.pdf",
@@ -104,7 +206,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "liquid-staking",
 		Name:           "The Principal–Agent Problem in Liquid Staking",
-		Conference:     "Financial Cryptography and Data Security, Workshop in Trusted Smart Contracts",
+		Conference:     FCWTS,
 		ConferenceYear: 2023,
 		Authors:        []string{"Apostolos Tzinas", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2023/605.pdf",
@@ -113,7 +215,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "nipopow",
 		Name:           "Non-Interactive Proofs of Proof-of-Work",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2020,
 		Authors:        []string{"Aggelos Kiayias", "Andrew Miller", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2017/963.pdf",
@@ -122,7 +224,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "ouroboros",
 		Name:           "Ouroboros: A provably secure proof-of-stake blockchain protocol",
-		Conference:     "Advances in Cryptology–CRYPTO",
+		Conference:     CRYPTO,
 		ConferenceYear: 2017,
 		Authors:        []string{"Aggelos Kiayias", "Alexander Russell", "Bernardo David", "Roman Oliynykov"},
 		Url:            "https://eprint.iacr.org/2016/889.pdf",
@@ -131,7 +233,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "hardware-wallets",
 		Name:           "A formal treatment of hardware wallets",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2019,
 		Authors:        []string{"Myrto Arapinis", "Andriana Gkaniatsou", "Dimitris Karakostas", "Aggelos Kiayias"},
 		Url:            "https://eprint.iacr.org/2019/034.pdf",
@@ -140,7 +242,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "brick",
 		Name:           "Brick: Asynchronous Incentive-Compatible Payment Channels",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2021,
 		Authors:        []string{"Zeta Avarikioti", "Eleftherios Kokoris-Kogias", "Roger Wattenhofer", "Dionysis Zindros"},
 		Url:            "https://arxiv.org/pdf/1905.11360.pdf",
@@ -149,7 +251,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "zk-arguments",
 		Name:           "Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting",
-		Conference:     "Advances in Cryptology–EUROCRYPT",
+		Conference:     EUROCRYPT,
 		ConferenceYear: 2016,
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Jens Groth", "Christophe Petit"},
 		Url:            "https://eprint.iacr.org/2016/263.pdf",
@@ -158,7 +260,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "dynamic-group-signatures",
 		Name:           "Foundations of Fully Dynamic Group Signatures",
-		Conference:     "International Conference on Applied Cryptography and Network Security",
+		Conference:     ACNS,
 		ConferenceYear: 2016,
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Essam Ghadafi", "Jens Groth"},
 		Url:            "https://eprint.iacr.org/2016/368.pdf",
@@ -167,7 +269,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "lightning-network-security",
 		Name:           "A Composable Security Treatment of the Lightning Network",
-		Conference:     "IEEE Computer Security Foundations Symposium",
+		Conference:     CSF,
 		ConferenceYear: 2020,
 		Authors:        []string{"Aggelos Kiayias", "Orfeas Stefanos Thyfronitis Litos"},
 		Url:            "https://eprint.iacr.org/2019/778.pdf",
@@ -176,7 +278,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "ouroboros-praos",
 		Name:           "Ouroboros Praos: An adaptively-secure, semi-synchronous proof-of-stake blockchain",
-		Conference:     "Advances in Cryptology–EUROCRYPT",
+		Conference:     EUROCRYPT,
 		ConferenceYear: 2018,
 		Authors:        []string{"Bernardo David", "Peter Gaži", "Aggelos Kiayias", "Alexander Russell"},
 		Url:            "https://eprint.iacr.org/2017/573.pdf",
@@ -185,7 +287,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "scape",
 		Name:           "SCRAPE: Scalable randomness attested by public entities",
-		Conference:     "Applied Cryptography and Network Security–ACNS",
+		Conference:     ACNS,
 		ConferenceYear: 2017,
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David"},
 		Url:            "https://eprint.iacr.org/2017/216.pdf",
@@ -194,7 +296,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "constant-sps",
 		Name:           "Constant-size structure-preserving signatures: Generic constructions and simple assumptions",
-		Conference:     "Theory and Application of Cryptology and Information Security–ASIACRYPT",
+		Conference:     ASIACRYPT,
 		ConferenceYear: 2012,
 		Authors:        []string{"Masayuki Abe", "Melissa Chase", "Bernardo David", "Markulf Kohlweiss", "Ryo Nishimaki", "Miyako Ohkubo"},
 		Url:            "https://eprint.iacr.org/2012/285.pdf",
@@ -203,7 +305,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "tagged-ots",
 		Name:           "Tagged one-time signatures: Tight security and optimal tag size",
-		Conference:     "Public-Key Cryptography–PKC",
+		Conference:     PKC,
 		ConferenceYear: 2013,
 		Authors:        []string{"Masayuki Abe", "Bernardo David", "Markulf Kohlweiss", "Ryo Nishimaki", "Miyako Ohkubo"},
 		Url:            "https://eprint.iacr.org/2015/311.pdf",
@@ -212,7 +314,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "internet-banking-attacks",
 		Name:           "A Formal Classification of Internet Banking Attacks and Vulnerabilities",
-		Conference:     "International Journal of Computer Science & Information Technology–IJCSIT",
+		Conference:     IJCSIT,
 		ConferenceYear: 2011,
 		Authors:        []string{"Laerte Peotta", "Marcelo Holtz", "Bernardo David", "Flavio Deus", "RT de Sousa"},
 		Url:            "https://airccse.org/journal/jcsit/0211ijcsit13.pdf",
@@ -221,7 +323,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "albatross",
 		Name:           "ALBATROSS: Publicly AttestabLe BATched Randomness Based On Secret Sharing",
-		Conference:     "Theory and Application of Cryptology and Information Security–ASIACRYPT",
+		Conference:     ASIACRYPT,
 		ConferenceYear: 2020,
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David"},
 		Url:            "https://eprint.iacr.org/2020/644.pdf",
@@ -230,7 +332,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "p2dex",
 		Name:           "P2DEX: privacy-preserving decentralized cryptocurrency exchange",
-		Conference:     "Applied Cryptography and Network Security–ACNS",
+		Conference:     ACNS,
 		ConferenceYear: 2021,
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Tore Kasper Frederiksen"},
 		Url:            "https://eprint.iacr.org/2021/283.pdf",
@@ -239,7 +341,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "tardis",
 		Name:           "TARDIS: a foundation of time-lock puzzles in UC",
-		Conference:     "Advances in Cryptology–EUROCRYPT",
+		Conference:     EUROCRYPT,
 		ConferenceYear: 2021,
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Rafael Dowsley", "Jesper Buus Nielsen", "Sabine Oechsner"},
 		Url:            "https://eprint.iacr.org/2020/537.pdf",
@@ -248,7 +350,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-commitments",
 		Name:           "Rate-1, linear time and additively homomorphic UC commitments",
-		Conference:     "Annual International Cryptology Conference–CRYPTO",
+		Conference:     CRYPTO,
 		ConferenceYear: 2016,
 		Authors:        []string{"Ignacio Cascudo", "Ivan Damgård", "Bernardo David", "Nico Döttling", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2016/137.pdf",
@@ -257,7 +359,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "insured-mpc",
 		Name:           "Insured MPC: Efficient secure computation with financial penalties",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2020,
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Rafael Dowsley"},
 		Url:            "https://eprint.iacr.org/2018/942.pdf",
@@ -266,7 +368,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "map-reduce-ids",
 		Name:           "Building Scalable Distributed Intrusion Detection Systems Based on the MapReduce Framework",
-		Conference:     "Revista Telecommun",
+		Conference:     REVISTA,
 		ConferenceYear: 2011,
 		Authors:        []string{"Marcelo D Holtz", "Bernardo David", "Rafael Timóteo de Sousa Júnior"},
 		Url:            "https://www.academia.edu/download/61520800/Building_Scalable_Distributed_Intrusion_20191215-6958-g7aso0.pdf",
@@ -275,7 +377,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "vss-homomorphic-uc-commitments",
 		Name:           "Compact VSS and efficient homomorphic UC commitments",
-		Conference:     "Advances in Cryptology–ASIACRYPT",
+		Conference:     ASIACRYPT,
 		ConferenceYear: 2014,
 		Authors:        []string{"Ivan Damgård", "Bernardo David", "Irene Giacomelli", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2014/370.pdf",
@@ -284,7 +386,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "lpn-uc-transfer",
 		Name:           "Universally composable oblivious transfer based on a variant of LPN",
-		Conference:     "Cryptology and Network Security–CANS",
+		Conference:     CANS,
 		ConferenceYear: 2014,
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Anderson CA Nascimento"},
 		Url:            "https://dowsley.net/pdf/CANS-DavDowNas14.pdf",
@@ -293,7 +395,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-rom-oblivious-transfer",
 		Name:           "A Framework for Efficient Adaptively Secure Composable Oblivious Transfer in the ROM",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2017,
 		Authors:        []string{"Paulo SLM Barreto", "Bernardo David", "Rafael Dowsley", "Kirill Morozov", "Anderson CA Nascimento"},
 		Url:            "https://eprint.iacr.org/2017/993.pdf",
@@ -302,7 +404,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "private-ml-classification",
 		Name:           "Efficient unconditionally secure comparison and privacy preserving machine learning classification protocols",
-		Conference:     "Provable Security–PROVSEC",
+		Conference:     PROVSEC,
 		ConferenceYear: 2015,
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Raj Katti", "Anderson CA Nascimento"},
 		Url:            "https://dowsley.net/pdf/PROVSEC-DDKN15.pdf",
@@ -311,7 +413,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "homomorphic-uc-commitments",
 		Name:           "Additively Homomorphic UC commitments with Optimal Amortized Overhead",
-		Conference:     "Practice and Theory in Public-Key Cryptography–PKC",
+		Conference:     PKC,
 		ConferenceYear: 2015,
 		Authors:        []string{"Ignacio Cascudo Pueyo", "Ivan Bjerre Damgård", "Bernardo Machado David", "Irene Giacomelli", "Jesper Buus Nielsen", "Roberto Trifiletti"},
 		Url:            "https://eprint.iacr.org/2014/829.pdf",
@@ -320,7 +422,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "craft",
 		Name:           "CRAFT: Composable Randomness Beacons and Output-Independent Abort MPC From Time",
-		Conference:     "Practice and Theory in Public-Key Cryptography–PKC",
+		Conference:     PKC,
 		ConferenceYear: 2023,
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Rafael Dowsley", "Ravi Kishore", "Jesper Buus Nielsen", "Sabine Oechsner"},
 		Url:            "https://eprint.iacr.org/2020/784.pdf",
@@ -329,7 +431,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "front-running-sok",
 		Name:           "SoK: Mitigation of front-running in decentralized finance",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2022,
 		Authors:        []string{"Carsten Baum", "James Hsin-yu Chiang", "Bernardo David", "Tore Kasper Frederiksen", "Lorenzo Gentile"},
 		Url:            "https://eprint.iacr.org/2021/1628.pdf",
@@ -338,16 +440,16 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "anonymous-timelock",
 		Name:           "Encryption to the future: a paradigm for sending secret messages to future (anonymous) committees",
-		Conference:     "Theory and Application of Cryptology and Information Security–ASIACRYPT",
+		Conference:     ASIACRYPT,
 		ConferenceYear: 2022,
 		Authors:        []string{"Matteo Campanelli", "Bernardo David", "Hamidreza Khoshakhlagh", "Anders Konring", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2021/1423.pdf",
 		Tags:           []Tag{TIMELOCK, WITNESS_ENCRYPTION},
-    },
+	},
 	{
 		Handle:         "gearbox",
 		Name:           "GearBox: An Efficient UC Sharded Ledger Leveraging the Safety-Liveness Dichotomy.",
-		Conference:     "International Association for Cryptologic Research 2021–ACM CCS",
+		Conference:     CCS,
 		ConferenceYear: 2022,
 		Authors:        []string{"Bernardo David", "Bernardo Magri", "Christian Matt", "Jesper Buus Nielsen", "Daniel Tschudi"},
 		Url:            "https://eprint.iacr.org/2021/211.pdf",
@@ -356,7 +458,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "kaleidoscope",
 		Name:           "Kaleidoscope: An efficient poker protocol with payment distribution and penalty enforcement",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2018,
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Mario Larangeira"},
 		Url:            "https://eprint.iacr.org/2017/899.pdf",
@@ -365,7 +467,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-private-linear-algebra",
 		Name:           "Unconditionally secure, universally composable privacy preserving linear algebra",
-		Conference:     "IEEE Transactions on Information Forensics and Security",
+		Conference:     TIFS,
 		ConferenceYear: 2015,
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Jeroen van de Graaf", "Davidson Marques", "Anderson CA Nascimento", "Adriana CB Pinto"},
 		Url:            "https://dowsley.net/pdf/IEEEIFS-DDGM+16.pdf",
@@ -374,7 +476,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "yolo-yoso",
 		Name:           "YOLO YOSO: Fast and simple encryption and secret sharing in the YOSO model",
-		Conference:     "Theory and Application of Cryptology and Information Security–ASIACRYPT",
+		Conference:     ASIACRYPT,
 		ConferenceYear: 2022,
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David", "Lydia Garms", "Anders Konring"},
 		Url:            "https://eprint.iacr.org/2022/242.pdf",
@@ -383,7 +485,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-oblivious-transfer",
 		Name:           "Universally composable oblivious transfer from lossy encryption and the McEliece assumptions",
-		Conference:     "Information Theoretic Security–ICITS",
+		Conference:     ICITS,
 		ConferenceYear: 2012,
 		Authors:        []string{"Bernardo Machado David", "Anderson CA Nascimento", "Jörn Müller-Quade"},
 		Url:            "https://link.springer.com/chapter/10.1007/978-3-642-32284-6_5",
@@ -392,7 +494,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "honeypot-blind-malicious-activity-detection",
 		Name:           "Blind automatic malicious activity detection in honeypot data",
-		Conference:     "International Conference on Forensic Computer Science–ICoFCS",
+		Conference:     ICOFCS,
 		ConferenceYear: 2011,
 		Authors:        []string{"Bernardo Machado David", "JPCL da Costa", "Anderson CA Nascimento", "Dino Amaral", "MD Holtz", "RT de Sousa Jr"},
 		Url:            "https://lasp.unb.br/wp-content/uploads/papers/ICoFCS2011-PP16.pdf",
@@ -401,7 +503,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "eagle",
 		Name:           "Eagle: Efficient privacy preserving smart contracts",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2023,
 		Authors:        []string{"Carsten Baum", "James Hsin-yu Chiang", "Bernardo David", "Tore Kasper Frederiksen"},
 		Url:            "https://eprint.iacr.org/2022/1435.pdf",
@@ -410,7 +512,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-homomorphic-commitments",
 		Name:           "Efficient UC Commitment Extension with Homomorphism for Free (and Applications)",
-		Conference:     "Theory and Application of Cryptology and Information Security–ASIACRYPT",
+		Conference:     ASIACRYPT,
 		ConferenceYear: 2019,
 		Authors:        []string{"Ignacio Cascudo", "Ivan Damgård", "Bernardo David", "Nico Döttling", "Rafael Dowsley", "Irene Giacomelli"},
 		Url:            "https://eprint.iacr.org/2018/983.pdf",
@@ -419,7 +521,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "royale",
 		Name:           "ROYALE: a framework for universally composable card games with financial rewards and penalties enforcement",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2019,
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Mario Larangeira"},
 		Url:            "https://eprint.iacr.org/2018/157.pdf",
@@ -428,7 +530,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "mars",
 		Name:           "MARS: Monetized Ad-hoc Routing System (A Position Paper)",
-		Conference:     "Workshop on Cryptocurrencies and Blockchains for Distributed Systems–CryBlock",
+		Conference:     CRYBLOCK,
 		ConferenceYear: 2018,
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Mario Larangeira"},
 		Url:            "https://dl.acm.org/doi/10.1145/3211933.3211948",
@@ -437,7 +539,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "improved-honeypot-blind-malicious-activity-detection",
 		Name:           "Improved blind automatic malicious activity detection in honeypot data",
-		Conference:     "Forensic Computer Science–ICoFCS",
+		Conference:     ICOFCS,
 		ConferenceYear: 2012,
 		Authors:        []string{"JPCL da Costa", "Edison Pignaton de Freitas", "Bernardo Machado David", "AM Rubio Serrano", "Dino Amaral", "RT Sousa Júnior"},
 		Url:            "http://www.icofcs.org/2012/ICoFCS2012_08.pdf",
@@ -446,7 +548,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "fast",
 		Name:           "FAST: Fair Auctions via Secret Transactions",
-		Conference:     "Applied Cryptography and Network Security–ACNS",
+		Conference:     ACNS,
 		ConferenceYear: 2022,
 		Authors:        []string{"Bernardo David", "Lorenzo Gentile", "Mohsen Pourpouneh"},
 		Url:            "https://eprint.iacr.org/2021/264.pdf",
@@ -455,7 +557,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-private-proximity-testing",
 		Name:           "Universally composable private proximity testing",
-		Conference:     "Provable Security–PROVSEC",
+		Conference:     PROVSEC,
 		ConferenceYear: 2011,
 		Authors:        []string{"Rafael Tonicelli", "Bernardo Machado David", "Vinícius de Morais Alves"},
 		Url:            "https://link.springer.com/chapter/10.1007/978-3-642-24316-5_16",
@@ -464,7 +566,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "secure-sso",
 		Name:           "A framework for secure single sign-on",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2011,
 		Authors:        []string{"Bernardo Machado David", "Anderson CA Nascimento", "Rafael Tonicelli"},
 		Url:            "https://eprint.iacr.org/2011/246.pdf",
@@ -473,7 +575,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "mt-random",
 		Name:           "Mt. Random: Multi-tiered randomness beacons",
-		Conference:     "Applied Cryptography and Network Security–ACNS",
+		Conference:     ACNS,
 		ConferenceYear: 2023,
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David", "Omer Shlomovits", "Denis Varlakov"},
 		Url:            "https://eprint.iacr.org/2021/1096.pdf",
@@ -482,7 +584,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "oblivious-transfer-from-mceliece",
 		Name:           "Efficient fully simulatable oblivious transfer from the McEliece assumptions",
-		Conference:     "IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences",
+		Conference:     IEICET,
 		ConferenceYear: 2012,
 		Authors:        []string{"Bernardo Machado David", "Anderson CA Nascimento", "Rafael T de Sousa"},
 		Url:            "https://ieeexplore.ieee.org/document/6089575",
@@ -491,7 +593,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "papr",
 		Name:           "PAPR: Publicly auditable privacy revocation for anonymous credentials",
-		Conference:     "Cryptographers' Track at the RSA Conference",
+		Conference:     CTRSA,
 		ConferenceYear: 2023,
 		Authors:        []string{"Joakim Brorsson", "Bernardo David", "Lorenzo Gentile", "Elena Pagnin", "Paul Stankovski Wagner"},
 		Url:            "https://eprint.iacr.org/2023/137.pdf",
@@ -500,7 +602,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "generalizing-mpc",
 		Name:           "Generalizing efficient multiparty computation",
-		Conference:     "Information Theoretic Security–ICITS",
+		Conference:     ICITS,
 		ConferenceYear: 2015,
 		Authors:        []string{"Bernardo M David", "Ryo Nishimaki", "Samuel Ranellucci", "Alain Tapp"},
 		Url:            "https://eprint.iacr.org/2015/135.pdf",
@@ -509,7 +611,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "pca-based-malicious-activity-detection",
 		Name:           "A Parallel Approach to PCA Based Malicious Activity Detection in Distributed Honeypot Data",
-		Conference:     "Brazilian Association of High Technology Experts–ABEAT",
+		Conference:     ABEAT,
 		ConferenceYear: 2011,
 		Authors:        []string{"Bernardo Machado David", "João Paulo Carvalho Lustosa da Costa", "Anderson Clayton Alves Nascimento", "Marcelo Dias Holtz", "Dino Macedo Amaral", "Rafael Timóteo de Sousa Júnior"},
 		Url:            "http://www.realp.unb.br/jspui/bitstream/10482/10985/1/ARTIGO_ParallelApproachPCA.pdf",
@@ -518,7 +620,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-verifiability-without-adaptivity-or-zk",
 		Name:           "(Public) Verifiability for Composable Protocols Without Adaptivity or Zero-Knowledge",
-		Conference:     "Provable Security–PROVSEC",
+		Conference:     PROVSEC,
 		ConferenceYear: 2022,
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Rafael Dowsley"},
 		Url:            "https://eprint.iacr.org/2020/207.pdf",
@@ -527,7 +629,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "21",
 		Name:           "21-bringing down the complexity: fast composable protocols for card games without secret state",
-		Conference:     "Information Security and Privacy–ACISP",
+		Conference:     ACISP,
 		ConferenceYear: 2018,
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Mario Larangeira"},
 		Url:            "https://eprint.iacr.org/2018/303.pdf",
@@ -536,7 +638,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "bayesian-trust-model-for-mac-in-802-15-4",
 		Name:           "A Bayesian Trust Model for the MAC Layer in IEEE 802.15.4 Networks",
-		Conference:     "International Information and Telecommunication Technologies Symposium–I2TS",
+		Conference:     ISTT,
 		ConferenceYear: 2010,
 		Authors:        []string{"Bernardo Machado David", "Rafael Timoteo de Sousa Jr"},
 		Url:            "http://www.inf.ufsc.br/~bosco.sobral/downloads/I2TS%202010%20CD%20Proceedings/www.i2ts.org/papers/full_english/78855_1.pdf",
@@ -545,7 +647,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "sok-privacy-in-finance",
 		Name:           "SoK: Privacy-Enhancing Technologies in Finance",
-		Conference:     "Advances in Financial Technologies–AFT",
+		Conference:     AFT,
 		ConferenceYear: 2023,
 		Authors:        []string{"Carsten Baum", "James Hsin-yu Chiang", "Bernardo David", "Tore Kasper Frederiksen"},
 		Url:            "https://eprint.iacr.org/2023/122.pdf",
@@ -554,7 +656,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "trust-model-for-mac-in-lr-wpans",
 		Name:           "A Context-Dependent Trust Model for the MAC Layer in LR-WPANs",
-		Conference:     "International Journal of Computer Science and Engineering–IJCSE",
+		Conference:     IJCSE,
 		ConferenceYear: 2010,
 		Authors:        []string{"Bernardo M David", "Beatriz Santana", "Laerte Peotta", "Marcelo D Holtz", "Rafael Timóteo de Sousa Jr"},
 		Url:            "https://www.researchgate.net/profile/Rafael-De-Sousa-Junior/publication/50235175_A_Context-Dependent_Trust_Model_for_the_MAC_Layer_in_LR-WPANs_Bernardo_M_David_Beatriz_Santana_Laerte_Peotta_Marcelo_D_Holtz/links/549081910cf2d1800d866a6d/A-Context-Dependent-Trust-Model-for-the-MAC-Layer-in-LR-WPANs-Bernardo-M-David-Beatriz-Santana-Laerte-Peotta-Marcelo-D-Holtz.pdf",
@@ -563,7 +665,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "mpc-over-layered-graphs",
 		Name:           "Perfect MPC over Layered Graphs",
-		Conference:     "Annual International Cryptology Conference–CRYPTO",
+		Conference:     CRYPTO,
 		ConferenceYear: 2023,
 		Authors:        []string{"Bernardo David", "Giovanni Deligios", "Aarushi Goel", "Yuval Ishai", "Anders Konring", "Eyal Kushilevitz", "Chen-Da Liu-Zhang", "Varun Narayanan"},
 		Url:            "https://eprint.iacr.org/2023/330.pdf",
@@ -572,7 +674,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-oblivious-transfer-from-cdh",
 		Name:           "Efficient Composable Oblivious Transfer from CDH in the Global Random Oracle Model",
-		Conference:     "Cryptology and Network Security–CANS",
+		Conference:     CANS,
 		ConferenceYear: 2020,
 		Authors:        []string{"Bernardo David", "Rafael Dowsley"},
 		Url:            "https://eprint.iacr.org/2020/1291.pdf",
@@ -581,7 +683,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "map-reduce-intrusion-detection-architecture",
 		Name:           "An architecture for distributed Network Intrusion Detection Based on the Map-Reduce Framework",
-		Conference:     "Proceedings of the International Workshop on Telecommunications–IWT",
+		Conference:     IWT,
 		ConferenceYear: 2011,
 		Authors:        []string{"Marcelo D Holtz", "Bernardo M David", "Laerte Peotta", "RT de Sousa Jr"},
 		Url:            "https://www.researchgate.net/publication/52011678_An_architecture_for_distributed_Network_Intrusion_Detection_Based_on_the_Map-Reduce_Framework",
@@ -590,7 +692,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "decentralized-info-market",
 		Name:           "A Decentralized Information Marketplace Preserving Input and Output Privacy",
-		Conference:     "Proceedings of the Second ACM Data Economy Workshop",
+		Conference:     DEC,
 		ConferenceYear: 2023,
 		Authors:        []string{"Steven Golob", "Sikha Pentyala", "Rafael Dowsley", "Bernardo David", "Mario Larangeira", "Martine De Cock", "Anderson Nascimento"},
 		Url:            "https://dl.acm.org/doi/pdf/10.1145/3600046.3600047",
@@ -599,7 +701,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "fairpos",
 		Name:           "FairPoS: Input Fairness in Permissionless Consensus",
-		Conference:     "5th Conference on Advances in Financial Technologies–AFT",
+		Conference:     AFT,
 		ConferenceYear: 2023,
 		Authors:        []string{"James Hsin-yu Chiang", "Bernardo David", "Ittay Eyal", "Tiantian Gong"},
 		Url:            "https://eprint.iacr.org/2022/1442.pdf",
@@ -608,7 +710,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "co-differential-privacy",
 		Name:           "Correlated-Output Differential Privacy and Applications to Dark Pools",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2023,
 		Authors:        []string{"James Hsin-yu Chiang", "Bernardo David", "Mariana Gama", "Christian Janos Lebeda"},
 		Url:            "https://eprint.iacr.org/2023/943.pdf",
@@ -617,7 +719,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "voting-diff-privacy",
 		Name:           "Local Differential Privacy in Voting",
-		Conference:     "The Italian Conference on CyberSecurity–ITASEC",
+		Conference:     ITASEC,
 		ConferenceYear: 2023,
 		Authors:        []string{"Rosario Giustolisi", "Bernardo David", "Victor Mortensen", "Morten Pedersen"},
 		Url:            "https://ceur-ws.org/Vol-3488/paper16.pdf",
@@ -626,7 +728,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "updatable-private-blueprints",
 		Name:           "Updatable Privacy-Preserving Blueprints",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2023,
 		Authors:        []string{"Bernardo David", "Felix Engelmann", "Tore Frederiksen", "Markulf Kohlweiss", "Elena Pagnin", "Mikhail Volkhov"},
 		Url:            "https://eprint.iacr.org/2023/1787.pdf",
@@ -635,7 +737,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "pvss-over-class-groups",
 		Name:           "Publicly Verifiable Secret Sharing over Class Groups and Applications to DKG and YOSO",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2023,
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David"},
 		Url:            "https://eprint.iacr.org/2023/1651.pdf",
@@ -644,7 +746,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "cascade",
 		Name:           "CaSCaDE: (Time-Based) Cryptography from Space Communications DElay",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2023,
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Elena Pagnin", "Akira Takahashi"},
 		Url:            "https://eprint.iacr.org/2023/405.pdf",
@@ -653,7 +755,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-homomorphic-commitments",
 		Name:           "A Framework For Efficient Homomorphic Universally Composable Commitments",
-		Conference:     "Dissertation 2016, Department of Computer Science, University of Aarhus",
+		Conference:     AUCS,
 		ConferenceYear: 2016,
 		Authors:        []string{"Bernardo Machado David"},
 		Url:            "https://pure.au.dk/ws/portalfiles/portal/114777545/Bernardo_Machado_Davids_thesis.pdf",
@@ -662,7 +764,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "uc-committed-oblivious-transfer-with-trusted-initializer",
 		Name:           "Universally Composable Committed Oblivious Transfer With A Trusted Initializer",
-		Conference:     "Anais do XII Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais",
+		Conference:     SBSEG,
 		ConferenceYear: 2012,
 		Authors:        []string{"Adriana CB Pinto", "Bernardo Machado David", "Jeroen van de Graaf", "Anderson CA Nascimento"},
 		Url:            "https://sol.sbc.org.br/index.php/sbseg/article/download/20541/20368",
@@ -671,7 +773,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "fully-simulatable-oblivious-transfer",
 		Name:           "Obtaining Efficient Fully Simulatable Oblivious Transfer from General Assumptions",
-		Conference:     "Anais do XI Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais",
+		Conference:     SBSEG,
 		ConferenceYear: 2011,
 		Authors:        []string{"Bernardo M David", "Anderson CA Nascimento", "Rafael Tonicelli"},
 		Url:            "https://sol.sbc.org.br/index.php/sbseg/article/download/20567/20394",
@@ -680,7 +782,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "cerberus-channels",
 		Name:           "Cerberus Channels: Incentivizing Watchtowers for Bitcoin",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2020,
 		Authors:        []string{"Zeta Avarikioti", "Orfeas Stefanos Thyfronitis Litos", "Roger Wattenhofer"},
 		Url:            "https://eprint.iacr.org/2019/1092.pdf",
@@ -689,7 +791,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "divide-and-scale",
 		Name:           "Divide & Scale: Formalization and Roadmap to Robust Sharding",
-		Conference:     "International Colloquium on Structural Information and Communication Complexity",
+		Conference:     SIROCCO,
 		ConferenceYear: 2023,
 		Authors:        []string{"Zeta Avarikioti", "Antoine Desjardins", "Lefteris Kokoris-Kogias", "Roger Wattenhofer"},
 		Url:            "https://drive.google.com/file/d/1EKbY-8rCNj7zDTuVYcj5WAiFX2hYwqai/view",
@@ -698,7 +800,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "secure-and-efficient-payment-channels",
 		Name:           "Towards secure and efficient payment channels",
-		Conference:     "ArXiv",
+		Conference:     ARXIV,
 		ConferenceYear: 2018,
 		Authors:        []string{"Zeta Avarikioti", "Felix Laufenberg", "Jakub Sliwinski", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1811.12740.pdf",
@@ -707,7 +809,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "ride-the-lightning",
 		Name:           "Ride the lightning: The game theory of payment channels",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2020,
 		Authors:        []string{"Zeta Avarikioti", "Lioba Heimbach", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1912.04797.pdf",
@@ -716,7 +818,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "payment-network-with-fees",
 		Name:           "Payment network design with fees",
-		Conference:     "Data Privacy Management, Cryptocurrencies and Blockchain Technology–ESORICS",
+		Conference:     ESORICS,
 		ConferenceYear: 2018,
 		Authors:        []string{"Zeta Avarikioti", "Gerrit Janssen", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1810.07585.pdf",
@@ -726,7 +828,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "darknet",
 		Name:           "Structure and content of the visible Darknet",
-		Conference:     "ArXiv",
+		Conference:     ARXIV,
 		ConferenceYear: 2018,
 		Authors:        []string{"Zeta Avarikioti", "Roman Brunner", "Aggelos Kiayias", "Roger Wattenhofer", "Dionysis Zindros"},
 		Url:            "https://arxiv.org/pdf/1811.01348.pdf",
@@ -735,7 +837,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "fnf-bft",
 		Name:           "FnF-BFT: A BFT Protocol with Provable Performance Under Attack",
-		Conference:     "International Colloquium on Structural Information and Communication Complexity–SIROCCO",
+		Conference:     SIROCCO,
 		ConferenceYear: 2023,
 		Authors:        []string{"Zeta Avarikioti", "Lioba Heimbach", "Roland Schmid", "Laurent Vanbever", "Roger Wattenhofer", "Patrick Wintermeyer"},
 		Url:            "https://tik-old.ee.ethz.ch/file/34168cbbbcfa75bf48c87a84844b3ae9/FnF_BFT__SIROCCO_2023_-1.pdf",
@@ -744,7 +846,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "bitcoin-temporary-dishonest-majority",
 		Name:           "Bitcoin Security under Temporary Dishonest Majority",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2019,
 		Authors:        []string{"Zeta Avarikioti", "Lukas Käppeli", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1908.00427.pdf",
@@ -753,7 +855,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "hide-and-seek",
 		Name:           "Hide & Seek: Privacy-Preserving Rebalancing on Payment Channel Networks",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2022,
 		Authors:        []string{"Zeta Avarikioti", "Krzysztof Pietrzak", "Iosif Salem", "Stefan Schmid", "Samarth Tiwari", "Michelle Yeo"},
 		Url:            "https://arxiv.org/pdf/2110.08848.pdf",
@@ -762,7 +864,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:     "tx-chain",
 		Name:       "TxChain: Efficient Cryptocurrency Light Clients via Contingent Transaction Aggregation",
-		Conference: "DPM 2020, CBT 2020: Data Privacy Management, Cryptocurrencies and Blockchain Technology",
+		Conference: DPMCBT,
 		Authors:    []string{"Alexei Zamyatin", "Zeta Avarikioti", "Daniel Perez", "William J. Knottenbelt"},
 		Url:        "https://eprint.iacr.org/2020/580.pdf",
 		Tags:       []Tag{LIGHT_CLIENTS},
@@ -770,7 +872,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:     "payment-networks-as-creation-games",
 		Name:       "Payment Networks as Creation Games",
-		Conference: "DPM 2019, CBT 2019: Data Privacy Management, Cryptocurrencies and Blockchain Technology",
+		Conference: DPMCBT,
 		Authors:    []string{"Zeta Avarikioti", "Rolf Scheuner", "Roger Wattenhofer"},
 		Url:        "https://arxiv.org/pdf/1908.00436.pdf",
 		Tags:       []Tag{PAYMENT_CHANNELS},
@@ -778,7 +880,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "algorithmic-channel-design",
 		Name:           "Algorithmic channel design",
-		Conference:     "International Symposium on Algorithms and Computation–ISAAC",
+		Conference:     ISAAC,
 		ConferenceYear: 2018,
 		Authors:        []string{"Zeta Avarikioti", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/336835/1/LIPIcs-ISAAC-2018-16.pdf",
@@ -787,7 +889,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "high-dimensional-approximate-r-nets",
 		Name:           "High-dimensional approximate r-nets",
-		Conference:     "Algorithmica",
+		Conference:     ALGORITHMICA,
 		ConferenceYear: 2020,
 		Authors:        []string{"Zeta Avarikioti", "Ioannis Z Emiris", "Loukas Kavouras", "Ioannis Psarros"},
 		Url:            "https://epubs.siam.org/doi/pdf/10.1137/1.9781611974782.2",
@@ -796,7 +898,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "approximate-near-neighbors-in-high-dimension",
 		Name:           "Practical linear-space Approximate Near Neighbors in high dimension",
-		Conference:     "ArXiv",
+		Conference:     ARXIV,
 		ConferenceYear: 2016,
 		Authors:        []string{"Zeta Avarikioti", "Ioannis Z Emiris", "Ioannis Psarros", "Georgios Samaras"},
 		Url:            "https://arxiv.org/pdf/1612.07405.pdf",
@@ -805,7 +907,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "game-theoretic-analysis-of-off-chain-protocols",
 		Name:           "Towards a game-theoretic security analysis of off-chain protocols",
-		Conference:     "Computer Security Foundations Symposium–CSF",
+		Conference:     CSF,
 		ConferenceYear: 2023,
 		Authors:        []string{"Sophie Rain", "Zeta Avarikioti", "Laura Kovács", "Matteo Maffei"},
 		Url:            "https://arxiv.org/pdf/2109.07429.pdf",
@@ -814,7 +916,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "suborn-channels",
 		Name:           "Suborn Channels: Incentives Against Timelock Bribes",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2022,
 		Authors:        []string{"Zeta Avarikioti", "Orfeas Stefanos Thyfronitis Litos"},
 		Url:            "https://eprint.iacr.org/2022/814.pdf",
@@ -823,7 +925,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "wiser",
 		Name:           "Wiser: Increasing Throughput in Payment Channel Networks with Transaction Aggregation",
-		Conference:     "Conference on Advances in Financial Technologies–AFT",
+		Conference:     AFT,
 		ConferenceYear: 2022,
 		Authors:        []string{"Samarth Tiwari", "Michelle Yeo", "Zeta Avarikioti", "Iosif Salem", "Krzysztof Pietrzak", "Stefan Schmid"},
 		Url:            "https://arxiv.org/pdf/2205.11597.pdf",
@@ -832,7 +934,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "lightning-ceration-games",
 		Name:           "Lightning Creation Games",
-		Conference:     "International Conference on Distributed Computing Systems–ICDCS",
+		Conference:     ICDCS,
 		ConferenceYear: 2023,
 		Authors:        []string{"Zeta Avarikioti", "Tomasz Lizurej", "Tomasz Michalak", "Michelle Yeo"},
 		Url:            "https://arxiv.org/pdf/2306.16006.pdf",
@@ -841,7 +943,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "pos-sidechains",
 		Name:           "Proof-of-Stake Sidechains",
-		Conference:     "Symposium on Security and Privacy–S&P",
+		Conference:     SP,
 		ConferenceYear: 2019,
 		Authors:        []string{"Peter Gaži", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2018/1239.pdf",
@@ -850,7 +952,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "sok-distributed-ledger-communication",
 		Name:           "SoK: Communication across distributed ledgers",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2021,
 		Authors:        []string{"Alexei Zamyatin", "Mustafa Al-Bassam", "Dionysis Zindros", "Eleftherios Kokoris-Kogias", "Pedro Moreno-Sanchez", "Aggelos Kiayias", "William J Knottenbelt"},
 		Url:            "https://eprint.iacr.org/2019/1128.pdf",
@@ -859,7 +961,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "proof-of-burn",
 		Name:           "Proof-of-Burn",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2020,
 		Authors:        []string{"Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2019/1096.pdf",
@@ -868,7 +970,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "pow-sidechains",
 		Name:           "Proof-of-Work Sidechains",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2019,
 		Authors:        []string{"Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2018/1048.pdf",
@@ -877,7 +979,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "trust-is-risk",
 		Name:           "Trust is Risk: A Decentralized Financial Trust Platform",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2017,
 		Authors:        []string{"Orfeas Stefanos Thyfronitis Litos", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2017/156.pdf",
@@ -886,7 +988,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "updatable-blockchains",
 		Name:           "Updatable Blockchains",
-		Conference:     "European Symposium on Research in Computer Security–ESORICS",
+		Conference:     ESORICS,
 		ConferenceYear: 2020,
 		Authors:        []string{"Michele Ciampi", "Nikos Karayannidis", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2020/887.pdf",
@@ -895,7 +997,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "cryptocurrency-egalitarianism",
 		Name:           "Cryptocurrency Egalitarianism: A Quantitative Approach",
-		Conference:     "International Conference on Blockchain Economics, Security and Protocols–Tokenomics",
+		Conference:     TOKENOMICS,
 		ConferenceYear: 2019,
 		Authors:        []string{"Dimitris Karakostas", "Aggelos Kiayias", "Christos Nasikas", "Dionysis Zindros"},
 		Url:            "https://arxiv.org/pdf/1907.02434",
@@ -904,7 +1006,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "superblock-compact-storage-for-nipopows",
 		Name:           "Compact storage of superblocks for NiPoPoW applications",
-		Conference:     "Mathematical Research for Blockchain Economy–MARBLE",
+		Conference:     MARBLE,
 		ConferenceYear: 2019,
 		Authors:        []string{"Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2019/1444.pdf",
@@ -913,7 +1015,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "gas-efficient-superlight-client",
 		Name:           "A Gas-Efficient Superlight Bitcoin Client in Solidity",
-		Conference:     "Conference on Advances in Financial Technologies–ACM AFT",
+		Conference:     AFT,
 		ConferenceYear: 2020,
 		Authors:        []string{"Stelios Daveas", "Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2020/927.pdf",
@@ -922,7 +1024,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "logspace-mining",
 		Name:           "Mining in Logarithmic Space",
-		Conference:     "Conference on Computer and Communications Security–ACM SIGSAC",
+		Conference:     SIGSAC,
 		ConferenceYear: 2021,
 		Authors:        []string{"Aggelos Kiayias", "Nikos Leonardos", "Dionysis Zindros"},
 		Url:            "https://dl.acm.org/doi/pdf/10.1145/3460120.3484784",
@@ -931,7 +1033,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "ddh-ring-signatures",
 		Name:           "Short Accountable Ring Signatures Based on DDH",
-		Conference:     "European Symposium on Research in Computer Security–ESORICS",
+		Conference:     ESORICS,
 		ConferenceYear: 2015,
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Essam Ghadafi", "Jens Groth", "Christophe Petit"},
 		Url:            "https://eprint.iacr.org/2015/643.pdf",
@@ -940,7 +1042,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "beleniosrf",
 		Name:           "BeleniosRF: A Non-Interactive Receipt-Free Electronic Voting Scheme",
-		Conference:     "Conference on Computer and Communications Security–ACM SIGSAC",
+		Conference:     SIGSAC,
 		ConferenceYear: 2016,
 		Authors:        []string{"Pyrros Chaidos", "Véronique Cortier", "Georg Fuchsbauer", "David Galindo"},
 		Url:            "https://eprint.iacr.org/2015/629.pdf",
@@ -948,8 +1050,8 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	},
 	{
 		Handle:         "arithmetization-oriented-hash-functions",
-		Name:           "New Design Techniques for Efficient Arithmetization-Oriented Hash Functions:Anemoi Permutations and Jive Compression Mode",
-		Conference:     "Annual International Cryptology Conference",
+		Name:           "New Design Techniques for Efficient Arithmetization-Oriented Hash Functions: Anemoi Permutations and Jive Compression Mode",
+		Conference:     CRYPTO,
 		ConferenceYear: 2023,
 		Authors:        []string{"Clémence Bouvier1", "Pierre Briaud", "Pyrros Chaidos", "Léo Perrin", "Robin Salen", "Vesselin Velichkov", "Danny Willems"},
 		Url:            "https://eprint.iacr.org/2022/840.pdf",
@@ -958,7 +1060,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "designated-verifier-nizkp",
 		Name:           "Efficient Designated-Verifier Non-interactive Zero-Knowledge Proofs of Knowledge",
-		Conference:     "Advances in Cryptology–EUROCRYPT",
+		Conference:     EUROCRYPT,
 		ConferenceYear: 2018,
 		Authors:        []string{"Pyrros Chaidos", "Geoffroy Couteau"},
 		Url:            "https://eprint.iacr.org/2017/1029.pdf",
@@ -967,7 +1069,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "non-interactive-sigmas-without-ro",
 		Name:           "Making Sigma-protocols Non-interactive without Random Oracles",
-		Conference:     "IACR International Workshop on Public Key Cryptography",
+		Conference:     PKC,
 		ConferenceYear: 2015,
 		Authors:        []string{"Pyrros Chaidos", "Jens Groth"},
 		Url:            "https://www.iacr.org/archive/pkc2015/90200192/90200192.pdf",
@@ -976,7 +1078,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "efficient-zkp-systems",
 		Name:           "Efficient Zero-Knowledge Proof Systems",
-		Conference:     "International School on Foundations of Security Analysis and Design",
+		Conference:     FOSAD,
 		ConferenceYear: 2015,
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Jens Groth"},
 		Url:            "https://jbootle.github.io/Misc/fosad2015.pdf",
@@ -985,7 +1087,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "mithril",
 		Name:           "Mithril: Stake-based Threshold Multisignatures",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2021,
 		Authors:        []string{"Pyrros Chaidos", "Aggelos Kiayias"},
 		Url:            "https://eprint.iacr.org/2021/916.pdf",
@@ -994,7 +1096,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "fully-dynamic-group-signatures",
 		Name:           "Foundations of Fully Dynamic Group Signatures",
-		Conference:     "Applied Cryptography and Network Security",
+		Conference:     ACNS,
 		ConferenceYear: 2016,
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Essam Ghadafi", "Jens Groth"},
 		Url:            "https://eprint.iacr.org/2016/368.pdf",
@@ -1003,7 +1105,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "divertibility-to-bling-ballot-copying-in-helios",
 		Name:           "Applying Divertibility to Blind Ballot Copying in the Helios Internet Voting System",
-		Conference:     "European Symposium on Research in Computer Security–ESORICS",
+		Conference:     ESORICS,
 		ConferenceYear: 2012,
 		Authors:        []string{"Yvo Desmedt", "Pyrros Chaidos"},
 		Url:            "http://www0.cs.ucl.ac.uk/staff/P.Chaidos/helios-esorics-cr.pdf",
@@ -1012,7 +1114,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "pow-checkpointing",
 		Name:           "Securing Proof-of-Work Ledgers via Checkpointing",
-		Conference:     "IEEE International Conference on Blockchain and Cryptocurrency",
+		Conference:     ICBC,
 		ConferenceYear: 2021,
 		Authors:        []string{"Dimitris Karakostas", "Aggelos Kiayias"},
 		Url:            "https://eprint.iacr.org/2020/173.pdf",
@@ -1021,7 +1123,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "sok-decentralization",
 		Name:           "SoK: A Stratified Approach to Blockchain Decentralization",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2022,
 		Authors:        []string{"Dimitris Karakostas", "Aggelos Kiayias", "Christina Ovezik"},
 		Url:            "https://arxiv.org/pdf/2211.01291.pdf",
@@ -1030,7 +1132,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "pos-account-management",
 		Name:           "Account Management in Proof of Stake Ledgers",
-		Conference:     "Security and Cryptography for Networks–SCN",
+		Conference:     SCN,
 		ConferenceYear: 2020,
 		Authors:        []string{"Dimitris Karakostas", "Aggelos Kiayias", "Mario Larangeira"},
 		Url:            "https://eprint.iacr.org/2020/525.pdf",
@@ -1039,7 +1141,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "puff-of-steem",
 		Name:           "A Puff of Steem: Security Analysis of Decentralized Content Curation",
-		Conference:     "International Conference on Blockchain Economics, Security and Protocols–Tokenomics",
+		Conference:     TOKENOMICS,
 		ConferenceYear: 2019,
 		Authors:        []string{"Aggelos Kiayias", "Benjamin Livshits", "Andrés Monteoliva Mosteiro", "Orfeas Stefanos Thyfronitis Litos"},
 		Url:            "https://www.pure.ed.ac.uk/ws/portalfiles/portal/129969711/A_Puff_of_Steem_KIAYIAS_DOA13012020_VOR_CC_BY.pdf",
@@ -1048,7 +1150,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "trust-strangers",
 		Name:           "How to Trust Strangers: Composition of Byzantine Quorum Systems",
-		Conference:     "International Symposium on Reliable Distributed Systems",
+		Conference:     SRDS,
 		ConferenceYear: 2021,
 		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Luca Zanolini"},
 		Url:            "https://arxiv.org/pdf/2107.11331",
@@ -1057,7 +1159,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "eating-sandwiches",
 		Name:           "Eating sandwiches: Modular and lightweight elimination of transaction reordering attacks",
-		Conference:     "ArXiv",
+		Conference:     ARXIV,
 		ConferenceYear: 2023,
 		Authors:        []string{"Orestis Alpos", "Ignacio Amores-Sesar", "Christian Cachin", "Michelle Yeo"},
 		Url:            "https://arxiv.org/pdf/2307.02954",
@@ -1066,7 +1168,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "sync-power",
 		Name:           "On the Synchronization Power of Token Smart Contracts",
-		Conference:     "International Conference on Distributed Computing Systems",
+		Conference:     ICDCS,
 		ConferenceYear: 2021,
 		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Giorgia Azzurra Marson", "Luca Zanolini"},
 		Url:            "https://arxiv.org/pdf/2101.05543",
@@ -1075,7 +1177,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "consensus-beyond-thresholds",
 		Name:           "Consensus Beyond Thresholds: Generalized Byzantine Quorums Made Live",
-		Conference:     "International Symposium on Reliable Distributed Systems",
+		Conference:     SRDS,
 		ConferenceYear: 2020,
 		Authors:        []string{"Orestis Alpos", "Christian Cachin"},
 		Url:            "https://arxiv.org/pdf/2006.04616",
@@ -1084,7 +1186,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "pos-atob",
 		Name:           "Practical Large-Scale Proof-of-Stake Asynchronous Total-Order Broadcast",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2023,
 		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Simon Holmgaard Kamp", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2023/1103.pdf",
@@ -1093,7 +1195,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "dske",
 		Name:           "DSKE: Digital Signatures with Key Extraction",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2022,
 		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Simon Holmgaard Kamp", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2022/1753.pdf",
@@ -1102,7 +1204,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "thetacrypt",
 		Name:           "Thetacrypt: A Distributed Service for Threshold Cryptography On-Demand",
-		Conference:     "International Middleware Conference",
+		Conference:     MIDDLEWARE,
 		ConferenceYear: 2023,
 		Authors:        []string{"Orestis Alpos", "Mariarosaria Barbaraci", "Christian Cachin", "Noah Schmid", "Michael Senn"},
 		Url:            "https://dl.acm.org/doi/pdf/10.1145/3626564.3629100",
@@ -1111,7 +1213,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "do-not-trust-in-numbers",
 		Name:           "Do Not Trust in Numbers: Practical Distributed Cryptography With General Trust",
-		Conference:     "International Symposium on Stabilizing, Safety, and Security of Distributed Systems",
+		Conference:     SSS,
 		ConferenceYear: 2023,
 		Authors:        []string{"Orestis Alpos", "Christian Cachin"},
 		Url:            "https://eprint.iacr.org/2022/1767.pdf",
@@ -1120,7 +1222,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "lazy-light-clients",
 		Name:           "Light Clients for Lazy Blockchains",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2024,
 		Authors:        []string{"Ertem Nusret Tas", "Dionysis Zindros", "Lei Yang", "David Tse"},
 		Url:            "https://arxiv.org/pdf/2203.15968v2",
@@ -1129,7 +1231,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "hours-of-horus",
 		Name:           "Hours of Horus: Keyless Cryptocurrency Wallets",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2022,
 		Authors:        []string{"Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2021/715.pdf",
@@ -1138,7 +1240,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "better-safe-than-sorry",
 		Name:           "Better Safe than Sorry: Recovering after Adversarial Majority",
-		Conference:     "arXiv",
+		Conference:     ARXIV,
 		ConferenceYear: 2023,
 		Authors:        []string{"Srivatsan Sridhar", "Dionysis Zindros", "David Tse"},
 		Url:            "https://arxiv.org/pdf/2310.06338",
@@ -1147,7 +1249,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "blink",
 		Name:           "Blink: An Optimal Proof of Proof-of-Work",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2024,
 		Authors:        []string{"Lukas Aumayr", "Zeta Avarikioti", "Matteo Maffei", "Giulia Scaffino", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2024/692.pdf",
@@ -1156,7 +1258,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "rollerblade",
 		Name:           "Rollerblade: Replicated Distributed Protocol Emulation on Top of Ledgers",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2024,
 		Authors:        []string{"Dionysis Zindros", "Apostolos Tzinas", "David Tse"},
 		Url:            "https://eprint.iacr.org/2024/210.pdf",
@@ -1165,7 +1267,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "cassiopeia",
 		Name:           "Cassiopeia: Practical On-Chain Witness Encryption",
-		Conference:     "Financial Cryptography and Data Security",
+		Conference:     FC,
 		ConferenceYear: 2023,
 		Authors:        []string{"Schwinn Saereesitthipitak", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2023/635.pdf",
@@ -1174,7 +1276,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "better-pow-fork-rule",
 		Name:           "A Better Proof-of-Work Fork Choice Rule",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2024,
 		Authors:        []string{"Karl Kreder", "Shreekara Shastry", "Apostolos Tzinas", "Sriram Vishwanath", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2024/200.pdf",
@@ -1183,7 +1285,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "smart-contract-derivatives",
 		Name:           "Smart Contract Derivatives",
-		Conference:     "Mathematical Research for Blockchain Economy",
+		Conference:     MARBLE,
 		ConferenceYear: 2020,
 		Authors:        []string{"Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2020/138.pdf",
@@ -1192,7 +1294,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "velvet-path-to-superlight",
 		Name:           "The Velvet Path to Superlight Blockchain Clients",
-		Conference:     "ACM Advances in Financial Technologies",
+		Conference:     AFT,
 		ConferenceYear: 2021,
 		Authors:        []string{"Aggelos Kiayias", "Andrianna Polydouri", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2020/1122.pdf",
@@ -1201,7 +1303,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "soft-power",
 		Name:           "Soft Power: Upgrading Chain Macroeconomic Policy Through Soft Forks",
-		Conference:     "Financial Cryptography Workshop on Trusted Smart Contracts",
+		Conference:     FCWTS,
 		ConferenceYear: 2021,
 		Authors:        []string{"Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2021/577.pdf",
@@ -1210,7 +1312,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "channels-route-discovery",
 		Name:           "Route Discovery in Private Payment Channel Networks",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2021,
 		Authors:        []string{"Zeta Avarikioti", "Mahsa Bastankhah", "Mohammad Ali Maddah-Ali", "Krzysztof Pietrzak", "Jakub Svoboda", "Michelle Yeo"},
 		Url:            "https://eprint.iacr.org/2021/1539.pdf",
@@ -1219,7 +1321,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "r-nets-clustering",
 		Name:           "High Dimensional Clustering with r-nets",
-		Conference:     "AAAI Conference on Artificial Intelligence",
+		Conference:     AAAI,
 		ConferenceYear: 2019,
 		Authors:        []string{"Zeta Avarikioti", "Alain Ryser", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://ojs.aaai.org/index.php/AAAI/article/view/4189/4067",
@@ -1228,7 +1330,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "online-payment-network-design",
 		Name:           "Online Payment Network Design",
-		Conference:     "Data Privacy Management, Cryptocurrencies and Blockchain Technology: ESORICS",
+		Conference:     ESORICS,
 		ConferenceYear: 2019,
 		Authors:        []string{"Zeta Avarikioti", "Kenan Besic", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1908.00432",
@@ -1237,7 +1339,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "bribe-and-fork",
 		Name:           "Bribe & Fork: Cheap Bribing Attacks via Forking Threat",
-		Conference:     "arXiv",
+		Conference:     ARXIV,
 		ConferenceYear: 2024,
 		Authors:        []string{"Zeta Avarikioti", "Paweł Kędzior", "Tomasz Lizurej", "Tomasz Michalak"},
 		Url:            "https://arxiv.org/pdf/2402.01363v1",
@@ -1246,7 +1348,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "musketeer",
 		Name:           "Musketeer: Incentive-Compatible Rebalancing for Payment Channel Networks",
-		Conference:     "Cryptology ePrint Archive",
+		Conference:     EPRINT,
 		ConferenceYear: 2023,
 		Authors:        []string{"Zeta Avarikioti", "Stefan Schmid", "Samarth Tiwari"},
 		Url:            "https://eprint.iacr.org/2023/938.pdf",
@@ -1255,7 +1357,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 	{
 		Handle:         "glimpse",
 		Name:           "Glimpse: On-Demand PoW Light Client with Constant-Size Storage for DeFi",
-		Conference:     "USENIX Security Symposium",
+		Conference:     USENIX,
 		ConferenceYear: 2023,
 		Authors:        []string{"Giulia Scaffino", "Lukas Aumayr", "Zeta Avarikioti", "Matteo Maffei"},
 		Url:            "https://www.usenix.org/system/files/usenixsecurity23-scaffino.pdf",

@@ -143,7 +143,7 @@ type Client struct {
 type ResearchPaper struct {
 	Handle         string
 	Name           string
-	Conference     string
+	Conference     ConferenceAbbreviation
 	ConferenceYear int
 	Authors        []string
 	Url            string
@@ -155,7 +155,7 @@ type Research struct {
 	TagToColor     map[Tag]string
 	AllAuthors     []string
 	AllTags        []Tag
-	AllConferences []string
+	AllConferences []ConferenceAbbreviation
 	AllYears       []int
 }
 
@@ -284,7 +284,7 @@ func build() {
 		}
 	}
 
-	allConferences := []string{}
+	allConferences := []ConferenceAbbreviation{}
 	for _, r := range ResearchPapers {
 		if !slices.Contains(allConferences, r.Conference) {
 			allConferences = append(allConferences, r.Conference)
