@@ -301,6 +301,10 @@ func build() {
 	slices.Sort(allYears)
 	slices.Reverse(allYears)
 
+	sort.Slice(ResearchPapers, func(i, j int) bool {
+		return ResearchPapers[i].Citations > ResearchPapers[j].Citations
+	})
+
 	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: "Research",
 		Description: description,
 		Research: Research{ResearchPapers: ResearchPapers,
