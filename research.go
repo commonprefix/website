@@ -193,6 +193,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Apostolos Tzinas", "Srivatsan Sridhar", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2023/1648.pdf",
 		Tags:           []Tag{}, // TIMELINESS, SUPERSAFETY
+		Citations:      1,
 	},
 	{
 		Handle:         "popos",
@@ -202,6 +203,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Shresth Agrawal", "Joachim Neu", "Ertem Nusret Tas", "Dionysis Zindros"},
 		Url:            "https://arxiv.org/pdf/2209.08673.pdf",
 		Tags:           []Tag{PROOF_OF_STAKE, LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      8,
 	},
 	{
 		Handle:         "liquid-staking",
@@ -211,6 +213,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Apostolos Tzinas", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2023/605.pdf",
 		Tags:           []Tag{LIQUID_STAKING},
+		Citations:      5,
 	},
 	{
 		Handle:         "nipopow",
@@ -220,6 +223,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Aggelos Kiayias", "Andrew Miller", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2017/963.pdf",
 		Tags:           []Tag{PROOF_OF_WORK, LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      175,
 	},
 	{
 		Handle:         "ouroboros",
@@ -229,6 +233,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Aggelos Kiayias", "Alexander Russell", "Bernardo David", "Roman Oliynykov"},
 		Url:            "https://eprint.iacr.org/2016/889.pdf",
 		Tags:           []Tag{PROOF_OF_STAKE},
+		Citations:      1974,
 	},
 	{
 		Handle:         "hardware-wallets",
@@ -238,6 +243,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Myrto Arapinis", "Andriana Gkaniatsou", "Dimitris Karakostas", "Aggelos Kiayias"},
 		Url:            "https://eprint.iacr.org/2019/034.pdf",
 		Tags:           []Tag{WALLETS},
+		Citations:      38,
 	},
 	{
 		Handle:         "brick",
@@ -247,6 +253,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Eleftherios Kokoris-Kogias", "Roger Wattenhofer", "Dionysis Zindros"},
 		Url:            "https://arxiv.org/pdf/1905.11360.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS},
+		Citations:      70,
 	},
 	{
 		Handle:         "zk-arguments",
@@ -256,6 +263,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Jens Groth", "Christophe Petit"},
 		Url:            "https://eprint.iacr.org/2016/263.pdf",
 		Tags:           []Tag{ZERO_KNOWLEDGE},
+		Citations:      412,
 	},
 	{
 		Handle:         "dynamic-group-signatures",
@@ -265,6 +273,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Essam Ghadafi", "Jens Groth"},
 		Url:            "https://eprint.iacr.org/2016/368.pdf",
 		Tags:           []Tag{SIGNATURES},
+		Citations:      129,
 	},
 	{
 		Handle:         "lightning-network-security",
@@ -274,6 +283,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Aggelos Kiayias", "Orfeas Stefanos Thyfronitis Litos"},
 		Url:            "https://eprint.iacr.org/2019/778.pdf",
 		Tags:           []Tag{LIGHTNING_NETWORK},
+		Citations:      54,
 	},
 	{
 		Handle:         "ouroboros-praos",
@@ -283,6 +293,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Peter Gaži", "Aggelos Kiayias", "Alexander Russell"},
 		Url:            "https://eprint.iacr.org/2017/573.pdf",
 		Tags:           []Tag{PROOF_OF_STAKE, CONSENSUS},
+		Citations:      584,
 	},
 	{
 		Handle:         "scape",
@@ -292,6 +303,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David"},
 		Url:            "https://eprint.iacr.org/2017/216.pdf",
 		Tags:           []Tag{PVSS, RANDOMNESS},
+		Citations:      172,
 	},
 	{
 		Handle:         "constant-sps",
@@ -301,6 +313,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Masayuki Abe", "Melissa Chase", "Bernardo David", "Markulf Kohlweiss", "Ryo Nishimaki", "Miyako Ohkubo"},
 		Url:            "https://eprint.iacr.org/2012/285.pdf",
 		Tags:           []Tag{SIGNATURES},
+		Citations:      137,
 	},
 	{
 		Handle:         "tagged-ots",
@@ -310,6 +323,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Masayuki Abe", "Bernardo David", "Markulf Kohlweiss", "Ryo Nishimaki", "Miyako Ohkubo"},
 		Url:            "https://eprint.iacr.org/2015/311.pdf",
 		Tags:           []Tag{SIGNATURES},
+		Citations:      96,
 	},
 	{
 		Handle:         "internet-banking-attacks",
@@ -319,6 +333,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Laerte Peotta", "Marcelo Holtz", "Bernardo David", "Flavio Deus", "RT de Sousa"},
 		Url:            "https://airccse.org/journal/jcsit/0211ijcsit13.pdf",
 		Tags:           []Tag{}, // IDENTIFICATION
+		Citations:      83,
 	},
 	{
 		Handle:         "albatross",
@@ -328,6 +343,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David"},
 		Url:            "https://eprint.iacr.org/2020/644.pdf",
 		Tags:           []Tag{RANDOMNESS, PVSS},
+		Citations:      66,
 	},
 	{
 		Handle:         "p2dex",
@@ -337,6 +353,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Tore Kasper Frederiksen"},
 		Url:            "https://eprint.iacr.org/2021/283.pdf",
 		Tags:           []Tag{MPC, PRIVACY, FAIRNESS, FRONT_RUNNING},
+		Citations:      65,
 	},
 	{
 		Handle:         "tardis",
@@ -346,6 +363,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Rafael Dowsley", "Jesper Buus Nielsen", "Sabine Oechsner"},
 		Url:            "https://eprint.iacr.org/2020/537.pdf",
 		Tags:           []Tag{TIMELOCK, UC},
+		Citations:      51,
 	},
 	{
 		Handle:         "uc-commitments",
@@ -355,6 +373,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Ignacio Cascudo", "Ivan Damgård", "Bernardo David", "Nico Döttling", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2016/137.pdf",
 		Tags:           []Tag{COMMITMENTS, UC},
+		Citations:      41,
 	},
 	{
 		Handle:         "insured-mpc",
@@ -364,6 +383,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Rafael Dowsley"},
 		Url:            "https://eprint.iacr.org/2018/942.pdf",
 		Tags:           []Tag{MPC, FAIRNESS, UC},
+		Citations:      48,
 	},
 	{
 		Handle:         "map-reduce-ids",
@@ -373,6 +393,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Marcelo D Holtz", "Bernardo David", "Rafael Timóteo de Sousa Júnior"},
 		Url:            "https://www.academia.edu/download/61520800/Building_Scalable_Distributed_Intrusion_20191215-6958-g7aso0.pdf",
 		Tags:           []Tag{},
+		Citations:      38,
 	},
 	{
 		Handle:         "vss-homomorphic-uc-commitments",
@@ -382,6 +403,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Ivan Damgård", "Bernardo David", "Irene Giacomelli", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2014/370.pdf",
 		Tags:           []Tag{UC, COMMITMENTS, HOMOMORPHISM},
+		Citations:      37,
 	},
 	{
 		Handle:         "lpn-uc-transfer",
@@ -391,6 +413,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Anderson CA Nascimento"},
 		Url:            "https://dowsley.net/pdf/CANS-DavDowNas14.pdf",
 		Tags:           []Tag{UC, OBLIVIOUS_TRANSFER},
+		Citations:      39,
 	},
 	{
 		Handle:         "uc-rom-oblivious-transfer",
@@ -400,6 +423,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Paulo SLM Barreto", "Bernardo David", "Rafael Dowsley", "Kirill Morozov", "Anderson CA Nascimento"},
 		Url:            "https://eprint.iacr.org/2017/993.pdf",
 		Tags:           []Tag{UC, OBLIVIOUS_TRANSFER}, // ROM
+		Citations:      40,
 	},
 	{
 		Handle:         "private-ml-classification",
@@ -409,6 +433,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Raj Katti", "Anderson CA Nascimento"},
 		Url:            "https://dowsley.net/pdf/PROVSEC-DDKN15.pdf",
 		Tags:           []Tag{PRIVACY},
+		Citations:      35,
 	},
 	{
 		Handle:         "homomorphic-uc-commitments",
@@ -418,6 +443,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Ignacio Cascudo Pueyo", "Ivan Bjerre Damgård", "Bernardo Machado David", "Irene Giacomelli", "Jesper Buus Nielsen", "Roberto Trifiletti"},
 		Url:            "https://eprint.iacr.org/2014/829.pdf",
 		Tags:           []Tag{UC, COMMITMENTS},
+		Citations:      33,
 	},
 	{
 		Handle:         "craft",
@@ -427,6 +453,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Rafael Dowsley", "Ravi Kishore", "Jesper Buus Nielsen", "Sabine Oechsner"},
 		Url:            "https://eprint.iacr.org/2020/784.pdf",
 		Tags:           []Tag{UC, TIMELOCK, VDF, RANDOMNESS},
+		Citations:      34,
 	},
 	{
 		Handle:         "front-running-sok",
@@ -436,6 +463,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Carsten Baum", "James Hsin-yu Chiang", "Bernardo David", "Tore Kasper Frederiksen", "Lorenzo Gentile"},
 		Url:            "https://eprint.iacr.org/2021/1628.pdf",
 		Tags:           []Tag{DEFI, FRONT_RUNNING, MEV},
+		Citations:      34,
 	},
 	{
 		Handle:         "anonymous-timelock",
@@ -445,6 +473,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Matteo Campanelli", "Bernardo David", "Hamidreza Khoshakhlagh", "Anders Konring", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2021/1423.pdf",
 		Tags:           []Tag{TIMELOCK, WITNESS_ENCRYPTION},
+		Citations:      35,
 	},
 	{
 		Handle:         "gearbox",
@@ -454,6 +483,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Bernardo Magri", "Christian Matt", "Jesper Buus Nielsen", "Daniel Tschudi"},
 		Url:            "https://eprint.iacr.org/2021/211.pdf",
 		Tags:           []Tag{UC, SHARDING},
+		Citations:      34,
 	},
 	{
 		Handle:         "kaleidoscope",
@@ -463,6 +493,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Mario Larangeira"},
 		Url:            "https://eprint.iacr.org/2017/899.pdf",
 		Tags:           []Tag{MPC},
+		Citations:      23,
 	},
 	{
 		Handle:         "uc-private-linear-algebra",
@@ -472,6 +503,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Jeroen van de Graaf", "Davidson Marques", "Anderson CA Nascimento", "Adriana CB Pinto"},
 		Url:            "https://dowsley.net/pdf/IEEEIFS-DDGM+16.pdf",
 		Tags:           []Tag{UC, PRIVACY},
+		Citations:      22,
 	},
 	{
 		Handle:         "yolo-yoso",
@@ -481,6 +513,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David", "Lydia Garms", "Anders Konring"},
 		Url:            "https://eprint.iacr.org/2022/242.pdf",
 		Tags:           []Tag{PVSS, YOSO}, // ANONYMITY
+		Citations:      22,
 	},
 	{
 		Handle:         "uc-oblivious-transfer",
@@ -490,6 +523,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo Machado David", "Anderson CA Nascimento", "Jörn Müller-Quade"},
 		Url:            "https://link.springer.com/chapter/10.1007/978-3-642-32284-6_5",
 		Tags:           []Tag{UC, OBLIVIOUS_TRANSFER},
+		Citations:      16,
 	},
 	{
 		Handle:         "honeypot-blind-malicious-activity-detection",
@@ -499,6 +533,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo Machado David", "JPCL da Costa", "Anderson CA Nascimento", "Dino Amaral", "MD Holtz", "RT de Sousa Jr"},
 		Url:            "https://lasp.unb.br/wp-content/uploads/papers/ICoFCS2011-PP16.pdf",
 		Tags:           []Tag{},
+		Citations:      15,
 	},
 	{
 		Handle:         "eagle",
@@ -508,6 +543,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Carsten Baum", "James Hsin-yu Chiang", "Bernardo David", "Tore Kasper Frederiksen"},
 		Url:            "https://eprint.iacr.org/2022/1435.pdf",
 		Tags:           []Tag{SMART_CONTRACTS, MPC},
+		Citations:      16,
 	},
 	{
 		Handle:         "uc-homomorphic-commitments",
@@ -517,6 +553,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Ignacio Cascudo", "Ivan Damgård", "Bernardo David", "Nico Döttling", "Rafael Dowsley", "Irene Giacomelli"},
 		Url:            "https://eprint.iacr.org/2018/983.pdf",
 		Tags:           []Tag{UC, HOMOMORPHISM},
+		Citations:      13,
 	},
 	{
 		Handle:         "royale",
@@ -526,6 +563,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Mario Larangeira"},
 		Url:            "https://eprint.iacr.org/2018/157.pdf",
 		Tags:           []Tag{UC, FAIRNESS},
+		Citations:      14,
 	},
 	{
 		Handle:         "mars",
@@ -535,6 +573,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Mario Larangeira"},
 		Url:            "https://dl.acm.org/doi/10.1145/3211933.3211948",
 		Tags:           []Tag{},
+		Citations:      12,
 	},
 	{
 		Handle:         "improved-honeypot-blind-malicious-activity-detection",
@@ -544,6 +583,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"JPCL da Costa", "Edison Pignaton de Freitas", "Bernardo Machado David", "AM Rubio Serrano", "Dino Amaral", "RT Sousa Júnior"},
 		Url:            "http://www.icofcs.org/2012/ICoFCS2012_08.pdf",
 		Tags:           []Tag{},
+		Citations:      12,
 	},
 	{
 		Handle:         "fast",
@@ -553,6 +593,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Lorenzo Gentile", "Mohsen Pourpouneh"},
 		Url:            "https://eprint.iacr.org/2021/264.pdf",
 		Tags:           []Tag{FAIRNESS, PRIVACY},
+		Citations:      13,
 	},
 	{
 		Handle:         "uc-private-proximity-testing",
@@ -562,6 +603,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Rafael Tonicelli", "Bernardo Machado David", "Vinícius de Morais Alves"},
 		Url:            "https://link.springer.com/chapter/10.1007/978-3-642-24316-5_16",
 		Tags:           []Tag{UC, PRIVACY},
+		Citations:      11,
 	},
 	{
 		Handle:         "secure-sso",
@@ -571,6 +613,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo Machado David", "Anderson CA Nascimento", "Rafael Tonicelli"},
 		Url:            "https://eprint.iacr.org/2011/246.pdf",
 		Tags:           []Tag{},
+		Citations:      9,
 	},
 	{
 		Handle:         "mt-random",
@@ -580,6 +623,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David", "Omer Shlomovits", "Denis Varlakov"},
 		Url:            "https://eprint.iacr.org/2021/1096.pdf",
 		Tags:           []Tag{RANDOMNESS, PVSS},
+		Citations:      9,
 	},
 	{
 		Handle:         "oblivious-transfer-from-mceliece",
@@ -589,6 +633,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo Machado David", "Anderson CA Nascimento", "Rafael T de Sousa"},
 		Url:            "https://ieeexplore.ieee.org/document/6089575",
 		Tags:           []Tag{},
+		Citations:      7,
 	},
 	{
 		Handle:         "papr",
@@ -598,6 +643,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Joakim Brorsson", "Bernardo David", "Lorenzo Gentile", "Elena Pagnin", "Paul Stankovski Wagner"},
 		Url:            "https://eprint.iacr.org/2023/137.pdf",
 		Tags:           []Tag{PRIVACY},
+		Citations:      10,
 	},
 	{
 		Handle:         "generalizing-mpc",
@@ -607,6 +653,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo M David", "Ryo Nishimaki", "Samuel Ranellucci", "Alain Tapp"},
 		Url:            "https://eprint.iacr.org/2015/135.pdf",
 		Tags:           []Tag{MPC, OBLIVIOUS_TRANSFER, UC},
+		Citations:      6,
 	},
 	{
 		Handle:         "pca-based-malicious-activity-detection",
@@ -616,6 +663,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo Machado David", "João Paulo Carvalho Lustosa da Costa", "Anderson Clayton Alves Nascimento", "Marcelo Dias Holtz", "Dino Macedo Amaral", "Rafael Timóteo de Sousa Júnior"},
 		Url:            "http://www.realp.unb.br/jspui/bitstream/10482/10985/1/ARTIGO_ParallelApproachPCA.pdf",
 		Tags:           []Tag{},
+		Citations:      7,
 	},
 	{
 		Handle:         "uc-verifiability-without-adaptivity-or-zk",
@@ -625,6 +673,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Rafael Dowsley"},
 		Url:            "https://eprint.iacr.org/2020/207.pdf",
 		Tags:           []Tag{UC},
+		Citations:      5,
 	},
 	{
 		Handle:         "21",
@@ -634,6 +683,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Mario Larangeira"},
 		Url:            "https://eprint.iacr.org/2018/303.pdf",
 		Tags:           []Tag{MPC, UC},
+		Citations:      6,
 	},
 	{
 		Handle:         "bayesian-trust-model-for-mac-in-802-15-4",
@@ -643,6 +693,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo Machado David", "Rafael Timoteo de Sousa Jr"},
 		Url:            "http://www.inf.ufsc.br/~bosco.sobral/downloads/I2TS%202010%20CD%20Proceedings/www.i2ts.org/papers/full_english/78855_1.pdf",
 		Tags:           []Tag{},
+		Citations:      5,
 	},
 	{
 		Handle:         "sok-privacy-in-finance",
@@ -652,6 +703,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Carsten Baum", "James Hsin-yu Chiang", "Bernardo David", "Tore Kasper Frederiksen"},
 		Url:            "https://eprint.iacr.org/2023/122.pdf",
 		Tags:           []Tag{DEFI, MPC, PRIVACY, ZERO_KNOWLEDGE},
+		Citations:      9,
 	},
 	{
 		Handle:         "trust-model-for-mac-in-lr-wpans",
@@ -661,6 +713,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo M David", "Beatriz Santana", "Laerte Peotta", "Marcelo D Holtz", "Rafael Timóteo de Sousa Jr"},
 		Url:            "https://www.researchgate.net/profile/Rafael-De-Sousa-Junior/publication/50235175_A_Context-Dependent_Trust_Model_for_the_MAC_Layer_in_LR-WPANs_Bernardo_M_David_Beatriz_Santana_Laerte_Peotta_Marcelo_D_Holtz/links/549081910cf2d1800d866a6d/A-Context-Dependent-Trust-Model-for-the-MAC-Layer-in-LR-WPANs-Bernardo-M-David-Beatriz-Santana-Laerte-Peotta-Marcelo-D-Holtz.pdf",
 		Tags:           []Tag{},
+		Citations:      4,
 	},
 	{
 		Handle:         "mpc-over-layered-graphs",
@@ -670,6 +723,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Giovanni Deligios", "Aarushi Goel", "Yuval Ishai", "Anders Konring", "Eyal Kushilevitz", "Chen-Da Liu-Zhang", "Varun Narayanan"},
 		Url:            "https://eprint.iacr.org/2023/330.pdf",
 		Tags:           []Tag{MPC, YOSO},
+		Citations:      6,
 	},
 	{
 		Handle:         "uc-oblivious-transfer-from-cdh",
@@ -679,6 +733,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Rafael Dowsley"},
 		Url:            "https://eprint.iacr.org/2020/1291.pdf",
 		Tags:           []Tag{OBLIVIOUS_TRANSFER, UC},
+		Citations:      3,
 	},
 	{
 		Handle:         "map-reduce-intrusion-detection-architecture",
@@ -688,6 +743,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Marcelo D Holtz", "Bernardo M David", "Laerte Peotta", "RT de Sousa Jr"},
 		Url:            "https://www.researchgate.net/publication/52011678_An_architecture_for_distributed_Network_Intrusion_Detection_Based_on_the_Map-Reduce_Framework",
 		Tags:           []Tag{},
+		Citations:      2,
 	},
 	{
 		Handle:         "decentralized-info-market",
@@ -697,6 +753,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Steven Golob", "Sikha Pentyala", "Rafael Dowsley", "Bernardo David", "Mario Larangeira", "Martine De Cock", "Anderson Nascimento"},
 		Url:            "https://dl.acm.org/doi/pdf/10.1145/3600046.3600047",
 		Tags:           []Tag{PRIVACY, MPC},
+		Citations:      1,
 	},
 	{
 		Handle:         "fairpos",
@@ -706,6 +763,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"James Hsin-yu Chiang", "Bernardo David", "Ittay Eyal", "Tiantian Gong"},
 		Url:            "https://eprint.iacr.org/2022/1442.pdf",
 		Tags:           []Tag{PROOF_OF_STAKE, FRONT_RUNNING},
+		Citations:      7,
 	},
 	{
 		Handle:         "co-differential-privacy",
@@ -715,6 +773,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"James Hsin-yu Chiang", "Bernardo David", "Mariana Gama", "Christian Janos Lebeda"},
 		Url:            "https://eprint.iacr.org/2023/943.pdf",
 		Tags:           []Tag{DEFI, MPC},
+		Citations:      2,
 	},
 	{
 		Handle:         "voting-diff-privacy",
@@ -724,6 +783,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Rosario Giustolisi", "Bernardo David", "Victor Mortensen", "Morten Pedersen"},
 		Url:            "https://ceur-ws.org/Vol-3488/paper16.pdf",
 		Tags:           []Tag{VOTING, PRIVACY},
+		Citations:      0,
 	},
 	{
 		Handle:         "updatable-private-blueprints",
@@ -733,15 +793,17 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo David", "Felix Engelmann", "Tore Frederiksen", "Markulf Kohlweiss", "Elena Pagnin", "Mikhail Volkhov"},
 		Url:            "https://eprint.iacr.org/2023/1787.pdf",
 		Tags:           []Tag{PRIVACY, ZERO_KNOWLEDGE},
+		Citations:      0,
 	},
 	{
 		Handle:         "pvss-over-class-groups",
 		Name:           "Publicly Verifiable Secret Sharing over Class Groups and Applications to DKG and YOSO",
-		Conference:     EPRINT,
-		ConferenceYear: 2023,
+		Conference:     EUROCRYPT,
+		ConferenceYear: 2024,
 		Authors:        []string{"Ignacio Cascudo", "Bernardo David"},
 		Url:            "https://eprint.iacr.org/2023/1651.pdf",
 		Tags:           []Tag{PVSS, MPC, YOSO},
+		Citations:      3,
 	},
 	{
 		Handle:         "cascade",
@@ -751,6 +813,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Carsten Baum", "Bernardo David", "Elena Pagnin", "Akira Takahashi"},
 		Url:            "https://eprint.iacr.org/2023/405.pdf",
 		Tags:           []Tag{TIMELOCK, VDF},
+		Citations:      0,
 	},
 	{
 		Handle:         "uc-homomorphic-commitments",
@@ -760,6 +823,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo Machado David"},
 		Url:            "https://pure.au.dk/ws/portalfiles/portal/114777545/Bernardo_Machado_Davids_thesis.pdf",
 		Tags:           []Tag{UC, COMMITMENTS},
+		Citations:      0,
 	},
 	{
 		Handle:         "uc-committed-oblivious-transfer-with-trusted-initializer",
@@ -769,6 +833,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Adriana CB Pinto", "Bernardo Machado David", "Jeroen van de Graaf", "Anderson CA Nascimento"},
 		Url:            "https://sol.sbc.org.br/index.php/sbseg/article/download/20541/20368",
 		Tags:           []Tag{OBLIVIOUS_TRANSFER, UC},
+		Citations:      0,
 	},
 	{
 		Handle:         "fully-simulatable-oblivious-transfer",
@@ -778,6 +843,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Bernardo M David", "Anderson CA Nascimento", "Rafael Tonicelli"},
 		Url:            "https://sol.sbc.org.br/index.php/sbseg/article/download/20567/20394",
 		Tags:           []Tag{OBLIVIOUS_TRANSFER},
+		Citations:      0,
 	},
 	{
 		Handle:         "cerberus-channels",
@@ -787,6 +853,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Orfeas Stefanos Thyfronitis Litos", "Roger Wattenhofer"},
 		Url:            "https://eprint.iacr.org/2019/1092.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS, BITCOIN},
+		Citations:      62,
 	},
 	{
 		Handle:         "divide-and-scale",
@@ -796,6 +863,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Antoine Desjardins", "Lefteris Kokoris-Kogias", "Roger Wattenhofer"},
 		Url:            "https://drive.google.com/file/d/1EKbY-8rCNj7zDTuVYcj5WAiFX2hYwqai/view",
 		Tags:           []Tag{SHARDING},
+		Citations:      47,
 	},
 	{
 		Handle:         "secure-and-efficient-payment-channels",
@@ -805,6 +873,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Felix Laufenberg", "Jakub Sliwinski", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1811.12740.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS, BITCOIN},
+		Citations:      39,
 	},
 	{
 		Handle:         "ride-the-lightning",
@@ -814,6 +883,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Lioba Heimbach", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1912.04797.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS},
+		Citations:      38,
 	},
 	{
 		Handle:         "payment-network-with-fees",
@@ -823,7 +893,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Gerrit Janssen", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1810.07585.pdf",
 		Tags:           []Tag{}, //keywords:  blockchain, layer 2, channels, lightning protocol
-
+		Citations:      32,
 	},
 	{
 		Handle:         "darknet",
@@ -833,6 +903,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Roman Brunner", "Aggelos Kiayias", "Roger Wattenhofer", "Dionysis Zindros"},
 		Url:            "https://arxiv.org/pdf/1811.01348.pdf",
 		Tags:           []Tag{},
+		Citations:      26,
 	},
 	{
 		Handle:         "fnf-bft",
@@ -842,6 +913,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Lioba Heimbach", "Roland Schmid", "Laurent Vanbever", "Roger Wattenhofer", "Patrick Wintermeyer"},
 		Url:            "https://tik-old.ee.ethz.ch/file/34168cbbbcfa75bf48c87a84844b3ae9/FnF_BFT__SIROCCO_2023_-1.pdf",
 		Tags:           []Tag{},
+		Citations:      29,
 	},
 	{
 		Handle:         "bitcoin-temporary-dishonest-majority",
@@ -851,6 +923,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Lukas Käppeli", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1908.00427.pdf",
 		Tags:           []Tag{}, //keywords : Bitcoin, Security, Dishonest Majority, Offline Players, Sleepy Model
+		Citations:      23,
 	},
 	{
 		Handle:         "hide-and-seek",
@@ -860,6 +933,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Krzysztof Pietrzak", "Iosif Salem", "Stefan Schmid", "Samarth Tiwari", "Michelle Yeo"},
 		Url:            "https://arxiv.org/pdf/2110.08848.pdf",
 		Tags:           []Tag{}, //keywords : Payment Channel Networks, Privacy, Rebalancing.
+		Citations:      25,
 	},
 	{
 		Handle:     "tx-chain",
@@ -868,6 +942,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:    []string{"Alexei Zamyatin", "Zeta Avarikioti", "Daniel Perez", "William J. Knottenbelt"},
 		Url:        "https://eprint.iacr.org/2020/580.pdf",
 		Tags:       []Tag{LIGHT_CLIENTS},
+		Citations:  15,
 	},
 	{
 		Handle:     "payment-networks-as-creation-games",
@@ -876,6 +951,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:    []string{"Zeta Avarikioti", "Rolf Scheuner", "Roger Wattenhofer"},
 		Url:        "https://arxiv.org/pdf/1908.00436.pdf",
 		Tags:       []Tag{PAYMENT_CHANNELS},
+		Citations:  15,
 	},
 	{
 		Handle:         "algorithmic-channel-design",
@@ -885,6 +961,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/336835/1/LIPIcs-ISAAC-2018-16.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS},
+		Citations:      17,
 	},
 	{
 		Handle:         "high-dimensional-approximate-r-nets",
@@ -894,6 +971,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Ioannis Z Emiris", "Loukas Kavouras", "Ioannis Psarros"},
 		Url:            "https://epubs.siam.org/doi/pdf/10.1137/1.9781611974782.2",
 		Tags:           []Tag{},
+		Citations:      7,
 	},
 	{
 		Handle:         "approximate-near-neighbors-in-high-dimension",
@@ -903,6 +981,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Ioannis Z Emiris", "Ioannis Psarros", "Georgios Samaras"},
 		Url:            "https://arxiv.org/pdf/1612.07405.pdf",
 		Tags:           []Tag{},
+		Citations:      7,
 	},
 	{
 		Handle:         "game-theoretic-analysis-of-off-chain-protocols",
@@ -912,6 +991,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Sophie Rain", "Zeta Avarikioti", "Laura Kovács", "Matteo Maffei"},
 		Url:            "https://arxiv.org/pdf/2109.07429.pdf",
 		Tags:           []Tag{},
+		Citations:      11,
 	},
 	{
 		Handle:         "suborn-channels",
@@ -921,6 +1001,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Orfeas Stefanos Thyfronitis Litos"},
 		Url:            "https://eprint.iacr.org/2022/814.pdf",
 		Tags:           []Tag{LIGHTNING_NETWORK, BITCOIN, PAYMENT_CHANNELS},
+		Citations:      7,
 	},
 	{
 		Handle:         "wiser",
@@ -930,6 +1011,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Samarth Tiwari", "Michelle Yeo", "Zeta Avarikioti", "Iosif Salem", "Krzysztof Pietrzak", "Stefan Schmid"},
 		Url:            "https://arxiv.org/pdf/2205.11597.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS, PRIVACY},
+		Citations:      3,
 	},
 	{
 		Handle:         "lightning-ceration-games",
@@ -939,6 +1021,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Tomasz Lizurej", "Tomasz Michalak", "Michelle Yeo"},
 		Url:            "https://arxiv.org/pdf/2306.16006.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS, BITCOIN},
+		Citations:      2,
 	},
 	{
 		Handle:         "pos-sidechains",
@@ -948,6 +1031,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Peter Gaži", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2018/1239.pdf",
 		Tags:           []Tag{PROOF_OF_STAKE, LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      244,
 	},
 	{
 		Handle:         "sok-distributed-ledger-communication",
@@ -957,6 +1041,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Alexei Zamyatin", "Mustafa Al-Bassam", "Dionysis Zindros", "Eleftherios Kokoris-Kogias", "Pedro Moreno-Sanchez", "Aggelos Kiayias", "William J Knottenbelt"},
 		Url:            "https://eprint.iacr.org/2019/1128.pdf",
 		Tags:           []Tag{INTEROPERABILITY},
+		Citations:      191,
 	},
 	{
 		Handle:         "proof-of-burn",
@@ -966,6 +1051,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2019/1096.pdf",
 		Tags:           []Tag{},
+		Citations:      167,
 	},
 	{
 		Handle:         "pow-sidechains",
@@ -975,6 +1061,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2018/1048.pdf",
 		Tags:           []Tag{PROOF_OF_WORK, LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      148,
 	},
 	{
 		Handle:         "trust-is-risk",
@@ -984,6 +1071,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orfeas Stefanos Thyfronitis Litos", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2017/156.pdf",
 		Tags:           []Tag{BITCOIN},
+		Citations:      25,
 	},
 	{
 		Handle:         "updatable-blockchains",
@@ -993,6 +1081,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Michele Ciampi", "Nikos Karayannidis", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2020/887.pdf",
 		Tags:           []Tag{},
+		Citations:      17,
 	},
 	{
 		Handle:         "cryptocurrency-egalitarianism",
@@ -1002,6 +1091,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Dimitris Karakostas", "Aggelos Kiayias", "Christos Nasikas", "Dionysis Zindros"},
 		Url:            "https://arxiv.org/pdf/1907.02434",
 		Tags:           []Tag{PROOF_OF_WORK, PROOF_OF_STAKE},
+		Citations:      19,
 	},
 	{
 		Handle:         "superblock-compact-storage-for-nipopows",
@@ -1011,6 +1101,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2019/1444.pdf",
 		Tags:           []Tag{PROOF_OF_WORK, INTEROPERABILITY},
+		Citations:      19,
 	},
 	{
 		Handle:         "gas-efficient-superlight-client",
@@ -1020,6 +1111,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Stelios Daveas", "Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2020/927.pdf",
 		Tags:           []Tag{PROOF_OF_WORK, BITCOIN, SMART_CONTRACTS},
+		Citations:      17,
 	},
 	{
 		Handle:         "logspace-mining",
@@ -1029,6 +1121,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Aggelos Kiayias", "Nikos Leonardos", "Dionysis Zindros"},
 		Url:            "https://dl.acm.org/doi/pdf/10.1145/3460120.3484784",
 		Tags:           []Tag{PROOF_OF_WORK, LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      16,
 	},
 	{
 		Handle:         "ddh-ring-signatures",
@@ -1038,6 +1131,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Essam Ghadafi", "Jens Groth", "Christophe Petit"},
 		Url:            "https://eprint.iacr.org/2015/643.pdf",
 		Tags:           []Tag{ZERO_KNOWLEDGE, SIGNATURES},
+		Citations:      143,
 	},
 	{
 		Handle:         "beleniosrf",
@@ -1047,6 +1141,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Pyrros Chaidos", "Véronique Cortier", "Georg Fuchsbauer", "David Galindo"},
 		Url:            "https://eprint.iacr.org/2015/629.pdf",
 		Tags:           []Tag{VOTING},
+		Citations:      104,
 	},
 	{
 		Handle:         "arithmetization-oriented-hash-functions",
@@ -1056,6 +1151,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Clémence Bouvier1", "Pierre Briaud", "Pyrros Chaidos", "Léo Perrin", "Robin Salen", "Vesselin Velichkov", "Danny Willems"},
 		Url:            "https://eprint.iacr.org/2022/840.pdf",
 		Tags:           []Tag{ZERO_KNOWLEDGE},
+		Citations:      29,
 	},
 	{
 		Handle:         "designated-verifier-nizkp",
@@ -1065,6 +1161,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Pyrros Chaidos", "Geoffroy Couteau"},
 		Url:            "https://eprint.iacr.org/2017/1029.pdf",
 		Tags:           []Tag{ZERO_KNOWLEDGE},
+		Citations:      36,
 	},
 	{
 		Handle:         "non-interactive-sigmas-without-ro",
@@ -1074,6 +1171,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Pyrros Chaidos", "Jens Groth"},
 		Url:            "https://www.iacr.org/archive/pkc2015/90200192/90200192.pdf",
 		Tags:           []Tag{ZERO_KNOWLEDGE, VOTING},
+		Citations:      33,
 	},
 	{
 		Handle:         "efficient-zkp-systems",
@@ -1083,6 +1181,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Jens Groth"},
 		Url:            "https://jbootle.github.io/Misc/fosad2015.pdf",
 		Tags:           []Tag{ZERO_KNOWLEDGE, COMMITMENTS},
+		Citations:      29,
 	},
 	{
 		Handle:         "mithril",
@@ -1092,6 +1191,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Pyrros Chaidos", "Aggelos Kiayias"},
 		Url:            "https://eprint.iacr.org/2021/916.pdf",
 		Tags:           []Tag{ZERO_KNOWLEDGE, SIGNATURES, UC},
+		Citations:      15,
 	},
 	{
 		Handle:         "fully-dynamic-group-signatures",
@@ -1101,6 +1201,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Jonathan Bootle", "Andrea Cerulli", "Pyrros Chaidos", "Essam Ghadafi", "Jens Groth"},
 		Url:            "https://eprint.iacr.org/2016/368.pdf",
 		Tags:           []Tag{SIGNATURES},
+		Citations:      129,
 	},
 	{
 		Handle:         "divertibility-to-bling-ballot-copying-in-helios",
@@ -1110,6 +1211,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Yvo Desmedt", "Pyrros Chaidos"},
 		Url:            "http://www0.cs.ucl.ac.uk/staff/P.Chaidos/helios-esorics-cr.pdf",
 		Tags:           []Tag{VOTING, PRIVACY},
+		Citations:      18,
 	},
 	{
 		Handle:         "pow-checkpointing",
@@ -1119,6 +1221,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Dimitris Karakostas", "Aggelos Kiayias"},
 		Url:            "https://eprint.iacr.org/2020/173.pdf",
 		Tags:           []Tag{PROOF_OF_WORK},
+		Citations:      35,
 	},
 	{
 		Handle:         "sok-decentralization",
@@ -1128,6 +1231,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Dimitris Karakostas", "Aggelos Kiayias", "Christina Ovezik"},
 		Url:            "https://arxiv.org/pdf/2211.01291.pdf",
 		Tags:           []Tag{DECENTRALIZATION},
+		Citations:      15,
 	},
 	{
 		Handle:         "pos-account-management",
@@ -1137,6 +1241,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Dimitris Karakostas", "Aggelos Kiayias", "Mario Larangeira"},
 		Url:            "https://eprint.iacr.org/2020/525.pdf",
 		Tags:           []Tag{PROOF_OF_STAKE},
+		Citations:      11,
 	},
 	{
 		Handle:         "puff-of-steem",
@@ -1146,6 +1251,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Aggelos Kiayias", "Benjamin Livshits", "Andrés Monteoliva Mosteiro", "Orfeas Stefanos Thyfronitis Litos"},
 		Url:            "https://www.pure.ed.ac.uk/ws/portalfiles/portal/129969711/A_Puff_of_Steem_KIAYIAS_DOA13012020_VOR_CC_BY.pdf",
 		Tags:           []Tag{DECENTRALIZATION},
+		Citations:      22,
 	},
 	{
 		Handle:         "trust-strangers",
@@ -1155,6 +1261,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Luca Zanolini"},
 		Url:            "https://arxiv.org/pdf/2107.11331",
 		Tags:           []Tag{CONSENSUS},
+		Citations:      16,
 	},
 	{
 		Handle:         "eating-sandwiches",
@@ -1164,6 +1271,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orestis Alpos", "Ignacio Amores-Sesar", "Christian Cachin", "Michelle Yeo"},
 		Url:            "https://arxiv.org/pdf/2307.02954",
 		Tags:           []Tag{MEV, FRONT_RUNNING},
+		Citations:      7,
 	},
 	{
 		Handle:         "sync-power",
@@ -1173,6 +1281,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Giorgia Azzurra Marson", "Luca Zanolini"},
 		Url:            "https://arxiv.org/pdf/2101.05543",
 		Tags:           []Tag{SMART_CONTRACTS},
+		Citations:      8,
 	},
 	{
 		Handle:         "consensus-beyond-thresholds",
@@ -1182,6 +1291,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orestis Alpos", "Christian Cachin"},
 		Url:            "https://arxiv.org/pdf/2006.04616",
 		Tags:           []Tag{CONSENSUS},
+		Citations:      7,
 	},
 	{
 		Handle:         "pos-atob",
@@ -1191,6 +1301,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Simon Holmgaard Kamp", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2023/1103.pdf",
 		Tags:           []Tag{CONSENSUS, PROOF_OF_STAKE},
+		Citations:      5,
 	},
 	{
 		Handle:         "dske",
@@ -1200,6 +1311,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orestis Alpos", "Christian Cachin", "Simon Holmgaard Kamp", "Jesper Buus Nielsen"},
 		Url:            "https://eprint.iacr.org/2022/1753.pdf",
 		Tags:           []Tag{SIGNATURES},
+		Citations:      3,
 	},
 	{
 		Handle:         "thetacrypt",
@@ -1209,6 +1321,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orestis Alpos", "Mariarosaria Barbaraci", "Christian Cachin", "Noah Schmid", "Michael Senn"},
 		Url:            "https://dl.acm.org/doi/pdf/10.1145/3626564.3629100",
 		Tags:           []Tag{},
+		Citations:      1,
 	},
 	{
 		Handle:         "do-not-trust-in-numbers",
@@ -1218,6 +1331,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Orestis Alpos", "Christian Cachin"},
 		Url:            "https://eprint.iacr.org/2022/1767.pdf",
 		Tags:           []Tag{},
+		Citations:      1,
 	},
 	{
 		Handle:         "lazy-light-clients",
@@ -1227,6 +1341,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Ertem Nusret Tas", "Dionysis Zindros", "Lei Yang", "David Tse"},
 		Url:            "https://arxiv.org/pdf/2203.15968v2",
 		Tags:           []Tag{LIGHT_CLIENTS},
+		Citations:      8,
 	},
 	{
 		Handle:         "hours-of-horus",
@@ -1236,6 +1351,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2021/715.pdf",
 		Tags:           []Tag{WALLETS, TIMELOCK, WITNESS_ENCRYPTION},
+		Citations:      3,
 	},
 	{
 		Handle:         "better-safe-than-sorry",
@@ -1245,6 +1361,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Srivatsan Sridhar", "Dionysis Zindros", "David Tse"},
 		Url:            "https://arxiv.org/pdf/2310.06338",
 		Tags:           []Tag{CONSENSUS},
+		Citations:      1,
 	},
 	{
 		Handle:         "blink",
@@ -1254,6 +1371,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Lukas Aumayr", "Zeta Avarikioti", "Matteo Maffei", "Giulia Scaffino", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2024/692.pdf",
 		Tags:           []Tag{PROOF_OF_WORK, LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      0,
 	},
 	{
 		Handle:         "rollerblade",
@@ -1263,6 +1381,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Dionysis Zindros", "Apostolos Tzinas", "David Tse"},
 		Url:            "https://eprint.iacr.org/2024/210.pdf",
 		Tags:           []Tag{},
+		Citations:      0,
 	},
 	{
 		Handle:         "cassiopeia",
@@ -1272,6 +1391,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Schwinn Saereesitthipitak", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2023/635.pdf",
 		Tags:           []Tag{WITNESS_ENCRYPTION, PVSS, SMART_CONTRACTS},
+		Citations:      0,
 	},
 	{
 		Handle:         "better-pow-fork-rule",
@@ -1281,6 +1401,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Karl Kreder", "Shreekara Shastry", "Apostolos Tzinas", "Sriram Vishwanath", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2024/200.pdf",
 		Tags:           []Tag{PROOF_OF_WORK, CONSENSUS},
+		Citations:      0,
 	},
 	{
 		Handle:         "smart-contract-derivatives",
@@ -1290,6 +1411,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2020/138.pdf",
 		Tags:           []Tag{SMART_CONTRACTS},
+		Citations:      10,
 	},
 	{
 		Handle:         "velvet-path-to-superlight",
@@ -1299,6 +1421,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Aggelos Kiayias", "Andrianna Polydouri", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2020/1122.pdf",
 		Tags:           []Tag{LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      11,
 	},
 	{
 		Handle:         "soft-power",
@@ -1308,6 +1431,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2021/577.pdf",
 		Tags:           []Tag{SMART_CONTRACTS},
+		Citations:      5,
 	},
 	{
 		Handle:         "channels-route-discovery",
@@ -1317,6 +1441,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Mahsa Bastankhah", "Mohammad Ali Maddah-Ali", "Krzysztof Pietrzak", "Jakub Svoboda", "Michelle Yeo"},
 		Url:            "https://eprint.iacr.org/2021/1539.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS},
+		Citations:      2,
 	},
 	{
 		Handle:         "r-nets-clustering",
@@ -1326,6 +1451,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Alain Ryser", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://ojs.aaai.org/index.php/AAAI/article/view/4189/4067",
 		Tags:           []Tag{},
+		Citations:      1,
 	},
 	{
 		Handle:         "online-payment-network-design",
@@ -1335,6 +1461,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Kenan Besic", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1908.00432",
 		Tags:           []Tag{PAYMENT_CHANNELS},
+		Citations:      1,
 	},
 	{
 		Handle:         "bribe-and-fork",
@@ -1344,6 +1471,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Paweł Kędzior", "Tomasz Lizurej", "Tomasz Michalak"},
 		Url:            "https://arxiv.org/pdf/2402.01363v1",
 		Tags:           []Tag{PAYMENT_CHANNELS},
+		Citations:      0,
 	},
 	{
 		Handle:         "musketeer",
@@ -1353,6 +1481,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Zeta Avarikioti", "Stefan Schmid", "Samarth Tiwari"},
 		Url:            "https://eprint.iacr.org/2023/938.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS},
+		Citations:      0,
 	},
 	{
 		Handle:         "glimpse",
@@ -1362,5 +1491,6 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Giulia Scaffino", "Lukas Aumayr", "Zeta Avarikioti", "Matteo Maffei"},
 		Url:            "https://www.usenix.org/system/files/usenixsecurity23-scaffino.pdf",
 		Tags:           []Tag{PROOF_OF_WORK, LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      4,
 	},
 }

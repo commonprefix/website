@@ -148,6 +148,7 @@ type ResearchPaper struct {
 	Authors        []string
 	Url            string
 	Tags           []Tag
+	Citations      int
 }
 
 type Research struct {
