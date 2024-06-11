@@ -57,6 +57,25 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "zeta_avarikioti.jpg",
 	},
+	"alexis": {
+		Handle:         "alexis",
+		Name:           "Alexis Brezas",
+		Specialization: "smart contract development, algorithms, machine learning, IoT, DevOps, software engineering",
+		Desc: template.HTML(`
+			Alex is a proficient software engineer with over 15 years of experience in the tech industry.
+			In his web2 life, he has served as CTO at
+			<a href="https://www.mayainsights.com/">Maya Insights</a>,
+			a data warehousing solution, and
+			<a href="https://geekbot.com/">Geekbot</a>,
+			a popular Slack chatbot, as well as various engineering roles in diverse projects such as
+			<a href="https://www.e-food.gr/">a popular Greek food delivery service</a>,
+			<a href="https://en.wikipedia.org/wiki/Zino">a social network</a>,
+			a 3D game, ecommerce solutions, and
+            <a href="https://balena.io">IoT</a>.
+			At Common Prefix, he focuses on blockchain engineering and smart contract development.
+		`),
+		Image: "alexis_brezas.jpg",
+	},
 	"pyrros": {
 		Handle:         "pyrros",
 		Name:           "Dr. Pyrros Chaidos",
