@@ -119,7 +119,7 @@ const (
 	ALGORITHMICA ConferenceAbbreviation = "ALGORITHMICA"
 	DPMCBT       ConferenceAbbreviation = "DPMCBT"
 	ICDCS        ConferenceAbbreviation = "ICDCS"
-	SP           ConferenceAbbreviation = "SP"
+	SP           ConferenceAbbreviation = "S&P"
 	TOKENOMICS   ConferenceAbbreviation = "TOKENOMICS"
 	MARBLE       ConferenceAbbreviation = "MARBLE"
 	SIGSAC       ConferenceAbbreviation = "SIGSAC"
