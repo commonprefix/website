@@ -913,3 +913,29 @@ a.finding {
   opacity: 0.8;
   font-style: italic;
 }
+
+/* Bridges page */
+
+@media (min-width: 1000px) {
+  .bridges-quotes {
+    position: relative;
+  }
+
+  .bridges-quotes:before {
+    content: "“";
+    position: absolute;
+    left: -28px;
+    top: -32px;
+    font-size: 68px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .bridges-quotes:after {
+    content: "”";
+    position: absolute;
+    right: -28px;
+    bottom: -52px;
+    font-size: 68px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
