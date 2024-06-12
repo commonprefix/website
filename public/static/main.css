@@ -916,26 +916,53 @@ a.finding {
 
 /* Bridges page */
 
-@media (min-width: 1000px) {
+.bridges-quotes {
+  position: relative;
+  margin: 0 10px;
+}
+
+.bridges-quotes p:first-child::first-letter {
+  -webkit-initial-letter: 2;
+  initial-letter: 2;
+  margin-right: 0.75em;
+}
+
+.bridges-quotes:before,
+.bridges-quotes:after {
+  font-family: "Times New Roman";
+  font-size: 40px;
+  position: absolute;
+}
+
+.bridges-quotes:before {
+  content: "“";
+  left: -15px;
+  top: -20px;
+}
+
+.bridges-quotes:after {
+  content: "”";
+  right: -15px;
+  bottom: -40px;
+}
+
+@media (min-width: 1100px) {
   .bridges-quotes {
-    position: relative;
+    margin: 0 10px;
+  }
+
+  .bridges-quotes:before,
+  .bridges-quotes:after {
+    font-size: 68px;
   }
 
   .bridges-quotes:before {
-    content: "“";
-    position: absolute;
-    left: -28px;
-    top: -32px;
-    font-size: 68px;
-    color: rgba(0, 0, 0, 0.7);
+    left: -30px;
+    top: -40px;
   }
 
   .bridges-quotes:after {
-    content: "”";
-    position: absolute;
     right: -28px;
-    bottom: -52px;
-    font-size: 68px;
-    color: rgba(0, 0, 0, 0.7);
+    bottom: -60px;
   }
 }
