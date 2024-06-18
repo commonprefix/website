@@ -67,8 +67,9 @@
 					{{ $length := len .Authors }}
 					{{range $index, $element := .Authors}}
 						{{ $handle := teamHandle . }}
-						<span title="Filter by this author.">{{.}}</span>{{ if $handle }}<a href="/team#{{$handle}}">
-							<sup title="View {{.}}'s profile.">❖</sup></a>{{end}}{{if ne $index (sub $length 1)}}, {{end}}
+						{{ if $handle }}<div style="display:inline-block"><span title="Filter by this author.">{{.}}</span><a href="/team#{{$handle}}"> <sup title="View {{.}}'s profile.">❖</sup></a></div>
+						{{else}}<span title="Filter by this author.">{{.}}</span>
+						{{end}}{{if ne $index (sub $length 1)}}, {{end}}
 					{{end}}
 				</h2>
 				<h3 class="conference" data-conf="{{.Conference}}" data-conf-year={{.ConferenceYear}} title="Filter by this conference.">{{.Conference}}<span> {{if .ConferenceYear}}{{.ConferenceYear}}{{end}}</h3>
@@ -291,7 +292,14 @@ papers.forEach(p => {
 
 	// Attach conference filters
 	p.querySelector('.conference').addEventListener('click', e => {
-		setFilter('conference', e.target.dataset.conf)
+		let target = e.target
+		// conference years are wrapped in span
+		// so if the click happened on the year
+		// get the parent's dataset
+		if(target.nodeName === 'SPAN') {
+			target = target.parentElement
+		}
+		setFilter('conference', target.dataset.conf)
 	})
 })
 
