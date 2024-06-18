@@ -67,9 +67,7 @@
 					{{ $length := len .Authors }}
 					{{range $index, $element := .Authors}}
 						{{ $handle := teamHandle . }}
-						{{ if $handle }}<div style="display:inline-block"><span title="Filter by this author.">{{.}}</span><a href="/team#{{$handle}}"> <sup title="View {{.}}'s profile.">❖</sup></a></div>
-						{{else}}<span title="Filter by this author.">{{.}}</span>
-						{{end}}{{if ne $index (sub $length 1)}}, {{end}}
+						{{ if $handle }}<div style="display:inline-block"><span title="Filter by this author.">{{.}}</span><a href="/team#{{$handle}}"><sup title="View {{.}}'s profile.">❖</sup></a></div>{{else}}<span title="Filter by this author.">{{.}}</span>{{end}}{{if ne $index (sub $length 1)}}, {{end}}
 					{{end}}
 				</h2>
 				<h3 class="conference" data-conf="{{.Conference}}" data-conf-year={{.ConferenceYear}} title="Filter by this conference.">{{.Conference}}<span> {{if .ConferenceYear}}{{.ConferenceYear}}{{end}}</h3>
