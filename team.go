@@ -200,6 +200,26 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "dimitris_lamprinos.jpg",
 	},
+	"jakov": {
+		Handle:         "jakov",
+		Name:           "Jakov Mitrovski",
+		Specialization: "smart contract development, auditing, software engineering, algorithms, complexity",
+		Desc: template.HTML(`
+			Jakov is a software engineer based in Munich,
+			currently pursuing his Master's degree in Informatics at the Technical University of Munich.
+			He has earned his Bachelor's degree in Computer Science
+			from the University Cyril and Methodius in Skopje.
+			Jakov specializes in blockchain engineering, algorithms and complexity, and auditing.
+			He has worked as a cloud engineer at
+			<a href="https://www.etas.com/">ETAS (Bosch) GmbH</a>
+			and has experience working as a backend and blockchain engineer through various internships at
+			<a href="https://www.netcetera.com/">Netcetera</a>,
+			<a href="https://www.sorsix.com/">Sorsix</a>, and
+			<a href="https://www.loka.com/">LOKA</a>,
+			as well as through freelance projects.
+		`),
+		Image: "jakov_mitrovski.jpg",
+	},
 	"themis": {
 		Handle:         "themis",
 		Name:           "Themis Papameletiou",
