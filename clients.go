@@ -290,11 +290,11 @@ var Clients []Client = []Client{
 		</svg>`),
 		Body: template.HTML(`Quai has engaged Common Prefix to analyze the security of their novel proof-of-work consensus algorithm,
 			<a href="https://arxiv.org/pdf/2303.04305.pdf">Proof of Entropy Minima (PoEM)</a>,
-			which replaces the commonly used "longest chain" or "heaviest chain" rule based on nominal block target with a different rule based on "minimum entropy" or "intrinsic work". Common Prefix is working to prove that the PoEM is secure utilizing techniques from the
+			which replaces the commonly used "longest chain" or "heaviest chain" rule based on nominal block target with a different rule based on "minimum entropy" or "intrinsic work". Common Prefix is working to prove that the PoEM is secure, utilizing techniques from the
 			<a href="https://eprint.iacr.org/2014/765.pdf">Bitcoin Backbone model</a>
 			and the
-			<a href="https://arxiv.org/pdf/2005.10484.pdf">Everything is a Race model</a>.
-			Together, the scientists of Quai and Common Prefix are working on an academic paper showing PoEM is secure and analyzing its benefits, in latency and throughput, compared to traditional longest-chain proof-of-work protocols such as Bitcoin, both analytically and experimentally. We are also engaging with Quai to understand the composability properties of their multichain system, and the incentive-compatibility aspects of their planned reward mechanism.`),
+			<a href="https://arxiv.org/pdf/2005.10484.pdf">Everything is a Race model</a>, and analyze its benefits.
+			We are also engaging with Quai to understand the composability properties of their multichain system, and the incentive-compatibility aspects of their planned reward mechanism.`),
 		Team: []TeamMember{
 			Members["zeta"],
 			Members["dimitris"],
@@ -302,6 +302,19 @@ var Clients []Client = []Client{
 			Members["dionysis"],
 		},
 		Findings: []Finding{},
+		Projects: []Project{
+			{
+				Title: "PoEM Analysis Paper",
+				Desc:  template.HTML(`The scientists of Quai and Common Prefix are collaborating on an academic paper showing PoEM is secure and analyzing its benefits, in latency and throughput, compared to traditional longest-chain proof-of-work protocols such as Bitcoin, both analytically and experimentally.`),
+				Links: []ProjectLink{
+					{
+						Url:  "https://eprint.iacr.org/2024/200.pdf",
+						Name: "A Better Proof-of-Work Fork Choice Rule",
+						Date: "2024-02-09",
+					},
+				},
+			},
+		},
 	},
 	{
 		Handle: "snowfork",
