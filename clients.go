@@ -59,7 +59,19 @@ var Clients []Client = []Client{
 			Members["dionysis"],
 		},
 		Findings: []Finding{},
-		Projects: []Project{},
+		Projects: []Project{
+			{
+				Title: "Achieving efficiency and short-term censorship resistance on Suave",
+				Desc:  template.HTML(`In this report, we evaluated existing leader-based protocols and proposed censorship-resistance solutions that can be implemented on top of them. We also explored existing parallel-leader and DAG-based protocols that achieve censorship resistance by construction. Finally, we reviewed consensusless protocols and argued that they offer the best efficiency and censorship-resistance combination.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/flashbots/flashbots_report.pdf",
+						Name: "System requirements, existing and new solutions, and their efficiency",
+						Date: "2024-06-20",
+					},
+				},
+			},
+		},
 	},
 	{
 		Handle: "axelar",
