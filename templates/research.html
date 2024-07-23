@@ -118,7 +118,11 @@ function render() {
 			hidden = hidden || !hasConferece
 		}
 		if(filters.author.length > 0) {
-			const hasAuthors = filters.author.every(author => Array.from(p.querySelectorAll('.authors > span')).find(a => a.innerText === author))
+			const hasAuthors = filters.author.every(author =>
+				// Authors can be in a span or a div > span
+					Array.from(p.querySelectorAll('.authors > span')).find(a => a.innerText === author)
+			|| Array.from(p.querySelectorAll('.authors > div > span')).find(a => a.innerText === author)
+			)
 			hidden = hidden || !hasAuthors
 		}
 		if(filters.year.length > 0) {
