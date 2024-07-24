@@ -286,7 +286,7 @@ document.addEventListener('click', function(event) {
 // Papers
 papers.forEach(p => {
 	// Attach author filters
-	p.querySelectorAll('.authors > span').forEach(a => {
+	p.querySelectorAll('.authors span').forEach(a => {
 		a.addEventListener('click', (e) => {
 			setFilter('author', e.target.innerText)
 		})
