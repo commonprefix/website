@@ -336,6 +336,7 @@ var Clients []Client = []Client{
 		</svg>`),
 		Body: template.HTML(`Pi Squared (Proof of Proof) enables trustless remote computing, AI, and interoperable smart contracts for any blockchain or dApp.`),
 		Team: []TeamMember{
+			Members["shresth"],
 			Members["pkakelas"],
 		},
 		Projects: []Project{},
