@@ -29,7 +29,6 @@ const (
 	blogTmplName     = "blog.html"
 	postTmplName     = "post.html"
 	clientTmplName   = "client.html"
-	grantorTmplName   = "grantor.html"
 	researchTmplName = "research.html"
 	bridgesTmplName  = "bridges.html"
 )
@@ -40,7 +39,6 @@ var layoutPath = filepath.Join(tmplDir, layoutTmplName)
 var homeTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, indexTmplName)))
 var teamTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, teamTmplName)))
 var clientTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, clientTmplName)))
-var grantorTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, grantorTmplName)))
 var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 	"sub": func(a, b int) int {
 		return a - b
@@ -142,17 +140,6 @@ type Client struct {
 	HideOnIndex bool
 }
 
-type Grantor struct {
-	Handle      string
-	Name        string
-	Body        template.HTML
-	Image       template.HTML
-	Projects    []Project
-	Findings    []Finding
-	Team        []TeamMember
-	HideOnIndex bool
-}
-
 type ResearchPaper struct {
 	Handle         string
 	Name           string
@@ -179,7 +166,6 @@ type Page struct {
 	Description    string
 	Members        []TeamMember
 	Clients        []Client
-	Grants         []Grantor
 	Research       Research
 	Posts          []*Post
 }
@@ -197,14 +183,6 @@ type ClientPage struct {
 	Description    string
 	Client         Client
 	NextClient     Client
-}
-
-type GrantorPage struct {
-	SmallContainer bool
-	Title          string
-	Description    string
-	Grantor        Grantor
-	NextGrantor    Grantor
 }
 
 type ResearchPage struct {
@@ -232,7 +210,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", indexTmplName)
 	}
-    homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients, Grants: Grants})
+	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients})
 	f.Close()
 	fmt.Printf("🏠  %s sucessfully generated.\n", indexTmplName)
 
@@ -247,24 +225,24 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", teamTmplName)
 	}
-    teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Clients: Clients, Grants: Grants})
+	teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Clients: Clients})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", teamTmplName)
 
 	//
 	// Build clients directory
 	//
-	psfClients := filepath.Join(buildDir, "clients")
-	_ = os.Mkdir(psfClients, os.ModePerm)
+	psf := filepath.Join(buildDir, "clients")
+	_ = os.Mkdir(psf, os.ModePerm)
 
 	// Build clients pages
 	for idx, p := range Clients {
 		nextP := Clients[(idx+1)%len(Clients)]
-		pfClients := filepath.Join(buildDir, "clients", p.Handle+".html")
+		pf := filepath.Join(buildDir, "clients", p.Handle+".html")
 		// Remove the old version
-		os.Remove(pfClients)
+		os.Remove(pf)
 		// Create new file
-		f, err = os.Create(pfClients)
+		f, err = os.Create(pf)
 		if err != nil {
 			log.Fatal("can't create clients/" + p.Handle + ".html")
 		}
@@ -273,30 +251,6 @@ func build() {
 		f.Close()
 		fmt.Printf("📖  clients/%s.html sucessfully generated.\n", p.Handle)
 	}
-
-	//
-	// Build grants directory
-	//
-	psfGrants := filepath.Join(buildDir, "grants")
-	_ = os.Mkdir(psfGrants, os.ModePerm)
-
-	// Build grants pages
-	for idx, p := range Grants {
-		nextP := Grants[(idx+1)%len(Grants)]
-		pfGrants := filepath.Join(buildDir, "grants", p.Handle+".html")
-		// Remove the old version
-		os.Remove(pfGrants)
-		// Create new file
-		f, err = os.Create(pfGrants)
-		if err != nil {
-			log.Fatal("can't create grants/" + p.Handle + ".html")
-		}
-
-		grantorTmpl.ExecuteTemplate(f, "base", GrantorPage{SmallContainer: true, Title: p.Name, Description: htmlToFormattedString(p.Body), Grantor: p, NextGrantor: nextP})
-		f.Close()
-        fmt.Printf("🎁  grants/%s.html sucessfully generated.\n", p.Handle)
-	}
-
 
 	//
 	// Build research page
@@ -416,7 +370,7 @@ func main() {
 		fs := http.FileServer(http.Dir(buildDir))
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 			// Clean urls
-			if strings.HasPrefix(r.URL.Path, "/clients") || strings.HasPrefix(r.URL.Path, "/grants") || strings.HasPrefix(r.URL.Path, "/team") {
+			if strings.HasPrefix(r.URL.Path, "/clients") || strings.HasPrefix(r.URL.Path, "/team") {
 				if !strings.HasSuffix(r.URL.Path, ".html") {
 					r.URL.Path = r.URL.Path + ".html"
 				}
