@@ -87,5 +87,22 @@
 			{{end}}
 		</div>
 	</section>
+
+	<section>
+		<h3 id="grants">Grants</h3>
+
+        <p>
+            Common Prefix has received grants from the organizations listed below.
+        </p>
+
+		<div class="grants">
+			{{range .Grants}}
+			{{if .HideOnIndex }}{{else}}<a href="/grants/{{.Handle}}" class="grants__card">
+				<h2 class="visuallyhidden">{{.Name}}</h2>
+				{{.Image}}
+			</a>{{end}}
+			{{end}}
+		</div>
+	</section>
 </main>
 {{end}}
