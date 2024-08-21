@@ -16,7 +16,8 @@ var Grants []Grantor = []Grantor{
             <path d="M11.656 13.781v14.223L.5 20.487l11.156-6.705Z" fill="#58B36F" />
 		</svg>`),
 		Body: template.HTML(`
-            Common Prefix has been selected to receive an academic grant from the Ethereum Foundation
+            Common Prefix has been selected to receive a grant from the Ethereum Foundation
+            under the Academic Grants Round 2024
             to analyze the principal–agent problem within liquid staking protocols on Ethereum.
             This work further extends Common Prefix's previous research on
             <a href="https://eprint.iacr.org/2023/605.pdf">The Principal–Agent Problem in Liquid Staking</a>
