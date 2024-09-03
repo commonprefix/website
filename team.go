@@ -38,6 +38,21 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "orestis_alpos.jpg",
 	},
+    "lukas": {
+		Handle:         "lukas",
+		Name:           "Dr. Lukas Aumayr",
+		Specialization: "distributed systems, scaling blockchains, blockchain interoperability, applied cryptography, protocol analysis",
+		Desc: template.HTML(`
+            Lukas is a blockchain researcher specializing in distributed systems, applied cryptography,
+            and protocol analysis, with a focus on blockchain scalability and interoperability.
+            Among others, his work includes advancements in Payment/Virtual Channel Network protocols,
+            bridges, light clients, crypto-economic incentives, and BitVM.
+            Lukas earned his PhD from the Technical University of Vienna (TU Wien),
+            under the supervision of Matteo Maffei and Pedro Moreno-Sanchez.
+            He has published in venues such as ACM CCS, USENIX Security, IEEE S&P (Oakland), and NDSS.
+		`),
+		Image: "lukas_aumayr.jpg",
+    },
 	"zeta": {
 		Handle:         "zeta",
 		Name:           "Dr. Zeta Avarikioti",
