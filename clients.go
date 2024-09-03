@@ -210,6 +210,11 @@ var Clients []Client = []Client{
 				Desc:  template.HTML(`Mysten Labs has commissioned Common Prefix to audit components of the fastcrypto library.`),
 				Links: []ProjectLink{
 					{
+						Url:  "/static/clients/mysten/mysten_fastcrypto_dkg_tbls_audit.pdf",
+						Name: "Fastcrypto Pedersen DKG and tBLS Audit",
+						Date: "2023-12-10",
+					},
+					{
 						Url:  "/static/clients/mysten/mysten_fastcrypto_bls12381_group_audit.pdf",
 						Name: "Fastcrypto BLS12381 Group Audit",
 						Date: "2023-11-15",
