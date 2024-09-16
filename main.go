@@ -34,7 +34,7 @@ const (
 	bridgesTmplName  = "bridges.html"
 )
 
-const description string = "Common Prefix is a small team of scientists and software engineers offering blockchain science consulting services."
+const description string = "Common Prefix is a team of scientists and engineers researching and implementing blockchain protocols."
 
 var layoutPath = filepath.Join(tmplDir, layoutTmplName)
 var homeTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, indexTmplName)))
