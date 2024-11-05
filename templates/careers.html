@@ -1,0 +1,54 @@
+{{define "head"}}{{end}}
+{{define "content"}}
+<main>
+	<section>
+		<h1>Careers</h1>
+		<div class="careers-quotes">
+			<p><em>We're on a mission to solve the foundational scientific and engineering problems that stand in the way of mainstream blockchain adoption. We're starting by focusing on the areas of interoperability, scalability, and usability. But we can't conquer this frontier alone, we're therefore on the hunt for brilliant minds to join us</em></p>
+		</div>
+		<p><em>At our core, we are a team of problem solvers and innovators. We embrace cutting-edge challenges across the web3 space and are deeply committed to the personal and professional growth of everyone in our team.</em></p>
+		<br />
+		<p>If you don’t see a suitable job opening but are still interested in joining our team, we’d love to hear from you. Feel free to reach out to us at <a href="mailto:careers@commonprefix.com">careers@commonprefix.com</a> or <a href="https://x.com/commonprefix">X</a>.</p>
+	</section>
+
+	<section class="openings-list">
+		{{ range .Openings }}
+		<div class="opening-card">
+			<div class="opening-content">
+				<h3>{{ .Name }}</h3>
+				<div class="opening-details">
+					<span class="location">📍 {{ .Location }}</span>
+					<span class="type">{{ .Type }}</span>
+				</div>
+				<p class="opening-description">{{ .Description }}</p>
+				<a href="{{ .Url }}" target="_blank" rel="noopener noreferrer" class="apply-button">
+					View Position <span class="arrow">→</span>
+				</a>
+			</div>
+		</div>
+		{{ end }}
+	</section>
+
+	<section class="perks-section">
+		<h2>Why Join Us?</h2>
+		<div class="perks-grid">
+			<div class="perk">
+				<h4>💪 Impact</h4>
+				<p>We have a diverse clientele, with many innovative projects. You'll have the opportunity to work on a wide variety of problems.</p>
+			</div>
+			<div class="perk">
+				<h4>🤝 Great Team</h4>
+				<p>We're a tight-knit team of researchers and engineers who are passionate about building the future of blockchain infrastructure.</p>
+			</div>
+			<div class="perk">
+				<h4>🌍 Remote-First</h4>
+				<p>We're a remote-first company, so you can work from anywhere in the world.</p>
+			</div>
+			<div class="perk">
+				<h4>📚 Travel</h4>
+				<p>We are travel-friendly, from conferences to on-site visits. Get your passport ready!</p>
+			</div>
+		</div>
+	</section>
+</main>
+{{end}}
