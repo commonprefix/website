@@ -29,9 +29,10 @@ const (
 	blogTmplName     = "blog.html"
 	postTmplName     = "post.html"
 	clientTmplName   = "client.html"
-	grantorTmplName   = "grantor.html"
+	grantorTmplName  = "grantor.html"
 	researchTmplName = "research.html"
 	bridgesTmplName  = "bridges.html"
+	careersTmplName  = "careers.html"
 )
 
 const description string = "Common Prefix is a team of scientists and engineers researching and implementing blockchain protocols."
@@ -62,6 +63,7 @@ var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 var bridgesTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, bridgesTmplName)))
 var postTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, postTmplName)))
 var blogTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, blogTmplName)))
+var careersTmpl = template.Must(template.New("").ParseFiles(layoutPath, filepath.Join(tmplDir, careersTmplName)))
 
 // Data structures
 
@@ -173,6 +175,14 @@ type Research struct {
 	AllYears       []int
 }
 
+type JobOpening struct {
+	Name        string
+	Url         string
+	Location    string
+	Type        string
+	Description string
+}
+
 type Page struct {
 	SmallContainer bool
 	Title          string
@@ -207,6 +217,13 @@ type GrantorPage struct {
 	NextGrantor    Grantor
 }
 
+type CareersPage struct {
+	SmallContainer bool
+	Title          string
+	Description    string
+	Openings       []JobOpening
+}
+
 type ResearchPage struct {
 	Title      string
 	TagToColor map[Tag]string
@@ -232,7 +249,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", indexTmplName)
 	}
-    homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients, Grants: Grants})
+	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients, Grants: Grants})
 	f.Close()
 	fmt.Printf("🏠  %s sucessfully generated.\n", indexTmplName)
 
@@ -247,7 +264,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", teamTmplName)
 	}
-    teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Clients: Clients, Grants: Grants})
+	teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Clients: Clients, Grants: Grants})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", teamTmplName)
 
@@ -294,9 +311,8 @@ func build() {
 
 		grantorTmpl.ExecuteTemplate(f, "base", GrantorPage{SmallContainer: true, Title: p.Name, Description: htmlToFormattedString(p.Body), Grantor: p, NextGrantor: nextP})
 		f.Close()
-        fmt.Printf("🎁  grants/%s.html sucessfully generated.\n", p.Handle)
+		fmt.Printf("🎁  grants/%s.html sucessfully generated.\n", p.Handle)
 	}
-
 
 	//
 	// Build research page
@@ -397,6 +413,22 @@ func build() {
 
 	f.Close()
 	fmt.Printf("🌉  %s sucessfully generated.\n", bridgesTmplName)
+
+	//
+	// Build careers page
+	//
+	careersPage := filepath.Join(buildDir, careersTmplName)
+	// Remove the old version
+	os.Remove(careersPage)
+	// Create new file
+	f, err = os.Create(careersPage)
+	if err != nil {
+		log.Fatalf("can't create %s", careersTmplName)
+	}
+	careersTmpl.ExecuteTemplate(f, "base", CareersPage{SmallContainer: true, Openings: Openings})
+	f.Close()
+	fmt.Printf("👔  %s successfully generated.\n", careersTmplName)
+
 }
 
 func main() {

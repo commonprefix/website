@@ -203,7 +203,7 @@ footer .socials {
 }
 
 .small-container {
-  max-width: 576px;
+  max-width: 600px;
 }
 
 section {
@@ -974,4 +974,106 @@ a.finding {
     right: -28px;
     bottom: -60px;
   }
+}
+
+/* Careers Page Styles */
+.openings-list {
+    margin: 2rem 0;
+}
+
+.opening-card {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.opening-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.opening-content h3 {
+    margin: 0 0 1rem 0;
+    color: #333;
+}
+
+.opening-details {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.opening-details span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.opening-description {
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.apply-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.apply-button:hover {
+    background-color: #333;
+}
+
+.apply-button .arrow {
+    margin-left: 0.5rem;
+}
+
+/* Perks Section */
+.perks-section {
+    margin: 4rem 0;
+}
+
+.perks-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.perks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.perk {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.perk h4 {
+    margin: 1rem 0;
+    color: #333;
+}
+
+.perk p {
+    color: #666;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .opening-card {
+        padding: 1.5rem;
+    }
+    
+    .perks-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
