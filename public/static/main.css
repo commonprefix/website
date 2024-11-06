@@ -561,6 +561,11 @@ a.clients__card, a.grants__card {
   margin-bottom: 8px;
 }
 
+.careers-link, .careers-link a {
+  font-weight: 700;
+  color: var(--c-pink);
+}
+
 .client__next-client a,
 .grantor__next-grantor a {
   text-decoration: none;
@@ -1021,15 +1026,16 @@ a.finding {
     display: inline-flex;
     align-items: center;
     padding: 0.8rem 1.5rem;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--c-beige-dark);
+    color: var(--c-black);
     text-decoration: none;
     border-radius: 4px;
     transition: all 0.2s ease;
 }
 
 .apply-button:hover {
-    background-color: #333;
+    color: var(--c-white);
+    background-color: var(--c-pink);
 }
 
 .apply-button .arrow {
