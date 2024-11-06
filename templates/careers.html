@@ -13,19 +13,18 @@
 
 	<section class="openings-list">
 		{{ range .Openings }}
-		<div class="opening-card">
-			<div class="opening-content">
-				<h3>{{ .Name }}</h3>
-				<div class="opening-details">
-					<span class="location">📍 {{ .Location }}</span>
-					<span class="type">{{ .Type }}</span>
+		<a href="{{ .Url }}" target="_blank" rel="noopener noreferrer">
+			<div class="opening-card">
+				<div class="opening-content">
+					<h3>{{ .Name }}</h3>
+					<div class="opening-details">
+						<span class="location">📍 {{ .Location }}</span>
+						<span class="type">{{ .Type }}</span>
+					</div>
+					<p class="opening-description">{{ .Description }}</p>
 				</div>
-				<p class="opening-description">{{ .Description }}</p>
-				<a href="{{ .Url }}" target="_blank" rel="noopener noreferrer" class="apply-button">
-					View Position <span class="arrow">→</span>
-				</a>
 			</div>
-		</div>
+		</a>
 		{{ end }}
 	</section>
 

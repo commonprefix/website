@@ -561,6 +561,11 @@ a.clients__card, a.grants__card {
   margin-bottom: 8px;
 }
 
+.careers-link, .careers-link a {
+  font-weight: 700;
+  color: var(--c-pink);
+}
+
 .client__next-client a,
 .grantor__next-grantor a {
   text-decoration: none;
@@ -1015,25 +1020,6 @@ a.finding {
     color: #555;
     margin-bottom: 1.5rem;
     line-height: 1.6;
-}
-
-.apply-button {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.8rem 1.5rem;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-}
-
-.apply-button:hover {
-    background-color: #333;
-}
-
-.apply-button .arrow {
-    margin-left: 0.5rem;
 }
 
 /* Perks Section */
