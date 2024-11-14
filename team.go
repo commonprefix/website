@@ -38,7 +38,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "orestis_alpos.jpg",
 	},
-    "lukas": {
+	"lukas": {
 		Handle:         "lukas",
 		Name:           "Dr. Lukas Aumayr",
 		Specialization: "distributed systems, scaling blockchains, blockchain interoperability, applied cryptography, protocol analysis",
@@ -52,7 +52,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
             He has published in venues such as ACM CCS, USENIX Security, IEEE S&P (Oakland), and NDSS.
 		`),
 		Image: "lukas_aumayr.jpg",
-    },
+	},
 	"zeta": {
 		Handle:         "zeta",
 		Name:           "Dr. Zeta Avarikioti",
@@ -169,6 +169,20 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			<a href="https://eprint.iacr.org/2020/173.pdf">Securing Proof-of-Work Ledgers via Checkpointing</a>.
 		`),
 		Image: "dimitris_karakostas.jpg",
+	},
+	"odysseas": {
+		Handle:         "odysseas",
+		Name:           "Odysseas Sofikitis",
+		Specialization: "consensus, proof-of-work, machine learning",
+		Desc: template.HTML(`
+		Odysseas is a blockchain researcher based in Athens,
+		specializing in consensus mechanisms and proof-of-work protocols for blockchain systems.
+		He holds an Master's degree in Electrical and Computer Engineering from Aristotle University of Thessaloniki,
+		with a focus on inverse rendering and machine learning.
+		He previously worked at the Information Technologies Institute,
+		where he conducted research on GANs and image-to-image translation.
+		`),
+		Image: "odysseas_sofikitis.jpg",
 	},
 	"orfeas": {
 		Handle:         "orfeas",
