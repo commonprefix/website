@@ -328,12 +328,23 @@ var Clients []Client = []Client{
         Projects: []Project{
 			{
 				Title: "Turbo-PLONK verifier and BN254 audit",
-				Desc:  template.HTML(`Espresso Systems commissioned Common Prefix to audit their Solidity implementation of the Plonk verifier and its BN254 curve dependency. The audit report will be made public as soon as all findings have been addressed.`),
+				Desc:  template.HTML(`Espresso Systems commissioned Common Prefix to audit their Solidity implementation of the Plonk verifier and its BN254 curve dependency.`),
 				Links: []ProjectLink{
                     {
 						Url:  "/static/clients/espresso/espresso_turbo_plonk_verifier_and_bn254_audit.pdf",
 						Name: "Turbo-PLONK verifier and BN254 audit report",
-						Date: "2024-09-02",
+						Date: "2024-05-22",
+					},
+			    },
+            },
+			{
+				Title: "HotShot Light Client audit",
+				Desc:  template.HTML(`Espresso Systems commissioned Common Prefix to audit their HotShot light client smart contract implemented in Solidity.`),
+				Links: []ProjectLink{
+                    {
+						Url:  "/static/clients/espresso/espresso_hotshot_light_client_audit.pdf",
+						Name: "HotShot Light Client audit report",
+						Date: "2024-08-29",
 					},
 			    },
             },
