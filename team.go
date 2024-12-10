@@ -187,7 +187,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 	"orfeas": {
 		Handle:         "orfeas",
 		Name:           "Dr. Orfeas Stefanos Thyfronitis Litos",
-		Specialization: "software engineering, payment channels, voting, cryptoeconomic incentive analysis",
+		Specialization: "distributed systems, scaling blockchains, interoperability, protocol analysis, cryptoeconomic incentive analysis, voting, software engineering, payment channels",
 		Desc: template.HTML(`
 		Orfeas is currently a research associate at Imperial College London.
 		He obtained his
