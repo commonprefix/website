@@ -13,6 +13,6 @@ var Openings = []JobOpening{
 		Url:         "https://commonprefix.notion.site/auditing-folk",
 		Location:    "Remote",
 		Type:        "Full-time / Part-time",
-		Description: "We're looking for auditors who can help us maintain the highest standards on security and reliability of the things we build",
+		Description: "We're looking for auditors who can help us maintain the highest standards on security and reliability of the things we build.",
 	},
 }
