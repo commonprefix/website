@@ -325,12 +325,12 @@ var Clients []Client = []Client{
 			Members["pyrros"],
 			Members["jakov"],
 		},
-        Projects: []Project{
+		Projects: []Project{
 			{
 				Title: "Turbo-PLONK verifier and BN254 audit",
 				Desc:  template.HTML(`Espresso Systems commissioned Common Prefix to audit their Solidity implementation of the Plonk verifier and its BN254 curve dependency.`),
 				Links: []ProjectLink{
-                    {
+					{
 						Url:  "/static/clients/espresso/espresso_turbo_plonk_verifier_and_bn254_audit.pdf",
 						Name: "Turbo-PLONK verifier and BN254 audit report",
 						Date: "2024-05-22",
@@ -346,9 +346,9 @@ var Clients []Client = []Client{
 						Name: "HotShot Light Client audit report",
 						Date: "2024-08-29",
 					},
-			    },
-            },
-        },
+				},
+			},
+		},
 	},
 	{
 		Handle: "quai",
@@ -734,6 +734,31 @@ var Clients []Client = []Client{
 						Url:  "/static/clients/bob/bob_fusionlock_audit.pdf",
 						Name: "BOB FusionLock smart contract audit",
 						Date: "2024-03-29",
+					},
+				},
+			},
+		},
+	},
+	{
+		Handle: "pantos",
+		Name:   "Pantos",
+		Image: template.HTML(`<svg xmlns="http://www.w3.org/2000/svg" width="114.182" height="15.859" viewBox="0 0 114.182 15.859">
+			<path d="M68.933,56.108H63.816v7.238h-3.4L59.052,66.58h4.764v4.957h3.5V66.58h1.619a5.237,5.237,0,1,0,0-10.473Zm0,7.261H67.36v-3.98h1.572a1.984,1.984,0,0,1,1.995,1.978,2.01,2.01,0,0,1-1.995,2Zm9.153,8.238h3.708l1.1-2.4h5.75l1.1,2.374h3.708L85.784,55.945l-7.7,15.662Zm6.22-5.236,1.455-3.212,1.455,3.212Zm26.1-2.164-9.834-8.238V71.607h3.5V63.532l9.834,8.215V56.108h-3.5v8.1ZM121.717,59.6h3.755V71.607h3.5V59.6h3.755V56.178H121.717V59.6ZM147.7,55.968a7.913,7.913,0,1,0,7.98,7.913,7.985,7.985,0,0,0-7.98-7.913Zm0,12.474a4.563,4.563,0,1,1,4.436-4.561,4.479,4.479,0,0,1-4.436,4.561Zm22.156-5.911-.845-.372c-1.408-.628-2.089-1.047-2.089-1.862a1.131,1.131,0,0,1,1.2-1.094c.728,0,1.2.209,1.995,1.14l2.347-2.49a5.253,5.253,0,0,0-4.389-1.908,4.524,4.524,0,0,0-4.741,4.445c0,2.118,1.314,3.84,3.661,4.864l.892.419c1.314.559,1.831,1.047,1.831,1.7,0,.675-.469,1.094-1.526,1.094a3.785,3.785,0,0,1-2.863-1.908l-2.676,2.188a6.107,6.107,0,0,0,5.633,3.049c2.863,0,4.952-1.815,4.952-4.608.023-2.164-1.22-3.724-3.38-4.654Z" transform="translate(-59.052 -55.935)" fill="currentColor"/>
+		</svg>`),
+		Body: template.HTML(`Pantos is a blockchain interoperability project designed to facilitate the seamless transfer of tokens and assets across different blockchain networks without relying on a trusted third-party intermediary. Launched by the team behind Bitpanda (the most prominent European cryptocurrency exchange), Pantos is developing a protocol powered by the Pantos Token (PAN), a native multichain token that eases interoperability between various blockchains such as Ethereum, BNB Chain, Avalanche, Polygon, and more.`),
+		Team: []TeamMember{
+			Members["giulia"],
+		},
+		Findings: []Finding{},
+		Projects: []Project{
+			{
+				Title: "Pantos smart contract audit",
+				Desc:  template.HTML(`Common Prefix was commissioned to conduct a security audit of the Pantos Solidity smart contracts. This protocol enables seamless bridging of tokens adhering to the Pantos Digital Asset Standard (PANDAS) across EVM-compatible chains. The audit also included a review of wrapper contracts, which allow any ERC-20 or EVM-native token to be wrapped to comply with the Pantos standard.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/pantos/pantos_audit.pdf",
+						Name: "Pantos smart contract audit",
+						Date: "2024-09-24",
 					},
 				},
 			},
