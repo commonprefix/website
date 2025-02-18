@@ -2,7 +2,7 @@ package main
 
 var Openings = []JobOpening{
 	{
-		Name:        "Blockchain Engineer",
+		Name:        "Software Engineer",
 		Url:         "https://commonprefix.notion.site/sw-folk",
 		Location:    "Remote",
 		Type:        "Full-time",
