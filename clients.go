@@ -287,10 +287,11 @@ var Clients []Client = []Client{
 		</svg>`),
 		Body: template.HTML(`Babylon is a Cosmos zone that brings Bitcoin-level security to the Cosmos ecosystem using IBC. They achieve this by allowing any Cosmos blockchain to checkpoint to Babylon, then aggregate these checkpoints into a short summary using BLS signatures. The summary is then occasionally posted on the Bitcoin blockchain and referenced to make consensus decisions. The result is that slashable safety can be guaranteed within a short time period, and the bonding period is reduced from 21 days down to 7 hours. We help Babylon augment their cryptographic protocol in the area of performance and efficiency with respect to light clients and bridging, providing proofs of security in various availability models.`),
 		Team: []TeamMember{
-			Members["shresth"],
-			Members["bernardo"],
-			Members["dimitris"],
+			Members["orfeas"],
 			Members["dionysis"],
+			Members["orestis"],
+			Members["lukas"],
+			Members["bernardo"],
 		},
 		Findings: []Finding{},
 	},
@@ -335,13 +336,13 @@ var Clients []Client = []Client{
 						Name: "Turbo-PLONK verifier and BN254 audit report",
 						Date: "2024-05-22",
 					},
-			    },
-            },
+				},
+			},
 			{
 				Title: "HotShot Light Client audit",
 				Desc:  template.HTML(`Espresso Systems commissioned Common Prefix to audit their HotShot light client smart contract implemented in Solidity.`),
 				Links: []ProjectLink{
-                    {
+					{
 						Url:  "/static/clients/espresso/espresso_hotshot_light_client_audit.pdf",
 						Name: "HotShot Light Client audit report",
 						Date: "2024-08-29",
@@ -602,7 +603,8 @@ var Clients []Client = []Client{
 				},
 			},
 		},
-		Findings: []Finding{},
+		Findings:    []Finding{},
+		HideOnIndex: true,
 	},
 	{
 		Handle: "deviantart",
@@ -728,12 +730,23 @@ var Clients []Client = []Client{
 		Projects: []Project{
 			{
 				Title: "FusionLock audit",
-				Desc:  template.HTML(`We audited BOB's FusionLock contract, where users can lock tokens. Upon a specified time (determined by the contract owner), users can either withdraw the tokens or bridge them to BOB using a bridge like Optimism's. We also ensured compatibility with the bridge by reviewing the list of tokens permitted to be locked in the contract.`),
+				Desc:  template.HTML(`Common Prefix was commissoned to perform a security audit of BOB's FusionLock contract, where users can lock tokens. Upon a specified time (determined by the contract owner), users can either withdraw the tokens or bridge them to BOB using a bridge like Optimism's. We also ensured compatibility with the bridge by reviewing the list of tokens permitted to be locked in the contract.`),
 				Links: []ProjectLink{
 					{
 						Url:  "/static/clients/bob/bob_fusionlock_audit.pdf",
 						Name: "BOB FusionLock smart contract audit",
 						Date: "2024-03-29",
+					},
+				},
+			},
+			{
+				Title: "Onramp audit",
+				Desc:  template.HTML(`Common Prefix was commissoned to perform a security audit of BOB's Onramp smart contracts, facilitating users' onboarding onto the BOB L2 network without the need to hold any Ethereum assets beforehand.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/bob/bob_onramp_audit.pdf",
+						Name: "BOB Onramp smart contract audit",
+						Date: "2024-04-22",
 					},
 				},
 			},
@@ -763,5 +776,18 @@ var Clients []Client = []Client{
 				},
 			},
 		},
+	},
+	{
+		Handle: "zano",
+		Name:   "Zano",
+		Image:  template.HTML(`<svg xmlns="http://www.w3.org/2000/svg" width="238" height="82" viewBox="0 0 238 82" fill="currentColor"><path fill="url(#a)" fill-rule="evenodd" d="M47.551 0h9.388c3.215 0 5.92 0 8.135.184 2.317.193 4.523.612 6.62 1.7a17.127 17.127 0 0 1 7.414 7.55c1.068 2.135 1.48 4.382 1.669 6.74.18 2.256.18 5.01.18 8.285v9.067c0 3.275 0 6.03-.18 8.285-.19 2.36-.6 4.606-1.669 6.74a17.127 17.127 0 0 1-7.415 7.551c-2.096 1.088-4.302 1.507-6.619 1.7-2.214.184-4.92.184-8.135.184H28.905c-1.97 0-3.747-1.203-4.509-3.052a5.046 5.046 0 0 1 1.02-5.415l23.15-24.014 6.978 6.976-14.989 15.548h16.188c3.463 0 5.766-.004 7.535-.152 1.712-.142 2.488-.393 2.976-.646a7.257 7.257 0 0 0 3.142-3.2c.249-.497.495-1.288.635-3.03.145-1.802.149-4.147.149-7.674V24.66c0-3.527-.004-5.872-.149-7.674-.14-1.743-.386-2.534-.635-3.03a7.258 7.258 0 0 0-3.142-3.2c-.488-.253-1.264-.504-2.976-.647-1.769-.147-4.072-.15-7.535-.15h-8.995c-3.5 0-5.83.003-7.619.153-1.732.144-2.515.4-3.004.656a7.259 7.259 0 0 0-3.146 3.244c-.246.501-.487 1.301-.608 3.067-.126 1.822-.1 4.195-.058 7.76l.049 4.094-9.777.122-.052-4.296c-.04-3.31-.073-6.095.083-8.374.164-2.383.554-4.656 1.613-6.818a17.132 17.132 0 0 1 7.425-7.654C34.764.807 36.991.382 39.329.187 41.565 0 44.299 0 47.551 0Z" clip-rule="evenodd"/><path fill="url(#b)" fill-rule="evenodd" d="M47.551 0h9.388c3.215 0 5.92 0 8.135.184 2.317.193 4.523.612 6.62 1.7a17.127 17.127 0 0 1 7.414 7.55c1.068 2.135 1.48 4.382 1.669 6.74.18 2.256.18 5.01.18 8.285v9.067c0 3.275 0 6.03-.18 8.285-.19 2.36-.6 4.606-1.669 6.74a17.127 17.127 0 0 1-7.415 7.551c-2.096 1.088-4.302 1.507-6.619 1.7-2.214.184-4.92.184-8.135.184H28.905c-1.97 0-3.747-1.203-4.509-3.052a5.046 5.046 0 0 1 1.02-5.415l23.15-24.014 6.978 6.976-14.989 15.548h16.188c3.463 0 5.766-.004 7.535-.152 1.712-.142 2.488-.393 2.976-.646a7.257 7.257 0 0 0 3.142-3.2c.249-.497.495-1.288.635-3.03.145-1.802.149-4.147.149-7.674V24.66c0-3.527-.004-5.872-.149-7.674-.14-1.743-.386-2.534-.635-3.03a7.258 7.258 0 0 0-3.142-3.2c-.488-.253-1.264-.504-2.976-.647-1.769-.147-4.072-.15-7.535-.15h-8.995c-3.5 0-5.83.003-7.619.153-1.732.144-2.515.4-3.004.656a7.259 7.259 0 0 0-3.146 3.244c-.246.501-.487 1.301-.608 3.067-.126 1.822-.1 4.195-.058 7.76l.049 4.094-9.777.122-.052-4.296c-.04-3.31-.073-6.095.083-8.374.164-2.383.554-4.656 1.613-6.818a17.132 17.132 0 0 1 7.425-7.654C34.764.807 36.991.382 39.329.187 41.565 0 44.299 0 47.551 0Z" clip-rule="evenodd"/><path fill="url(#c)" fill-rule="evenodd" d="M47.551 0h9.388c3.215 0 5.92 0 8.135.184 2.317.193 4.523.612 6.62 1.7a17.127 17.127 0 0 1 7.414 7.55c1.068 2.135 1.48 4.382 1.669 6.74.18 2.256.18 5.01.18 8.285v9.067c0 3.275 0 6.03-.18 8.285-.19 2.36-.6 4.606-1.669 6.74a17.127 17.127 0 0 1-7.415 7.551c-2.096 1.088-4.302 1.507-6.619 1.7-2.214.184-4.92.184-8.135.184H28.905c-1.97 0-3.747-1.203-4.509-3.052a5.046 5.046 0 0 1 1.02-5.415l23.15-24.014 6.978 6.976-14.989 15.548h16.188c3.463 0 5.766-.004 7.535-.152 1.712-.142 2.488-.393 2.976-.646a7.257 7.257 0 0 0 3.142-3.2c.249-.497.495-1.288.635-3.03.145-1.802.149-4.147.149-7.674V24.66c0-3.527-.004-5.872-.149-7.674-.14-1.743-.386-2.534-.635-3.03a7.258 7.258 0 0 0-3.142-3.2c-.488-.253-1.264-.504-2.976-.647-1.769-.147-4.072-.15-7.535-.15h-8.995c-3.5 0-5.83.003-7.619.153-1.732.144-2.515.4-3.004.656a7.259 7.259 0 0 0-3.146 3.244c-.246.501-.487 1.301-.608 3.067-.126 1.822-.1 4.195-.058 7.76l.049 4.094-9.777.122-.052-4.296c-.04-3.31-.073-6.095.083-8.374.164-2.383.554-4.656 1.613-6.818a17.132 17.132 0 0 1 7.425-7.654C34.764.807 36.991.382 39.329.187 41.565 0 44.299 0 47.551 0Z" clip-rule="evenodd"/><path fill="url(#d)" fill-rule="evenodd" d="M47.551 0h9.388c3.215 0 5.92 0 8.135.184 2.317.193 4.523.612 6.62 1.7a17.127 17.127 0 0 1 7.414 7.55c1.068 2.135 1.48 4.382 1.669 6.74.18 2.256.18 5.01.18 8.285v9.067c0 3.275 0 6.03-.18 8.285-.19 2.36-.6 4.606-1.669 6.74a17.127 17.127 0 0 1-7.415 7.551c-2.096 1.088-4.302 1.507-6.619 1.7-2.214.184-4.92.184-8.135.184H28.905c-1.97 0-3.747-1.203-4.509-3.052a5.046 5.046 0 0 1 1.02-5.415l23.15-24.014 6.978 6.976-14.989 15.548h16.188c3.463 0 5.766-.004 7.535-.152 1.712-.142 2.488-.393 2.976-.646a7.257 7.257 0 0 0 3.142-3.2c.249-.497.495-1.288.635-3.03.145-1.802.149-4.147.149-7.674V24.66c0-3.527-.004-5.872-.149-7.674-.14-1.743-.386-2.534-.635-3.03a7.258 7.258 0 0 0-3.142-3.2c-.488-.253-1.264-.504-2.976-.647-1.769-.147-4.072-.15-7.535-.15h-8.995c-3.5 0-5.83.003-7.619.153-1.732.144-2.515.4-3.004.656a7.259 7.259 0 0 0-3.146 3.244c-.246.501-.487 1.301-.608 3.067-.126 1.822-.1 4.195-.058 7.76l.049 4.094-9.777.122-.052-4.296c-.04-3.31-.073-6.095.083-8.374.164-2.383.554-4.656 1.613-6.818a17.132 17.132 0 0 1 7.425-7.654C34.764.807 36.991.382 39.329.187 41.565 0 44.299 0 47.551 0Z" clip-rule="evenodd"/><path fill="url(#e)" fill-rule="evenodd" d="M16.679 71.892c1.769.147 4.072.15 7.535.15h9.145c3.158 0 5.258-.002 6.876-.125 1.568-.12 2.286-.33 2.737-.54a7.257 7.257 0 0 0 3.537-3.603c.206-.458.413-1.19.53-2.787.121-1.647.124-3.786.124-7.001h9.778v.181c0 2.986 0 5.5-.15 7.561-.159 2.155-.501 4.214-1.395 6.198-1.694 3.76-4.655 6.776-8.347 8.5-1.948.91-3.97 1.26-6.086 1.42C38.937 82 36.47 82 33.538 82h-9.52c-3.215 0-5.92 0-8.135-.184-2.317-.193-4.523-.612-6.62-1.7a17.126 17.126 0 0 1-7.414-7.55C.78 70.43.369 68.184.18 65.826 0 63.57 0 60.816 0 57.54v-9.067c0-3.275 0-6.03.18-8.285.19-2.36.6-4.606 1.669-6.74a17.127 17.127 0 0 1 7.415-7.551c2.096-1.088 4.302-1.507 6.619-1.7 2.214-.184 4.92-.184 8.135-.184h28.034c2.7 0 4.89 2.23 4.89 4.979 0 2.75-2.19 4.978-4.89 4.978H24.214c-3.463 0-5.766.004-7.535.152-1.712.142-2.488.393-2.976.646a7.258 7.258 0 0 0-3.142 3.2c-.249.497-.495 1.288-.635 3.03-.145 1.802-.149 4.147-.149 7.674v8.668c0 3.527.004 5.872.149 7.674.14 1.743.386 2.534.635 3.03a7.258 7.258 0 0 0 3.142 3.2c.488.253 1.264.504 2.976.647Z" clip-rule="evenodd"/><path fill="url(#f)" fill-rule="evenodd" d="M16.679 71.892c1.769.147 4.072.15 7.535.15h9.145c3.158 0 5.258-.002 6.876-.125 1.568-.12 2.286-.33 2.737-.54a7.257 7.257 0 0 0 3.537-3.603c.206-.458.413-1.19.53-2.787.121-1.647.124-3.786.124-7.001h9.778v.181c0 2.986 0 5.5-.15 7.561-.159 2.155-.501 4.214-1.395 6.198-1.694 3.76-4.655 6.776-8.347 8.5-1.948.91-3.97 1.26-6.086 1.42C38.937 82 36.47 82 33.538 82h-9.52c-3.215 0-5.92 0-8.135-.184-2.317-.193-4.523-.612-6.62-1.7a17.126 17.126 0 0 1-7.414-7.55C.78 70.43.369 68.184.18 65.826 0 63.57 0 60.816 0 57.54v-9.067c0-3.275 0-6.03.18-8.285.19-2.36.6-4.606 1.669-6.74a17.127 17.127 0 0 1 7.415-7.551c2.096-1.088 4.302-1.507 6.619-1.7 2.214-.184 4.92-.184 8.135-.184h28.034c2.7 0 4.89 2.23 4.89 4.979 0 2.75-2.19 4.978-4.89 4.978H24.214c-3.463 0-5.766.004-7.535.152-1.712.142-2.488.393-2.976.646a7.258 7.258 0 0 0-3.142 3.2c-.249.497-.495 1.288-.635 3.03-.145 1.802-.149 4.147-.149 7.674v8.668c0 3.527.004 5.872.149 7.674.14 1.743.386 2.534.635 3.03a7.258 7.258 0 0 0 3.142 3.2c.488.253 1.264.504 2.976.647Z" clip-rule="evenodd"/><path d="M131.405 56.795v5.077c0 .724-.581 1.316-1.297 1.316h-27.681c-.038 0-.081 0-.119-.004a4.183 4.183 0 0 1-3.347-1.852c-.004-.009-.008-.018-.017-.026a3.886 3.886 0 0 1-.53-1.972c0-.802.24-1.54.648-2.157.034-.052.068-.103.105-.15l21.021-29.633h-18.827c-.711 0-1.292-.592-1.292-1.32V21c0-.73.581-1.32 1.292-1.32h26.385c.029 0 .059-.001.088.003.008 0 .021-.004.034 0a4.166 4.166 0 0 1 3.419 1.981l.017.03c.294.55.458 1.175.458 1.84a3.894 3.894 0 0 1-.753 2.307l-21.024 29.637h20.123c.716 0 1.297.592 1.297 1.316ZM149.118 56.667c-4.741 0-8.19-3.76-8.19-8.962 0-5.265 3.449-9.026 8.19-9.026 4.737 0 8.122 3.76 8.122 9.026 0 5.201-3.385 8.962-8.122 8.962Zm14.834-24.445h-5.415c-.716 0-1.297.592-1.297 1.317v3.631c-2.459-3.507-6.274-5.578-10.707-5.578-8.005 0-13.853 6.774-13.853 16.113 0 9.339 5.848 16.05 13.853 16.05 4.433 0 8.248-2.067 10.707-5.519v3.572c0 .763.611 1.38 1.356 1.38h5.356c.75 0 1.356-.617 1.356-1.38v-28.21c0-.759-.606-1.376-1.356-1.376ZM189.439 31.593c-4.187 0-7.636 2.006-9.606 5.33v-3.386c0-.877-.491-1.316-1.292-1.316h-5.419c-.799 0-1.29.439-1.29 1.316V61.81c0 .878.491 1.38 1.29 1.38h5.419c.801 0 1.292-.502 1.292-1.38v-16.8c0-4.138 2.587-6.896 6.464-6.896 3.756 0 6.281 2.758 6.281 6.896v16.8c0 .763.606 1.38 1.352 1.38h5.359c.746 0 1.353-.617 1.353-1.38V43.82c0-7.211-4.618-12.227-11.203-12.227ZM221.563 56.667c-4.741 0-8.122-3.76-8.122-8.962 0-5.265 3.381-9.026 8.122-9.026 4.804 0 8.19 3.76 8.19 9.026 0 5.201-3.386 8.962-8.19 8.962Zm.063-25.075c-9.541 0-16.438 6.774-16.438 16.113 0 9.339 6.897 16.05 16.438 16.05 9.483 0 16.376-6.711 16.376-16.05s-6.893-16.113-16.376-16.113Z"/><defs><radialGradient id="b" cx="0" cy="0" r="1" gradientTransform="matrix(35.5925 -9.99475 10.04406 35.76812 22.822 17.556)" gradientUnits="userSpaceOnUse"><stop stop-color="#18CFD7"/><stop offset="1" stop-color="#18CFD7" stop-opacity="0"/></radialGradient><radialGradient id="c" cx="0" cy="0" r="1" gradientTransform="rotate(152.175 17.992 22.51) scale(13.8551 13.8931)" gradientUnits="userSpaceOnUse"><stop stop-color="#4990FE"/><stop offset=".354" stop-color="#4990FE"/><stop offset="1" stop-color="#4990FE" stop-opacity="0"/></radialGradient><radialGradient id="d" cx="0" cy="0" r="1" gradientTransform="rotate(-46.156 75.742 -5.842) scale(25.2703 25.2238)" gradientUnits="userSpaceOnUse"><stop stop-color="#4990FE"/><stop offset=".406" stop-color="#4990FE"/><stop offset="1" stop-color="#4990FE" stop-opacity="0"/></radialGradient><radialGradient id="f" cx="0" cy="0" r="1" gradientTransform="matrix(-15.75419 19.40143 -19.168 -15.56464 57.244 57.535)" gradientUnits="userSpaceOnUse"><stop offset=".337" stop-color="#2950FF"/><stop offset=".792" stop-color="#2950FF" stop-opacity="0"/></radialGradient><linearGradient id="a" x1="38.576" x2="39.24" y1="57.535" y2="-.074" gradientUnits="userSpaceOnUse"><stop offset=".431" stop-color="#498FFD"/><stop offset="1" stop-color="#16D1D6"/></linearGradient><linearGradient id="e" x1="57.244" x2="57.458" y1="82.228" y2="23.436" gradientUnits="userSpaceOnUse"><stop stop-color="#2950FF"/><stop offset=".822" stop-color="#498FFD"/></linearGradient></defs></svg>`),
+		Body: template.HTML(`Zano is an open-source Layer-1 blockchain for confidential assets and decentralized applications (dApps).
+		Common Prefix is collaborating with Zano on their consensus protocol.`),
+		Team: []TeamMember{
+			Members["bernardo"],
+			Members["lioba"],
+		},
+		Findings: []Finding{},
+		Projects: []Project{},
 	},
 }

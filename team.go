@@ -72,6 +72,21 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "zeta_avarikioti.jpg",
 	},
+
+	"João": {
+		Handle:         "João",
+		Name:           "João Pedro Coelho de Azevedo",
+		Specialization: "smart contract development, large scale system design, software engineering",
+		Desc: template.HTML(`
+			João is a software engineer with experience in blockchain, fintech, and automotive technologies. 
+			He holds a Master’s degree in Electronics and Telecommunications Engineering from the University of Aveiro. 
+			Over the years he has contributed to multiple startups (notably <a href="https://www.qomodo.me/">Qomodo</a>, <a href="https://www.topos.network/">Topos Network</a> and <a href="https://veniam.com/">Veniam</a>), building financing risk assessment systems, smart contracts, and connected mobility solutions. 
+			His work spans backend engineering, smart contract development, and large-scale system architecture.
+			João is a certified PMP, IEEE member, and the inventor of 13 granted patents in intelligent networking and automotive communications.
+		`),
+		Image: "joao_azevedo.jpg",
+	},
+
 	"alexis": {
 		Handle:         "alexis",
 		Name:           "Alexis Brezas",
@@ -116,7 +131,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Desc: template.HTML(`
 			Bernardo David is an Associate Professor at the IT University of Copenhagen, working on cryptographic protocols
 			for multiparty computation and blockchain consensus/applications with the support of Concordium Foundation,
-			Independent Research Fund Denmark and Protocol Labs research grants. He holds a Ph.D. in Computer Science
+			Independent Research Fund Denmark and Protocol Labs research grants. He holds a PhD in Computer Science
 			from Aarhus University, under the supervision of Ivan Damgård and Jesper Buus Nielsen, and was previously an Assistant Professor at the Tokyo Institute of Technology,
 			where his work was supported by a JSPS research grant. Bernardo&rsquo;s research has been published as over 30 articles in
 			scientific journals and conferences. Among his main contributions is
@@ -125,6 +140,32 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			on blockchains and information security, having served as scientific advisor to Cardano and Concordium.
 		`),
 		Image: "bernardo_david.jpg",
+	},
+	"robin": {
+		Handle:         "robin",
+		Name:           "Dr. Robin Fritsch",
+		Specialization: "DeFi, game theory, graph algorithms",
+		Desc: template.HTML(`
+            Robin holds a PhD from ETH Zurich, advised by Roger Wattenhofer, focusing on game theory and decentralized finance. 
+			He completed his MSc degree in Mathematics in Data Science from the Technical University of Munich.  
+			Among other venues, he has published in AFT, ACM CCS, and AAMAS. Highlights of his research include the papers <a href="https://arxiv.org/pdf/2201.12303">The Price of Majority Support</a>, 
+			<a href="https://arxiv.org/pdf/2206.04634">The Economics of Automated Market Makers</a>, 
+			and <a href="https://drops.dagstuhl.de/storage/00lipics/lipics-vol282-aft2023/LIPIcs.AFT.2023.24/LIPIcs.AFT.2023.24.pdf">Batching trades on Automated Market Makers</a>.
+		`),
+		Image: "robin_fritsch.jpg",
+	},
+	"lioba": {
+		Handle:         "lioba",
+		Name:           "Lioba Heimbach",
+		Specialization: "DeFi, cryptoeconomic incentives analysis, MEV, game theory",
+		Desc: template.HTML(`
+			Lioba is a doctoral student at ETH Zurich advised by Roger Wattenhofer. 
+			She holds a MSc degree in Electrical Engineering and Information Technology from ETH Zurich. 
+			Her research focuses on empirical measurements and the analysis of cryptoeconomic incentives in the blockchain ecosystem with a focus on decentralized finance. 
+			Among other venues, she has published in IEEE S&P (Oakland), FC, AFT, AsiaCCS, IMC, and DISC. 
+			Highlights of her research include the papers <a href="https://arxiv.org/abs/2401.01622">Non-Atomic Arbitrage in Decentralized Finance</a>, <a href="https://arxiv.org/abs/2203.11520">SoK: Preventing Transaction Reordering Manipulations in Decentralized Finance</a>, and  <a href="https://arxiv.org/pdf/2304.11478">Base Fee Manipulation In Ethereum's EIP-1559 Transaction Fee Mechanism</a>.
+		`),
+		Image: "lioba_heimbach.jpg",
 	},
 	"nikolas": {
 		Handle:         "nikolas",
@@ -177,12 +218,28 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Desc: template.HTML(`
 		Odysseas is a blockchain researcher based in Athens,
 		specializing in consensus mechanisms and proof-of-work protocols for blockchain systems.
-		He holds an Master's degree in Electrical and Computer Engineering from Aristotle University of Thessaloniki,
+		He holds a Master's degree in Electrical and Computer Engineering from Aristotle University of Thessaloniki,
 		with a focus on inverse rendering and machine learning.
 		He previously worked at the Information Technologies Institute,
 		where he conducted research on GANs and image-to-image translation.
 		`),
 		Image: "odysseas_sofikitis.jpg",
+	},
+	"julian": {
+		Handle:         "julian",
+		Name:           "Prof. Julian Loss",
+		Specialization: "cryptography, distributed systems, consensus",
+		Desc: template.HTML(`
+		Julian is a professor at CISPA Helmholtz Center for Information Security, focusing on cryptography and its applications to distributed algorithms.  
+		He holds a PhD in Mathematics from Ruhr University Bochum, advised by Eike Kiltz, and a MSc in Computer Science from ETH Zurich.  
+		Julian was a postdoctoral researcher at the University of Maryland and Carnegie Mellon University. 
+		His interests include provable security, particularly digital signature schemes and algorithms for distributed consensus.
+		Among other venues, he has published in ACM CCS, ASIACRYPT, EUROCRYPT, FC, and IEEE S&P (Oakland). 
+		Highlights of his research include the papers <a href="https://eprint.iacr.org/2017/620.pdf"> The Algebraic Group Model and its Applications</a>, 
+		<a href="https://infoscience.epfl.ch/server/api/core/bitstreams/3820a5e9-3807-48ae-9604-c37037cc907d/content">On the Security of Two-Round Multi-Signatures</a>, 
+		and <a href="https://eprint.iacr.org/2020/945.pdf">On the (in)security of ROS</a>.
+		`),
+		Image: "julian_loss.jpg",
 	},
 	"orfeas": {
 		Handle:         "orfeas",
