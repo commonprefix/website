@@ -327,9 +327,11 @@ func build() {
 		log.Fatalf("can't create %s", researchTmplName)
 	}
 
+        allPapers := append(ResearchPapers, OldResearchPapers...)
+
 	allAuthors := []string{}
 	for _, tm := range team {
-		for _, r := range ResearchPapers {
+		for _, r := range allPapers {
 			name := tm.Name
 			name = strings.TrimPrefix(name, "Prof. ")
 			name = strings.TrimPrefix(name, "Dr. ")
@@ -340,7 +342,7 @@ func build() {
 	}
 
 	allTags := []Tag{}
-	for _, r := range ResearchPapers {
+	for _, r := range allPapers {
 		for _, t := range r.Tags {
 			if !slices.Contains(allTags, t) {
 				allTags = append(allTags, t)
@@ -349,14 +351,14 @@ func build() {
 	}
 
 	allConferences := []ConferenceAbbreviation{}
-	for _, r := range ResearchPapers {
+	for _, r := range allPapers {
 		if !slices.Contains(allConferences, r.Conference) {
 			allConferences = append(allConferences, r.Conference)
 		}
 	}
 
 	allYears := []int{}
-	for _, r := range ResearchPapers {
+	for _, r := range allPapers {
 		if r.ConferenceYear != 0 && !slices.Contains(allYears, r.ConferenceYear) {
 			allYears = append(allYears, r.ConferenceYear)
 		}
@@ -366,6 +368,10 @@ func build() {
 
 	sort.Slice(ResearchPapers, func(i, j int) bool {
 		return ResearchPapers[i].Citations > ResearchPapers[j].Citations
+	})
+
+	sort.Slice(OldResearchPapers, func(i, j int) bool {
+		return OldResearchPapers[i].Citations > OldResearchPapers[j].Citations
 	})
 
 	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: "Research",
