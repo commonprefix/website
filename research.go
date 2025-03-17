@@ -196,16 +196,6 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Citations:      1,
 	},
 	{
-		Handle:         "popos",
-		Name:           "Proofs of Proof-of-Stake with Sublinear Complexity",
-		Conference:     AFT,
-		ConferenceYear: 2023,
-		Authors:        []string{"Shresth Agrawal", "Joachim Neu", "Ertem Nusret Tas", "Dionysis Zindros"},
-		Url:            "https://arxiv.org/pdf/2209.08673.pdf",
-		Tags:           []Tag{PROOF_OF_STAKE, LIGHT_CLIENTS, INTEROPERABILITY},
-		Citations:      8,
-	},
-	{
 		Handle:         "liquid-staking",
 		Name:           "The Principal–Agent Problem in Liquid Staking",
 		Conference:     FCWTS,
@@ -214,6 +204,40 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Url:            "https://eprint.iacr.org/2023/605.pdf",
 		Tags:           []Tag{LIQUID_STAKING},
 		Citations:      5,
+	},
+	{
+		Handle:         "blink",
+		Name:           "Blink: An Optimal Proof of Proof-of-Work",
+		Conference:     EPRINT,
+		ConferenceYear: 2024,
+		Authors:        []string{"Lukas Aumayr", "Zeta Avarikioti", "Matteo Maffei", "Giulia Scaffino", "Dionysis Zindros"},
+		Url:            "https://eprint.iacr.org/2024/692.pdf",
+		Tags:           []Tag{PROOF_OF_WORK, LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      0,
+	},
+	{
+		Handle:         "better-pow-fork-rule",
+		Name:           "A Better Proof-of-Work Fork Choice Rule",
+		Conference:     EPRINT,
+		ConferenceYear: 2024,
+		Authors:        []string{"Karl Kreder", "Shreekara Shastry", "Apostolos Tzinas", "Sriram Vishwanath", "Dionysis Zindros"},
+		Url:            "https://eprint.iacr.org/2024/200.pdf",
+		Tags:           []Tag{PROOF_OF_WORK, CONSENSUS},
+		Citations:      0,
+	},
+}
+
+
+var OldResearchPapers []ResearchPaper = []ResearchPaper{
+	{
+		Handle:         "popos",
+		Name:           "Proofs of Proof-of-Stake with Sublinear Complexity",
+		Conference:     AFT,
+		ConferenceYear: 2023,
+		Authors:        []string{"Shresth Agrawal", "Joachim Neu", "Ertem Nusret Tas", "Dionysis Zindros"},
+		Url:            "https://arxiv.org/pdf/2209.08673.pdf",
+		Tags:           []Tag{PROOF_OF_STAKE, LIGHT_CLIENTS, INTEROPERABILITY},
+		Citations:      8,
 	},
 	{
 		Handle:         "nipopow",
@@ -1364,16 +1388,6 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Citations:      1,
 	},
 	{
-		Handle:         "blink",
-		Name:           "Blink: An Optimal Proof of Proof-of-Work",
-		Conference:     EPRINT,
-		ConferenceYear: 2024,
-		Authors:        []string{"Lukas Aumayr", "Zeta Avarikioti", "Matteo Maffei", "Giulia Scaffino", "Dionysis Zindros"},
-		Url:            "https://eprint.iacr.org/2024/692.pdf",
-		Tags:           []Tag{PROOF_OF_WORK, LIGHT_CLIENTS, INTEROPERABILITY},
-		Citations:      0,
-	},
-	{
 		Handle:         "rollerblade",
 		Name:           "Rollerblade: Replicated Distributed Protocol Emulation on Top of Ledgers",
 		Conference:     EPRINT,
@@ -1391,16 +1405,6 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Authors:        []string{"Schwinn Saereesitthipitak", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2023/635.pdf",
 		Tags:           []Tag{WITNESS_ENCRYPTION, PVSS, SMART_CONTRACTS},
-		Citations:      0,
-	},
-	{
-		Handle:         "better-pow-fork-rule",
-		Name:           "A Better Proof-of-Work Fork Choice Rule",
-		Conference:     EPRINT,
-		ConferenceYear: 2024,
-		Authors:        []string{"Karl Kreder", "Shreekara Shastry", "Apostolos Tzinas", "Sriram Vishwanath", "Dionysis Zindros"},
-		Url:            "https://eprint.iacr.org/2024/200.pdf",
-		Tags:           []Tag{PROOF_OF_WORK, CONSENSUS},
 		Citations:      0,
 	},
 	{
