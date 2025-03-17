@@ -168,6 +168,7 @@ type ResearchPaper struct {
 
 type Research struct {
 	ResearchPapers []ResearchPaper
+	OldResearchPapers []ResearchPaper
 	TagToColor     map[Tag]string
 	AllAuthors     []string
 	AllTags        []Tag
@@ -369,7 +370,9 @@ func build() {
 
 	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: "Research",
 		Description: description,
-		Research: Research{ResearchPapers: ResearchPapers,
+		Research: Research{
+			ResearchPapers: ResearchPapers,
+			OldResearchPapers: OldResearchPapers,
 			TagToColor:     TagToColor,
 			AllAuthors:     allAuthors,
 			AllTags:        allTags,
