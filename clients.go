@@ -103,18 +103,23 @@ var Clients []Client = []Client{
 		},
 		Projects: []Project{
 			{
-				Title:    "Axelar integration with XRPL",
+				Title:    "Axelar Amplifier integration with XRPL",
 				IsBridge: true,
-				Desc:     template.HTML(`Common Prefix has partnered with Axelar to integrate Ripple's XRPL network with Axelar's Amplifier bridging infrastructure.`),
+				Desc:     template.HTML(`Common Prefix has partnered with Axelar to integrate Ripple's XRP Ledger (XRPL) with Axelar's Amplifier interoperability infrastructure. This integration enables bridging assets between XRPL and all Axelar-supported chains. It also allows smart contracts on on other chains to be called directly from XRPL.`),
 				Links: []ProjectLink{
 					{
-						Url:  "https://github.com/axelarnetwork/axelar-amplifier/pull/227",
-						Name: "Axelar Amplifier XRPL integration pull request",
+						Url:  "https://github.com/commonprefix/axelar-amplifier/tree/xrpl",
+						Name: "XRPL smart contracts GitHub repo",
+						Date: "2023-11-20 - Present",
+					},
+					{
+						Url:  "https://github.com/axelarnetwork/axelar-amplifier/pull/764",
+						Name: "XRPL verifier node pull request",
 						Date: "2023-11-20 - Present",
 					},
 					{
 						Url:  "https://github.com/commonprefix/axelar-xrpl-relayer",
-						Name: "Axelar Amplifier XRPL relayer implementation GitHub repo",
+						Name: "XRPL relayer GitHub repo",
 						Date: "2024-02-20 - Present",
 					},
 				},
