@@ -92,10 +92,8 @@ var Clients []Client = []Client{
 		</svg>`),
 		Body: template.HTML(`Axelar is the leading interoperability solution for moving assets from one blockchain to another. A pioneer in the bridging of assets, they are the first in the field to implement a broadly deployed bridge that does not rely on a fixed committee or federation, unlike typical multisig bridges. Instead, they rely only on their underlying proof-of-stake security assumptions, by leveraging their population of Cosmos validators. We have worked together with Axelar as their technical advisor since the project's inception and have helped them audit their smart contracts that allow bridging into and out of EVM-compatible chains over multiple iterations.`),
 		Team: []TeamMember{
-			Members["shresth"],
 			Members["nikolas"],
 			Members["dimitris"],
-			Members["pkakelas"],
 			Members["orfeas"],
 			Members["themis"],
 			Members["ristic"],
@@ -206,7 +204,6 @@ var Clients []Client = []Client{
 			Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality.
 		`),
 		Team: []TeamMember{
-			Members["shresth"],
 			Members["pyrros"],
 		},
 		Projects: []Project{
@@ -327,7 +324,6 @@ var Clients []Client = []Client{
 		Body: template.HTML(`Espresso Systems are the team behind the <a href="https://github.com/EspressoSystems/HotShot/blob/main/docs/espresso-sequencer-paper.pdf">Espresso Sequencer</a> and the <a href="https://github.com/EspressoSystems/jellyfish">Jellyfish library</a>. The Espresso Sequencer is a decentralized network that can be shared by rollups, composed of HotShot consensus and Tiramisu data availability. Jellyfish is an efficient Rust-based cryptographic toolkit, featuring an implementation of the Turbo-PLONK zero-knowledge proof system. Common Prefix has been actively working with Espresso Systems to audit core components of Espresso protocols.
         `),
 		Team: []TeamMember{
-			Members["shresth"],
 			Members["pyrros"],
 			Members["jakov"],
 		},
@@ -403,8 +399,8 @@ var Clients []Client = []Client{
 		</svg>`),
 		Body: template.HTML(`Pi Squared is developing a <em>Universal Settlement Layer</em> designed to settle blockchain transactions, known as "claims," across various programming languages. They achieve this using formal verification proofs and their proprietary SNARK circuit for enhanced succinctness. Their initial implementation includes a Cosmos-based chain capable of verifying state transitions for both EVM and WASM chains. Common Prefix is collaborating with Pi Squared on the implementation of the Cosmos USL and the develpoment of EVM and WASM claim generators. These generators produce state transition claims by accessing only a portion of the state, rather than having access to a full node of every source chain.`),
 		Team: []TeamMember{
-			Members["shresth"],
-			Members["pkakelas"],
+			Members["João"],
+			Members["themis"],
 		},
 		Projects: []Project{},
 	},
@@ -472,7 +468,6 @@ var Clients []Client = []Client{
 		Body: template.HTML(`dcSpark stands behind the Milkomeda system, a blockchain that sits on top of non-EVM-compatible existing chains such as Cardano and Algorand, and enables EVM compatibility. With this simple gesture, a plethora of tools, from smart contracts to wallets and debuggers, become available to this ecosystem. On the practical side, we are working with dcSpark to build and deploy smart contract infrastructure on top of their Layer-2s. On the theoretical side, we are working hand-in-hand with them to understand the game theoretic implications of their future protocols, which they plan to run for their sequencers to ensure provable cryptoeconomic security.`),
 		Team: []TeamMember{
 			Members["zeta"],
-			Members["pkakelas"],
 			Members["dimitris"],
 		},
 		Findings: []Finding{
@@ -491,125 +486,9 @@ var Clients []Client = []Client{
 		Body: template.HTML(`EigenTrust is a growing startup solving the problem of trust and reputation in the web3 space. Contrary to centralized solutions which make use of traditional identity techniques from passports to fingerprints, EigenTrust is innovating by using an eigenvector-based technique to extract trust from the web-of-trust network of its users. Leveraging classical algorithms, such as the <a href="https://nlp.stanford.edu/pubs/eigentrust.pdf">original EigenTrust paper</a>, and related works, such as PageRank, they create trust metrics that are sybil resilient but are open and do not rely on any central authority to maintain. As the technical and scientific advisors of EigenTrust, and leveraging our team's expertise and previous publications in the field (such as <a href="https://eprint.iacr.org/2017/156">Trust is Risk</a> and <a href="https://arxiv.org/abs/1810.01719">A Puff of Steam</a>), we are working with EigenTrust to tweak their protocols and prove that they are sybil-resilient in the cryptographic and rational model.`),
 		Team: []TeamMember{
 			Members["orfeas"],
-			Members["pkakelas"],
 			Members["dionysis"],
 		},
 		Findings: []Finding{},
-	},
-	{
-		Handle: "enosys",
-		Name:   "Ēnosys",
-		Image: template.HTML(`<svg viewBox="0 0 766 174" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M146.192 2.62057C145.362 1.79141 144.341 0.81272 143.483 0.0107422C143.442 0.0515207 143.401 0.0922993 143.36 0.133078C156.608 26.7071 158.052 57.6444 147.704 85.1699C150.195 64.2234 143.401 42.4068 127.307 26.3401C99.4358 -1.49806 54.2315 -1.49806 26.3465 26.3401C-1.52496 54.1782 -1.52496 99.2929 26.3465 127.131C42.4403 143.198 64.2936 149.967 85.2618 147.493C57.7035 157.797 26.7277 156.356 0.122542 143.143C0.0816945 143.184 0.0272315 143.239 0 143.266C0.789713 144.122 1.77005 145.142 2.61422 145.971C37.0348 180.333 104.092 186.505 145.457 145.223C186.808 103.942 180.64 36.9969 146.206 2.62057H146.192ZM46.525 106.986C29.7913 90.2808 29.7913 63.1767 46.525 46.4711C63.2588 29.7655 90.4086 29.7655 107.142 46.4711C123.876 63.1767 123.876 90.2808 107.142 106.986C90.4086 123.692 63.2588 123.692 46.525 106.986Z" fill="currentColor" />
-			<path d="M333.63 139.163C334.27 137.668 335.972 132.639 335.972 121.48V75.4833C335.972 61.9182 334.406 57.2424 333.698 55.8153L335.944 56.0735C342.384 56.8075 348.906 56.7259 355.332 55.8153V69.2308C360.016 62.9784 373.454 54.0347 386.743 54.0347C394.83 54.0347 413.633 56.889 413.633 83.3124C413.66 90.0814 413.633 108.703 413.633 117.293V121.493C413.633 132.652 415.321 137.682 415.961 139.177L415.648 139.136C407.928 138.252 400.126 138.252 392.393 139.136L392.093 139.177C392.72 137.682 394.422 132.652 394.422 121.493V113.351C394.422 104.013 394.422 90.6795 394.422 85.3377C394.422 73.7571 387.75 66.8522 376.572 66.8522C369.751 66.8522 359.335 70.359 355.332 75.2658V121.493C355.332 132.652 356.994 137.695 357.647 139.177L356.286 139.027C348.661 138.225 341.254 138.266 333.63 139.177V139.163Z" fill="currentColor" />
-			<path d="M474.656 140.904C468.965 140.809 463.328 139.857 457.895 138.104C452.994 136.514 428.555 127.094 428.555 97.3951C428.555 67.696 452.994 58.2765 457.895 56.6862C463.328 54.9192 468.978 53.9814 474.669 53.8862C480.347 53.9814 485.997 54.9328 491.43 56.6862C496.331 58.2765 520.77 67.696 520.77 97.3951C520.77 127.094 496.331 136.514 491.43 138.104C485.997 139.871 480.36 140.809 474.669 140.904H474.656ZM474.656 60.1251C459.025 60.1251 448.937 74.7504 448.937 97.3951C448.937 120.04 459.039 134.665 474.656 134.665C490.272 134.665 500.375 120.04 500.375 97.3951C500.375 74.7504 490.272 60.1251 474.656 60.1251Z" fill="currentColor" />
-			<path d="M277.549 140.632C265.364 140.632 254.117 136.296 245.88 128.426C237.044 119.985 232.374 108.309 232.374 94.6626C232.374 84.0878 240.679 53.8857 277.549 53.8857C308.211 53.8857 319.198 75.5926 319.321 94.3364H252.838V94.6626C252.838 112.536 261.701 121.1 265.5 123.954C270.006 127.325 277.345 129.255 285.65 129.255C289.231 129.255 292.744 128.888 295.821 128.208C302.002 126.836 307.897 123.628 314.378 118.109C314.814 117.742 315.25 117.389 315.699 117.049C315.713 117.049 315.74 117.049 315.767 117.063C315.74 117.144 315.699 117.239 315.672 117.321C315.522 117.715 315.372 118.109 315.195 118.463C307.884 132.544 294.269 140.618 277.822 140.618H277.549V140.632ZM277.549 60.179C258.27 60.179 252.838 79.7926 252.81 88.3422H303.486V88.016C303.486 79.8062 296.828 60.179 277.549 60.179Z" fill="currentColor" />
-			<path d="M568.589 140.7C567.378 140.7 566.125 140.659 564.845 140.577C555.546 139.979 542.162 137.002 535.695 133.047V114.018C545.484 126.523 556.54 131.674 564.096 133.808C566.003 134.311 567.881 134.556 569.665 134.556C572.579 134.556 575.397 133.876 578.025 132.544C581.66 130.696 584.083 127.026 584.329 122.948C584.574 118.925 582.722 115.282 579.25 112.958C575.424 110.402 571.176 108.798 566.792 107.249L565.049 106.637C559.44 104.666 553.64 102.628 548.371 99.6373C543.401 96.8101 540.147 94.0237 537.792 90.5848C531.651 81.6003 533.503 68.6197 541.917 61.6333C546.683 57.6779 552.455 55.3536 560.066 54.307C562.544 53.9672 565.09 53.7905 567.65 53.7905C574.607 53.7905 581.959 55.0546 590.142 57.6371C592.334 58.3304 596.65 60.0702 596.691 60.0838L597.249 60.3148C597.249 62.041 597.277 73.5537 597.277 80.3091C595.112 77.9848 587.324 69.7615 583.103 66.5265C578.052 62.6663 573.736 60.6139 569.08 59.8663C567.854 59.676 566.642 59.5672 565.499 59.5672C562.49 59.5672 559.671 60.2469 557.139 61.6061C553.722 63.4275 551.611 66.4449 551.353 69.8974C551.094 73.3362 552.714 76.6256 555.805 78.9227C559.168 81.4236 563.116 82.8236 566.928 84.1693L567.255 84.2916C568.48 84.7266 569.706 85.1479 570.931 85.5693C575.955 87.2955 581.156 89.0897 585.922 91.6994C591.79 94.9208 595.493 98.2645 597.944 102.532C602.505 110.47 602.382 126.441 590.265 134.569C584.138 138.674 577.058 140.672 568.589 140.672V140.7Z" fill="currentColor" />
-			<path d="M626.384 174C625.866 174 625.335 173.986 624.818 173.945V167.421C625.267 167.448 625.703 167.476 626.139 167.476C635.016 167.476 642.64 161.019 647.637 149.289L650.837 141.174L650.605 140.672C648.631 136.295 631.217 97.5976 625.921 85.7587L625.512 84.8616C621.877 76.7199 616.404 64.5004 609.501 55.8149L613.98 56.1955C621.687 56.848 629.447 56.848 637.153 56.1955L641.633 55.8149C638.923 63.6441 639.345 71.7315 642.899 79.8461C645.091 84.8616 655.439 107.493 659.782 116.994L660.109 117.701L675.072 79.7645C677.672 73.3354 679.156 63.7257 675.616 55.8149C681.607 56.712 687.693 56.712 693.684 55.8149C691.383 58.4247 688.796 62.9373 685.801 69.5703L653.778 150.39C647.828 165.396 637.848 174 626.397 174H626.384Z" fill="currentColor" />
-			<path d="M733.877 140.903C732.665 140.903 731.412 140.862 730.132 140.781C720.833 140.183 707.449 137.206 700.982 133.251V114.222C710.772 126.726 721.827 131.878 729.383 134.012C731.29 134.515 733.169 134.759 734.952 134.759C737.866 134.759 740.684 134.08 743.312 132.748C746.947 130.899 749.371 127.229 749.616 123.152C749.861 119.128 748.009 115.486 744.537 113.161C740.711 110.606 736.463 109.002 732.079 107.453L730.337 106.841C724.727 104.87 718.927 102.831 713.658 99.8409C708.688 97.0137 705.434 94.2273 703.079 90.7884C696.938 81.804 698.79 68.8233 707.204 61.8369C711.97 57.8815 717.743 55.5573 725.353 54.5106C727.831 54.1708 730.377 53.9941 732.937 53.9941C739.894 53.9941 747.247 55.2582 755.429 57.8408C757.621 58.534 761.937 60.2738 761.978 60.2874L762.536 60.5184C762.536 62.2447 762.564 73.7573 762.564 80.5127C760.399 78.1884 752.611 69.9651 748.39 66.7301C743.339 62.8699 739.023 60.8175 734.367 60.0699C733.141 59.8796 731.93 59.7709 730.786 59.7709C727.777 59.7709 724.959 60.4505 722.426 61.8097C719.009 63.6311 716.898 66.6486 716.64 70.101C716.381 73.5398 718.001 76.8292 721.092 79.1263C724.455 81.6272 728.403 83.0273 732.215 84.3729L732.542 84.4952C733.768 84.9302 734.993 85.3515 736.218 85.7729C741.242 87.4991 746.443 89.2933 751.209 91.903C757.077 95.1244 760.78 98.4681 763.231 102.736C767.792 110.674 767.669 126.645 755.552 134.773C749.425 138.878 742.345 140.876 733.877 140.876V140.903Z" fill="currentColor" />
-			<path d="M250.096 29.0254C249.714 30.6157 249.047 32.3147 248.666 33.905C258.768 35.6584 268.503 36.3244 277.762 36.2973V32.6273C266.611 32.6681 259.191 31.8662 250.082 29.0254H250.096Z" fill="currentColor" />
-			<path d="M302.266 29.0254C302.647 30.6157 302.647 32.3147 303.028 33.905C292.926 35.6584 283.844 36.3244 274.586 36.2973V32.6273C285.737 32.6681 293.157 31.8662 302.266 29.0254Z" fill="currentColor" />
-		</svg>`),
-		Body: template.HTML(`Ēnosys (previously FLR Finance) is an ecosystem of smart contract protocols, deployed on the Flare Network. We help ensure that Ēnosys can uphold its promise to keep its community safe by delivering concrete recommendations for improvements of its protocols, codebase, and operational security, by ensuring high code quality, and by enhancing its testing pipeline. Our smart contract audits and technical reports are published openly for dissemination within the community. Additionally, we develop novel protocols that expand the Ēnosys ecosystem even further.`),
-		Team: []TeamMember{
-			Members["shresth"],
-			Members["zeta"],
-			Members["nikolas"],
-			Members["dimitris"],
-			Members["pkakelas"],
-			Members["themis"],
-			Members["ristic"],
-			Members["apostolos"],
-			Members["dionysis"],
-		},
-		Projects: []Project{
-			{
-				Title: "Audits",
-				Desc:  template.HTML(`Ēnosys has commissioned Common Prefix to perform smart contract audits for numerous of its protocols.`),
-				Links: []ProjectLink{
-					{
-						Url:  "/static/clients/enosys/enosys_stake_helper_complementary_audit.pdf",
-						Name: "StakeHelper complementary smart contract audit",
-						Date: "2023-06-28",
-					},
-					{
-						Url:  "/static/clients/enosys/enosys_stake_helper_audit.pdf",
-						Name: "StakeHelper smart contract audit",
-						Date: "2023-02-20",
-					},
-					{
-						Url:  "/static/clients/enosys/enosys_ftso_reward_manager_audit.pdf",
-						Name: "FTSORewardManager smart contract audit",
-						Date: "2022-07-04",
-					},
-					{
-						Url:  "/static/clients/enosys/enosys_loans_post_mortem.pdf",
-						Name: "FLRLoans incident post-mortem",
-						Date: "2022-07-04",
-					},
-					{
-						Url:  "/static/clients/enosys/enosys_price_feed_ftso_connector_audit.pdf",
-						Name: "PriceFeedFtsoConnector smart contract audit",
-						Date: "2022-04-18",
-					},
-					{
-						Url:  "/static/clients/enosys/enosys_loans_audit.pdf",
-						Name: "FLRLoans smart contract audit",
-						Date: "2022-02-21",
-					},
-				},
-			},
-			{
-				Title:    "Ēnosys Bridge implementation",
-				IsBridge: true,
-				Desc:     template.HTML(`Common Prefix collaborated with Ēnosys to develop an EVM-to-EVM committee-based bridge. At the time of writing, the Ēnosys Bridge enables token transfers between Ethereum, Flare Networks, and XDC, with <a href="https://defillama.com/protocol/enosys-bridge">$3.3 million in TVL</a>.`),
-				Links: []ProjectLink{
-					{
-						Url:  "https://enosys.global/papers/EnosysBridgeWhitepaper.pdf",
-						Name: "Whitepaper",
-						Date: "2023-03-27",
-					},
-					{
-						Url:  "https://github.com/flrfinance/bridge-contracts",
-						Name: "Implementation GitHub repo",
-						Date: "2022-09-26 - 2023-06-05",
-					},
-					{
-						Url:  "https://enosys.global/products/bridge",
-						Name: "Product page",
-						Date: "2023-06-08",
-					},
-					{
-						Url:  "https://flrfinance.github.io/flr-wraps-contracts/",
-						Name: "Solidity NatSpec API documentation",
-						Date: "2022-09-26 - 2023-06-05",
-					},
-				},
-			},
-			{
-				Title: "Ermis protocol implementation",
-				Desc:  template.HTML(`<em>Phygital tokens</em>, or simply <em>phygitals</em>, bridge the gap between the digital and physical domains by tying phygital NFTs with physical items. Common Prefix collaborated with Ēnosys to develop Ermis, a protocol that enables the redemption of a phygital in exchange for its associated physical item with minimal trust, by tapping into the assurances of the EVM blockchain it is deployed on. It allows vendors and buyers to connect directly via a simple smart contract.`),
-				Links: []ProjectLink{
-					{
-						Url:  "https://enosys.global/papers/ermisWhitepaper.pdf",
-						Name: "Whitepaper",
-						Date: "2023-05-03",
-					},
-					{
-						Url:  "https://ermis.enosys.global/",
-						Name: "Product page",
-						Date: "2023-11-08",
-					},
-					{
-						Url:  "https://flrfinance.github.io/phygital-redemptions-contracts/",
-						Name: "Solidity NatSpec API documentation",
-						Date: "2022-07-19 - 2023-01-26",
-					},
-				},
-			},
-		},
-		Findings:    []Finding{},
-		HideOnIndex: true,
 	},
 	{
 		Handle: "deviantart",
@@ -674,7 +553,6 @@ var Clients []Client = []Client{
 			Members["zeta"],
 			Members["pyrros"],
 			Members["dimitris"],
-			Members["pkakelas"],
 			Members["dionysis"],
 		},
 		Findings: []Finding{
@@ -700,7 +578,6 @@ var Clients []Client = []Client{
 		</svg>`),
 		Body: template.HTML(`The =nil; Foundation is building a set of products that utilize zk-SNARKS to enhance the scalability of Ethereum, including zkSharding, zkLLVM, and the =nil; Proof Market. We are collaborating with the =nil; Foundation as their technical advisor, having conducted a feasibility study on integrating their Proof Market with Aleo and Aztec. The study included an overview of the relevant proof systems, a detailed analysis of their codebases, steps to modify them for proof outsourcing, and a detailed proposal for a modular integration with the =nil; Proof Market.`),
 		Team: []TeamMember{
-			Members["shresth"],
 			Members["pyrros"],
 			Members["dimitris"],
 		},
@@ -730,6 +607,7 @@ var Clients []Client = []Client{
 		Body: template.HTML(`BOB ("Build on Bitcoin") is a hybrid Layer-2 powered by Bitcoin and Ethereum. By combining the security, liquidity, userbase, and innovation of the two largest blockchain ecosystems, BOB aims to close the gap between Bitcoin as a vehicle for mass adoption and Ethereum as a hub for innovation.`),
 		Team: []TeamMember{
 			Members["ristic"],
+			Members["lukas"],			
 		},
 		Findings: []Finding{},
 		Projects: []Project{
@@ -791,8 +669,37 @@ var Clients []Client = []Client{
 		Team: []TeamMember{
 			Members["bernardo"],
 			Members["lioba"],
+			Members["odysseas"],
 		},
 		Findings: []Finding{},
 		Projects: []Project{},
+	},
+	{
+		Handle: "citrea",
+		Name:   "Citrea",
+		Image:  template.HTML(`<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 8150 2000"><defs><style>.cls-1{stroke-width:0}</style></defs><path d="M3453.64 1803.56c-108 0-208.09-19.44-300.25-58.32-90.72-40.32-169.2-95.77-235.46-166.33-64.8-72-115.91-156.25-153.36-252.73-35.99-97.92-54.01-205.21-54.01-321.85s17.3-219.61 51.85-317.54c34.55-99.36 83.51-185.05 146.89-257.05 64.8-73.44 142.56-130.33 233.28-170.65 92.16-41.76 195.13-62.64 308.9-62.64 95.04 0 180.01 13.68 254.89 41.04 74.88 25.92 138.96 62.64 192.25 110.16 54.71 46.08 97.91 100.81 129.59 164.17 31.68 63.36 51.86 131.77 60.48 205.21h-311.04c-14.4-77.76-49.7-139.69-105.87-185.77-56.15-47.52-129.59-71.28-220.32-71.28-72.01 0-134.65 14.4-187.94 43.2-51.83 27.36-95.04 65.52-129.59 114.48-34.58 48.96-60.48 106.57-77.78 172.81-17.28 66.25-25.9 137.53-25.9 213.85s9.35 151.93 28.08 218.17c20.15 66.25 48.24 123.85 84.23 172.81 37.45 47.52 82.1 84.96 133.93 112.32 53.29 25.92 112.34 38.88 177.13 38.88 92.16 0 167.76-24.48 226.81-73.44 60.48-50.4 95.76-116.64 105.84-198.73h306.75c-4.34 69.12-20.89 135.37-49.7 198.73-28.8 61.92-69.11 117.37-120.96 166.33-53.27 50.4-118.09 90.73-194.41 120.97-74.88 28.8-166.33 43.2-274.33 43.2ZM4198 663.02h293.76v1108.13H4198V663.02Zm0-436.34h293.76v263.53H4198V226.68Zm385.86 436.34h153.36V317.4h287.29v345.62h190.1v194.41h-190.1v587.55c0 41.76 10.09 70.56 30.24 86.4 20.18 15.84 46.8 23.76 79.94 23.76h56.15c10.09 0 20.18-.72 30.24-2.16v216.01c-14.38 1.44-30.24 2.16-47.52 2.16-15.84 1.44-35.27 2.16-58.33 2.16h-77.76c-35.99 0-72.01-3.6-108-10.8-34.56-8.64-66.23-23.04-95.04-43.2-28.8-20.16-52.57-47.52-71.29-82.08-17.28-34.56-25.93-77.76-25.93-129.61V857.43h-153.36V663.02Zm1032.6 177.13h6.47c33.12-63.36 70.57-110.89 112.34-142.57 41.77-31.68 95.04-47.52 159.83-47.52 30.24 0 53.29 2.88 69.13 8.64v257.05h-6.47c-96.5-10.08-175.7 10.8-237.62 62.64-61.92 51.84-92.88 136.09-92.88 252.73v540.03h-293.78V663.02h282.98v177.13Zm930.87 963.41c-92.16 0-174.26-15.12-246.27-45.36-70.55-30.24-130.31-71.28-179.29-123.13-48.96-53.28-86.39-115.93-112.31-187.93-24.49-72-36.71-149.05-36.71-231.13s12.94-158.41 38.87-228.97c27.37-72 64.8-133.93 112.34-185.77 48.96-51.84 106.56-92.88 172.8-123.13 67.69-30.24 141.86-45.36 222.49-45.36 89.29 0 167.76 16.56 235.46 49.68 67.67 31.68 124.56 77.04 170.64 136.09 46.08 59.04 80.64 129.61 103.69 211.69 24.49 80.64 36.71 170.65 36.71 270.01H6262.2c11.53 86.41 40.33 154.09 86.41 203.05 47.52 48.96 113.03 73.44 196.57 73.44 57.61 0 103.69-12.24 138.24-36.72 34.55-24.48 59.76-57.6 75.6-99.36h289.45c-10.07 48.96-28.8 95.77-56.17 140.41-25.9 43.2-60.48 81.37-103.66 114.49-41.77 33.12-91.47 59.04-149.05 77.76-57.61 20.16-121.68 30.24-192.25 30.24Zm-23.77-943.97c-77.76 0-136.8 21.6-177.13 64.8-40.31 41.76-66.95 99.36-79.92 172.81h492.51c-4.31-70.56-28.08-127.45-71.29-170.65-41.77-44.64-96.47-66.96-164.17-66.96Zm1343.49 911.57c-8.65-11.52-15.86-28.8-21.61-51.84-5.75-23.04-10.09-46.8-12.96-71.28h-4.31c-14.4 21.6-30.96 41.76-49.68 60.48-17.3 17.28-38.89 32.4-64.82 45.36-24.47 12.96-53.99 23.04-88.57 30.24-34.55 8.64-75.6 12.96-123.12 12.96-113.75 0-206.66-28.8-278.64-86.4-72.01-57.6-108.02-141.85-108.02-252.73 0-60.48 11.53-111.6 34.58-153.37 23.03-41.76 54.71-76.32 95.04-103.69 40.33-27.36 87.13-48.24 140.4-62.64 54.73-15.84 113.06-28.08 174.98-36.72 92.16-12.96 159.86-26.64 203.06-41.04 43.18-14.4 64.8-42.48 64.8-84.24s-15.84-72-47.52-95.04c-30.24-24.48-76.32-36.72-138.24-36.72-69.13 0-120.99 12.96-155.54 38.88-34.56 24.48-53.99 63.36-58.33 116.65h-261.36c1.44-48.96 12.24-95.04 32.4-138.25 20.15-44.64 49.68-83.52 88.57-116.65 38.89-33.12 87.85-59.76 146.89-79.92 59.04-20.16 128.87-30.24 209.53-30.24 165.61 0 284.41 36 356.4 108.01 73.45 70.56 110.18 170.65 110.18 300.25v563.79c0 83.52 12.96 134.64 38.87 153.37v10.8h-282.95Zm-293.79-179.29c41.77 0 78.48-5.76 110.16-17.28 33.12-12.96 60.48-28.8 82.1-47.52 23.03-20.16 40.31-42.48 51.83-66.96 11.53-25.92 17.28-52.56 17.28-79.93v-166.33c-25.91 15.84-57.58 28.8-95.04 38.88-35.99 8.64-72.73 17.28-110.16 25.92-77.76 17.28-135.37 37.44-172.82 60.48-37.43 23.04-56.17 60.48-56.17 112.33s15.84 88.56 47.54 110.16c31.68 20.16 73.42 30.24 125.28 30.24ZM1126.8 745.85c-56.96 0-107.96-29.45-136.44-78.77L605.21 0h1043.18l-385.15 667.08c-28.48 49.32-79.48 78.77-136.44 78.77ZM1483.31 951.7c-56.96 0-107.97-29.45-136.45-78.78-28.48-49.32-28.48-108.22 0-157.55L1732 48.31l521.59 903.39H1483.3ZM605.21 2000l385.15-667.07c28.48-49.32 79.48-78.77 136.44-78.77s107.96 29.45 136.44 78.77L1648.39 2000H605.21ZM1346.87 1284.64c-28.49-49.32-28.49-108.22 0-157.55 28.48-49.32 79.49-78.77 136.45-78.77h770.29l-521.59 903.38-385.14-667.05ZM0 951.7 521.6 48.31l385.13 667.06c28.49 49.32 28.49 108.22 0 157.55-28.48 49.33-79.49 78.78-136.45 78.78H0ZM0 1048.31h770.29c56.96 0 107.97 29.45 136.45 78.77 28.48 49.33 28.48 108.23 0 157.55l-385.13 667.05L0 1048.31Z" class="cls-1"/></svg>`),
+		Body: template.HTML(`
+		Citrea is the first zero-knowledge rollup for Bitcoin, introducing a general-purpose execution layer that also improves scalability, leveraging Bitcoin for both data availability and settlement. Designed with modularity and trust minimization at its core, Citrea enables scalable and expressive Bitcoin applications. 
+		Common Prefix has collaborated with the Citrea team on the design, formalization, and analysis of the bridge and light client, culminating in the work presented in the <a href="https://eprint.iacr.org/2025/776">Clementine paper</a>.`),
+		Team: []TeamMember{
+			Members["lukas"],
+			Members["giulia"],
+			Members["orfeas"],
+		},
+
+		Findings: []Finding{},
+		Projects: []Project{
+			{
+				Title: "Clementine",
+				Desc:  template.HTML(`Clementine is a BitVM-based bridge that connects Citrea with Bitcoin. This bridge combines a Bitcoin light client with zero-knowledge proofs and permissionless challenging. Clementine introduces several improvements over existing BitVM bridge designs, including support for collateral reusage, reduced on-chain overhead, and a secure light client. This protocol is a major step forward for Bitcoin bridges, bringing trust-minimized interoperability and scalability to the Bitcoin ecosystem.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/citrea/citrea_clementine.pdf",
+						Name: "Clementine: A Collateral-Efficient, Trust-Minimized, and Scalable Bitcoin Bridge",
+						Date: "2025-05-02",
+					},
+				},
+			},
+		},
 	},
 }
