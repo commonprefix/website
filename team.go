@@ -3,22 +3,6 @@ package main
 import "html/template"
 
 var Members map[string]TeamMember = map[string]TeamMember{
-	"shresth": {
-		Handle:         "shresth",
-		Name:           "Shresth Agrawal",
-		Specialization: "smart contract development, auditing, algorithms",
-		Desc: template.HTML(`
-			Shresth is a smart contract and backend developer.
-			He holds a bachelor degree in Computer Science from Jacobs University Bremen.
-			He has experience building efficient and secure algorithms,
-			protocols, and smart contracts for several DeFi protocols.
-			Previously, he worked at <a href="https://www.paraswap.io/">ParaSwap</a> where he was responsible for developing a significant part of the core aggregation algorithm.
-			He is interested in Cryptography, Security, Consensus Protocols, Decentralised Finance, and Ethereum.
-			One of Shresth&rsquo;s research highlights is the paper
-			<a href="https://arxiv.org/pdf/2209.08673.pdf">Proofs of Proof-of-Stake with Sublinear Complexity</a>.
-		`),
-		Image: "shresth_agrawal.jpg",
-	},
 	"orestis": {
 		Handle:         "orestis",
 		Name:           "Dr. Orestis Alpos",
@@ -86,26 +70,6 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "joao_azevedo.jpg",
 	},
-
-	"alexis": {
-		Handle:         "alexis",
-		Name:           "Alexis Brezas",
-		Specialization: "smart contract development, algorithms, machine learning, IoT, DevOps, software engineering",
-		Desc: template.HTML(`
-			Alex is a proficient software engineer with over 15 years of experience in the tech industry.
-			In his web2 life, he has served as CTO at
-			<a href="https://www.mayainsights.com/">Maya Insights</a>,
-			a data warehousing solution, and
-			<a href="https://geekbot.com/">Geekbot</a>,
-			a popular Slack chatbot, as well as various engineering roles in diverse projects such as
-			<a href="https://www.e-food.gr/">a popular Greek food delivery service</a>,
-			<a href="https://en.wikipedia.org/wiki/Zino">a social network</a>,
-			a 3D game, ecommerce solutions, and
-            <a href="https://balena.io">IoT</a>.
-			At Common Prefix, he focuses on blockchain engineering and smart contract development.
-		`),
-		Image: "alexis_brezas.jpg",
-	},
 	"pyrros": {
 		Handle:         "pyrros",
 		Name:           "Dr. Pyrros Chaidos",
@@ -123,6 +87,16 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			<a href="https://eprint.iacr.org/2016/368.pdf">Foundations of Fully Dynamic Group Signatures</a>.
 		`),
 		Image: "pyrros_chaidos.jpg",
+	},
+	"makis": {
+		Handle:         "makis",
+		Name:           "Michalis Christou",
+		Specialization: "smart contract development, software engineering, bridges",
+		Desc: template.HTML(`
+			Michalis Christou is a Software Engineer based in Larnaca, Cyprus. He holds a Master’s degree in Advanced Computing from Imperial College London and a Bachelor’s degree in Computer Engineering from the University of Cyprus. 
+			He has multiple years of experience spanning Ethereum smart contract development, embedded systems, and more recently bridges. Michalis is currently focused on smart contract development and bridges at Common Prefix.
+		`),
+		Image: "michalis_christou.jpg",
 	},
 	"bernardo": {
 		Handle:         "bernardo",
@@ -180,21 +154,6 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "nikolaos_kamarinakis.jpg",
 	},
-	"haris": {
-		Handle:         "haris",
-		Name:           "Haris Karavasilis",
-		Specialization: "business development, project management, quantitative finance, risk management",
-		Desc: template.HTML(`
-			Haris works on the business side of things at Common Prefix.
-			His background includes roles at Amazon and Piraeus Bank,
-			where he gained valuable experience in operations, finance and risk management.
-			He holds a Master's degree in Quantitative Finance and Risk Management from Bocconi University
-			and an Electrical & Electronic Engineering Bachelor's degree from the University of Manchester.
-			At Common Prefix, he contributes to both business development and project management,
-			aiming to improve operational and financial efficiency.
-		`),
-		Image: "haris_karavasilis.png",
-	},
 	"dimitris": {
 		Handle:         "dimitris",
 		Name:           "Dr. Dimitris Karakostas",
@@ -210,6 +169,21 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			<a href="https://eprint.iacr.org/2020/173.pdf">Securing Proof-of-Work Ledgers via Checkpointing</a>.
 		`),
 		Image: "dimitris_karakostas.jpg",
+	},
+	"haris": {
+		Handle:         "haris",
+		Name:           "Haris Karavasilis",
+		Specialization: "business development, project management, quantitative finance, risk management",
+		Desc: template.HTML(`
+			Haris works on the business side of things at Common Prefix.
+			His background includes roles at Amazon and Piraeus Bank,
+			where he gained valuable experience in operations, finance and risk management.
+			He holds a Master's degree in Quantitative Finance and Risk Management from Bocconi University
+			and an Electrical & Electronic Engineering Bachelor's degree from the University of Manchester.
+			At Common Prefix, he contributes to both business development and project management,
+			aiming to improve operational and financial efficiency.
+		`),
+		Image: "haris_karavasilis.png",
 	},
 	"odysseas": {
 		Handle:         "odysseas",
@@ -265,27 +239,6 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "orfeas_litos.jpg",
 	},
-	"pkakelas": {
-		Handle:         "pkakelas",
-		Name:           "Dimitris Lamprinos",
-		Specialization: "smart contract development, large scale system design, software engineering, consensus, DevOps",
-		Desc: template.HTML(`
-			Dimitris is a software engineer based in Athens, Greece.
-			He holds a Bachelor's degree in Computer Science
-			from Aristotle University of Thessaloniki.
-			At Common Prefix, he is a software engineer focusing on
-			Solidity smart contracts and basic consensus development.
-			Besides his web3 expertise, Dimitris has significant experience
-			in building and scaling web applications.
-			Before joining Common Prefix, he worked at
-			<a href="https://geekbot.com/">Geekbot</a>,
-			one of the most popular Slack bots, and
-			<a href="https://www.amondo.com/">Amondo</a>,
-			a social media startup with over a million users,
-			where he led the infrastructure team.
-		`),
-		Image: "dimitris_lamprinos.jpg",
-	},
 	"jakov": {
 		Handle:         "jakov",
 		Name:           "Jakov Mitrovski",
@@ -336,6 +289,15 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "giulia_scaffino.png",
 	},
+	"nikos": {
+		Handle:         "nikos",
+		Name:           "Nikos Sfakianakis",
+		Specialization: "software engineering, consensus, offensive security",
+		Desc: template.HTML(`Nikos is a software engineer based in Athens. He is currently wrapping up his Master’s Degree in Electrical and Computer Engineering at the National Technical University of Athens where he is writing his thesis on Consensus Algorithms. 
+		He has previously worked at Mysten Labs as a Blockchain Engineer and completed an internship at the Cybersecurity Department of OTE Group. He has also competed in several Ethical Hacking and Offensive Security competitions.
+		`),
+		Image: "nikos_sfakianakis.jpg",
+	},	
 	"semeli": {
 		Handle:         "semeli",
 		Name:           "Semeli Spanou",
