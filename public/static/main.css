@@ -469,12 +469,13 @@ footer {
   background-position: 0 100%;
 }
 
-.team-member:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.team-member:nth-child(even) > img,
-.team-member:nth-child(even) > .loading-container .skeleton {
+/* NEW helpers for Department filter– JS will add .left / .right on every render */
+.team-member.left  { 
+  flex-direction: row; }
+.team-member.right { 
+  flex-direction: row-reverse; }
+.team-member.right > img,
+.team-member.right > .loading-container .skeleton {
   margin-right: 0;
   margin-left: 32px;
 }

@@ -39,6 +39,15 @@
 		</script>
 
 		
+<style>
+	 
+	.team__filters { margin-bottom:2rem; }
+	.team__filters .filter { cursor:pointer; }
+	.team-member[hidden] { display:none !important; }
+	.team__filters [data-filter="department"] .dropdown {width: 160px;height: auto;max-height: none;}
+
+</style>
+
 	</head>
 	<body>
 		<div class="logo-graphic">
@@ -79,9 +88,33 @@
 		</p>
 	</section>
 
+
+<section>
+	<div class="team__filters research__filters">
+		<p>Filter</p>
+		<div class="filter" data-filter="department">
+			<span>Expertise</span>
+			<span hidden class="value"></span>
+			<button hidden title="Clear this filter.">x</button>
+			
+			<div class="dropdown" hidden>
+				
+					<button title="Filter by this department.">engineering</button>
+				
+					<button title="Filter by this department.">operations</button>
+				
+					<button title="Filter by this department.">science</button>
+				
+			</div>
+		</div>
+
+		<button class="clear-all" hidden>Clear filter</button>
+	</div>
+</section>
+
 	<section>
 		
-		<div class="team-member" id="orestis">
+		<div class="team-member" id="orestis" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -123,7 +156,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="lukas">
+		<div class="team-member" id="lukas" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -161,7 +194,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="zeta">
+		<div class="team-member" id="zeta" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -203,7 +236,75 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="pyrros">
+		<div class="team-member" id="tor" data-dept="operations">
+			<img
+				loading="lazy"
+				draggable="false"
+				src="/static/team/tor_bognaes.jpg"
+				alt="Tor Bognaes"
+				width="280px"
+				height="280px"
+				data-loading
+			/>
+			<div>
+				<div class="team-member__summary">
+					<img
+						loading="lazy"
+						draggable="false"
+						src="/static/team/tor_bognaes.jpg"
+						alt="Tor Bognaes"
+						width="130px"
+						height="130px"
+						data-loading
+					/>
+					<div>
+						<h2>Tor Bognaes</h2>
+						<h4 class="label">business development, finance, operations</h4>
+					</div>
+				</div>
+				<p>
+			Tor supports the growth of Common Prefix, working across business development, finance, marketing, and operations. 
+			His background includes work at Amazon - where he helped scale the EU last-mile logistics network - and at a growth equity investment firm. 
+			He holds MSc degrees in Industrial Economics & Technology Management from the Norwegian University of Science and Technology and in Finance from the Norwegian School of Economics.
+		</p>
+			</div>
+		</div>
+		
+		<div class="team-member" id="dejan" data-dept="engineering">
+			<img
+				loading="lazy"
+				draggable="false"
+				src="/static/team/dejan_cabrilo.png"
+				alt="Dejan Cabrilo"
+				width="280px"
+				height="280px"
+				data-loading
+			/>
+			<div>
+				<div class="team-member__summary">
+					<img
+						loading="lazy"
+						draggable="false"
+						src="/static/team/dejan_cabrilo.png"
+						alt="Dejan Cabrilo"
+						width="130px"
+						height="130px"
+						data-loading
+					/>
+					<div>
+						<h2>Dejan Cabrilo</h2>
+						<h4 class="label">software engineering, auditing, quantitative trading</h4>
+					</div>
+				</div>
+				<p>
+			Dejan is a software engineer based in Belgrade, Serbia. He holds a Bachelor's degree in Computing and Information Systems from Goldsmiths, University of London. 
+			He has many years of experience building high-availability full stack software. He has also done work in data science and low-level programming. 
+			Previously he worked in an e-commerce startup and a quantitative trading firm in traditional finance.
+		</p>
+			</div>
+		</div>
+		
+		<div class="team-member" id="pyrros" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -244,7 +345,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="makis">
+		<div class="team-member" id="makis" data-dept="engineering">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -277,7 +378,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="bernardo">
+		<div class="team-member" id="bernardo" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -317,7 +418,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="robin">
+		<div class="team-member" id="robin" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -353,7 +454,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="lioba">
+		<div class="team-member" id="lioba" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -389,7 +490,42 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="nikolas">
+		<div class="team-member" id="james" data-dept="science">
+			<img
+				loading="lazy"
+				draggable="false"
+				src="/static/team/james_chiang.jpeg"
+				alt="Dr. James Hsin-yu Chiang"
+				width="280px"
+				height="280px"
+				data-loading
+			/>
+			<div>
+				<div class="team-member__summary">
+					<img
+						loading="lazy"
+						draggable="false"
+						src="/static/team/james_chiang.jpeg"
+						alt="Dr. James Hsin-yu Chiang"
+						width="130px"
+						height="130px"
+						data-loading
+					/>
+					<div>
+						<h2>Dr. James Hsin-yu Chiang</h2>
+						<h4 class="label">applied cryptography, privacy-enhancing technologies, blockchain protocols</h4>
+					</div>
+				</div>
+				<p>
+			James is a cryptography postdoctoral researcher at Aarhus University, advised by Ivan Damgård. He holds a PhD from the Technical University of Denmark where he was awarded the DTU Compute Fellowship and advised by Alberto Lluch-Lafuente, Bernardo David and Massimo Bartoletti. 
+			He holds a BSc with distinction from UCLA. His research focuses on privacy-preserving techniques motivated by recent blockchain applications and includes practical advancements in <a href="https://eprint.iacr.org/2025/113.pdf">post-quantum threshold ring signatures</a>, novel notions of <a href="https://eprint.iacr.org/2023/943.pdf">differential privacy for secure multi-party computation</a> (MPC), and the first formal model of <a href="https://arxiv.org/pdf/2106.01870">miner-extractable-value</a> (MEV).
+			His research has been published in ACM CCS, Financial Cryptography, AFT and recognized with the Sui Academic Research Award.
+			Prior to academia, James designed flight hardware for Mars rovers at JPL NASA, advised technology firms on three continents at the Boston Consulting Group, co-founded the leading solar business software company (Eturnity) and contributed to multiple open-source implementations of the original Bitcoin protocol (Core/Libbitcoin).	
+		</p>
+			</div>
+		</div>
+		
+		<div class="team-member" id="nikolas" data-dept="engineering">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -425,7 +561,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="dimitris">
+		<div class="team-member" id="dimitris" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -464,7 +600,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="haris">
+		<div class="team-member" id="haris" data-dept="operations">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -502,7 +638,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="julian">
+		<div class="team-member" id="julian" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -541,7 +677,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="jakov">
+		<div class="team-member" id="jakov" data-dept="engineering">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -584,7 +720,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="themis">
+		<div class="team-member" id="themis" data-dept="engineering">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -622,7 +758,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="João">
+		<div class="team-member" id="João" data-dept="engineering">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -658,7 +794,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="ristic">
+		<div class="team-member" id="ristic" data-dept="engineering">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -691,7 +827,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="giulia">
+		<div class="team-member" id="giulia" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -729,7 +865,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="nikos">
+		<div class="team-member" id="nikos" data-dept="engineering">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -761,7 +897,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="odysseas">
+		<div class="team-member" id="odysseas" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -798,7 +934,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="semeli">
+		<div class="team-member" id="semeli" data-dept="operations">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -838,7 +974,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="orfeas">
+		<div class="team-member" id="orfeas" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -885,7 +1021,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="apostolos">
+		<div class="team-member" id="apostolos" data-dept="engineering">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -929,7 +1065,7 @@
 			</div>
 		</div>
 		
-		<div class="team-member" id="dionysis">
+		<div class="team-member" id="dionysis" data-dept="science">
 			<img
 				loading="lazy"
 				draggable="false"
@@ -973,6 +1109,58 @@
 		
 	</section>
 </main>
+
+<script>
+(() => {
+  const cards   = document.querySelectorAll('.team-member');
+  const chip    = document.querySelector('[data-filter="department"]');
+  const clear   = document.querySelector('.clear-all');
+  const buttons = document.querySelectorAll('[data-filter="department"] .dropdown button');
+
+  let active = '';
+
+  function updateAlternating() {
+    const visible = [...cards].filter(c => !c.hidden);
+    visible.forEach((card, i) => {
+      card.classList.toggle('left',  i % 2 === 0);
+      card.classList.toggle('right', i % 2 === 1);
+    });
+  }
+
+  function render() {
+    cards.forEach(c => c.hidden = !!active && c.dataset.dept !== active);
+     
+    chip.querySelector('.value').hidden = !active;
+    chip.querySelector('button').hidden = !active;
+    chip.querySelector('.value').innerHTML = active ? `<span>${active}</span>` : '';
+    clear.hidden = !active;
+     
+    buttons.forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === active));
+	 
+ 	updateAlternating();
+  	}
+	
+   
+  chip.addEventListener('click', e => {
+    if(['span','div','i'].includes(e.target.localName)) {
+      chip.querySelector('.dropdown').toggleAttribute('hidden');
+      e.stopPropagation();
+    }
+  });
+  buttons.forEach(b => b.addEventListener('click', e => {
+    active = e.target.textContent.toLowerCase();
+    chip.querySelector('.dropdown').hidden = true;
+    render();
+  }));
+  chip.querySelector('button').addEventListener('click', () => { active=''; render(); });
+  clear.addEventListener('click', () => { active=''; render(); });
+
+   
+  document.addEventListener('click', () => chip.querySelector('.dropdown').hidden = true);
+
+  render();            
+})();
+</script>
 
 
 					<footer>
