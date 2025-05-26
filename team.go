@@ -7,6 +7,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "orestis",
 		Name:           "Dr. Orestis Alpos",
 		Specialization: "consensus, distributed systems, threshold cryptography, applied cryptography",
+		Department: "science",
 		Desc: template.HTML(`
 			Orestis is a blockchain researcher based in Bern, Switzerland.
 			He holds a PhD from the University of Bern, advised by Christian Cachin,
@@ -26,6 +27,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "lukas",
 		Name:           "Dr. Lukas Aumayr",
 		Specialization: "distributed systems, scaling blockchains, blockchain interoperability, applied cryptography, protocol analysis",
+		Department: "science",
 		Desc: template.HTML(`
             Lukas is a blockchain researcher specializing in distributed systems, applied cryptography,
             and protocol analysis, with a focus on blockchain scalability and interoperability.
@@ -41,6 +43,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "zeta",
 		Name:           "Dr. Zeta Avarikioti",
 		Specialization: "distributed systems, scaling blockchains, cryptoeconomic incentive analysis",
+		Department: "science",
 		Desc: template.HTML(`
 			Zeta is an upcoming Assistant Professor at the Technical University of Vienna (TU Wien) in Austria.
 			She is currently a post-doctoral blockchain researcher at TU Wien working with professor Matteo Maffei.
@@ -61,6 +64,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "João",
 		Name:           "João Pedro Coelho de Azevedo",
 		Specialization: "smart contract development, large scale system design, software engineering",
+		Department: "engineering",
 		Desc: template.HTML(`
 			João is a software engineer with experience in blockchain, fintech, and automotive technologies. 
 			He holds a Master’s degree in Electronics and Telecommunications Engineering from the University of Aveiro. 
@@ -70,10 +74,35 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "joao_azevedo.jpg",
 	},
+	"tor": {
+		Handle:         "tor",
+		Name:           "Tor Bognaes",
+		Specialization: "business development, finance, operations",
+		Department: "operations",
+		Desc: template.HTML(`
+			Tor supports the growth of Common Prefix, working across business development, finance, marketing, and operations. 
+			His background includes work at Amazon - where he helped scale the EU last-mile logistics network - and at a growth equity investment firm. 
+			He holds MSc degrees in Industrial Economics & Technology Management from the Norwegian University of Science and Technology and in Finance from the Norwegian School of Economics.
+		`),
+		Image: "tor_bognaes.jpg",
+	},
+	"dejan": {
+		Handle:         "dejan",
+		Name:           "Dejan Cabrilo",
+		Specialization: "software engineering, auditing, quantitative trading",
+		Department: "engineering",
+		Desc: template.HTML(`
+			Dejan is a software engineer based in Belgrade, Serbia. He holds a Bachelor's degree in Computing and Information Systems from Goldsmiths, University of London. 
+			He has many years of experience building high-availability full stack software. He has also done work in data science and low-level programming. 
+			Previously he worked in an e-commerce startup and a quantitative trading firm in traditional finance.
+		`),
+		Image: "dejan_cabrilo.png",
+	},
 	"pyrros": {
 		Handle:         "pyrros",
 		Name:           "Dr. Pyrros Chaidos",
 		Specialization: "zero-knowledge proofs, voting",
+		Department: "science",
 		Desc: template.HTML(`
 			Pyrros is a post-doctoral blockchain researcher at the University of Athens. He holds a PhD from the
 			University College of London, advised by Jens Groth and Allan Sikk, an MSc in Information Security from the University College of London, an MSc in
@@ -88,10 +117,24 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "pyrros_chaidos.jpg",
 	},
+	"james": {
+		Handle:         "james",
+		Name:           "Dr. James Hsin-yu Chiang",
+		Specialization: "applied cryptography, privacy-enhancing technologies, blockchain protocols",
+		Department: "science",
+		Desc: template.HTML(`
+			James is a cryptography postdoctoral researcher at Aarhus University, advised by Ivan Damgård. He holds a PhD from the Technical University of Denmark where he was awarded the DTU Compute Fellowship and advised by Alberto Lluch-Lafuente, Bernardo David and Massimo Bartoletti. 
+			He holds a BSc with distinction from UCLA. His research focuses on privacy-preserving techniques motivated by recent blockchain applications and includes practical advancements in <a href="https://eprint.iacr.org/2025/113.pdf">post-quantum threshold ring signatures</a>, novel notions of <a href="https://eprint.iacr.org/2023/943.pdf">differential privacy for secure multi-party computation</a> (MPC), and the first formal model of <a href="https://arxiv.org/pdf/2106.01870">miner-extractable-value</a> (MEV).
+			His research has been published in ACM CCS, Financial Cryptography, AFT and recognized with the Sui Academic Research Award.
+			Prior to academia, James designed flight hardware for Mars rovers at JPL NASA, advised technology firms on three continents at the Boston Consulting Group, co-founded the leading solar business software company (Eturnity) and contributed to multiple open-source implementations of the original Bitcoin protocol (Core/Libbitcoin).	
+		`),
+		Image: "james_chiang.jpeg",
+	},
 	"makis": {
 		Handle:         "makis",
 		Name:           "Michalis Christou",
 		Specialization: "smart contract development, software engineering, bridges",
+		Department: "engineering",
 		Desc: template.HTML(`
 			Michalis Christou is a Software Engineer based in Larnaca, Cyprus. He holds a Master’s degree in Advanced Computing from Imperial College London and a Bachelor’s degree in Computer Engineering from the University of Cyprus. 
 			He has multiple years of experience spanning Ethereum smart contract development, embedded systems, and more recently bridges. Michalis is currently focused on smart contract development and bridges at Common Prefix.
@@ -102,6 +145,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "bernardo",
 		Name:           "Prof. Bernardo David",
 		Specialization: "multiparty computation, consensus",
+		Department: "science",
 		Desc: template.HTML(`
 			Bernardo David is an Associate Professor at the IT University of Copenhagen, working on cryptographic protocols
 			for multiparty computation and blockchain consensus/applications with the support of Concordium Foundation,
@@ -119,6 +163,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "robin",
 		Name:           "Dr. Robin Fritsch",
 		Specialization: "DeFi, game theory, graph algorithms",
+		Department: "science",
 		Desc: template.HTML(`
             Robin holds a PhD from ETH Zurich, advised by Roger Wattenhofer, focusing on game theory and decentralized finance. 
 			He completed his MSc degree in Mathematics in Data Science from the Technical University of Munich.  
@@ -132,6 +177,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "lioba",
 		Name:           "Lioba Heimbach",
 		Specialization: "DeFi, cryptoeconomic incentives analysis, MEV, game theory",
+		Department: "science",
 		Desc: template.HTML(`
 			Lioba is a doctoral student at ETH Zurich advised by Roger Wattenhofer. 
 			She holds a MSc degree in Electrical Engineering and Information Technology from ETH Zurich. 
@@ -145,6 +191,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "nikolas",
 		Name:           "Nikolaos Kamarinakis",
 		Specialization: "smart contract development, auditing, software engineering, offensive security",
+		Department: "engineering",
 		Desc: template.HTML(`
 			Nikolas is a software engineer based in Athens, Greece.
 			He holds a Bachelor&rsquo;s degree in Computer Science with a minor in Cybersecurity from the University of Maryland.
@@ -158,6 +205,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "dimitris",
 		Name:           "Dr. Dimitris Karakostas",
 		Specialization: "cryptocurrency wallets, macroeconomics, checkpointing",
+		Department: "science",
 		Desc: template.HTML(`
 			Dimitris is a post-doctoral blockchain researcher at the University of Edinburgh where he works with professor
 			Aggelos Kiayias. He holds a PhD from the University of Edinburgh, advised by Aggelos Kiayias, and an Electrical and Computer Engineering
@@ -174,6 +222,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "haris",
 		Name:           "Haris Karavasilis",
 		Specialization: "business development, project management, quantitative finance, risk management",
+		Department: "operations",
 		Desc: template.HTML(`
 			Haris works on the business side of things at Common Prefix.
 			His background includes roles at Amazon and Piraeus Bank,
@@ -189,6 +238,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "odysseas",
 		Name:           "Odysseas Sofikitis",
 		Specialization: "consensus, proof-of-work, machine learning",
+		Department: "science",
 		Desc: template.HTML(`
 		Odysseas is a blockchain researcher based in Athens,
 		specializing in consensus mechanisms and proof-of-work protocols for blockchain systems.
@@ -203,6 +253,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "julian",
 		Name:           "Prof. Julian Loss",
 		Specialization: "cryptography, distributed systems, consensus",
+		Department: "science",
 		Desc: template.HTML(`
 		Julian is a professor at CISPA Helmholtz Center for Information Security, focusing on cryptography and its applications to distributed algorithms.  
 		He holds a PhD in Mathematics from Ruhr University Bochum, advised by Eike Kiltz, and a MSc in Computer Science from ETH Zurich.  
@@ -219,6 +270,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "orfeas",
 		Name:           "Dr. Orfeas Stefanos Thyfronitis Litos",
 		Specialization: "distributed systems, scaling blockchains, interoperability, protocol analysis, cryptoeconomic incentive analysis, voting, software engineering, payment channels",
+		Department: "science",
 		Desc: template.HTML(`
 		Orfeas is currently a research associate at Imperial College London.
 		He obtained his
@@ -243,6 +295,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "jakov",
 		Name:           "Jakov Mitrovski",
 		Specialization: "smart contract development, auditing, software engineering, algorithms, complexity",
+		Department: "engineering",
 		Desc: template.HTML(`
 			Jakov is a software engineer based in Munich,
 			currently pursuing his Master's degree in Informatics at the Technical University of Munich.
@@ -263,6 +316,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "themis",
 		Name:           "Themis Papameletiou",
 		Specialization: "smart contract development, testing, software engineering, algorithmic trading, rockets",
+		Department: "engineering",
 		Desc: template.HTML(`
 			Themis is a software engineer based in Athens.
 			He has significant experience developing software for a variety of projects
@@ -278,6 +332,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "giulia",
 		Name:           "Giulia Scaffino",
 		Specialization: "scaling blockchains, blockchain interoperability, cryptoeconomic incentive analysis",
+		Department: "science",
 		Desc: template.HTML(`
 			Giulia is a doctoral blockchain researcher at the Technical University of Vienna (TU Wien),
 			working in the Security and Privacy group with Prof. Matteo Maffei.
@@ -293,6 +348,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "nikos",
 		Name:           "Nikos Sfakianakis",
 		Specialization: "software engineering, consensus, offensive security",
+		Department: "engineering",
 		Desc: template.HTML(`Nikos is a software engineer based in Athens. He is currently wrapping up his Master’s Degree in Electrical and Computer Engineering at the National Technical University of Athens where he is writing his thesis on Consensus Algorithms. 
 		He has previously worked at Mysten Labs as a Blockchain Engineer and completed an internship at the Cybersecurity Department of OTE Group. He has also competed in several Ethical Hacking and Offensive Security competitions.
 		`),
@@ -302,6 +358,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "semeli",
 		Name:           "Semeli Spanou",
 		Specialization: "operations, logistics, biotech, data analytics",
+		Department: "operations",
 		Desc: template.HTML(`
 			Semeli is a member of the Operations team at Common Prefix,
 			where she collaborates with a diverse range of stakeholders
@@ -319,6 +376,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "apostolos",
 		Name:           "Apostolos Tzinas",
 		Specialization: "smart contract development, algorithms, software engineering, consensus",
+		Department: "engineering",
 		Desc: template.HTML(`
 			Apostolos is a blockchain researcher and engineer at Common Prefix,
 			specialising in blockchain consensus and decentralised finance.
@@ -340,6 +398,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "ristic",
 		Name:           "Nikola Ristić",
 		Specialization: "smart contract development, full-stack web development, software engineering, algorithms, circus acrobatics",
+		Department: "engineering",
 		Desc: template.HTML(`
 			Nikola is a self-taught software engineer based in Belgrade, Serbia. He started with algorithms in elementary school and won 2 gold medals in national high-school competitions in Serbia. Before his web3 journey he has helped various startups scale their products and teams, notably <a href="https://hellosuper.com">Super</a> and <a href="https://www.amondo.com">Amondo</a>, and has 10 years of freelance experience as a full-stack web developer.
 
@@ -350,6 +409,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "dionysis",
 		Name:           "Dr. Dionysis Zindros",
 		Specialization: "consensus, light clients, bridges, interoperability, fast bootstrapping, algorithms, software engineering",
+		Department: "science",
 		Desc: template.HTML(`
 			Dionysis is a co-founder and researcher at Common Prefix
 			focusing on consensus, light clients, bridges, interoperability, and fast bootstrapping.

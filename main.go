@@ -73,6 +73,20 @@ type TeamMember struct {
 	Specialization string
 	Desc           template.HTML
 	Image          string
+	Department     string
+}
+
+func distinctDepartments(members []TeamMember) []string {
+	seen   := map[string]struct{}{}
+	depts  := []string{}
+	for _, m := range members {
+		if _, ok := seen[m.Department]; !ok {
+			seen[m.Department] = struct{}{}
+			depts = append(depts, m.Department)
+		}
+	}
+	sort.Strings(depts)
+	return depts
 }
 
 // john_doe.jpg -> john_doe_w150.jpg
@@ -189,6 +203,7 @@ type Page struct {
 	Title          string
 	Description    string
 	Members        []TeamMember
+	Departments    []string
 	Clients        []Client
 	Grants         []Grantor
 	Research       Research
@@ -265,7 +280,12 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", teamTmplName)
 	}
-	teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Clients: Clients, Grants: Grants})
+	teamSlice := make([]TeamMember, 0, len(Members))
+	for _, m := range Members {
+    teamSlice = append(teamSlice, m)
+}
+	allDepartments := distinctDepartments(team)
+	teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Departments: allDepartments, Clients: Clients, Grants: Grants})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", teamTmplName)
 
