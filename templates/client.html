@@ -44,7 +44,20 @@
 		</div>
 	</section>
 	{{end}}
-
+{{ range .Posts }}
+	{{ if not .IsDraft}}
+	<figure class="blog-figure">
+		<a href="/blog/{{ .Slug }}">
+			<figcaption>
+				<span>{{ .Title }}</span>
+			</figcaption>
+		</a>
+		<p style="margin-bottom:16px;">on {{ .FormatDate }} by {{range .Authors}}<a href="/team#{{.Handle}}">{{.Name}}</a> {{end}}</p>
+		<p>{{ .Description }}</p>
+		<small>Reading time: {{ .ReadingTime }} minutes</small>
+	</figure>
+	{{end}}
+{{ end }}
 	{{ if gt (len .Client.Team) 1 }}
 	<section>
 		<h3>Team on this Client</h3>
