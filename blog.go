@@ -32,6 +32,7 @@ type Post struct {
 	Authors        []TeamMember `yaml:"ignore"`
 	IsDraft        bool         `yaml:"draft"`
 	Date           string       `yaml:"date"`
+	Index          bool         `yaml:"index"` // If the Post should be displayed on the main blog page
 	DateTime       time.Time
 	Description    string `yaml:"desc"`
 	DescBody       template.HTML
@@ -140,7 +141,7 @@ func newPost(fn string) (*Post, error) {
 	return &p, nil
 }
 
-func genBlog() {
+func genBlog() []*Post {
 	var posts []*Post
 
 	// Read markdown files
@@ -177,4 +178,6 @@ func genBlog() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	return posts
 }

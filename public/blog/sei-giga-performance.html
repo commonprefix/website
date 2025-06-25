@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Common Prefix — Sei Giga, Under the Hood - Part 2: Performance</title>
+		<meta name="description" content="The second instalment explores the performance enhancements of Sei Giga." />
+
+		<meta property="og:title" content="Common Prefix — Sei Giga, Under the Hood - Part 2: Performance">
+		<meta property="og:description" content="The second instalment explores the performance enhancements of Sei Giga.">
+		<meta property="og:url" content="https://commonprefix.com/">
+		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
+
+		<meta name="twitter:title" content="Common Prefix — Sei Giga, Under the Hood - Part 2: Performance">
+		<meta name="twitter:description" content="The second instalment explores the performance enhancements of Sei Giga.">
+		<meta property="twitter:url" content="https://commonprefix.com/">
+		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="commonprefix.com">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/png" href="/static/favicon/favicon.png" />
+		<link rel="manifest" href="/static/site.webmanifest">
+
+		<link rel="preload" href="/static/main.css" as="style" />
+		<link rel="stylesheet" href="/static/main.css" />
+		<script src="/static/main.js"></script>
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVFWK2DDQF"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){ dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'G-ZVFWK2DDQF');
+		</script>
+
+		
+
+<link href="/static/prism.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="logo-graphic">
+			<img draggable="false" src="/static/commonprefix_logo.jpg" alt="" />
+			<img
+				style="visibility: hidden"
+				class="logo-graphic__clip"
+				draggable="false"
+				src="/static/commonprefix_logo.jpg"
+				alt=""
+			/>
+		</div>
+
+		<div class="outer-container">
+			<div class="container">
+				<div class="small-container">
+					<header>
+						<a href="/" class="header__company-name"
+							><h2>Common <span>⎵</span> Prefix</h2>
+						</a>
+						<nav>
+							<a href="/team.html">Team</a>
+							<a href="/research.html">Research</a>
+							
+							<a href="/bridges.html">Bridges</a>
+							<a href="/blog/">Blog</a>
+							<a href="/careers.html" class="careers-link">Careers</a>
+						</nav>
+					</header>
+
+					
+<main class="blog-post">
+	<h1>Sei Giga, Under the Hood - Part 2: Performance</h1>
+	<h5 class="mono light blog-post__date">06/06/2025<br />
+		<div class="blog-post__authors">
+		
+			<a href="/team#dimitris">Dr. Dimitris Karakostas</a>
+		
+		</div>
+	</h5>
+	<h5>Reading time: 9 minutes</h5>
+
+	
+
+	<section class="content">
+		<p>Sei Giga will be the new exciting era for the Sei blockchain system.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> Sei Giga will mark a major shift in how transactions are published, processed, and finalized in Sei. For this reason, Sei Labs commissioned Common Prefix to review the Sei Giga proposal and outline its findings in a series of blog posts.</p>
+
+<p>In this second instalment we will explore the performance enhancements of Sei Giga.</p>
+
+<h2 id="decoupling-of-transaction-ordering-and-execution">Decoupling of transaction ordering and execution</h2>
+
+<p>In the first part, we discussed how Autobahn disentangles data dissemination from reaching consensus. This enables transaction and data dissemination to progress at the pace of the network, without being affected by consensus-related performance degradations, such as faulty leaders.</p>
+
+<p>Sei Giga takes this idea one step further by decoupling the ordering of transactions from their execution. Specifically, in Sei Giga the organization of transactions in a ledger and their execution takes place via distinct operations that can be executed in parallel for maximum efficiency.</p>
+
+<p>First, transaction data is disseminated across peers as discussed in Autobahn. Remember that, as long as a validator knows that the data is available somewhere, that is in some honest peer, they do not block their consensus participation until receiving this data. This enables lower latency and, using Autobahn’s parallel chain structure, higher throughput.</p>
+
+<p>Following, transactions are organized in batches (blocks) and finalized via a Byzantine Fault Tolerant (BFT) consensus mechanism, which is executed among all participating nodes (validators). The output of the consensus protocol is a ledger of transactions organized in blocks.</p>
+
+<p>After blocks are created, each validator executes asynchronously the transactions published in the ledger. The execution of transactions produces the updated global state of the system, which includes updated account balances and smart contracts’ internal state. Finally, a succinct commitment of the newly-computed state is published on-chain and finalized at a future block, when at least ⅔ of validators verify it and vote in support of it.</p>
+
+<p>Interestingly, these operations are mostly independent and highly parallelizable. For example, new transactions are produced, organized in blocks, and finalized, while old transactions are being executed. Similarly, state commitment proceeds in parallel with block production and the publishing of new transactions, with blocks getting produced and transactions getting published in them, whilst validators execute older transactions and update the system’s global state.</p>
+
+<p>Nonetheless, this parallelization effort and the asynchronous nature of the system comes with tradeoffs. Specifically, the finalized ledger of transactions is “dirty”, in the sense that a transaction included in a finalized block may be invalid, e.g., double spend assets. The idea of dirty (also called “lazy”) ledgers is not new and has been extensively explored in both the academic literature<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> and deployed systems<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>. The main idea behind lazy ledgers is that, instead of invalidating an entire block when it contains an invalid transaction, the ledger is sanitized and invalid transactions are ignored when computing the new state.</p>
+
+<p>One major consideration in lazy ledgers is protection against spamming. Because transactions are finalized in blocks before getting executed, an attacker could try to flood the network with invalid transactions. If no precaution is taken, then the blocks could be filled with these invalid transactions, thus delaying or altogether prohibiting the finalization of correct transactions. Note that it is impossible for a node to deduce whether a transaction is invalid without executing it,<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup> so a pre-emptive blocking of such transactions without executing them is not viable.</p>
+
+<p>The common approach to prevent such spamming is enforcing the payment of fees for not-yet-executed transactions. In this way, every transaction incurs fees to its creator, regardless if it is valid or not, and, crucially, the calculation of these fees and their charging happens <em>before</em> the transaction’s execution and upon publishing it in a block. This means that the system needs to maintain some minimal state, related to the handling and payment of these anti-spamming fees, which needs to be updated <em>synchronously</em> with respect to the consensus mechanism. In Sei Giga, the details of such an anti-spamming mechanism are not yet known, but it should be expected that they are part of the overarching transaction fee mechanism.</p>
+
+<h2 id="parallel-transaction-execution">Parallel transaction execution</h2>
+
+<p>Another point of performance exploration in Sei Giga concerns the parallelization of transaction execution. In the previous section, we discussed how transactions are executed independently from the consensus mechanism, that is after they are finalized. However, transaction execution itself can be further parallelized and yield better performance.</p>
+
+<p>In the most straightforward manner, used in traditional blockchain systems, the ledger’s transactions are executed sequentially. This mode ensures that transactions are executed as intended and the final computed state is correct and consistent across all nodes, since everyone agrees on transaction ordering via the consensus mechanism. This is particularly important if two or more transactions are dependent, that is they access the same state elements. For example, if Alice sends to Bob 5 tokens (transaction 1) and then Bob sends 4 of them Charlie (transaction 2), then the correctness of transaction 2 is dependent on the existence of transaction 1; in other words, these two transactions need to be executed sequentially in order to compute the correct final balance changes (Alice -5, Bob +1, Charlie +4).</p>
+
+<p>In Sei Giga though, transactions are executed in parallel. The core intuition behind this choice is that most transactions are not dependent on others, meaning they don’t access the same state elements. For example, if Alice sends to Bob 5 tokens (transaction 1) and then Charlie sends to David 3 tokens (transaction 2), these two transactions are completely independent and can be optimistically executed in parallel. When, however, two transactions do indeed access the same state, then such dependency is identified and handled appropriately, by rolling them back and executing them sequentially afterwards.</p>
+
+<p>This mechanism is called Optimistic Concurrency Control (OCC) and has the potential to boost performance significantly, as demonstrated both in the literature and in practice.<sup class="footnote-ref" id="fnref:5"><a href="#fn:5">5</a></sup> Note that OCC does introduce a tradeoff, since the dependent transactions add the overhead of roll back and re-execution. Therefore, OCC is particularly effective if most transactions are parallelizable, whereas it may degrade performance if the majority of transactions access the same state. Interestingly, some reports measured 64.85% of Ethereum transactions as being parallelizable,<sup class="footnote-ref" id="fnref:6"><a href="#fn:6">6</a></sup> while others increase this figure to 83% on average.<sup class="footnote-ref" id="fnref:7"><a href="#fn:7">7</a></sup> Therefore, if transaction parallelization in Sei Giga has a similar rate as in Ethereum, then OCC can significantly boost its performance compared to sequential transaction execution.</p>
+
+<h2 id="data-structures-and-primitives">Data structures and primitives</h2>
+
+<p>A third approach that Sei Giga takes for improving performance is using non-standard data structures and cryptographic primitives, which are tailored to its particular needs. In this review we will not go into depth in Sei Giga’s implementation, but rather discuss three such components.</p>
+
+<p>The first primitive is Log Structured Merge (LSM) trees.<sup class="footnote-ref" id="fnref:8"><a href="#fn:8">8</a></sup> LSM trees were invented almost 30 years ago and are attractive for databases or file systems with high insert volume. In particular, LSM trees maintain data in two or more separate structures. Each data structure is stored on a different medium and optimized for it, such as RAM or SSD storage, with data synchronized across them efficiently in batches. In Sei Giga, LSMs are used to organize transactions in a block. In blockchain systems, the most common approach in organizing a block’s transactions is via Merkle trees,<sup class="footnote-ref" id="fnref:9"><a href="#fn:9">9</a></sup> where each of the tree’s leaves contains a single transaction. Although Merkle trees enable secure verification of the contents of large data structures, they require traversing multiple tree nodes and performing repeated hashing operations when writing data. Instead, LSM trees are useful for storing key-value pairs and efficiently updating them in a parallelizable manner.</p>
+
+<p>Following LSMs, Sei Giga also borrows ideas from traditional database and storage management by using a tiered approach for caching and storing data. Specifically, recent blocks and transactions, as well as frequently accessed state elements, are stored in memory or high performance SSDs. Instead, stale state or historical transactions are stored to cost-effective archival storage, such as a distributed columnar database.</p>
+
+<p>Finally, Sei Giga uses a cryptographic accumulator<sup class="footnote-ref" id="fnref:10"><a href="#fn:10">10</a></sup> in order to store the global state. As discussed above, after a block is finalized, its transactions are executed in parallel. The updated state, which results from these transactions’ execution, is stored in an accumulator in the form of key-value pairs. Accumulators are particularly tailored for Sei Giga’s use case for various reasons. First, they enable constant time operations, which is particularly important for processing large amounts of transactions. Second, they allow compact aggregation of membership proofs, across many keys in the structure. This is particularly useful for blockchain systems, where updates occur in batches (blocks), since it allows validators to update the state without performing multiple operations for each individual transaction, as is the case with re-hashing operations in Merkle trees. Third, the accumulator can be updated asynchronously, which is particularly fitted for Sei Giga’s parallelized transaction execution.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In this article we explored various approaches that Sei Giga takes in order to improve performance. We investigated the decoupling of transaction ordering from execution, which results in a lazy ledger. This approach is common in the literature, but needs careful consideration and implementation to properly sanitize the final ledger and avoid hazards like Denial-of-Service via spamming of invalid transactions. Next we discussed the parallelization of transaction execution. Transactions are assumed to be independent from one another and are optimistically executed in parallel. Nonetheless, when conflicts occur, for example if two transactions access the same objects of the global state, then the implementation should carefully roll them back and re-execute them in sequence, ensuring that the final computed state is correct and consistent across all nodes. Finally, we reviewed Sei Giga’s usage of non-standard data structures and cryptographic primitives for improving efficiency in various operations. These include LSM trees for transaction organization within a block, tiered caching and data storage, and cryptographic accumulators for storing the global state.</p>
+
+<p>Altogether these approaches have the potential to qualitatively improve Sei Giga’s performance and enhance the guarantees achieved by Autobahn.<sup class="footnote-ref" id="fnref:11"><a href="#fn:11">11</a></sup> Nonetheless, although they have been previously discussed in the literature and tested in some real-world systems, they need to be carefully designed, implemented, and reviewed, in order to ensure that potential corner cases are properly handled and hazards are avoided.</p>
+
+<div class="footnotes">
+
+
+<ol>
+<li id="fn:1"><a href="https://www.sei.io" target="_blank">https://www.sei.io</a></li>
+
+<li id="fn:2"><a href="https://arxiv.org/abs/1905.09274" target="_blank">https://arxiv.org/abs/1905.09274</a>; <a href="https://arxiv.org/abs/1810.08092" target="_blank">https://arxiv.org/abs/1810.08092</a>; <a href="https://eprint.iacr.org/2018/1119" target="_blank">https://eprint.iacr.org/2018/1119</a></li>
+
+<li id="fn:3"><a href="https://celestia.org/" target="_blank">https://celestia.org</a></li>
+
+<li id="fn:4">This is a result of the infamous halting problem in computability theory.</li>
+
+<li id="fn:5">OCC has been explored in protocols like FastPay (<a href="https://arxiv.org/abs/2003.11506" target="_blank">https://arxiv.org/abs/2003.11506</a>)  and the more recent Sui Lutris (<a href="https://arxiv.org/abs/2310.18042" target="_blank">https://arxiv.org/abs/2310.18042</a>), which is the core component of Sui’s distributed ledger (<a href="https://sui.io/" target="_blank">https://sui.io</a>).</li>
+
+<li id="fn:6"><a href="https://blog.sei.io/research-64-85-of-ethereum-transactions-can-be-parallelized" target="_blank">https://blog.sei.io/research-64-85-of-ethereum-transactions-can-be-parallelized</a></li>
+
+<li id="fn:7"><a href="https://arxiv.org/abs/2505.05358" target="_blank">https://arxiv.org/abs/2505.05358</a></li>
+
+<li id="fn:8"><a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree" target="_blank">https://en.wikipedia.org/wiki/Log-structured_merge-tree</a></li>
+
+<li id="fn:9"><a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">https://en.wikipedia.org/wiki/Merkle_tree</a></li>
+
+<li id="fn:10"><a href="https://link.springer.com/chapter/10.1007/978-3-030-95312-6_17" target="_blank">https://link.springer.com/chapter/10.<sup>1007</sup>&frasl;<sub>978</sub>-3-030-95312-6_17</a></li>
+
+<li id="fn:11">See Part 1 of our review.</li>
+</ol>
+
+</div>
+
+	</section>
+
+	<script
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+	  type="text/javascript">
+	</script>
+	<script src="/static/prism.js"></script>
+</main>
+
+
+					<footer>
+						<div class="socials">
+							<h3>Get in touch</h3>
+							<a
+								class="mbtn"
+								href="mailto:hello@commonprefix.com"
+							>
+								<span class="un">hello@commonprefix.com</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://twitter.com/CommonPrefix"
+							>
+								<span class="un">@commonprefix</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://github.com/commonprefix"
+							>
+								<span class="un">GitHub</span>
+							</a>
+						</div>
+						<div class="socials">
+							<a
+								class="mbtn"
+								href="https://pod.network"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span class="un">pod.network</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://chaingrowth.xyz"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span class="un">chaingrowth.xyz</span>
+							</a>
+						</div>
+						<div class="footer__easter-egg">
+							<img
+								width="220px"
+								style="opacity: 0.5"
+								src="/static/footer_eq.svg"
+								draggable="false"
+								alt=""
+							/>
+							<img
+								width="220px"
+								style="mix-blend-mode: multiply"
+								src="/static/footer_blockchain.png"
+								draggable="false"
+								alt=""
+							/>
+							<p>
+								Rumpetur paritas cum sequens probatio operis
+								invenietur et ramus maior fiet.
+							</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			;(function () {
+				
+				document.querySelector('.footer__easter-egg').children[
+					Math.floor(Math.random() * 3)
+				].style.visibility = 'visible'
+
+				
+				window.requestAnimationFrame =
+					window.requestAnimationFrame ||
+					function (C) {
+						return setTimeout(function () {
+							C(+new Date())
+						}, 30)
+					}
+
+				function isTouchDevice() {
+					var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ')
+					var mq = function (query) {
+						return window.matchMedia(query).matches
+					}
+
+					if (
+						'ontouchstart' in window ||
+						(window.DocumentTouch &&
+							document instanceof DocumentTouch)
+					) {
+						return true
+					}
+
+					var query = [
+						'(',
+						prefixes.join('touch-enabled),('),
+						'heartz',
+						')',
+					].join('')
+					return mq(query)
+				}
+
+				var touchDevice = isTouchDevice()
+				if (touchDevice) {
+					document.body.classList.add('touchdevice')
+				}
+
+				var graphic = document.querySelector('.logo-graphic')
+				var clip = document.querySelector('.logo-graphic__clip')
+
+				if (!touchDevice) {
+					var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
+					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+
+					function reveal(e) {
+						var pos = graphic.getBoundingClientRect()
+						var x = e.clientX - pos.left - 150
+						var y = e.clientY - pos.top + 150
+
+						var v = `radial-gradient(circle at ${x}px ${y}px, black 0px, black 60px, transparent 120px)`
+						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+					}
+
+					window.addEventListener('mousemove', function (e) {
+						requestAnimationFrame(() => reveal(e))
+					})
+				}
+			})()
+		</script>
+	</body>
+</html>
