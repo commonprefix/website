@@ -1583,7 +1583,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		Conference:     EPRINT,
 		ConferenceYear: 2025,
 		Authors:        []string{"Robin Linus", "Lukas Aumayr", "Zeta Avarikioti", "Matteo Maffei", "Andrea Pelosi", "Orfeas Stefanos Thyfronitis Litos", "Christos Stefo", "David Tse", "Alexei Zamyatin"},
-		Url:            "https://eprint.iacr.org/2025/1158",
+		Url:            "https://eprint.iacr.org/2025/1158.pdf",
 		Tags:           []Tag{ZERO_KNOWLEDGE, INTEROPERABILITY, BITCOIN},
 		Citations:      0,
 	},
