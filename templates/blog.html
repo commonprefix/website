@@ -6,10 +6,10 @@
 	</section>
 
 	<section class="small-container">
-		{{ range .Posts }}
-		{{ if not .IsDraft}}
-		<figure>
-			<a href="/blog/{{ .Slug }}">
+{{ range .Posts }}
+{{ if and (not .IsDraft) .Index }}
+		<figure class="blog-figure">
+			<a href="/blog/{{ .Slug }}.html"> 
 				<figcaption>
 					<span>{{ .Title }}</span>
 				</figcaption>
@@ -18,8 +18,8 @@
 			<p>{{ .Description }}</p>
 			<small>Reading time: {{ .ReadingTime }} minutes</small>
 		</figure>
-		{{end}}
-		{{ end }}
+{{ end }}
+{{ end }}
 	</section>
 
 </main>

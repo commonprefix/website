@@ -897,33 +897,33 @@ a.finding {
   margin-top: 24px;
 }
 
-.blog-index figure {
+.blog-figure {
   margin-bottom: 50px;
 }
 
-.blog-index figure:last-child {
+.blog-figure:last-child {
   margin-bottom: 0;
 }
 
-.blog-index figure figcaption {
+.blog-figure figcaption {
   font-size: 26px;
   color: var(--c-black);
 }
 
-.blog-index figure p {
+.blog-figure p {
   margin: 0;
   color: var(--c-gray);
 }
 
-.blog-index figure p a {
+.blog-figure p a {
   color: var(--c-black);
 }
 
-.blog-index figure p a:hover {
+.blog-figure p a:hover {
   text-decoration: underline;
 }
 
-.blog-index figure small {
+.blog-figure small {
   color: var(--c-gray);
   opacity: 0.8;
   font-style: italic;

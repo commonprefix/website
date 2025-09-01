@@ -77,8 +77,8 @@ type TeamMember struct {
 }
 
 func distinctDepartments(members []TeamMember) []string {
-	seen   := map[string]struct{}{}
-	depts  := []string{}
+	seen := map[string]struct{}{}
+	depts := []string{}
 	for _, m := range members {
 		if _, ok := seen[m.Department]; !ok {
 			seen[m.Department] = struct{}{}
@@ -155,6 +155,7 @@ type Client struct {
 	Projects    []Project
 	Findings    []Finding
 	Team        []TeamMember
+	Posts       []string
 	HideOnIndex bool
 }
 
@@ -181,13 +182,13 @@ type ResearchPaper struct {
 }
 
 type Research struct {
-	ResearchPapers []ResearchPaper
+	ResearchPapers    []ResearchPaper
 	OldResearchPapers []ResearchPaper
-	TagToColor     map[Tag]string
-	AllAuthors     []string
-	AllTags        []Tag
-	AllConferences []ConferenceAbbreviation
-	AllYears       []int
+	TagToColor        map[Tag]string
+	AllAuthors        []string
+	AllTags           []Tag
+	AllConferences    []ConferenceAbbreviation
+	AllYears          []int
 }
 
 type JobOpening struct {
@@ -222,6 +223,7 @@ type ClientPage struct {
 	Title          string
 	Description    string
 	Client         Client
+	Posts          []Post
 	NextClient     Client
 }
 
@@ -282,12 +284,17 @@ func build() {
 	}
 	teamSlice := make([]TeamMember, 0, len(Members))
 	for _, m := range Members {
-    teamSlice = append(teamSlice, m)
-}
+		teamSlice = append(teamSlice, m)
+	}
 	allDepartments := distinctDepartments(team)
 	teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Departments: allDepartments, Clients: Clients, Grants: Grants})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", teamTmplName)
+
+	//
+	// Build blog posts
+	//
+	blogPosts := genBlog()
 
 	//
 	// Build clients directory
@@ -307,7 +314,16 @@ func build() {
 			log.Fatal("can't create clients/" + p.Handle + ".html")
 		}
 
-		clientTmpl.ExecuteTemplate(f, "base", ClientPage{SmallContainer: true, Title: p.Name, Description: htmlToFormattedString(p.Body), Client: p, NextClient: nextP})
+		clientPosts := []Post{}
+		for _, pSlug := range p.Posts {
+			for _, post := range blogPosts {
+				if pSlug == post.Slug {
+					clientPosts = append(clientPosts, *post)
+				}
+			}
+		}
+
+		clientTmpl.ExecuteTemplate(f, "base", ClientPage{SmallContainer: true, Title: p.Name, Description: htmlToFormattedString(p.Body), Client: p, Posts: clientPosts, NextClient: nextP})
 		f.Close()
 		fmt.Printf("📖  clients/%s.html sucessfully generated.\n", p.Handle)
 	}
@@ -347,7 +363,7 @@ func build() {
 		log.Fatalf("can't create %s", researchTmplName)
 	}
 
-        allPapers := append(ResearchPapers, OldResearchPapers...)
+	allPapers := append(ResearchPapers, OldResearchPapers...)
 
 	allAuthors := []string{}
 	for _, tm := range team {
@@ -397,13 +413,13 @@ func build() {
 	err = researchTmpl.ExecuteTemplate(f, "base", Page{Title: "Research",
 		Description: description,
 		Research: Research{
-			ResearchPapers: ResearchPapers,
+			ResearchPapers:    ResearchPapers,
 			OldResearchPapers: OldResearchPapers,
-			TagToColor:     TagToColor,
-			AllAuthors:     allAuthors,
-			AllTags:        allTags,
-			AllConferences: allConferences,
-			AllYears:       allYears,
+			TagToColor:        TagToColor,
+			AllAuthors:        allAuthors,
+			AllTags:           allTags,
+			AllConferences:    allConferences,
+			AllYears:          allYears,
 		}})
 	if err != nil {
 		log.Println(err)
@@ -412,12 +428,6 @@ func build() {
 
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
-
-	//
-	// Build blog posts
-	//
-	genBlog()
-
 	//
 	// Build bridges page
 	//

@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Common Prefix — Sei Giga, Under the Hood - Part 1: Consensus</title>
+		<meta name="description" content="The first instalment focuses on Sei Giga’s consensus, with the Autobahn protocol at the heart of it." />
+
+		<meta property="og:title" content="Common Prefix — Sei Giga, Under the Hood - Part 1: Consensus">
+		<meta property="og:description" content="The first instalment focuses on Sei Giga’s consensus, with the Autobahn protocol at the heart of it.">
+		<meta property="og:url" content="https://commonprefix.com/">
+		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
+
+		<meta name="twitter:title" content="Common Prefix — Sei Giga, Under the Hood - Part 1: Consensus">
+		<meta name="twitter:description" content="The first instalment focuses on Sei Giga’s consensus, with the Autobahn protocol at the heart of it.">
+		<meta property="twitter:url" content="https://commonprefix.com/">
+		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="commonprefix.com">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/png" href="/static/favicon/favicon.png" />
+		<link rel="manifest" href="/static/site.webmanifest">
+
+		<link rel="preload" href="/static/main.css" as="style" />
+		<link rel="stylesheet" href="/static/main.css" />
+		<script src="/static/main.js"></script>
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVFWK2DDQF"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){ dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'G-ZVFWK2DDQF');
+		</script>
+
+		
+
+<link href="/static/prism.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="logo-graphic">
+			<img draggable="false" src="/static/commonprefix_logo.jpg" alt="" />
+			<img
+				style="visibility: hidden"
+				class="logo-graphic__clip"
+				draggable="false"
+				src="/static/commonprefix_logo.jpg"
+				alt=""
+			/>
+		</div>
+
+		<div class="outer-container">
+			<div class="container">
+				<div class="small-container">
+					<header>
+						<a href="/" class="header__company-name"
+							><h2>Common <span>⎵</span> Prefix</h2>
+						</a>
+						<nav>
+							<a href="/team.html">Team</a>
+							<a href="/research.html">Research</a>
+							
+							<a href="/bridges.html">Bridges</a>
+							<a href="/blog/">Blog</a>
+							<a href="/careers.html" class="careers-link">Careers</a>
+						</nav>
+					</header>
+
+					
+<main class="blog-post">
+	<h1>Sei Giga, Under the Hood - Part 1: Consensus</h1>
+	<h5 class="mono light blog-post__date">06/06/2025<br />
+		<div class="blog-post__authors">
+		
+			<a href="/team#dimitris">Dr. Dimitris Karakostas</a>
+		
+		</div>
+	</h5>
+	<h5>Reading time: 9 minutes</h5>
+
+	
+
+	<section class="content">
+		<p>Sei Giga will be the new exciting era for the Sei blockchain system.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> Sei Giga will mark a major shift in how transactions are published, processed, and finalized in Sei. For this reason, Sei Labs commissioned Common Prefix to review the Sei Giga proposal and outline its findings in a series of blog posts.</p>
+
+<p>In the first instalment we will focus on the Sei Giga’s consensus.</p>
+
+<h2 id="autobahn-consensus">Autobahn consensus</h2>
+
+<p>The heart of Sei Giga’s consensus is the Autobahn protocol.<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> Autobahn is peer-reviewed<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup> and offers state of the art performance and resilience. Therefore, Autobahn’s security has been established in detail, with rigorous proofs that are independently verifiable.</p>
+
+<p>Autobahn’s main distinguishing feature, compared to past protocols, lies in the network assumptions under which it operates. So far, the literature predominantly used two network models: synchronous and partially synchronous. In the synchronous model, all messages are delivered to the recipient within some amount of time, which is known beforehand to the protocol’s designers. On the other hand, in partially synchronous networks time is split in two periods: in the first period messages may be delayed arbitrarily; after a point in time - the Global Stabilization Time (GST) - the network behaves synchronously, that is with known bounded delays. Although these models are powerful tools when arguing about a protocol’s security, they are not necessarily realistic reflections of deployed networks. In practice, network outages do happen, albeit infrequently and without a clean separation like the GST.</p>
+
+<p>In such a realistic network, the primary goal of a protocol should be both to remain robust during short outages (“blips”) and recover as swiftly as possible when they end, in order to avoid persistent performance degradations (“hangovers”). This useful property was formally defined for the first time in Autobahn and called “seamlessness”. In essence, a seamless protocol avoids hangovers, that is <em>protocol-induced</em> performance degradations that last beyond a temporary network outage.</p>
+
+<p>The Autobahn protocol’s main achievement is achieving low latency and high throughput in a seamless manner. Essentially, Autobahn can process large amounts of transactions (throughput), which are finalized quickly (latency), and can recover immediately from hangovers.  This optimality is achieved using the elegant idea of disentangling data dissemination from reaching consensus.</p>
+
+<p>In traditional systems, a chosen party (“leader”) at any point in time organizes pending transactions in batches and disseminates them. Following, consensus is reached on each batch individually, resulting in a final agreed ordering of all batches. In blockchain-based systems, each “batch” is a block and leaders are often called different names, like “validators” (Ethereum), “bakers” (Tezos), or “stake pool operators” (Cardano). The drawback with this traditional approach is that when things go wrong, for example when a leader crashes or gets corrupted, then both the consensus process <em>and</em> the dissemination of transactions stall.</p>
+
+<p>Autobahn decouples these two operations in a carefully designed manner. In Autobahn, transaction dissemination progresses at the pace of the network, that is the lowest rate between any two nodes, without being affected by possible consensus-related issues. Briefly, the design is based on two ideas.<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup></p>
+
+<p>The first idea is that each protocol participant keeps their own chain of transaction blocks, which grow in parallel. This idea has been previously explored in the literature<sup class="footnote-ref" id="fnref:5"><a href="#fn:5">5</a></sup> and can increase throughput to its theoretical limits. Crucially though, Autobahn’s consensus coordinates the commitment of these parallel chains in a way that communication complexity is linear to the number of participants, rather than the number of transactions. This enables the protocol to handle loads of transactions and scale as more nodes join the system, while significantly reducing the overhead of the critical consensus process.</p>
+
+<p>The second design idea is that, if a node has not received some transactions that are proposed in a new batch, it does not wait to retrieve them before voting in consensus. Instead, as long as it is convinced that at least one honest party indeed has the data, meaning that the data is available somewhere in the network, the node participates in consensus while retrieving the missing transactions asynchronously. This is a novel idea of Autobahn that is missing from previous protocols and is crucial in reducing the latency of the consensus operation and ensuring seamlessness.</p>
+
+<p>The thoughtful combination of these ideas enables Autobahn to be particularly fast when no network outage or party faults exist. Specifically, transactions are finalized in bounded time and latency is independent of the number of transactions, since communication complexity is linear only to the number of participants. This level of efficiency is on par with the state of the art Byzantine Fault Tolerant (BFT) protocols<sup class="footnote-ref" id="fnref:6"><a href="#fn:6">6</a></sup> and has enabled Sei Giga to process 5 Gigagas per second, when benchmarked in lab conditions using 40 validators.</p>
+
+<h2 id="what-about-blockchains">What about blockchains?</h2>
+
+<p>Although Autobahn is a robust and provably secure consensus protocol, using it as the backbone of a real world permissionless distributed ledger can be tricky.</p>
+
+<p>Autobahn, being a BFT protocol, operates in a setting where the participants are known. In other words, each node has an identity associated with it, namely a known public key used to sign and authenticate messages. However, blockchain-based distributed ledgers are traditionally <em>permissionless</em>, meaning that anyone can (or should be able to) join and leave the protocol at will. How this gap can be bridged is a standard concern in BFT-based distributed ledgers, but it is doable with a careful design. Without a centralized way to coordinate and approve participants, as is assumed in traditional BFT protocols, BFT-based blockchain systems often use the ledger itself for coordination.</p>
+
+<p>In Sei Giga, no precise description exists yet on how the set of participants changes over time and across different epochs. It can be expected though that it will involve choosing the parties using some stake-based metric. For example, given a snapshot of the stake distribution at some point in time, the system could pick the top-X parties with most stake, or any party with stake above a certain threshold. Afterwards a handover process may be executed, where the previous set of participants is replaced by the newly chosen committee. Nonetheless, the devil lies in the details, so a detailed and precise specification of this process is of utmost importance to ensure that pitfalls are avoided.</p>
+
+<p>Another point of interest concerns Autobahn’s scalability. BFT protocols are typically very efficient but struggle to scale beyond tens or low hundreds of nodes. For example, the seminal PBFT protocol<sup class="footnote-ref" id="fnref:7"><a href="#fn:7">7</a></sup> can run over only a few tens of nodes before becoming essentially unusable, mostly due to bandwidth consumption due to its quadratic communication complexity. Follow-up protocols achieve significantly better performance, for example Bullshark<sup class="footnote-ref" id="fnref:8"><a href="#fn:8">8</a></sup> or mir-BFT<sup class="footnote-ref" id="fnref:9"><a href="#fn:9">9</a></sup> are able to realistically support 100-200 validators before bandwidth, batching, and storage become a bottleneck.</p>
+
+<p>Autobahn has been stress-tested up to 20 nodes, in the original paper, and 40 nodes, by Sei. These tests operate under the assumption that all nodes are correct. However, when more nodes participate, it can be expected that leader failures become more frequent. The concern is that, in the bad case when the leader is faulty, communication complexity increases from linear to quadratic on the number of nodes, similar to traditional BFT protocols. Therefore, it will be interesting to explore how Autobahn performs in the presence of such faults.</p>
+
+<p>The number of nodes on which Autobahn can run is important because it sets its fault tolerance. For example, if the protocol can run over 200 nodes, then it can tolerate failures of 66 among them. The more nodes it can handle, the more failures it can tolerate, hence the more robust it becomes. In essence, will Sei Giga be able to compete with the most widely used distributed ledger systems like Bitcoin, which supports over 20,000 nodes,<sup class="footnote-ref" id="fnref:10"><a href="#fn:10">10</a></sup> or Ethereum, which supports over 1 million validators across 10,000 nodes<sup class="footnote-ref" id="fnref:11"><a href="#fn:11">11</a></sup>? Will it be on par with competing Proof-of-Stake systems like Cardano, where more than 2,000 pools operate,<sup class="footnote-ref" id="fnref:12"><a href="#fn:12">12</a></sup> Tezos, which supports 250-300 “bakers”,<sup class="footnote-ref" id="fnref:13"><a href="#fn:13">13</a></sup> or Sui, with 100-120 validators<sup class="footnote-ref" id="fnref:14"><a href="#fn:14">14</a></sup>? Or will it be as decentralized as its current deployment (Sei v2), where among 40 total validators 7 control 33% of the total participating stake and 17 control 66%,<sup class="footnote-ref" id="fnref:15"><a href="#fn:15">15</a></sup> or systems like XRP (35 core validators)<sup class="footnote-ref" id="fnref:16"><a href="#fn:16">16</a></sup> and Stellar (23 Tier 1 validators)<sup class="footnote-ref" id="fnref:17"><a href="#fn:17">17</a></sup>? At this point, the answers to these questions are inconclusive, but it will be very exciting to find out.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In summary, Sei Giga is a very promising direction and is poised to be an interesting era for the Sei ecosystem. Autobahn, the consensus protocol at the heart of it, meets the highest academic standards of provable security and is on par with the state of the art in BFT protocols in terms of performance. However, the leap from a theoretical description to a production-level implementation is often trickier than expected. This is particularly the case when BFT protocols are used within permissionless distributed ledgers. Perhaps more interestingly, the fundamental promise of blockchain-based distributed ledgers is that of decentralization. To achieve this, the system needs to be able to support a large number of nodes, with power spread among them as evenly as possible. The extent to which Sei Giga can become decentralized remains to be seen, but it is definitely worth paying close attention.</p>
+
+<div class="footnotes">
+
+
+<ol>
+<li id="fn:1"><a href="https://www.sei.io" target="_blank">https://www.sei.io</a></li>
+
+<li id="fn:2"><a href="https://arxiv.org/abs/2401.10369" target="_blank">https://arxiv.org/abs/2401.10369</a></li>
+
+<li id="fn:3">Autobahn was published and presented in the 30th Symposium on Operating Systems Principles.</li>
+
+<li id="fn:4">For a more detailed description of Autobahn, we refer to the mentioned paper and a detailed blog post by Sei: <a href="https://seiresearch.io/articles/autobahn-sei-giga-s-multi-proposer-approach-to-blockchain-consensus" target="_blank">https://seiresearch.io/articles/autobahn-sei-giga-s-multi-proposer-approach-to-blockchain-consensus</a>.</li>
+
+<li id="fn:5">For example see Prism (<a href="https://eprint.iacr.org/2018/992" target="_blank">https://eprint.iacr.org/2018/992</a>) and Parallel Chains (<a href="https://eprint.iacr.org/2018/1119" target="_blank">https://eprint.iacr.org/2018/1119</a>).</li>
+
+<li id="fn:6">See Section 6 (evaluation) of the Autobahn paper.</li>
+
+<li id="fn:7">Practical Byzantine Fault Tolerance (PBFT) was published at the third Symposium on Operating Systems Design and Implementation (<a href="http://pmg.csail.mit.edu/papers/osdi99.pdf" target="_blank">http://pmg.csail.mit.edu/papers/osdi99.pdf</a>).</li>
+
+<li id="fn:8">Published at the 2022 ACM Conference on Computer and Communications Security (<a href="https://arxiv.org/abs/2201.05677" target="_blank">https://arxiv.org/abs/2201.05677</a>).</li>
+
+<li id="fn:9"><a href="https://arxiv.org/abs/1906.05552" target="_blank">https://arxiv.org/abs/1906.05552</a></li>
+
+<li id="fn:10"><a href="https://bitnodes.io/" target="_blank">https://bitnodes.io</a></li>
+
+<li id="fn:11"><a href="https://beaconcha.in/charts/validators" target="_blank">https://beaconcha.in/charts/validators</a>; <a href="https://ethernodes.org" target="_blank">https://ethernodes.org</a></li>
+
+<li id="fn:12"><a href="https://cexplorer.io/pool" target="_blank">https://cexplorer.io/pool</a></li>
+
+<li id="fn:13"><a href="https://tzstats.com/bakers" target="_blank">https://tzstats.com/bakers</a></li>
+
+<li id="fn:14"><a href="https://suivision.xyz/validators" target="_blank">https://suivision.xyz/validators</a></li>
+
+<li id="fn:15"><a href="https://sei.explorers.guru/validators" target="_blank">https://sei.explorers.guru/validators</a>; <a href="https://www.seiscan.app/pacific-1/validators" target="_blank">https://www.seiscan.app/pacific-1/validators</a>.</li>
+
+<li id="fn:16"><a href="https://xrpscan.com/validators" target="_blank">https://xrpscan.com/validators</a></li>
+
+<li id="fn:17"><a href="https://stellarbeat.io/" target="_blank">https://stellarbeat.io/</a></li>
+</ol>
+
+</div>
+
+	</section>
+
+	<script
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+	  type="text/javascript">
+	</script>
+	<script src="/static/prism.js"></script>
+</main>
+
+
+					<footer>
+						<div class="socials">
+							<h3>Get in touch</h3>
+							<a
+								class="mbtn"
+								href="mailto:hello@commonprefix.com"
+							>
+								<span class="un">hello@commonprefix.com</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://twitter.com/CommonPrefix"
+							>
+								<span class="un">@commonprefix</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://github.com/commonprefix"
+							>
+								<span class="un">GitHub</span>
+							</a>
+						</div>
+						<div class="socials">
+							<a
+								class="mbtn"
+								href="https://pod.network"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span class="un">pod.network</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://chaingrowth.xyz"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span class="un">chaingrowth.xyz</span>
+							</a>
+						</div>
+						<div class="footer__easter-egg">
+							<img
+								width="220px"
+								style="opacity: 0.5"
+								src="/static/footer_eq.svg"
+								draggable="false"
+								alt=""
+							/>
+							<img
+								width="220px"
+								style="mix-blend-mode: multiply"
+								src="/static/footer_blockchain.png"
+								draggable="false"
+								alt=""
+							/>
+							<p>
+								Rumpetur paritas cum sequens probatio operis
+								invenietur et ramus maior fiet.
+							</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			;(function () {
+				
+				document.querySelector('.footer__easter-egg').children[
+					Math.floor(Math.random() * 3)
+				].style.visibility = 'visible'
+
+				
+				window.requestAnimationFrame =
+					window.requestAnimationFrame ||
+					function (C) {
+						return setTimeout(function () {
+							C(+new Date())
+						}, 30)
+					}
+
+				function isTouchDevice() {
+					var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ')
+					var mq = function (query) {
+						return window.matchMedia(query).matches
+					}
+
+					if (
+						'ontouchstart' in window ||
+						(window.DocumentTouch &&
+							document instanceof DocumentTouch)
+					) {
+						return true
+					}
+
+					var query = [
+						'(',
+						prefixes.join('touch-enabled),('),
+						'heartz',
+						')',
+					].join('')
+					return mq(query)
+				}
+
+				var touchDevice = isTouchDevice()
+				if (touchDevice) {
+					document.body.classList.add('touchdevice')
+				}
+
+				var graphic = document.querySelector('.logo-graphic')
+				var clip = document.querySelector('.logo-graphic__clip')
+
+				if (!touchDevice) {
+					var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
+					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+
+					function reveal(e) {
+						var pos = graphic.getBoundingClientRect()
+						var x = e.clientX - pos.left - 150
+						var y = e.clientY - pos.top + 150
+
+						var v = `radial-gradient(circle at ${x}px ${y}px, black 0px, black 60px, transparent 120px)`
+						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+					}
+
+					window.addEventListener('mousemove', function (e) {
+						requestAnimationFrame(() => reveal(e))
+					})
+				}
+			})()
+		</script>
+	</body>
+</html>
