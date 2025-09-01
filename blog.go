@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
+	"sort"
 	"strings"
 	"time"
 
@@ -160,6 +161,11 @@ func genBlog() []*Post {
 		// Add it to the list
 		posts = append(posts, p)
 	}
+
+	// Sort posts newest first
+    sort.Slice(posts, func(i, j int) bool {
+        return posts[i].DateTime.After(posts[j].DateTime)
+    })
 
 	subdir := filepath.Join(buildDir, "blog")
 	_ = os.Mkdir(subdir, os.ModePerm)
