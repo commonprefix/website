@@ -9,7 +9,7 @@
 {{ range .Posts }}
 {{ if and (not .IsDraft) .Index }}
 		<figure class="blog-figure">
-			<a href="/blog/{{ .Slug }}">
+			<a href="/blog/{{ .Slug }}.html"> 
 				<figcaption>
 					<span>{{ .Title }}</span>
 				</figcaption>
