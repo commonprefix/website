@@ -4,6 +4,59 @@ import "html/template"
 
 var Clients []Client = []Client{
 	{
+		Handle: "pod",
+		Name:   "pod",
+		Image:  template.HTML(`<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="40 210 620 280"
+     preserveAspectRatio="xMidYMid meet"
+     fill="currentColor"
+     style="display:block;height:55px;width:auto">
+  <rect x="575" y="395" width="30" height="210" transform="rotate(180 575 395)"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M455 365V395H515V365H545V275H515V245H455V275H425V365H455ZM515 275V305H485V275H515Z"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M365 245H275V275H245V365H275V395H365V365H395V275H365V245ZM365 275V305H335V275H365Z"/>
+  <rect x="65" y="245" width="30" height="210"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M185 245H125V275H95V365H125V395H185V365H215V275H185V245ZM185 275V305H155V275H185Z"/>
+</svg>`),
+		Body: template.HTML(`
+		pod is a prospective EVM-compatible L1 built on the foundations of consensusless research, pushing forward the question of which blockchain applications truly require consensus and which can operate without it. 
+		Common Prefix is the core scientific team behind pod, working closely with them to design and prove the security of the core protocol, culminating in a <a href="https://arxiv.org/pdf/2501.14931">paper</a> accepted at DISC 2025. 
+		Beyond this, we have authored a detailed specification of the protocol, contributed to the engineering of SDKs and supporting infrastructure, and continue to contribute to the design and formal security proofs of key mechanisms in the pod ecosystem, including gas pricing, voting, and auctions.`),
+		Team: []TeamMember{
+			Members["orestis"],
+			Members["lukas"],
+			Members["zeta"],
+			Members["bernardo"],
+			Members["robin"],
+			Members["lioba"],
+			Members["james"],
+			Members["nikolas"],
+			Members["julian"],
+			Members["jakov"],
+			Members["themis"],
+			Members["joao"],
+			Members["ristic"],
+			Members["giulia"],
+			Members["odysseas"],
+			Members["orfeas"],
+			Members["dionysis"],
+		},
+
+		Findings: []Finding{},
+		Projects: []Project{
+			{
+				Title: "pod-core paper",
+				Desc:  template.HTML(`The paper presents pod, a novel consensus layer that finalizes transactions with the optimal one-round-trip latency.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/pod/pod_core_paper.pdf",
+						Name: "pod: An Optimal-Latency, Censorship-Free, and Accountable Generalized Consensus Layer",
+						Date: "2025-06-23",
+					},
+				},
+			},
+		},
+	},
+	{
 		Handle: "flashbots",
 		Name:   "Flashbots",
 		Image: template.HTML(`<svg width="150" height="38" viewBox="0 0 1906 480" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -199,16 +252,36 @@ var Clients []Client = []Client{
 			Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols.
 			So far, Common Prefix has audited various components of the
 			<a href="https://github.com/MystenLabs/fastcrypto">fastcrypto</a>
-			library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1.
+			library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1,
+			as well as the 
+			<a href="https://github.com/MystenLabs/seal">Seal</a>
+			decentralized secrets management (DSM) service.
 			The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers.
 			Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality.
 		`),
 		Team: []TeamMember{
+			Members["dominik"],
+			Members["joao"],
 			Members["pyrros"],
+			Members["bernardo"],
+			Members["jakov"],
 		},
 		Projects: []Project{
 			{
-				Title: "Audits",
+				Title: "Seal cryptography specification and audit",
+				Desc:  template.HTML(`
+				Mysten Labs commissioned Common Prefix to audit a part of the Seal decentralized secrets management (DSM) service. 
+				Seal enables users to encrypt messages while specifying a set of conditions for their decryption`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/mysten/seal_audit_report.pdf",
+						Name: "Seal Cryptography Specification and Implementation audit",
+						Date: "2025-08-12",
+					},
+				},
+			},
+			{
+				Title: "fastcrypto library audits",
 				Desc:  template.HTML(`Mysten Labs has commissioned Common Prefix to audit components of the fastcrypto library.`),
 				Links: []ProjectLink{
 					{
@@ -647,6 +720,19 @@ var Clients []Client = []Client{
 		},
 		Findings: []Finding{},
 		Projects: []Project{
+			{
+				Title: "Bitpanda smart contract audit",
+				Desc:  template.HTML(`Common Prefi x was commissioned to perform a security audit of Bitpanda’s StakedVision and VisionTokenMigrator smart contracts.
+				The VisionTokenMigrator contract facilitates the migration from the original single-chain Pantos and BEST tokens to the new multi-chain Vision token on Ethereum.
+				The StakedVision contract enables users to stake Vision tokens and earn rewards in the form of additional Vision tokens.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/pantos/Bitpanda_audit_May_2025.pdf",
+						Name: "Bitpanda Audit of the StakedVision and VisionTokenMigrator contracts",
+						Date: "2025-05-12",
+					},
+				},
+			},
 			{
 				Title: "Pantos smart contract audit",
 				Desc:  template.HTML(`Common Prefix was commissioned to conduct a security audit of the Pantos Solidity smart contracts. This protocol enables seamless bridging of tokens adhering to the Pantos Digital Asset Standard (PANDAS) across EVM-compatible chains. The audit also included a review of wrapper contracts, which allow any ERC-20 or EVM-native token to be wrapped to comply with the Pantos standard.`),
