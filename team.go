@@ -23,6 +23,31 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "orestis_alpos.jpg",
 	},
+	"dominik": {
+		Handle:         "dominik",
+		Name:           "Dominik Apel",
+		Specialization: "software engineering, auditing, offensive security",
+		Department: "engineering",
+		Desc: template.HTML(`
+			Dominik is a Software Engineer based in Vienna, Austria. He holds a Master's degree in Computer Engineering from the 
+			Technical University of Vienna (TU Wien) in Austria. He has multiple years of experience in full-stack software engineering
+			as well as some experience in offensive security. Dominik is currently focused on smart contract development
+			and source code auditing at Common Prefix.
+		`),
+		Image: "dominik_apel.png",
+	},
+	"jason": {
+		Handle:         "jason",
+		Name:           "Jason Athanasoglou",
+		Specialization: "software engineering, interoperability, algorithms, DevOps",
+		Department: "engineering",
+		Desc: template.HTML(`
+			    Jason is a software engineer based in Athens, Greece, with extensive experience in full-stack development, open-source contributions, 
+				and a strong focus on building AI-powered applications. 
+				He holds an Integrated Master’s degree in Electrical and Computer Engineering from the University of Patras. 
+				At Common Prefix, he develops blockchain and Web3 applications, focusing on decentralized and scalable solutions.`),
+		Image: "jason_athanasoglou.jpg",
+	},
 	"lukas": {
 		Handle:         "lukas",
 		Name:           "Dr. Lukas Aumayr",
@@ -60,8 +85,8 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Image: "zeta_avarikioti.jpg",
 	},
 
-	"João": {
-		Handle:         "João",
+	"joao": {
+		Handle:         "joao",
 		Name:           "João Pedro Coelho de Azevedo",
 		Specialization: "smart contract development, large scale system design, software engineering",
 		Department: "engineering",
