@@ -1,9 +1,9 @@
 ---
 title: "Sei Giga, Under the Hood - Part 2: Performance"
-date: "06/06/2025"
+date: "07/06/2025"
 desc: "The second instalment explores the performance enhancements of Sei Giga."
 authors: "dimitris"
-index: false
+index: true
 ---
 
 Sei Giga will be the new exciting era for the Sei blockchain system.[^1] Sei Giga will mark a major shift in how transactions are published, processed, and finalized in Sei. For this reason, Sei Labs commissioned Common Prefix to review the Sei Giga proposal and outline its findings in a series of blog posts.
