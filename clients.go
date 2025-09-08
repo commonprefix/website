@@ -4,6 +4,59 @@ import "html/template"
 
 var Clients []Client = []Client{
 	{
+		Handle: "pod",
+		Name:   "pod",
+		Image:  template.HTML(`<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="40 210 620 280"
+     preserveAspectRatio="xMidYMid meet"
+     fill="currentColor"
+     style="display:block;height:55px;width:auto">
+  <rect x="575" y="395" width="30" height="210" transform="rotate(180 575 395)"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M455 365V395H515V365H545V275H515V245H455V275H425V365H455ZM515 275V305H485V275H515Z"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M365 245H275V275H245V365H275V395H365V365H395V275H365V245ZM365 275V305H335V275H365Z"/>
+  <rect x="65" y="245" width="30" height="210"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M185 245H125V275H95V365H125V395H185V365H215V275H185V245ZM185 275V305H155V275H185Z"/>
+</svg>`),
+		Body: template.HTML(`
+		pod is an EVM-compatible L1 built on the foundations of consensusless research, pushing forward the question of which blockchain applications truly require consensus and which can operate without it. 
+		Common Prefix is the core scientific team behind pod, working closely with the pod team to design and prove the security of the core protocol. For example, we wrote the pod-core <a href="https://arxiv.org/pdf/2501.14931">paper</a> that was published at DISC 2025.
+		Beyond this, we have authored a detailed specification of the protocol, contributed to the engineering of SDKs and supporting infrastructure, and continue to contribute to the design and formal security proofs of key mechanisms in the pod ecosystem, including gas pricing, voting, and auctions.`),
+		Team: []TeamMember{
+			Members["orestis"],
+			Members["lukas"],
+			Members["zeta"],
+			Members["bernardo"],
+			Members["robin"],
+			Members["lioba"],
+			Members["james"],
+			Members["nikolas"],
+			Members["julian"],
+			Members["jakov"],
+			Members["themis"],
+			Members["joao"],
+			Members["ristic"],
+			Members["giulia"],
+			Members["odysseas"],
+			Members["orfeas"],
+			Members["dionysis"],
+		},
+
+		Findings: []Finding{},
+		Projects: []Project{
+			{
+				Title: "pod-core paper",
+				Desc:  template.HTML(`The paper presents pod, a novel consensus layer that finalizes transactions with the optimal one-round-trip latency.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/pod/pod_core_paper.pdf",
+						Name: "pod: An Optimal-Latency, Censorship-Free, and Accountable Generalized Consensus Layer",
+						Date: "2025-06-23",
+					},
+				},
+			},
+		},
+	},
+	{
 		Handle: "flashbots",
 		Name:   "Flashbots",
 		Image: template.HTML(`<svg width="150" height="38" viewBox="0 0 1906 480" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -199,16 +252,33 @@ var Clients []Client = []Client{
 			Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols.
 			So far, Common Prefix has audited various components of the
 			<a href="https://github.com/MystenLabs/fastcrypto">fastcrypto</a>
-			library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1.
-			The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers.
+			library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1. The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers.
 			Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality.
-		`),
+			Additionally, we audited core components of Mysten's <a href="https://github.com/MystenLabs/seal">Seal</a> decentralized secrets management (DSM) service.
+			`),
 		Team: []TeamMember{
+			Members["dominik"],
+			Members["joao"],
 			Members["pyrros"],
+			Members["bernardo"],
+			Members["jakov"],
 		},
 		Projects: []Project{
 			{
-				Title: "Audits",
+				Title: "Seal Cryptography Specification and audit",
+				Desc:  template.HTML(`
+				Mysten Labs commissioned Common Prefix to audit the core components of the Seal decentralized secrets management service. 
+				Seal enables users to encrypt messages while specifying a set of conditions for their decryption.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/mysten/seal_audit_report.pdf",
+						Name: "Seal Cryptography Specification and Implementation Audit",
+						Date: "2025-08-12",
+					},
+				},
+			},
+			{
+				Title: "Fastcrypto Library Audits",
 				Desc:  template.HTML(`Mysten Labs has commissioned Common Prefix to audit components of the fastcrypto library.`),
 				Links: []ProjectLink{
 					{
@@ -648,6 +718,19 @@ var Clients []Client = []Client{
 		Findings: []Finding{},
 		Projects: []Project{
 			{
+				Title: "Bitpanda smart contract audit",
+				Desc:  template.HTML(`Common Prefi x was commissioned to perform a security audit of Bitpanda’s StakedVision and VisionTokenMigrator smart contracts.
+				The VisionTokenMigrator contract facilitates the migration from the original single-chain Pantos and BEST tokens to the new multi-chain Vision token on Ethereum.
+				The StakedVision contract enables users to stake Vision tokens and earn rewards in the form of additional Vision tokens.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/pantos/Bitpanda_audit_May_2025.pdf",
+						Name: "Bitpanda Audit of the StakedVision and VisionTokenMigrator contracts",
+						Date: "2025-05-12",
+					},
+				},
+			},
+			{
 				Title: "Pantos smart contract audit",
 				Desc:  template.HTML(`Common Prefix was commissioned to conduct a security audit of the Pantos Solidity smart contracts. This protocol enables seamless bridging of tokens adhering to the Pantos Digital Asset Standard (PANDAS) across EVM-compatible chains. The audit also included a review of wrapper contracts, which allow any ERC-20 or EVM-native token to be wrapped to comply with the Pantos standard.`),
 				Links: []ProjectLink{
@@ -719,5 +802,117 @@ var Clients []Client = []Client{
 		Findings: []Finding{},
 		Posts:    []string{"sei-giga-consensus", "sei-giga-performance", "sei-giga-economics"},
 		Projects: []Project{},
+	},
+	{
+		Handle: "enosys",
+		Name:   "Ēnosys",
+		Image: template.HTML(`<svg viewBox="0 0 766 174" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M146.192 2.62057C145.362 1.79141 144.341 0.81272 143.483 0.0107422C143.442 0.0515207 143.401 0.0922993 143.36 0.133078C156.608 26.7071 158.052 57.6444 147.704 85.1699C150.195 64.2234 143.401 42.4068 127.307 26.3401C99.4358 -1.49806 54.2315 -1.49806 26.3465 26.3401C-1.52496 54.1782 -1.52496 99.2929 26.3465 127.131C42.4403 143.198 64.2936 149.967 85.2618 147.493C57.7035 157.797 26.7277 156.356 0.122542 143.143C0.0816945 143.184 0.0272315 143.239 0 143.266C0.789713 144.122 1.77005 145.142 2.61422 145.971C37.0348 180.333 104.092 186.505 145.457 145.223C186.808 103.942 180.64 36.9969 146.206 2.62057H146.192ZM46.525 106.986C29.7913 90.2808 29.7913 63.1767 46.525 46.4711C63.2588 29.7655 90.4086 29.7655 107.142 46.4711C123.876 63.1767 123.876 90.2808 107.142 106.986C90.4086 123.692 63.2588 123.692 46.525 106.986Z" fill="currentColor" />
+			<path d="M333.63 139.163C334.27 137.668 335.972 132.639 335.972 121.48V75.4833C335.972 61.9182 334.406 57.2424 333.698 55.8153L335.944 56.0735C342.384 56.8075 348.906 56.7259 355.332 55.8153V69.2308C360.016 62.9784 373.454 54.0347 386.743 54.0347C394.83 54.0347 413.633 56.889 413.633 83.3124C413.66 90.0814 413.633 108.703 413.633 117.293V121.493C413.633 132.652 415.321 137.682 415.961 139.177L415.648 139.136C407.928 138.252 400.126 138.252 392.393 139.136L392.093 139.177C392.72 137.682 394.422 132.652 394.422 121.493V113.351C394.422 104.013 394.422 90.6795 394.422 85.3377C394.422 73.7571 387.75 66.8522 376.572 66.8522C369.751 66.8522 359.335 70.359 355.332 75.2658V121.493C355.332 132.652 356.994 137.695 357.647 139.177L356.286 139.027C348.661 138.225 341.254 138.266 333.63 139.177V139.163Z" fill="currentColor" />
+			<path d="M474.656 140.904C468.965 140.809 463.328 139.857 457.895 138.104C452.994 136.514 428.555 127.094 428.555 97.3951C428.555 67.696 452.994 58.2765 457.895 56.6862C463.328 54.9192 468.978 53.9814 474.669 53.8862C480.347 53.9814 485.997 54.9328 491.43 56.6862C496.331 58.2765 520.77 67.696 520.77 97.3951C520.77 127.094 496.331 136.514 491.43 138.104C485.997 139.871 480.36 140.809 474.669 140.904H474.656ZM474.656 60.1251C459.025 60.1251 448.937 74.7504 448.937 97.3951C448.937 120.04 459.039 134.665 474.656 134.665C490.272 134.665 500.375 120.04 500.375 97.3951C500.375 74.7504 490.272 60.1251 474.656 60.1251Z" fill="currentColor" />
+			<path d="M277.549 140.632C265.364 140.632 254.117 136.296 245.88 128.426C237.044 119.985 232.374 108.309 232.374 94.6626C232.374 84.0878 240.679 53.8857 277.549 53.8857C308.211 53.8857 319.198 75.5926 319.321 94.3364H252.838V94.6626C252.838 112.536 261.701 121.1 265.5 123.954C270.006 127.325 277.345 129.255 285.65 129.255C289.231 129.255 292.744 128.888 295.821 128.208C302.002 126.836 307.897 123.628 314.378 118.109C314.814 117.742 315.25 117.389 315.699 117.049C315.713 117.049 315.74 117.049 315.767 117.063C315.74 117.144 315.699 117.239 315.672 117.321C315.522 117.715 315.372 118.109 315.195 118.463C307.884 132.544 294.269 140.618 277.822 140.618H277.549V140.632ZM277.549 60.179C258.27 60.179 252.838 79.7926 252.81 88.3422H303.486V88.016C303.486 79.8062 296.828 60.179 277.549 60.179Z" fill="currentColor" />
+			<path d="M568.589 140.7C567.378 140.7 566.125 140.659 564.845 140.577C555.546 139.979 542.162 137.002 535.695 133.047V114.018C545.484 126.523 556.54 131.674 564.096 133.808C566.003 134.311 567.881 134.556 569.665 134.556C572.579 134.556 575.397 133.876 578.025 132.544C581.66 130.696 584.083 127.026 584.329 122.948C584.574 118.925 582.722 115.282 579.25 112.958C575.424 110.402 571.176 108.798 566.792 107.249L565.049 106.637C559.44 104.666 553.64 102.628 548.371 99.6373C543.401 96.8101 540.147 94.0237 537.792 90.5848C531.651 81.6003 533.503 68.6197 541.917 61.6333C546.683 57.6779 552.455 55.3536 560.066 54.307C562.544 53.9672 565.09 53.7905 567.65 53.7905C574.607 53.7905 581.959 55.0546 590.142 57.6371C592.334 58.3304 596.65 60.0702 596.691 60.0838L597.249 60.3148C597.249 62.041 597.277 73.5537 597.277 80.3091C595.112 77.9848 587.324 69.7615 583.103 66.5265C578.052 62.6663 573.736 60.6139 569.08 59.8663C567.854 59.676 566.642 59.5672 565.499 59.5672C562.49 59.5672 559.671 60.2469 557.139 61.6061C553.722 63.4275 551.611 66.4449 551.353 69.8974C551.094 73.3362 552.714 76.6256 555.805 78.9227C559.168 81.4236 563.116 82.8236 566.928 84.1693L567.255 84.2916C568.48 84.7266 569.706 85.1479 570.931 85.5693C575.955 87.2955 581.156 89.0897 585.922 91.6994C591.79 94.9208 595.493 98.2645 597.944 102.532C602.505 110.47 602.382 126.441 590.265 134.569C584.138 138.674 577.058 140.672 568.589 140.672V140.7Z" fill="currentColor" />
+			<path d="M626.384 174C625.866 174 625.335 173.986 624.818 173.945V167.421C625.267 167.448 625.703 167.476 626.139 167.476C635.016 167.476 642.64 161.019 647.637 149.289L650.837 141.174L650.605 140.672C648.631 136.295 631.217 97.5976 625.921 85.7587L625.512 84.8616C621.877 76.7199 616.404 64.5004 609.501 55.8149L613.98 56.1955C621.687 56.848 629.447 56.848 637.153 56.1955L641.633 55.8149C638.923 63.6441 639.345 71.7315 642.899 79.8461C645.091 84.8616 655.439 107.493 659.782 116.994L660.109 117.701L675.072 79.7645C677.672 73.3354 679.156 63.7257 675.616 55.8149C681.607 56.712 687.693 56.712 693.684 55.8149C691.383 58.4247 688.796 62.9373 685.801 69.5703L653.778 150.39C647.828 165.396 637.848 174 626.397 174H626.384Z" fill="currentColor" />
+			<path d="M733.877 140.903C732.665 140.903 731.412 140.862 730.132 140.781C720.833 140.183 707.449 137.206 700.982 133.251V114.222C710.772 126.726 721.827 131.878 729.383 134.012C731.29 134.515 733.169 134.759 734.952 134.759C737.866 134.759 740.684 134.08 743.312 132.748C746.947 130.899 749.371 127.229 749.616 123.152C749.861 119.128 748.009 115.486 744.537 113.161C740.711 110.606 736.463 109.002 732.079 107.453L730.337 106.841C724.727 104.87 718.927 102.831 713.658 99.8409C708.688 97.0137 705.434 94.2273 703.079 90.7884C696.938 81.804 698.79 68.8233 707.204 61.8369C711.97 57.8815 717.743 55.5573 725.353 54.5106C727.831 54.1708 730.377 53.9941 732.937 53.9941C739.894 53.9941 747.247 55.2582 755.429 57.8408C757.621 58.534 761.937 60.2738 761.978 60.2874L762.536 60.5184C762.536 62.2447 762.564 73.7573 762.564 80.5127C760.399 78.1884 752.611 69.9651 748.39 66.7301C743.339 62.8699 739.023 60.8175 734.367 60.0699C733.141 59.8796 731.93 59.7709 730.786 59.7709C727.777 59.7709 724.959 60.4505 722.426 61.8097C719.009 63.6311 716.898 66.6486 716.64 70.101C716.381 73.5398 718.001 76.8292 721.092 79.1263C724.455 81.6272 728.403 83.0273 732.215 84.3729L732.542 84.4952C733.768 84.9302 734.993 85.3515 736.218 85.7729C741.242 87.4991 746.443 89.2933 751.209 91.903C757.077 95.1244 760.78 98.4681 763.231 102.736C767.792 110.674 767.669 126.645 755.552 134.773C749.425 138.878 742.345 140.876 733.877 140.876V140.903Z" fill="currentColor" />
+			<path d="M250.096 29.0254C249.714 30.6157 249.047 32.3147 248.666 33.905C258.768 35.6584 268.503 36.3244 277.762 36.2973V32.6273C266.611 32.6681 259.191 31.8662 250.082 29.0254H250.096Z" fill="currentColor" />
+			<path d="M302.266 29.0254C302.647 30.6157 302.647 32.3147 303.028 33.905C292.926 35.6584 283.844 36.3244 274.586 36.2973V32.6273C285.737 32.6681 293.157 31.8662 302.266 29.0254Z" fill="currentColor" />
+		</svg>`),
+		Body: template.HTML(`Ēnosys (previously FLR Finance) is an ecosystem of smart contract protocols, deployed on the Flare Network. We help ensure that Ēnosys can uphold its promise to keep its community safe by delivering concrete recommendations for improvements of its protocols, codebase, and operational security, by ensuring high code quality, and by enhancing its testing pipeline. Our smart contract audits and technical reports are published openly for dissemination within the community. Additionally, we develop novel protocols that expand the Ēnosys ecosystem even further.`),
+		Team: []TeamMember{
+			Members["zeta"],
+			Members["nikolas"],
+			Members["dimitris"],
+			Members["themis"],
+			Members["ristic"],
+			Members["apostolos"],
+			Members["dionysis"],
+		},
+		Projects: []Project{
+			{
+				Title: "Audits",
+				Desc:  template.HTML(`Ēnosys has commissioned Common Prefix to perform smart contract audits for numerous of its protocols.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/enosys/enosys_stake_helper_complementary_audit.pdf",
+						Name: "StakeHelper complementary smart contract audit",
+						Date: "2023-06-28",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_stake_helper_audit.pdf",
+						Name: "StakeHelper smart contract audit",
+						Date: "2023-02-20",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_ftso_reward_manager_audit.pdf",
+						Name: "FTSORewardManager smart contract audit",
+						Date: "2022-07-04",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_loans_post_mortem.pdf",
+						Name: "FLRLoans incident post-mortem",
+						Date: "2022-07-04",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_price_feed_ftso_connector_audit.pdf",
+						Name: "PriceFeedFtsoConnector smart contract audit",
+						Date: "2022-04-18",
+					},
+					{
+						Url:  "/static/clients/enosys/enosys_loans_audit.pdf",
+						Name: "FLRLoans smart contract audit",
+						Date: "2022-02-21",
+					},
+				},
+			},
+			{
+				Title:    "Ēnosys Bridge implementation",
+				IsBridge: true,
+				Desc:     template.HTML(`Common Prefix collaborated with Ēnosys to develop an EVM-to-EVM committee-based bridge. At the time of writing, the Ēnosys Bridge enables token transfers between Ethereum, Flare Networks, and XDC, with <a href="https://defillama.com/protocol/enosys-bridge">$3.3 million in TVL</a>.`),
+				Links: []ProjectLink{
+					{
+						Url:  "https://enosys.global/products/bridge",
+						Name: "Product page",
+						Date: "2023-06-08",
+					},
+					{
+						Url:  "https://enosys.global/papers/EnosysBridgeWhitepaper.pdf",
+						Name: "Whitepaper",
+						Date: "2023-03-27",
+					},
+					{
+						Url:  "https://github.com/flrfinance/bridge-contracts",
+						Name: "Implementation GitHub repo",
+						Date: "2022-09-26 - 2023-06-05",
+					},
+					{
+						Url:  "https://flrfinance.github.io/flr-wraps-contracts/",
+						Name: "Solidity NatSpec API documentation",
+						Date: "2022-09-26 - 2023-06-05",
+					},
+				},
+			},
+			{
+				Title: "Ermis protocol implementation",
+				Desc:  template.HTML(`<em>Phygital tokens</em>, or simply <em>phygitals</em>, bridge the gap between the digital and physical domains by tying phygital NFTs with physical items. Common Prefix collaborated with Ēnosys to develop Ermis, a protocol that enables the redemption of a phygital in exchange for its associated physical item with minimal trust, by tapping into the assurances of the EVM blockchain it is deployed on. It allows vendors and buyers to connect directly via a simple smart contract.`),
+				Links: []ProjectLink{
+					{
+						Url:  "https://enosys.global/papers/ermisWhitepaper.pdf",
+						Name: "Whitepaper",
+						Date: "2023-05-03",
+					},
+					{
+						Url:  "https://ermis.enosys.global/",
+						Name: "Product page",
+						Date: "2023-11-08",
+					},
+					{
+						Url:  "https://flrfinance.github.io/phygital-redemptions-contracts/",
+						Name: "Solidity NatSpec API documentation",
+						Date: "2022-07-19 - 2023-01-26",
+					},
+				},
+			},
+		},
+		HideOnIndex: true,
 	},
 }

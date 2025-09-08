@@ -47,7 +47,7 @@
 {{ range .Posts }}
 	{{ if not .IsDraft}}
 	<figure class="blog-figure">
-		<a href="/blog/{{ .Slug }}">
+		<a href="/blog/{{ .Slug }}.html">
 			<figcaption>
 				<span>{{ .Title }}</span>
 			</figcaption>
@@ -60,7 +60,7 @@
 {{ end }}
 	{{ if gt (len .Client.Team) 1 }}
 	<section>
-		<h3>Team on this Client</h3>
+		<h3>Team supporting this Partner</h3>
 		<div class="team-avatars">
 			{{range .Client.Team}}
 			<a href="/team#{{.Handle}}">
@@ -76,7 +76,7 @@
 	{{end}}
 
 	<div class="client__next-client">
-		<label class="label">Next Client</label>
+		<label class="label">Next Partner</label>
 		<a href="/clients/{{.NextClient.Handle}}">
 			<h2 class="with-arrow with-arrow-pink">
 				<span>{{.NextClient.Name}}</span>
