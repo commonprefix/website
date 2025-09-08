@@ -12,7 +12,7 @@ var Openings = []JobOpening{
 		Name:        "Auditor",
 		Url:         "https://commonprefix.notion.site/auditing-folk",
 		Location:    "Remote",
-		Type:        "Full-time / Part-time",
+		Type:        "Full-time",
 		Description: "We're looking for auditors who can help us maintain the highest standards on security and reliability of the things we build.",
 	},
 }

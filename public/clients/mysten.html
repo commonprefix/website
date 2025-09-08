@@ -6,15 +6,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Common Prefix — Mysten Labs</title>
-		<meta name="description" content="Mysten Labs is the team behind the Sui blockchain and Move programming language. Sui is an L1 that utilizes a unique DAG-based consensus mechanism based on Narwhal and Bullshark. Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols. So far, Common Prefix has audited various components of the fastcrypto library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1, as well as the  Seal decentralized secrets management (DSM) service. The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers. Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality." />
+		<meta name="description" content="Mysten Labs is the team behind the Sui blockchain and Move programming language. Sui is an L1 that utilizes a unique DAG-based consensus mechanism based on Narwhal and Bullshark. Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols. So far, Common Prefix has audited various components of the fastcrypto library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1. The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers. Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality. Additionally, we audited core components of Mysten&amp;#39;s Seal decentralized secrets management (DSM) service." />
 
 		<meta property="og:title" content="Common Prefix — Mysten Labs">
-		<meta property="og:description" content="Mysten Labs is the team behind the Sui blockchain and Move programming language. Sui is an L1 that utilizes a unique DAG-based consensus mechanism based on Narwhal and Bullshark. Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols. So far, Common Prefix has audited various components of the fastcrypto library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1, as well as the  Seal decentralized secrets management (DSM) service. The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers. Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality.">
+		<meta property="og:description" content="Mysten Labs is the team behind the Sui blockchain and Move programming language. Sui is an L1 that utilizes a unique DAG-based consensus mechanism based on Narwhal and Bullshark. Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols. So far, Common Prefix has audited various components of the fastcrypto library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1. The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers. Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality. Additionally, we audited core components of Mysten&amp;#39;s Seal decentralized secrets management (DSM) service.">
 		<meta property="og:url" content="https://commonprefix.com/">
 		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
 
 		<meta name="twitter:title" content="Common Prefix — Mysten Labs">
-		<meta name="twitter:description" content="Mysten Labs is the team behind the Sui blockchain and Move programming language. Sui is an L1 that utilizes a unique DAG-based consensus mechanism based on Narwhal and Bullshark. Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols. So far, Common Prefix has audited various components of the fastcrypto library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1, as well as the  Seal decentralized secrets management (DSM) service. The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers. Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality.">
+		<meta name="twitter:description" content="Mysten Labs is the team behind the Sui blockchain and Move programming language. Sui is an L1 that utilizes a unique DAG-based consensus mechanism based on Narwhal and Bullshark. Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols. So far, Common Prefix has audited various components of the fastcrypto library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1. The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers. Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality. Additionally, we audited core components of Mysten&amp;#39;s Seal decentralized secrets management (DSM) service.">
 		<meta property="twitter:url" content="https://commonprefix.com/">
 		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
 		<meta name="twitter:card" content="summary_large_image">
@@ -105,28 +105,25 @@
 			Common Prefix is actively collaborating with Mysten Labs, auditing core components of their protocols.
 			So far, Common Prefix has audited various components of the
 			<a href="https://github.com/MystenLabs/fastcrypto">fastcrypto</a>
-			library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1,
-			as well as the 
-			<a href="https://github.com/MystenLabs/seal">Seal</a>
-			decentralized secrets management (DSM) service.
-			The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers.
+			library, including ECVRF, Ristretto255, BLS12381, ECDSA Secp256k1, and ECDSA Secp256r1. The Sui implementation relies on cryptographic primitives provided by the fastcrypto library for its consensus and execution layers.
 			Through these audits, we evaluate security, ensure adherence to standards, and provide recommendations to optimize performance and code quality.
-		</p>
+			Additionally, we audited core components of Mysten's <a href="https://github.com/MystenLabs/seal">Seal</a> decentralized secrets management (DSM) service.
+			</p>
 	</section>
 	
 	<section>
 		<div class="findings">
 			<div>
-				<h3>Seal cryptography specification and audit</h3>
+				<h3>Seal Cryptography Specification and audit</h3>
 				
 				<p>
-				Mysten Labs commissioned Common Prefix to audit a part of the Seal decentralized secrets management (DSM) service. 
-				Seal enables users to encrypt messages while specifying a set of conditions for their decryption</p>
+				Mysten Labs commissioned Common Prefix to audit the core components of the Seal decentralized secrets management service. 
+				Seal enables users to encrypt messages while specifying a set of conditions for their decryption.</p>
 			</div>
 			
 			<a href="/static/clients/mysten/seal_audit_report.pdf" target="_blank" rel="noopener noreferrer" class="finding">
 				<div>
-					<span class="finding__name un">Seal Cryptography Specification and Implementation audit</span>
+					<span class="finding__name un">Seal Cryptography Specification and Implementation Audit</span>
 					<small class="finding__date">2025-08-12</small>
 				</div>
 				<span class="finding__ext with-arrow-down">.pdf</span>
@@ -138,7 +135,7 @@
 	<section>
 		<div class="findings">
 			<div>
-				<h3>fastcrypto library audits</h3>
+				<h3>Fastcrypto Library Audits</h3>
 				
 				<p>Mysten Labs has commissioned Common Prefix to audit components of the fastcrypto library.</p>
 			</div>
