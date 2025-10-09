@@ -21,7 +21,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			with flexible trust assumptions, as well as results on
 			<a href="https://arxiv.org/pdf/2107.11331.pdf">composing distributed systems</a>.
 		`),
-		Image: "orestis_alpos.jpg",
+		Image: "orestis__alpos.jpg",
 	},
 	"dominik": {
 		Handle:         "dominik",
@@ -417,7 +417,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			he has gained extensive experience with a wide range of programming languages and technical stacks.
 			Apostolos has a background in algorithms, having competed at national and balkan olympiads in informatics.
 		`),
-		Image: "apostolos_tzinas.jpg",
+		Image: "apostolos_tzinas.png",
 	},
 	"ristic": {
 		Handle:         "ristic",
@@ -429,6 +429,18 @@ var Members map[string]TeamMember = map[string]TeamMember{
 
 		`),
 		Image: "nikola_ristic.jpg",
+	},
+	"nikos_vlastaras": {
+		Handle:         "nikos_vlastaras",
+		Name:           "Nikos Vlastaras",
+		Specialization: "software engineering, distributed systems",
+		Department: "engineering",
+		Desc: template.HTML(`
+			Nikos is a software engineer based in Athens with a degree from the National Technical University of Athens. 
+			Before joining Common Prefix he worked at Panther Labs, where he contributed to production software and large-scale engineering projects. 
+			At Common Prefix he applies his experience in distributed systems to help build robust and scalable infrastructure.
+		`),
+		Image: "nikos_vlastaras.jpg",
 	},
 	"dionysis": {
 		Handle:         "dionysis",
