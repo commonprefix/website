@@ -21,7 +21,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			with flexible trust assumptions, as well as results on
 			<a href="https://arxiv.org/pdf/2107.11331.pdf">composing distributed systems</a>.
 		`),
-		Image: "orestis__alpos.jpg",
+		Image: "orestis_alpos.jpg",
 	},
 	"dominik": {
 		Handle:         "dominik",
