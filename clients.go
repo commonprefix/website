@@ -441,7 +441,7 @@ var Clients []Client = []Client{
 		Projects: []Project{
 			{
 				Title: "Optimal Reward Allocation Paper",
-				Desc:  template.HTML(`INSERT DESCRIPTION.`),
+				Desc:  template.HTML(`The scientists of Quai and Common Prefix collaborated on an academic paper introducing Proportional Reward Splitting (PRS) — a new reward mechanism for blockchain-based distributed ledgers. PRS leverages lightweight “workshares” to estimate miners’ power distribution and allocate rewards fairly among participants. The analysis shows that PRS achieves near-optimal fairness, outperforming existing mechanisms in accuracy and efficiency, with minimal storage overhead.`),
 				Links: []ProjectLink{
 					{
 						Url:  "/static/clients/quai/optimal_reward_allocation.pdf",
@@ -452,7 +452,7 @@ var Clients []Client = []Client{
 			},			
 			{
 				Title: "PoEM Analysis Paper",
-				Desc:  template.HTML(`The scientists of Quai and Common Prefix collaborated on an academic paper showing PoEM is secure and analyzed its benefits, in latency and throughput, compared to traditional longest-chain proof-of-work protocols such as Bitcoin, both analytically and experimentally.`),
+				Desc:  template.HTML(`The scientists of Quai and Common Prefix are collaborating on an academic paper showing PoEM is secure and analyzing its benefits, in latency and throughput, compared to traditional longest-chain proof-of-work protocols such as Bitcoin, both analytically and experimentally.`),
 				Links: []ProjectLink{
 					{
 						Url:  "https://eprint.iacr.org/2024/200.pdf",
