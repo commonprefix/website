@@ -447,6 +447,24 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "nikos_vlastaras.jpg",
 	},
+	"sravya": {
+		Handle:         "sravya",
+		Name:           "Dr. Sravya Yandamuri",
+		Specialization: "consensus, distributed systems, applied cryptography",
+		Department: "science",
+		Desc: template.HTML(`
+			Sravya obtained her PhD  in Distributed Systems at Duke University under the guidance of Professor Kartik Nayak with a thesis on the topic of Byzantine Agreement in Asynchronous networks. 
+			Previously, she was an intern at the now-defunct VMware Research as well as a visiting researcher at the CISPA Helmholtz Center for Information Security. 
+			Her research includes topics such as State Machine Replication, Dynamic Availability, and Parallel Broadcast. 
+			Her work has been published in notable conferences including CRYPTO and PODC.
+			Highlights of her research include the papers
+			<a href="https://eprint.iacr.org/2022/711.pdf">Efficient and Adaptively Secure Asynchronous Binary Agreement via Binding Crusader Agreement</a>,
+			<a href="https://eprint.iacr.org/2025/1003.pdf">Low-Latency Dynamically Available Total Order Broadcast</a>,
+			and <a href="https://eprint.iacr.org/2025/1016.pdf">Leader Election with Poly-logarithmic Communication Per Party</a>. 
+			`),
+		Image: "sravya_yandamuri.jpg",
+		
+	},
 	"dionysis": {
 		Handle:         "dionysis",
 		Name:           "Dr. Dionysis Zindros",
