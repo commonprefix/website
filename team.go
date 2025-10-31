@@ -259,6 +259,18 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "haris_karavasilis.png",
 	},
+	"myrto": {
+		Handle:         "myrto",
+		Name:           "Myrsini Koulouri",
+		Specialization: "legal, operations",
+		Department: "operations",
+		Desc: template.HTML(`
+			Myrsini is a member of the Operations team at Common Prefix, where she supports the legal and regulatory aspects of the company's operational strategy. 
+			She holds a Law degree from Aristotle University of Thessaloniki and is a member of the Athens Bar Association. 
+			Her legal expertise and analytical mindset help ensure regulatory compliance, streamline internal processes, and reinforce the legal foundations of the organization’s activities.
+		`),
+		Image: "myrsini_koulouri.png",
+	},
 	"odysseas": {
 		Handle:         "odysseas",
 		Name:           "Odysseas Sofikitis",
@@ -322,19 +334,12 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "smart contract development, auditing, software engineering, algorithms, complexity",
 		Department: "engineering",
 		Desc: template.HTML(`
-			Jakov is a software engineer based in Munich,
-			currently pursuing his Master's degree in Informatics at the Technical University of Munich.
-			He has earned his Bachelor's degree in Computer Science
-			from the University Cyril and Methodius in Skopje.
-			Jakov specializes in blockchain engineering, algorithms and complexity, and auditing.
-			He has worked as a cloud engineer at
-			<a href="https://www.etas.com/">ETAS (Bosch) GmbH</a>
-			and has experience working as a backend and blockchain engineer through various internships at
-			<a href="https://www.netcetera.com/">Netcetera</a>,
-			<a href="https://www.sorsix.com/">Sorsix</a>, and
-			<a href="https://www.loka.com/">LOKA</a>,
-			as well as through freelance projects.
-		`),
+			Jakov is a software engineer and auditor based in Skopje. 
+			He holds a Master's degree in Informatics from the Technical University of Munich. 
+			Jakov specializes in the design of blockchain systems, protocol development, algorithms, and complexity, and in auditing. 
+			He has multi-year experience in software engineering, gained by working as a cloud engineer at <a href="https://www.etas.com/">ETAS (Bosch) GmbH</a> 
+			and as a backend and blockchain engineer at <a href="https://www.netcetera.com/">Netcetera</a>, <a href="https://www.sorsix.com/">Sorsix</a>, and <a href="https://www.loka.com/">LOKA</a>.
+			`),
 		Image: "jakov_mitrovski.jpg",
 	},
 	"themis": {
@@ -441,6 +446,24 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			At Common Prefix he applies his experience in distributed systems to help build robust and scalable infrastructure.
 		`),
 		Image: "nikos_vlastaras.jpg",
+	},
+	"sravya": {
+		Handle:         "sravya",
+		Name:           "Dr. Sravya Yandamuri",
+		Specialization: "consensus, distributed systems, applied cryptography",
+		Department: "science",
+		Desc: template.HTML(`
+			Sravya obtained her PhD  in Distributed Systems at Duke University under the guidance of Professor Kartik Nayak with a thesis on the topic of Byzantine Agreement in Asynchronous networks. 
+			Previously, she was an intern at the now-defunct VMware Research as well as a visiting researcher at the CISPA Helmholtz Center for Information Security. 
+			Her research includes topics such as State Machine Replication, Dynamic Availability, and Parallel Broadcast. 
+			Her work has been published in notable conferences including CRYPTO and PODC.
+			Highlights of her research include the papers
+			<a href="https://eprint.iacr.org/2022/711.pdf">Efficient and Adaptively Secure Asynchronous Binary Agreement via Binding Crusader Agreement</a>,
+			<a href="https://eprint.iacr.org/2025/1003.pdf">Low-Latency Dynamically Available Total Order Broadcast</a>,
+			and <a href="https://eprint.iacr.org/2025/1016.pdf">Leader Election with Poly-logarithmic Communication Per Party</a>. 
+			`),
+		Image: "sravya_yandamuri.jpg",
+		
 	},
 	"dionysis": {
 		Handle:         "dionysis",
