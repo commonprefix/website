@@ -2,6 +2,16 @@ package main
 
 import "html/template"
 
+// Titles for Leadership
+var Titles = map[string]string{
+	"dionysis": "CEO",
+	"nikolas": "CTO",
+	"zeta": "Chief Scientist",
+	"haris":   "COO",
+	"themis":   "Engineer Lead",
+	"apostolos":   "Product Lead",
+}
+
 var Members map[string]TeamMember = map[string]TeamMember{
 	"orestis": {
 		Handle:         "orestis",
@@ -68,7 +78,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "zeta",
 		Name:           "Dr. Zeta Avarikioti",
 		Specialization: "distributed systems, scaling blockchains, cryptoeconomic incentive analysis",
-		Department: "science",
+		Department: "leadership",
 		Desc: template.HTML(`
 			Zeta is an upcoming Assistant Professor at the Technical University of Vienna (TU Wien) in Austria.
 			She is currently a post-doctoral blockchain researcher at TU Wien working with professor Matteo Maffei.
@@ -198,25 +208,11 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "robin_fritsch.jpg",
 	},
-	"lioba": {
-		Handle:         "lioba",
-		Name:           "Lioba Heimbach",
-		Specialization: "DeFi, cryptoeconomic incentives analysis, MEV, game theory",
-		Department: "science",
-		Desc: template.HTML(`
-			Lioba is a doctoral student at ETH Zurich advised by Roger Wattenhofer. 
-			She holds a MSc degree in Electrical Engineering and Information Technology from ETH Zurich. 
-			Her research focuses on empirical measurements and the analysis of cryptoeconomic incentives in the blockchain ecosystem with a focus on decentralized finance. 
-			Among other venues, she has published in IEEE S&P (Oakland), FC, AFT, AsiaCCS, IMC, and DISC. 
-			Highlights of her research include the papers <a href="https://arxiv.org/abs/2401.01622">Non-Atomic Arbitrage in Decentralized Finance</a>, <a href="https://arxiv.org/abs/2203.11520">SoK: Preventing Transaction Reordering Manipulations in Decentralized Finance</a>, and  <a href="https://arxiv.org/pdf/2304.11478">Base Fee Manipulation In Ethereum's EIP-1559 Transaction Fee Mechanism</a>.
-		`),
-		Image: "lioba_heimbach.jpg",
-	},
 	"nikolas": {
 		Handle:         "nikolas",
 		Name:           "Nikolaos Kamarinakis",
 		Specialization: "smart contract development, auditing, software engineering, offensive security",
-		Department: "engineering",
+		Department: "leadership",
 		Desc: template.HTML(`
 			Nikolas is a software engineer based in Athens, Greece.
 			He holds a Bachelor&rsquo;s degree in Computer Science with a minor in Cybersecurity from the University of Maryland.
@@ -247,7 +243,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "haris",
 		Name:           "Haris Karavasilis",
 		Specialization: "business development, project management, quantitative finance, risk management",
-		Department: "operations",
+		Department: "leadership",
 		Desc: template.HTML(`
 			Haris works on the business side of things at Common Prefix.
 			His background includes roles at Amazon and Piraeus Bank,
@@ -257,7 +253,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			At Common Prefix, he contributes to both business development and project management,
 			aiming to improve operational and financial efficiency.
 		`),
-		Image: "haris_karavasilis.png",
+		Image: "haris_karavasilis.jpg",
 	},
 	"myrto": {
 		Handle:         "myrto",
@@ -346,7 +342,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "themis",
 		Name:           "Themis Papameletiou",
 		Specialization: "smart contract development, testing, software engineering, algorithmic trading, rockets",
-		Department: "engineering",
+		Department: "leadership",
 		Desc: template.HTML(`
 			Themis is a software engineer based in Athens.
 			He has significant experience developing software for a variety of projects
@@ -406,7 +402,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "apostolos",
 		Name:           "Apostolos Tzinas",
 		Specialization: "smart contract development, algorithms, software engineering, consensus",
-		Department: "engineering",
+		Department: "leadership",
 		Desc: template.HTML(`
 			Apostolos is a blockchain researcher and engineer at Common Prefix,
 			specialising in blockchain consensus and decentralised finance.
@@ -469,7 +465,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "dionysis",
 		Name:           "Dr. Dionysis Zindros",
 		Specialization: "consensus, light clients, bridges, interoperability, fast bootstrapping, algorithms, software engineering",
-		Department: "science",
+		Department: "leadership",
 		Desc: template.HTML(`
 			Dionysis is a co-founder and researcher at Common Prefix
 			focusing on consensus, light clients, bridges, interoperability, and fast bootstrapping.
