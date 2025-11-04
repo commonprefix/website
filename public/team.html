@@ -41,11 +41,25 @@
 		
 <style>
 	 
-	.team__filters { margin-bottom:2rem; }
-	.team__filters .filter { cursor:pointer; }
-	.team-member[hidden] { display:none !important; }
-	.team__filters [data-filter="department"] .dropdown {width: 160px;height: auto;max-height: none;}
+	.team__section { margin: 3rem 0 2rem; }
+	.team__section h2 { margin-bottom: 1.25rem; }
+	.team__filters { margin-bottom: 2rem; }
+	.team__filters .filter { cursor: pointer; }
+	.team__filters [data-filter="department"] .dropdown { width: 160px; }
 
+	 
+	.team-member__name { margin-bottom: .15rem; }
+	.role-line{
+	margin-top: .1rem;
+	font-size: .95rem;
+	font-weight: 500;
+	color: #444;
+	letter-spacing: .02em;
+	}
+	section#leadership .role-line{ color:#333; }
+
+	 
+	.team-member[hidden] { display:none !important; }
 </style>
 
 	</head>
@@ -93,17 +107,19 @@
 	<div class="team__filters research__filters">
 		<p>Filter</p>
 		<div class="filter" data-filter="department">
-			<span>Expertise</span>
+			<span>Department</span>
 			<span hidden class="value"></span>
 			<button hidden title="Clear this filter.">x</button>
 			
 			<div class="dropdown" hidden>
 				
+					<button title="Filter by this department.">leadership</button>
+				
 					<button title="Filter by this department.">engineering</button>
 				
-					<button title="Filter by this department.">operations</button>
-				
 					<button title="Filter by this department.">science</button>
+				
+					<button title="Filter by this department.">operations</button>
 				
 			</div>
 		</div>
@@ -112,184 +128,93 @@
 	</div>
 </section>
 
-	<section>
-		
-		<div class="team-member" id="orestis" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/orestis_alpos.jpg"
-				alt="Dr. Orestis Alpos"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/orestis_alpos.jpg"
-						alt="Dr. Orestis Alpos"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. Orestis Alpos</h2>
-						<h4 class="label">consensus, distributed systems, threshold cryptography, applied cryptography</h4>
-					</div>
-				</div>
-				<p>
-			Orestis is a blockchain researcher based in Bern, Switzerland.
-			He holds a PhD from the University of Bern, advised by Christian Cachin,
-			and a Computer Engineering MSc degree from the National Technical University of Athens.
-			He specializes in distributed systems and applied cryptography.
-			His publications include protocols for
-			<a href="https://eprint.iacr.org/2023/1103.pdf">asynchronous PoS consensus</a>,
-			<a href="https://arxiv.org/pdf/2307.02954.pdf">front-running prevention</a>,
-			<a href="https://arxiv.org/pdf/2006.04616.pdf">consensus</a> and
-			<a href="https://eprint.iacr.org/2022/1767.pdf">cryptography</a>
-			with flexible trust assumptions, as well as results on
-			<a href="https://arxiv.org/pdf/2107.11331.pdf">composing distributed systems</a>.
+
+
+  
+  
+  
+    <section class="team__section" id="leadership" data-dept="leadership">
+      <h2>Leadership</h2>
+
+      
+      <div class="team-member" id="dionysis" data-dept="leadership">
+        <img loading="lazy" draggable="false"
+             src="/static/team/dionysis_zindros.jpg" alt="Dr. Dionysis Zindros"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/dionysis_zindros.jpg" alt="Dr. Dionysis Zindros"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. Dionysis Zindros
+                <div class="role-line">CEO</div>
+              </h2>
+              <h4 class="label">consensus, light clients, bridges, interoperability, fast bootstrapping, algorithms, software engineering</h4>
+            </div>
+          </div>
+          <p>
+			Dionysis is a co-founder and researcher at Common Prefix
+			focusing on consensus, light clients, bridges, interoperability, and fast bootstrapping.
+			He did his post-doc at Stanford University, advised by David Tse.
+			He holds a PhD from the University of Athens, advised by Aggelos Kiayias,
+			and an Electrical and Computer Engineering degree from the National Technical University of Athens.
+			Among other venues, he has published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and
+			presented at Black Hat Europe and Asia.
+			Highlights of his research include the papers
+			<a href="https://eprint.iacr.org/2017/963.pdf">Non-Interactive Proofs of Proof-of-Work</a>,
+			<a href="https://eprint.iacr.org/2018/1239.pdf">Proof-of-Stake Sidechains</a>, and
+			<a href="https://eprint.iacr.org/2018/1048.pdf">Proof-of-Work Sidechains</a>.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="dominik" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/dominik_apel.png"
-				alt="Dominik Apel"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/dominik_apel.png"
-						alt="Dominik Apel"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dominik Apel</h2>
-						<h4 class="label">software engineering, auditing, offensive security</h4>
-					</div>
-				</div>
-				<p>
-			Dominik is a Software Engineer based in Vienna, Austria. He holds a Master's degree in Computer Engineering from the 
-			Technical University of Vienna (TU Wien) in Austria. He has multiple years of experience in full-stack software engineering
-			as well as some experience in offensive security. Dominik is currently focused on smart contract development
-			and source code auditing at Common Prefix.
+        </div>
+      </div>
+      
+      <div class="team-member" id="nikolas" data-dept="leadership">
+        <img loading="lazy" draggable="false"
+             src="/static/team/nikolaos_kamarinakis.jpg" alt="Nikolaos Kamarinakis"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/nikolaos_kamarinakis.jpg" alt="Nikolaos Kamarinakis"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Nikolaos Kamarinakis
+                <div class="role-line">CTO</div>
+              </h2>
+              <h4 class="label">smart contract development, auditing, software engineering, offensive security</h4>
+            </div>
+          </div>
+          <p>
+			Nikolas is a software engineer based in Athens, Greece.
+			He holds a Bachelor&rsquo;s degree in Computer Science with a minor in Cybersecurity from the University of Maryland.
+			He has multiple years of experience in full-stack software engineering and open-source development,
+			as well as some experience in offensive security.
+			Nikolas is currently focused on smart contract development and auditing at Common Prefix.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="jason" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/jason_athanasoglou.jpg"
-				alt="Jason Athanasoglou"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/jason_athanasoglou.jpg"
-						alt="Jason Athanasoglou"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Jason Athanasoglou</h2>
-						<h4 class="label">software engineering, interoperability, algorithms, DevOps</h4>
-					</div>
-				</div>
-				<p>
-			    Jason is a software engineer based in Athens, Greece, with extensive experience in full-stack development, open-source contributions, 
-				and a strong focus on building AI-powered applications. 
-				He holds an Integrated Master’s degree in Electrical and Computer Engineering from the University of Patras. 
-				At Common Prefix, he develops blockchain and Web3 applications, focusing on decentralized and scalable solutions.</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="lukas" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/lukas_aumayr.jpg"
-				alt="Dr. Lukas Aumayr"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/lukas_aumayr.jpg"
-						alt="Dr. Lukas Aumayr"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. Lukas Aumayr</h2>
-						<h4 class="label">distributed systems, scaling blockchains, blockchain interoperability, applied cryptography, protocol analysis</h4>
-					</div>
-				</div>
-				<p>
-            Lukas is a blockchain researcher specializing in distributed systems, applied cryptography,
-            and protocol analysis, with a focus on blockchain scalability and interoperability.
-            Among others, his work includes advancements in Payment/Virtual Channel Network protocols,
-            bridges, light clients, crypto-economic incentives, and BitVM.
-            Lukas earned his PhD from the Technical University of Vienna (TU Wien),
-            under the supervision of Matteo Maffei and Pedro Moreno-Sanchez.
-            He has published in venues such as ACM CCS, USENIX Security, IEEE S&P (Oakland), and NDSS.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="zeta" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/zeta_avarikioti.jpg"
-				alt="Dr. Zeta Avarikioti"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/zeta_avarikioti.jpg"
-						alt="Dr. Zeta Avarikioti"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. Zeta Avarikioti</h2>
-						<h4 class="label">distributed systems, scaling blockchains, cryptoeconomic incentive analysis</h4>
-					</div>
-				</div>
-				<p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="zeta" data-dept="leadership">
+        <img loading="lazy" draggable="false"
+             src="/static/team/zeta_avarikioti.jpg" alt="Dr. Zeta Avarikioti"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/zeta_avarikioti.jpg" alt="Dr. Zeta Avarikioti"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. Zeta Avarikioti
+                <div class="role-line">Chief Scientist</div>
+              </h2>
+              <h4 class="label">distributed systems, scaling blockchains, cryptoeconomic incentive analysis</h4>
+            </div>
+          </div>
+          <p>
 			Zeta is an upcoming Assistant Professor at the Technical University of Vienna (TU Wien) in Austria.
 			She is currently a post-doctoral blockchain researcher at TU Wien working with professor Matteo Maffei.
 			She graduated with a PhD from ETH Zürich, advised by Roger Wattenhofer, and holds an engineering degree from the
@@ -302,104 +227,430 @@
 			<a href="https://eprint.iacr.org/2019/1092.pdf">Cerberus Channels: Incentivizing Watchtowers for Bitcoin</a>, and
 			<a href="https://arxiv.org/pdf/1910.10434.pdf">Divide and Scale: Formalization of Distributed Ledger Sharding Protocols</a>.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="tor" data-dept="operations">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/tor_bognaes.jpg"
-				alt="Tor Bognaes"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/tor_bognaes.jpg"
-						alt="Tor Bognaes"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Tor Bognaes</h2>
-						<h4 class="label">business development, finance, operations</h4>
-					</div>
-				</div>
-				<p>
-			Tor supports the growth of Common Prefix, working across business development, finance, marketing, and operations. 
-			His background includes work at Amazon - where he helped scale the EU last-mile logistics network - and at a growth equity investment firm. 
-			He holds MSc degrees in Industrial Economics & Technology Management from the Norwegian University of Science and Technology and in Finance from the Norwegian School of Economics.
+        </div>
+      </div>
+      
+      <div class="team-member" id="haris" data-dept="leadership">
+        <img loading="lazy" draggable="false"
+             src="/static/team/haris_karavasilis.jpg" alt="Haris Karavasilis"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/haris_karavasilis.jpg" alt="Haris Karavasilis"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Haris Karavasilis
+                <div class="role-line">COO</div>
+              </h2>
+              <h4 class="label">business development, project management, quantitative finance, risk management</h4>
+            </div>
+          </div>
+          <p>
+			Haris works on the business side of things at Common Prefix.
+			His background includes roles at Amazon and Piraeus Bank,
+			where he gained valuable experience in operations, finance and risk management.
+			He holds a Master's degree in Quantitative Finance and Risk Management from Bocconi University
+			and an Electrical & Electronic Engineering Bachelor's degree from the University of Manchester.
+			At Common Prefix, he contributes to both business development and project management,
+			aiming to improve operational and financial efficiency.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="dejan" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/dejan_cabrilo.png"
-				alt="Dejan Cabrilo"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/dejan_cabrilo.png"
-						alt="Dejan Cabrilo"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dejan Cabrilo</h2>
-						<h4 class="label">software engineering, auditing, quantitative trading</h4>
-					</div>
-				</div>
-				<p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="themis" data-dept="leadership">
+        <img loading="lazy" draggable="false"
+             src="/static/team/themis_papameletiou.jpg" alt="Themis Papameletiou"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/themis_papameletiou.jpg" alt="Themis Papameletiou"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Themis Papameletiou
+                <div class="role-line">Engineer Lead</div>
+              </h2>
+              <h4 class="label">smart contract development, testing, software engineering, algorithmic trading, rockets</h4>
+            </div>
+          </div>
+          <p>
+			Themis is a software engineer based in Athens.
+			He has significant experience developing software for a variety of projects
+			such as web applications, algorithmic traders and rockets.
+			He is pursuing a Master&rsquo;s degree in Electrical and Computer Engineering
+			from the National Technical University of Athens
+			and has also completed internships at Google and at the European Space Agency.
+			Currently, he is focused on smart contract development and testing.
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="apostolos" data-dept="leadership">
+        <img loading="lazy" draggable="false"
+             src="/static/team/apostolos_tzinas.png" alt="Apostolos Tzinas"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/apostolos_tzinas.png" alt="Apostolos Tzinas"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Apostolos Tzinas
+                <div class="role-line">Product Lead</div>
+              </h2>
+              <h4 class="label">smart contract development, algorithms, software engineering, consensus</h4>
+            </div>
+          </div>
+          <p>
+			Apostolos is a blockchain researcher and engineer at Common Prefix,
+			specialising in blockchain consensus and decentralised finance.
+			His research highlights include
+			<a href="https://eprint.iacr.org/2023/1648.pdf">On-Chain Timestamps Are Accurate</a>,
+			published in Financial Cryptography 2024, and
+			<a href="https://eprint.iacr.org/2023/605.pdf">The Principal–Agent Problem in Liquid Staking</a>,
+			published in Financial Cryptography 2023&rsquo;s 7th Workshop on Trusted Smart Contracts (WTSC).
+			Apostolos also has extensive experience in deploying and managing both validators and full-nodes
+			across the Ethereum and Cosmos ecosystems.
+			In the past, as a web engineer at
+			<a href="https://www.mayainsights.com/">Maya Insights</a> and NutriDice,
+			he has gained extensive experience with a wide range of programming languages and technical stacks.
+			Apostolos has a background in algorithms, having competed at national and balkan olympiads in informatics.
+		</p>
+        </div>
+      </div>
+      
+    </section>
+  
+
+
+  
+  
+  
+    <section class="team__section" id="engineering" data-dept="engineering">
+      <h2>Engineering</h2>
+
+      
+      <div class="team-member" id="dominik" data-dept="engineering">
+        <img loading="lazy" draggable="false"
+             src="/static/team/dominik_apel.png" alt="Dominik Apel"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/dominik_apel.png" alt="Dominik Apel"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dominik Apel
+                
+              </h2>
+              <h4 class="label">software engineering, auditing, offensive security</h4>
+            </div>
+          </div>
+          <p>
+			Dominik is a Software Engineer based in Vienna, Austria. He holds a Master's degree in Computer Engineering from the 
+			Technical University of Vienna (TU Wien) in Austria. He has multiple years of experience in full-stack software engineering
+			as well as some experience in offensive security. Dominik is currently focused on smart contract development
+			and source code auditing at Common Prefix.
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="jason" data-dept="engineering">
+        <img loading="lazy" draggable="false"
+             src="/static/team/jason_athanasoglou.jpg" alt="Jason Athanasoglou"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/jason_athanasoglou.jpg" alt="Jason Athanasoglou"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Jason Athanasoglou
+                
+              </h2>
+              <h4 class="label">software engineering, interoperability, algorithms, DevOps</h4>
+            </div>
+          </div>
+          <p>
+			    Jason is a software engineer based in Athens, Greece, with extensive experience in full-stack development, open-source contributions, 
+				and a strong focus on building AI-powered applications. 
+				He holds an Integrated Master’s degree in Electrical and Computer Engineering from the University of Patras. 
+				At Common Prefix, he develops blockchain and Web3 applications, focusing on decentralized and scalable solutions.</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="joao" data-dept="engineering">
+        <img loading="lazy" draggable="false"
+             src="/static/team/joao_azevedo.jpg" alt="João Pedro Coelho de Azevedo"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/joao_azevedo.jpg" alt="João Pedro Coelho de Azevedo"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                João Pedro Coelho de Azevedo
+                
+              </h2>
+              <h4 class="label">smart contract development, large scale system design, software engineering</h4>
+            </div>
+          </div>
+          <p>
+			João is a software engineer with experience in blockchain, fintech, and automotive technologies. 
+			He holds a Master’s degree in Electronics and Telecommunications Engineering from the University of Aveiro. 
+			Over the years he has contributed to multiple startups (notably <a href="https://www.qomodo.me/">Qomodo</a>, <a href="https://www.topos.network/">Topos Network</a> and <a href="https://veniam.com/">Veniam</a>), building financing risk assessment systems, smart contracts, and connected mobility solutions. 
+			His work spans backend engineering, smart contract development, and large-scale system architecture.
+			João is a certified PMP, IEEE member, and the inventor of 13 granted patents in intelligent networking and automotive communications.
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="dejan" data-dept="engineering">
+        <img loading="lazy" draggable="false"
+             src="/static/team/dejan_cabrilo.png" alt="Dejan Cabrilo"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/dejan_cabrilo.png" alt="Dejan Cabrilo"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dejan Cabrilo
+                
+              </h2>
+              <h4 class="label">software engineering, auditing, quantitative trading</h4>
+            </div>
+          </div>
+          <p>
 			Dejan is a software engineer based in Belgrade, Serbia. He holds a Bachelor's degree in Computing and Information Systems from Goldsmiths, University of London. 
 			He has many years of experience building high-availability full stack software. He has also done work in data science and low-level programming. 
 			Previously he worked in an e-commerce startup and a quantitative trading firm in traditional finance.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="pyrros" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/pyrros_chaidos.jpg"
-				alt="Dr. Pyrros Chaidos"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/pyrros_chaidos.jpg"
-						alt="Dr. Pyrros Chaidos"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. Pyrros Chaidos</h2>
-						<h4 class="label">zero-knowledge proofs, voting</h4>
-					</div>
-				</div>
-				<p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="makis" data-dept="engineering">
+        <img loading="lazy" draggable="false"
+             src="/static/team/michalis_christou.jpg" alt="Michalis Christou"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/michalis_christou.jpg" alt="Michalis Christou"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Michalis Christou
+                
+              </h2>
+              <h4 class="label">smart contract development, software engineering, bridges</h4>
+            </div>
+          </div>
+          <p>
+			Michalis Christou is a Software Engineer based in Larnaca, Cyprus. He holds a Master’s degree in Advanced Computing from Imperial College London and a Bachelor’s degree in Computer Engineering from the University of Cyprus. 
+			He has multiple years of experience spanning Ethereum smart contract development, embedded systems, and more recently bridges. Michalis is currently focused on smart contract development and bridges at Common Prefix.
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="jakov" data-dept="engineering">
+        <img loading="lazy" draggable="false"
+             src="/static/team/jakov_mitrovski.jpg" alt="Jakov Mitrovski"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/jakov_mitrovski.jpg" alt="Jakov Mitrovski"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Jakov Mitrovski
+                
+              </h2>
+              <h4 class="label">smart contract development, auditing, software engineering, algorithms, complexity</h4>
+            </div>
+          </div>
+          <p>
+			Jakov is a software engineer and auditor based in Skopje. 
+			He holds a Master's degree in Informatics from the Technical University of Munich. 
+			Jakov specializes in the design of blockchain systems, protocol development, algorithms, and complexity, and in auditing. 
+			He has multi-year experience in software engineering, gained by working as a cloud engineer at <a href="https://www.etas.com/">ETAS (Bosch) GmbH</a> 
+			and as a backend and blockchain engineer at <a href="https://www.netcetera.com/">Netcetera</a>, <a href="https://www.sorsix.com/">Sorsix</a>, and <a href="https://www.loka.com/">LOKA</a>.
+			</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="ristic" data-dept="engineering">
+        <img loading="lazy" draggable="false"
+             src="/static/team/nikola_ristic.jpg" alt="Nikola Ristić"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/nikola_ristic.jpg" alt="Nikola Ristić"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Nikola Ristić
+                
+              </h2>
+              <h4 class="label">smart contract development, full-stack web development, software engineering, algorithms, circus acrobatics</h4>
+            </div>
+          </div>
+          <p>
+			Nikola is a self-taught software engineer based in Belgrade, Serbia. He started with algorithms in elementary school and won 2 gold medals in national high-school competitions in Serbia. Before his web3 journey he has helped various startups scale their products and teams, notably <a href="https://hellosuper.com">Super</a> and <a href="https://www.amondo.com">Amondo</a>, and has 10 years of freelance experience as a full-stack web developer.
+
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="nikos" data-dept="engineering">
+        <img loading="lazy" draggable="false"
+             src="/static/team/nikos_sfakianakis.jpg" alt="Nikos Sfakianakis"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/nikos_sfakianakis.jpg" alt="Nikos Sfakianakis"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Nikos Sfakianakis
+                
+              </h2>
+              <h4 class="label">software engineering, consensus, offensive security</h4>
+            </div>
+          </div>
+          <p>Nikos is a software engineer based in Athens. He is currently wrapping up his Master’s Degree in Electrical and Computer Engineering at the National Technical University of Athens where he is writing his thesis on Consensus Algorithms. 
+		He has previously worked at Mysten Labs as a Blockchain Engineer and completed an internship at the Cybersecurity Department of OTE Group. He has also competed in several Ethical Hacking and Offensive Security competitions.
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="nikos_vlastaras" data-dept="engineering">
+        <img loading="lazy" draggable="false"
+             src="/static/team/nikos_vlastaras.jpg" alt="Nikos Vlastaras"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/nikos_vlastaras.jpg" alt="Nikos Vlastaras"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Nikos Vlastaras
+                
+              </h2>
+              <h4 class="label">software engineering, distributed systems</h4>
+            </div>
+          </div>
+          <p>
+			Nikos is a software engineer based in Athens with a degree from the National Technical University of Athens. 
+			Before joining Common Prefix he worked at Panther Labs, where he contributed to production software and large-scale engineering projects. 
+			At Common Prefix he applies his experience in distributed systems to help build robust and scalable infrastructure.
+		</p>
+        </div>
+      </div>
+      
+    </section>
+  
+
+
+  
+  
+  
+    <section class="team__section" id="science" data-dept="science">
+      <h2>Science</h2>
+
+      
+      <div class="team-member" id="orestis" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/orestis_alpos.jpg" alt="Dr. Orestis Alpos"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/orestis_alpos.jpg" alt="Dr. Orestis Alpos"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. Orestis Alpos
+                
+              </h2>
+              <h4 class="label">consensus, distributed systems, threshold cryptography, applied cryptography</h4>
+            </div>
+          </div>
+          <p>
+			Orestis is a blockchain researcher based in Bern, Switzerland.
+			He holds a PhD from the University of Bern, advised by Christian Cachin,
+			and a Computer Engineering MSc degree from the National Technical University of Athens.
+			He specializes in distributed systems and applied cryptography.
+			His publications include protocols for
+			<a href="https://eprint.iacr.org/2023/1103.pdf">asynchronous PoS consensus</a>,
+			<a href="https://arxiv.org/pdf/2307.02954.pdf">front-running prevention</a>,
+			<a href="https://arxiv.org/pdf/2006.04616.pdf">consensus</a> and
+			<a href="https://eprint.iacr.org/2022/1767.pdf">cryptography</a>
+			with flexible trust assumptions, as well as results on
+			<a href="https://arxiv.org/pdf/2107.11331.pdf">composing distributed systems</a>.
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="lukas" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/lukas_aumayr.jpg" alt="Dr. Lukas Aumayr"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/lukas_aumayr.jpg" alt="Dr. Lukas Aumayr"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. Lukas Aumayr
+                
+              </h2>
+              <h4 class="label">distributed systems, scaling blockchains, blockchain interoperability, applied cryptography, protocol analysis</h4>
+            </div>
+          </div>
+          <p>
+            Lukas is a blockchain researcher specializing in distributed systems, applied cryptography,
+            and protocol analysis, with a focus on blockchain scalability and interoperability.
+            Among others, his work includes advancements in Payment/Virtual Channel Network protocols,
+            bridges, light clients, crypto-economic incentives, and BitVM.
+            Lukas earned his PhD from the Technical University of Vienna (TU Wien),
+            under the supervision of Matteo Maffei and Pedro Moreno-Sanchez.
+            He has published in venues such as ACM CCS, USENIX Security, IEEE S&P (Oakland), and NDSS.
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="pyrros" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/pyrros_chaidos.jpg" alt="Dr. Pyrros Chaidos"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/pyrros_chaidos.jpg" alt="Dr. Pyrros Chaidos"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. Pyrros Chaidos
+                
+              </h2>
+              <h4 class="label">zero-knowledge proofs, voting</h4>
+            </div>
+          </div>
+          <p>
 			Pyrros is a post-doctoral blockchain researcher at the University of Athens. He holds a PhD from the
 			University College of London, advised by Jens Groth and Allan Sikk, an MSc in Information Security from the University College of London, an MSc in
 			Theoretical Computer Science from the University of Athens, and a BA in Mathematics from the University of
@@ -411,69 +662,53 @@
 			the Discrete Log Setting</a>, and
 			<a href="https://eprint.iacr.org/2016/368.pdf">Foundations of Fully Dynamic Group Signatures</a>.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="makis" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/michalis_christou.jpg"
-				alt="Michalis Christou"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/michalis_christou.jpg"
-						alt="Michalis Christou"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Michalis Christou</h2>
-						<h4 class="label">smart contract development, software engineering, bridges</h4>
-					</div>
-				</div>
-				<p>
-			Michalis Christou is a Software Engineer based in Larnaca, Cyprus. He holds a Master’s degree in Advanced Computing from Imperial College London and a Bachelor’s degree in Computer Engineering from the University of Cyprus. 
-			He has multiple years of experience spanning Ethereum smart contract development, embedded systems, and more recently bridges. Michalis is currently focused on smart contract development and bridges at Common Prefix.
+        </div>
+      </div>
+      
+      <div class="team-member" id="james" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/james_chiang.jpeg" alt="Dr. James Hsin-yu Chiang"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/james_chiang.jpeg" alt="Dr. James Hsin-yu Chiang"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. James Hsin-yu Chiang
+                
+              </h2>
+              <h4 class="label">applied cryptography, privacy-enhancing technologies, blockchain protocols</h4>
+            </div>
+          </div>
+          <p>
+			James is a cryptography postdoctoral researcher at Aarhus University, advised by Ivan Damgård. He holds a PhD from the Technical University of Denmark where he was awarded the DTU Compute Fellowship and advised by Alberto Lluch-Lafuente, Bernardo David and Massimo Bartoletti. 
+			He holds a BSc with distinction from UCLA. His research focuses on privacy-preserving techniques motivated by recent blockchain applications and includes practical advancements in <a href="https://eprint.iacr.org/2025/113.pdf">post-quantum threshold ring signatures</a>, novel notions of <a href="https://eprint.iacr.org/2023/943.pdf">differential privacy for secure multi-party computation</a> (MPC), and the first formal model of <a href="https://arxiv.org/pdf/2106.01870">miner-extractable-value</a> (MEV).
+			His research has been published in ACM CCS, Financial Cryptography, AFT and recognized with the Sui Academic Research Award.
+			Prior to academia, James designed flight hardware for Mars rovers at JPL NASA, advised technology firms on three continents at the Boston Consulting Group, co-founded the leading solar business software company (Eturnity) and contributed to multiple open-source implementations of the original Bitcoin protocol (Core/Libbitcoin).	
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="bernardo" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/bernardo_david.jpg"
-				alt="Prof. Bernardo David"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/bernardo_david.jpg"
-						alt="Prof. Bernardo David"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Prof. Bernardo David</h2>
-						<h4 class="label">multiparty computation, consensus</h4>
-					</div>
-				</div>
-				<p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="bernardo" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/bernardo_david.jpg" alt="Prof. Bernardo David"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/bernardo_david.jpg" alt="Prof. Bernardo David"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Prof. Bernardo David
+                
+              </h2>
+              <h4 class="label">multiparty computation, consensus</h4>
+            </div>
+          </div>
+          <p>
 			Bernardo David is an Associate Professor at the IT University of Copenhagen, working on cryptographic protocols
 			for multiparty computation and blockchain consensus/applications with the support of Concordium Foundation,
 			Independent Research Fund Denmark and Protocol Labs research grants. He holds a PhD in Computer Science
@@ -484,179 +719,54 @@
 			Besides academic activities, he has been a consultant for a number of industry projects
 			on blockchains and information security, having served as scientific advisor to Cardano and Concordium.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="robin" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/robin_fritsch.jpg"
-				alt="Dr. Robin Fritsch"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/robin_fritsch.jpg"
-						alt="Dr. Robin Fritsch"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. Robin Fritsch</h2>
-						<h4 class="label">DeFi, game theory, graph algorithms</h4>
-					</div>
-				</div>
-				<p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="robin" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/robin_fritsch.jpg" alt="Dr. Robin Fritsch"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/robin_fritsch.jpg" alt="Dr. Robin Fritsch"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. Robin Fritsch
+                
+              </h2>
+              <h4 class="label">DeFi, game theory, graph algorithms</h4>
+            </div>
+          </div>
+          <p>
             Robin holds a PhD from ETH Zurich, advised by Roger Wattenhofer, focusing on game theory and decentralized finance. 
 			He completed his MSc degree in Mathematics in Data Science from the Technical University of Munich.  
 			Among other venues, he has published in AFT, ACM CCS, and AAMAS. Highlights of his research include the papers <a href="https://arxiv.org/pdf/2201.12303">The Price of Majority Support</a>, 
 			<a href="https://arxiv.org/pdf/2206.04634">The Economics of Automated Market Makers</a>, 
 			and <a href="https://drops.dagstuhl.de/storage/00lipics/lipics-vol282-aft2023/LIPIcs.AFT.2023.24/LIPIcs.AFT.2023.24.pdf">Batching trades on Automated Market Makers</a>.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="lioba" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/lioba_heimbach.jpg"
-				alt="Lioba Heimbach"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/lioba_heimbach.jpg"
-						alt="Lioba Heimbach"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Lioba Heimbach</h2>
-						<h4 class="label">DeFi, cryptoeconomic incentives analysis, MEV, game theory</h4>
-					</div>
-				</div>
-				<p>
-			Lioba is a doctoral student at ETH Zurich advised by Roger Wattenhofer. 
-			She holds a MSc degree in Electrical Engineering and Information Technology from ETH Zurich. 
-			Her research focuses on empirical measurements and the analysis of cryptoeconomic incentives in the blockchain ecosystem with a focus on decentralized finance. 
-			Among other venues, she has published in IEEE S&P (Oakland), FC, AFT, AsiaCCS, IMC, and DISC. 
-			Highlights of her research include the papers <a href="https://arxiv.org/abs/2401.01622">Non-Atomic Arbitrage in Decentralized Finance</a>, <a href="https://arxiv.org/abs/2203.11520">SoK: Preventing Transaction Reordering Manipulations in Decentralized Finance</a>, and  <a href="https://arxiv.org/pdf/2304.11478">Base Fee Manipulation In Ethereum's EIP-1559 Transaction Fee Mechanism</a>.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="james" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/james_chiang.jpeg"
-				alt="Dr. James Hsin-yu Chiang"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/james_chiang.jpeg"
-						alt="Dr. James Hsin-yu Chiang"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. James Hsin-yu Chiang</h2>
-						<h4 class="label">applied cryptography, privacy-enhancing technologies, blockchain protocols</h4>
-					</div>
-				</div>
-				<p>
-			James is a cryptography postdoctoral researcher at Aarhus University, advised by Ivan Damgård. He holds a PhD from the Technical University of Denmark where he was awarded the DTU Compute Fellowship and advised by Alberto Lluch-Lafuente, Bernardo David and Massimo Bartoletti. 
-			He holds a BSc with distinction from UCLA. His research focuses on privacy-preserving techniques motivated by recent blockchain applications and includes practical advancements in <a href="https://eprint.iacr.org/2025/113.pdf">post-quantum threshold ring signatures</a>, novel notions of <a href="https://eprint.iacr.org/2023/943.pdf">differential privacy for secure multi-party computation</a> (MPC), and the first formal model of <a href="https://arxiv.org/pdf/2106.01870">miner-extractable-value</a> (MEV).
-			His research has been published in ACM CCS, Financial Cryptography, AFT and recognized with the Sui Academic Research Award.
-			Prior to academia, James designed flight hardware for Mars rovers at JPL NASA, advised technology firms on three continents at the Boston Consulting Group, co-founded the leading solar business software company (Eturnity) and contributed to multiple open-source implementations of the original Bitcoin protocol (Core/Libbitcoin).	
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="nikolas" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/nikolaos_kamarinakis.jpg"
-				alt="Nikolaos Kamarinakis"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/nikolaos_kamarinakis.jpg"
-						alt="Nikolaos Kamarinakis"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Nikolaos Kamarinakis</h2>
-						<h4 class="label">smart contract development, auditing, software engineering, offensive security</h4>
-					</div>
-				</div>
-				<p>
-			Nikolas is a software engineer based in Athens, Greece.
-			He holds a Bachelor&rsquo;s degree in Computer Science with a minor in Cybersecurity from the University of Maryland.
-			He has multiple years of experience in full-stack software engineering and open-source development,
-			as well as some experience in offensive security.
-			Nikolas is currently focused on smart contract development and auditing at Common Prefix.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="dimitris" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/dimitris_karakostas.jpg"
-				alt="Dr. Dimitris Karakostas"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/dimitris_karakostas.jpg"
-						alt="Dr. Dimitris Karakostas"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. Dimitris Karakostas</h2>
-						<h4 class="label">cryptocurrency wallets, macroeconomics, checkpointing</h4>
-					</div>
-				</div>
-				<p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="dimitris" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/dimitris_karakostas.jpg" alt="Dr. Dimitris Karakostas"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/dimitris_karakostas.jpg" alt="Dr. Dimitris Karakostas"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. Dimitris Karakostas
+                
+              </h2>
+              <h4 class="label">cryptocurrency wallets, macroeconomics, checkpointing</h4>
+            </div>
+          </div>
+          <p>
 			Dimitris is a post-doctoral blockchain researcher at the University of Edinburgh where he works with professor
 			Aggelos Kiayias. He holds a PhD from the University of Edinburgh, advised by Aggelos Kiayias, and an Electrical and Computer Engineering
 			degree from the National Technical University of Athens. He specializes in cryptocurrency wallets and
@@ -666,437 +776,27 @@
 			<a href="https://arxiv.org/pdf/1907.02434.pdf">Cryptocurrency Egalitarianism: A Quantitative Approach</a>, and
 			<a href="https://eprint.iacr.org/2020/173.pdf">Securing Proof-of-Work Ledgers via Checkpointing</a>.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="haris" data-dept="operations">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/haris_karavasilis.png"
-				alt="Haris Karavasilis"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/haris_karavasilis.png"
-						alt="Haris Karavasilis"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Haris Karavasilis</h2>
-						<h4 class="label">business development, project management, quantitative finance, risk management</h4>
-					</div>
-				</div>
-				<p>
-			Haris works on the business side of things at Common Prefix.
-			His background includes roles at Amazon and Piraeus Bank,
-			where he gained valuable experience in operations, finance and risk management.
-			He holds a Master's degree in Quantitative Finance and Risk Management from Bocconi University
-			and an Electrical & Electronic Engineering Bachelor's degree from the University of Manchester.
-			At Common Prefix, he contributes to both business development and project management,
-			aiming to improve operational and financial efficiency.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="myrto" data-dept="operations">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/myrsini_koulouri.png"
-				alt="Myrsini Koulouri"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/myrsini_koulouri.png"
-						alt="Myrsini Koulouri"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Myrsini Koulouri</h2>
-						<h4 class="label">legal, operations</h4>
-					</div>
-				</div>
-				<p>
-			Myrsini is a member of the Operations team at Common Prefix, where she supports the legal and regulatory aspects of the company's operational strategy. 
-			She holds a Law degree from Aristotle University of Thessaloniki and is a member of the Athens Bar Association. 
-			Her legal expertise and analytical mindset help ensure regulatory compliance, streamline internal processes, and reinforce the legal foundations of the organization’s activities.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="julian" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/julian_loss.jpg"
-				alt="Prof. Julian Loss"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/julian_loss.jpg"
-						alt="Prof. Julian Loss"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Prof. Julian Loss</h2>
-						<h4 class="label">cryptography, distributed systems, consensus</h4>
-					</div>
-				</div>
-				<p>
-		Julian is a professor at CISPA Helmholtz Center for Information Security, focusing on cryptography and its applications to distributed algorithms.  
-		He holds a PhD in Mathematics from Ruhr University Bochum, advised by Eike Kiltz, and a MSc in Computer Science from ETH Zurich.  
-		Julian was a postdoctoral researcher at the University of Maryland and Carnegie Mellon University. 
-		His interests include provable security, particularly digital signature schemes and algorithms for distributed consensus.
-		Among other venues, he has published in ACM CCS, ASIACRYPT, EUROCRYPT, FC, and IEEE S&P (Oakland). 
-		Highlights of his research include the papers <a href="https://eprint.iacr.org/2017/620.pdf"> The Algebraic Group Model and its Applications</a>, 
-		<a href="https://infoscience.epfl.ch/server/api/core/bitstreams/3820a5e9-3807-48ae-9604-c37037cc907d/content">On the Security of Two-Round Multi-Signatures</a>, 
-		and <a href="https://eprint.iacr.org/2020/945.pdf">On the (in)security of ROS</a>.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="jakov" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/jakov_mitrovski.jpg"
-				alt="Jakov Mitrovski"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/jakov_mitrovski.jpg"
-						alt="Jakov Mitrovski"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Jakov Mitrovski</h2>
-						<h4 class="label">smart contract development, auditing, software engineering, algorithms, complexity</h4>
-					</div>
-				</div>
-				<p>
-			Jakov is a software engineer and auditor based in Skopje. 
-			He holds a Master's degree in Informatics from the Technical University of Munich. 
-			Jakov specializes in the design of blockchain systems, protocol development, algorithms, and complexity, and in auditing. 
-			He has multi-year experience in software engineering, gained by working as a cloud engineer at <a href="https://www.etas.com/">ETAS (Bosch) GmbH</a> 
-			and as a backend and blockchain engineer at <a href="https://www.netcetera.com/">Netcetera</a>, <a href="https://www.sorsix.com/">Sorsix</a>, and <a href="https://www.loka.com/">LOKA</a>.
-			</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="themis" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/themis_papameletiou.jpg"
-				alt="Themis Papameletiou"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/themis_papameletiou.jpg"
-						alt="Themis Papameletiou"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Themis Papameletiou</h2>
-						<h4 class="label">smart contract development, testing, software engineering, algorithmic trading, rockets</h4>
-					</div>
-				</div>
-				<p>
-			Themis is a software engineer based in Athens.
-			He has significant experience developing software for a variety of projects
-			such as web applications, algorithmic traders and rockets.
-			He is pursuing a Master&rsquo;s degree in Electrical and Computer Engineering
-			from the National Technical University of Athens
-			and has also completed internships at Google and at the European Space Agency.
-			Currently, he is focused on smart contract development and testing.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="joao" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/joao_azevedo.jpg"
-				alt="João Pedro Coelho de Azevedo"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/joao_azevedo.jpg"
-						alt="João Pedro Coelho de Azevedo"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>João Pedro Coelho de Azevedo</h2>
-						<h4 class="label">smart contract development, large scale system design, software engineering</h4>
-					</div>
-				</div>
-				<p>
-			João is a software engineer with experience in blockchain, fintech, and automotive technologies. 
-			He holds a Master’s degree in Electronics and Telecommunications Engineering from the University of Aveiro. 
-			Over the years he has contributed to multiple startups (notably <a href="https://www.qomodo.me/">Qomodo</a>, <a href="https://www.topos.network/">Topos Network</a> and <a href="https://veniam.com/">Veniam</a>), building financing risk assessment systems, smart contracts, and connected mobility solutions. 
-			His work spans backend engineering, smart contract development, and large-scale system architecture.
-			João is a certified PMP, IEEE member, and the inventor of 13 granted patents in intelligent networking and automotive communications.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="ristic" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/nikola_ristic.jpg"
-				alt="Nikola Ristić"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/nikola_ristic.jpg"
-						alt="Nikola Ristić"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Nikola Ristić</h2>
-						<h4 class="label">smart contract development, full-stack web development, software engineering, algorithms, circus acrobatics</h4>
-					</div>
-				</div>
-				<p>
-			Nikola is a self-taught software engineer based in Belgrade, Serbia. He started with algorithms in elementary school and won 2 gold medals in national high-school competitions in Serbia. Before his web3 journey he has helped various startups scale their products and teams, notably <a href="https://hellosuper.com">Super</a> and <a href="https://www.amondo.com">Amondo</a>, and has 10 years of freelance experience as a full-stack web developer.
-
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="giulia" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/giulia_scaffino.png"
-				alt="Giulia Scaffino"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/giulia_scaffino.png"
-						alt="Giulia Scaffino"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Giulia Scaffino</h2>
-						<h4 class="label">scaling blockchains, blockchain interoperability, cryptoeconomic incentive analysis</h4>
-					</div>
-				</div>
-				<p>
-			Giulia is a doctoral blockchain researcher at the Technical University of Vienna (TU Wien),
-			working in the Security and Privacy group with Prof. Matteo Maffei.
-			She holds a Master's degree in Nuclear Physics from the University of Pavia, Italy,
-			and she has worked as a Salesforce developer at Deloitte Digital in Milan.
-			She specializes in blockchain interoperability and scalability protocols,
-			light clients, layer-2 solutions, and crypto-economic incentives.
-			Among other venues, she has published in the USENIX Security Symposium.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="nikos" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/nikos_sfakianakis.jpg"
-				alt="Nikos Sfakianakis"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/nikos_sfakianakis.jpg"
-						alt="Nikos Sfakianakis"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Nikos Sfakianakis</h2>
-						<h4 class="label">software engineering, consensus, offensive security</h4>
-					</div>
-				</div>
-				<p>Nikos is a software engineer based in Athens. He is currently wrapping up his Master’s Degree in Electrical and Computer Engineering at the National Technical University of Athens where he is writing his thesis on Consensus Algorithms. 
-		He has previously worked at Mysten Labs as a Blockchain Engineer and completed an internship at the Cybersecurity Department of OTE Group. He has also competed in several Ethical Hacking and Offensive Security competitions.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="odysseas" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/odysseas_sofikitis.jpg"
-				alt="Odysseas Sofikitis"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/odysseas_sofikitis.jpg"
-						alt="Odysseas Sofikitis"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Odysseas Sofikitis</h2>
-						<h4 class="label">consensus, proof-of-work, machine learning</h4>
-					</div>
-				</div>
-				<p>
-		Odysseas is a blockchain researcher based in Athens,
-		specializing in consensus mechanisms and proof-of-work protocols for blockchain systems.
-		He holds a Master's degree in Electrical and Computer Engineering from Aristotle University of Thessaloniki,
-		with a focus on inverse rendering and machine learning.
-		He previously worked at the Information Technologies Institute,
-		where he conducted research on GANs and image-to-image translation.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="semeli" data-dept="operations">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/semeli_spanou.jpg"
-				alt="Semeli Spanou"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/semeli_spanou.jpg"
-						alt="Semeli Spanou"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Semeli Spanou</h2>
-						<h4 class="label">operations, logistics, biotech, data analytics</h4>
-					</div>
-				</div>
-				<p>
-			Semeli is a member of the Operations team at Common Prefix,
-			where she collaborates with a diverse range of stakeholders
-			to drive operational efficiency and effectiveness.
-			She holds a Master's degree in Biotechnology,
-			from the Agricultural University of Athens,
-			with a focus on bioinformatics and data analysis.
-			Semeli's organisational and analytical skills contribute to
-			enhancing operational procedures, streamline reporting,
-			and strengthening our logistics management.
-		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="orfeas" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/orfeas_litos.jpg"
-				alt="Dr. Orfeas Stefanos Thyfronitis Litos"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/orfeas_litos.jpg"
-						alt="Dr. Orfeas Stefanos Thyfronitis Litos"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. Orfeas Stefanos Thyfronitis Litos</h2>
-						<h4 class="label">distributed systems, scaling blockchains, interoperability, protocol analysis, cryptoeconomic incentive analysis, voting, software engineering, payment channels</h4>
-					</div>
-				</div>
-				<p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="orfeas" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/orfeas_litos.jpg" alt="Dr. Orfeas Stefanos Thyfronitis Litos"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/orfeas_litos.jpg" alt="Dr. Orfeas Stefanos Thyfronitis Litos"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. Orfeas Stefanos Thyfronitis Litos
+                
+              </h2>
+              <h4 class="label">distributed systems, scaling blockchains, interoperability, protocol analysis, cryptoeconomic incentive analysis, voting, software engineering, payment channels</h4>
+            </div>
+          </div>
+          <p>
 		Orfeas is currently a research associate at Imperial College London.
 		He obtained his
 		<a
@@ -1114,114 +814,114 @@
 		and <a href="https://github.com/OrfeasLitos/cerberus-script">secure architecture</a>.
 		His interests further include formal verification, <a href="http://fc22.ifca.ai/preproceedings/69.pdf">incentive analysis</a>, and provable security.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="apostolos" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/apostolos_tzinas.png"
-				alt="Apostolos Tzinas"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/apostolos_tzinas.png"
-						alt="Apostolos Tzinas"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Apostolos Tzinas</h2>
-						<h4 class="label">smart contract development, algorithms, software engineering, consensus</h4>
-					</div>
-				</div>
-				<p>
-			Apostolos is a blockchain researcher and engineer at Common Prefix,
-			specialising in blockchain consensus and decentralised finance.
-			His research highlights include
-			<a href="https://eprint.iacr.org/2023/1648.pdf">On-Chain Timestamps Are Accurate</a>,
-			published in Financial Cryptography 2024, and
-			<a href="https://eprint.iacr.org/2023/605.pdf">The Principal–Agent Problem in Liquid Staking</a>,
-			published in Financial Cryptography 2023&rsquo;s 7th Workshop on Trusted Smart Contracts (WTSC).
-			Apostolos also has extensive experience in deploying and managing both validators and full-nodes
-			across the Ethereum and Cosmos ecosystems.
-			In the past, as a web engineer at
-			<a href="https://www.mayainsights.com/">Maya Insights</a> and NutriDice,
-			he has gained extensive experience with a wide range of programming languages and technical stacks.
-			Apostolos has a background in algorithms, having competed at national and balkan olympiads in informatics.
+        </div>
+      </div>
+      
+      <div class="team-member" id="julian" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/julian_loss.jpg" alt="Prof. Julian Loss"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/julian_loss.jpg" alt="Prof. Julian Loss"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Prof. Julian Loss
+                
+              </h2>
+              <h4 class="label">cryptography, distributed systems, consensus</h4>
+            </div>
+          </div>
+          <p>
+		Julian is a professor at CISPA Helmholtz Center for Information Security, focusing on cryptography and its applications to distributed algorithms.  
+		He holds a PhD in Mathematics from Ruhr University Bochum, advised by Eike Kiltz, and a MSc in Computer Science from ETH Zurich.  
+		Julian was a postdoctoral researcher at the University of Maryland and Carnegie Mellon University. 
+		His interests include provable security, particularly digital signature schemes and algorithms for distributed consensus.
+		Among other venues, he has published in ACM CCS, ASIACRYPT, EUROCRYPT, FC, and IEEE S&P (Oakland). 
+		Highlights of his research include the papers <a href="https://eprint.iacr.org/2017/620.pdf"> The Algebraic Group Model and its Applications</a>, 
+		<a href="https://infoscience.epfl.ch/server/api/core/bitstreams/3820a5e9-3807-48ae-9604-c37037cc907d/content">On the Security of Two-Round Multi-Signatures</a>, 
+		and <a href="https://eprint.iacr.org/2020/945.pdf">On the (in)security of ROS</a>.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="nikos_vlastaras" data-dept="engineering">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/nikos_vlastaras.jpg"
-				alt="Nikos Vlastaras"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/nikos_vlastaras.jpg"
-						alt="Nikos Vlastaras"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Nikos Vlastaras</h2>
-						<h4 class="label">software engineering, distributed systems</h4>
-					</div>
-				</div>
-				<p>
-			Nikos is a software engineer based in Athens with a degree from the National Technical University of Athens. 
-			Before joining Common Prefix he worked at Panther Labs, where he contributed to production software and large-scale engineering projects. 
-			At Common Prefix he applies his experience in distributed systems to help build robust and scalable infrastructure.
+        </div>
+      </div>
+      
+      <div class="team-member" id="giulia" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/giulia_scaffino.png" alt="Giulia Scaffino"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/giulia_scaffino.png" alt="Giulia Scaffino"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Giulia Scaffino
+                
+              </h2>
+              <h4 class="label">scaling blockchains, blockchain interoperability, cryptoeconomic incentive analysis</h4>
+            </div>
+          </div>
+          <p>
+			Giulia is a doctoral blockchain researcher at the Technical University of Vienna (TU Wien),
+			working in the Security and Privacy group with Prof. Matteo Maffei.
+			She holds a Master's degree in Nuclear Physics from the University of Pavia, Italy,
+			and she has worked as a Salesforce developer at Deloitte Digital in Milan.
+			She specializes in blockchain interoperability and scalability protocols,
+			light clients, layer-2 solutions, and crypto-economic incentives.
+			Among other venues, she has published in the USENIX Security Symposium.
 		</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="sravya" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/sravya_yandamuri.jpg"
-				alt="Dr. Sravya Yandamuri"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/sravya_yandamuri.jpg"
-						alt="Dr. Sravya Yandamuri"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. Sravya Yandamuri</h2>
-						<h4 class="label">consensus, distributed systems, applied cryptography</h4>
-					</div>
-				</div>
-				<p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="odysseas" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/odysseas_sofikitis.jpg" alt="Odysseas Sofikitis"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/odysseas_sofikitis.jpg" alt="Odysseas Sofikitis"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Odysseas Sofikitis
+                
+              </h2>
+              <h4 class="label">consensus, proof-of-work, machine learning</h4>
+            </div>
+          </div>
+          <p>
+		Odysseas is a blockchain researcher based in Athens,
+		specializing in consensus mechanisms and proof-of-work protocols for blockchain systems.
+		He holds a Master's degree in Electrical and Computer Engineering from Aristotle University of Thessaloniki,
+		with a focus on inverse rendering and machine learning.
+		He previously worked at the Information Technologies Institute,
+		where he conducted research on GANs and image-to-image translation.
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="sravya" data-dept="science">
+        <img loading="lazy" draggable="false"
+             src="/static/team/sravya_yandamuri.jpg" alt="Dr. Sravya Yandamuri"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/sravya_yandamuri.jpg" alt="Dr. Sravya Yandamuri"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Dr. Sravya Yandamuri
+                
+              </h2>
+              <h4 class="label">consensus, distributed systems, applied cryptography</h4>
+            </div>
+          </div>
+          <p>
 			Sravya obtained her PhD  in Distributed Systems at Duke University under the guidance of Professor Kartik Nayak with a thesis on the topic of Byzantine Agreement in Asynchronous networks. 
 			Previously, she was an intern at the now-defunct VMware Research as well as a visiting researcher at the CISPA Helmholtz Center for Information Security. 
 			Her research includes topics such as State Machine Replication, Dynamic Availability, and Parallel Broadcast. 
@@ -1231,103 +931,154 @@
 			<a href="https://eprint.iacr.org/2025/1003.pdf">Low-Latency Dynamically Available Total Order Broadcast</a>,
 			and <a href="https://eprint.iacr.org/2025/1016.pdf">Leader Election with Poly-logarithmic Communication Per Party</a>. 
 			</p>
-			</div>
-		</div>
-		
-		<div class="team-member" id="dionysis" data-dept="science">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/dionysis_zindros.jpg"
-				alt="Dr. Dionysis Zindros"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/dionysis_zindros.jpg"
-						alt="Dr. Dionysis Zindros"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>Dr. Dionysis Zindros</h2>
-						<h4 class="label">consensus, light clients, bridges, interoperability, fast bootstrapping, algorithms, software engineering</h4>
-					</div>
-				</div>
-				<p>
-			Dionysis is a co-founder and researcher at Common Prefix
-			focusing on consensus, light clients, bridges, interoperability, and fast bootstrapping.
-			He did his post-doc at Stanford University, advised by David Tse.
-			He holds a PhD from the University of Athens, advised by Aggelos Kiayias,
-			and an Electrical and Computer Engineering degree from the National Technical University of Athens.
-			Among other venues, he has published in IEEE S&P (Oakland), ACM CCS, ESORICS, and Financial Crypto, and
-			presented at Black Hat Europe and Asia.
-			Highlights of his research include the papers
-			<a href="https://eprint.iacr.org/2017/963.pdf">Non-Interactive Proofs of Proof-of-Work</a>,
-			<a href="https://eprint.iacr.org/2018/1239.pdf">Proof-of-Stake Sidechains</a>, and
-			<a href="https://eprint.iacr.org/2018/1048.pdf">Proof-of-Work Sidechains</a>.
+        </div>
+      </div>
+      
+    </section>
+  
+
+
+  
+  
+  
+    <section class="team__section" id="operations" data-dept="operations">
+      <h2>Operations</h2>
+
+      
+      <div class="team-member" id="tor" data-dept="operations">
+        <img loading="lazy" draggable="false"
+             src="/static/team/tor_bognaes.jpg" alt="Tor Bognaes"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/tor_bognaes.jpg" alt="Tor Bognaes"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Tor Bognaes
+                
+              </h2>
+              <h4 class="label">business development, finance, operations</h4>
+            </div>
+          </div>
+          <p>
+			Tor supports the growth of Common Prefix, working across business development, finance, marketing, and operations. 
+			His background includes work at Amazon - where he helped scale the EU last-mile logistics network - and at a growth equity investment firm. 
+			He holds MSc degrees in Industrial Economics & Technology Management from the Norwegian University of Science and Technology and in Finance from the Norwegian School of Economics.
 		</p>
-			</div>
-		</div>
-		
-	</section>
+        </div>
+      </div>
+      
+      <div class="team-member" id="myrto" data-dept="operations">
+        <img loading="lazy" draggable="false"
+             src="/static/team/myrsini_koulouri.png" alt="Myrsini Koulouri"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/myrsini_koulouri.png" alt="Myrsini Koulouri"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Myrsini Koulouri
+                
+              </h2>
+              <h4 class="label">legal, operations</h4>
+            </div>
+          </div>
+          <p>
+			Myrsini is a member of the Operations team at Common Prefix, where she supports the legal and regulatory aspects of the company's operational strategy. 
+			She holds a Law degree from Aristotle University of Thessaloniki and is a member of the Athens Bar Association. 
+			Her legal expertise and analytical mindset help ensure regulatory compliance, streamline internal processes, and reinforce the legal foundations of the organization’s activities.
+		</p>
+        </div>
+      </div>
+      
+      <div class="team-member" id="semeli" data-dept="operations">
+        <img loading="lazy" draggable="false"
+             src="/static/team/semeli_spanou.jpg" alt="Semeli Spanou"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/semeli_spanou.jpg" alt="Semeli Spanou"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                Semeli Spanou
+                
+              </h2>
+              <h4 class="label">operations, logistics, biotech, data analytics</h4>
+            </div>
+          </div>
+          <p>
+			Semeli is a member of the Operations team at Common Prefix,
+			where she collaborates with a diverse range of stakeholders
+			to drive operational efficiency and effectiveness.
+			She holds a Master's degree in Biotechnology,
+			from the Agricultural University of Athens,
+			with a focus on bioinformatics and data analysis.
+			Semeli's organisational and analytical skills contribute to
+			enhancing operational procedures, streamline reporting,
+			and strengthening our logistics management.
+		</p>
+        </div>
+      </div>
+      
+    </section>
+  
+
+
+
 </main>
 
 <script>
 (() => {
-  const cards   = document.querySelectorAll('.team-member');
-  const chip    = document.querySelector('[data-filter="department"]');
-  const clear   = document.querySelector('.clear-all');
-  const buttons = document.querySelectorAll('[data-filter="department"] .dropdown button');
+  
+  const sections = document.querySelectorAll('.team__section');           
+  const chip     = document.querySelector('[data-filter="department"]');  
+  const clearAll = document.querySelector('.clear-all');                  
+  const buttons  = document.querySelectorAll('[data-filter="department"] .dropdown button');
 
   let active = '';
 
-  function updateAlternating() {
-    const visible = [...cards].filter(c => !c.hidden);
-    visible.forEach((card, i) => {
-      card.classList.toggle('left',  i % 2 === 0);
-      card.classList.toggle('right', i % 2 === 1);
+  function render() {
+    sections.forEach(s => {
+      const dept = s.dataset.dept;                 
+      s.hidden = !!active && dept !== active;       
     });
+
+    
+    chip.querySelector('.value').hidden  = !active;
+    chip.querySelector('button').hidden  = !active;
+    chip.querySelector('.value').innerHTML = active ? `<span>${active}</span>` : '';
+    clearAll.hidden = !active;
+
+    
+    buttons.forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === active));
   }
 
-  function render() {
-    cards.forEach(c => c.hidden = !!active && c.dataset.dept !== active);
-     
-    chip.querySelector('.value').hidden = !active;
-    chip.querySelector('button').hidden = !active;
-    chip.querySelector('.value').innerHTML = active ? `<span>${active}</span>` : '';
-    clear.hidden = !active;
-     
-    buttons.forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === active));
-	 
- 	updateAlternating();
-  	}
-	
-   
+  
   chip.addEventListener('click', e => {
-    if(['span','div','i'].includes(e.target.localName)) {
+    if (['span','div','i'].includes(e.target.localName)) {
       chip.querySelector('.dropdown').toggleAttribute('hidden');
       e.stopPropagation();
     }
   });
+  document.addEventListener('click', () => chip.querySelector('.dropdown').hidden = true);
+  
   buttons.forEach(b => b.addEventListener('click', e => {
-    active = e.target.textContent.toLowerCase();
+    active = e.target.textContent.toLowerCase();   
     chip.querySelector('.dropdown').hidden = true;
     render();
   }));
-  chip.querySelector('button').addEventListener('click', () => { active=''; render(); });
-  clear.addEventListener('click', () => { active=''; render(); });
 
-   
-  document.addEventListener('click', () => chip.querySelector('.dropdown').hidden = true);
+  
+  chip.querySelector('button').addEventListener('click', () => { active = ''; render(); });
+  clearAll.addEventListener('click', () => { active = ''; render(); });
 
-  render();            
+  render(); 
 })();
 </script>
 

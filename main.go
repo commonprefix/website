@@ -64,6 +64,24 @@ var bridgesTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tm
 var postTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, postTmplName)))
 var blogTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, blogTmplName)))
 var careersTmpl = template.Must(template.New("").ParseFiles(layoutPath, filepath.Join(tmplDir, careersTmplName)))
+// Fixed display order for the Leadership section
+var leadershipOrder = []string{
+	"CEO",
+	"CTO",
+	"Chief Scientist",
+	"COO",
+	"Engineer Lead",
+	"Product Lead",
+}
+
+// Build a fast lookup: title (lowercased) -> rank
+var leadershipRank = func() map[string]int {
+	m := map[string]int{}
+	for i, t := range leadershipOrder {
+		m[strings.ToLower(t)] = i
+	}
+	return m
+}()
 
 // Data structures
 
@@ -107,6 +125,46 @@ func sortTeamMembers(team []TeamMember) {
 		n2 := lastname(team[j].Name)
 		return n1 < n2
 	})
+}
+
+// Groups by Department and sorts alphabetically by last name inside each group.
+func groupByDepartment(members []TeamMember) map[string][]TeamMember {
+	g := map[string][]TeamMember{}
+	for _, m := range members {
+		dept := strings.ToLower(strings.TrimSpace(m.Department))
+		if dept == "" { dept = "operations" }
+		g[dept] = append(g[dept], m)
+	}
+	lastname := func(n string) string {
+		n = strings.TrimPrefix(n, "Prof. ")
+		n = strings.TrimPrefix(n, "Dr. ")
+		parts := strings.Split(n, " ")
+		return parts[len(parts)-1]
+	}
+	titleRank := func(handle string) int {
+		t := Titles[handle]                // from team.go
+		if t == "" { return 999 }          // non-leaders sink to end (shouldn’t happen in leadership)
+		if r, ok := leadershipRank[strings.ToLower(t)]; ok {
+			return r
+		}
+		return 999
+	}
+	for k := range g {
+		if k == "leadership" {
+			// Sort leadership by specified title order, then by last name
+			sort.Slice(g[k], func(i, j int) bool {
+				ri, rj := titleRank(g[k][i].Handle), titleRank(g[k][j].Handle)
+				if ri != rj { return ri < rj }
+				return lastname(g[k][i].Name) < lastname(g[k][j].Name)
+			})
+			continue
+		}
+		// Default: alphabetical by last name
+		sort.Slice(g[k], func(i, j int) bool {
+			return lastname(g[k][i].Name) < lastname(g[k][j].Name)
+		})
+	}
+	return g
 }
 
 type Finding struct {
@@ -204,6 +262,10 @@ type Page struct {
 	Title          string
 	Description    string
 	Members        []TeamMember
+	// For sectioned Team rendering
+	Grouped   	   map[string][]TeamMember // dept → members
+	DeptOrder 	   []string                // fixed scroll order
+	Titles    	   map[string]string       // handle → title (leaders only)
 	Departments    []string
 	Clients        []Client
 	Grants         []Grantor
@@ -282,12 +344,25 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", teamTmplName)
 	}
-	teamSlice := make([]TeamMember, 0, len(Members))
-	for _, m := range Members {
-		teamSlice = append(teamSlice, m)
-	}
+	//fixed scroll order
+	deptOrder := []string{"leadership", "engineering", "science", "operations"}
+	//grouped data (used by the template)
+	grouped := groupByDepartment(team)	
 	allDepartments := distinctDepartments(team)
-	teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Departments: allDepartments, Clients: Clients, Grants: Grants})
+	
+	err = teamTmpl.ExecuteTemplate(f, "base", Page{
+	Title:       "Team",
+	Description: description,
+	Members:     team,
+	Grouped:     grouped,
+	DeptOrder:   deptOrder,
+	Titles:      Titles,
+	Departments: allDepartments,
+	Clients:     Clients,
+	Grants:      Grants,
+	})
+	if err != nil {log.Fatalf("can't render %s: %v", teamTmplName, err)}
+	//teamTmpl.ExecuteTemplate(f, "base", Page{Title: "Team", Members: team, Description: description, Departments: allDepartments, Clients: Clients, Grants: Grants})
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", teamTmplName)
 

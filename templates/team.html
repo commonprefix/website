@@ -1,11 +1,25 @@
 {{define "head"}}
 <style>
-	/* reuse the chip / dropdown styling from research.css;                                                   */
-	.team__filters { margin-bottom:2rem; }
-	.team__filters .filter { cursor:pointer; }
-	.team-member[hidden] { display:none !important; }
-	.team__filters [data-filter="department"] .dropdown {width: 160px;height: auto;max-height: none;}
+	/* section spacing */
+	.team__section { margin: 3rem 0 2rem; }
+	.team__section h2 { margin-bottom: 1.25rem; }
+	.team__filters { margin-bottom: 2rem; }
+	.team__filters .filter { cursor: pointer; }
+	.team__filters [data-filter="department"] .dropdown { width: 160px; }
 
+	/* subtitle for leadership */
+	.team-member__name { margin-bottom: .15rem; }
+	.role-line{
+	margin-top: .1rem;
+	font-size: .95rem;
+	font-weight: 500;
+	color: #444;
+	letter-spacing: .02em;
+	}
+	section#leadership .role-line{ color:#333; }
+
+	/* ensure hidden stays hidden */
+	.team-member[hidden] { display:none !important; }
 </style>
 {{end}}
 {{define "content"}}
@@ -23,12 +37,12 @@
 	<div class="team__filters research__filters">
 		<p>Filter</p>
 		<div class="filter" data-filter="department">
-			<span>Expertise</span>
+			<span>Department</span>
 			<span hidden class="value"></span>
 			<button hidden title="Clear this filter.">x</button>
 			
 			<div class="dropdown" hidden>
-				{{range .Departments}}
+				{{range .DeptOrder}}
 					<button title="Filter by this department.">{{.}}</button>
 				{{end}}
 			</div>
@@ -38,90 +52,94 @@
 	</div>
 </section>
 
-	<section>
-		{{range .Members}}
-		<div class="team-member" id="{{.Handle}}" data-dept="{{.Department}}">
-			<img
-				loading="lazy"
-				draggable="false"
-				src="/static/team/{{.Image}}"
-				alt="{{.Name}}"
-				width="280px"
-				height="280px"
-				data-loading
-			/>
-			<div>
-				<div class="team-member__summary">
-					<img
-						loading="lazy"
-						draggable="false"
-						src="/static/team/{{.Image}}"
-						alt="{{.Name}}"
-						width="130px"
-						height="130px"
-						data-loading
-					/>
-					<div>
-						<h2>{{.Name}}</h2>
-						<h4 class="label">{{.Specialization}}</h4>
-					</div>
-				</div>
-				<p>{{.Desc}}</p>
-			</div>
-		</div>
-		{{end}}
-	</section>
+{{/* Sectioned rendering by fixed order */}}
+{{range .DeptOrder}}
+  {{ $dept := . }}
+  {{ $members := index $.Grouped $dept }}
+  {{ if $members }}
+    <section class="team__section" id="{{$dept}}" data-dept="{{$dept}}">
+      <h2>
+        {{- if eq $dept "leadership" -}}Leadership
+        {{- else if eq $dept "engineering" -}}Engineering
+        {{- else if eq $dept "science" -}}Science
+        {{- else -}}Operations{{- end -}}
+      </h2>
+
+      {{range $members}}
+      <div class="team-member" id="{{.Handle}}" data-dept="{{.Department}}">
+        <img loading="lazy" draggable="false"
+             src="/static/team/{{.Image}}" alt="{{.Name}}"
+             width="280" height="280" />
+        <div>
+          <div class="team-member__summary">
+            <img loading="lazy" draggable="false"
+                 src="/static/team/{{.Image}}" alt="{{.Name}}"
+                 width="130" height="130" />
+            <div>
+              <h2 class="team-member__name">
+                {{.Name}}
+                {{with index $.Titles .Handle}}<div class="role-line">{{.}}</div>{{end}}
+              </h2>
+              <h4 class="label">{{.Specialization}}</h4>
+            </div>
+          </div>
+          <p>{{.Desc}}</p>
+        </div>
+      </div>
+      {{end}}
+    </section>
+  {{end}}
+
+{{end}}
+
 </main>
 
 <script>
 (() => {
-  const cards   = document.querySelectorAll('.team-member');
-  const chip    = document.querySelector('[data-filter="department"]');
-  const clear   = document.querySelector('.clear-all');
-  const buttons = document.querySelectorAll('[data-filter="department"] .dropdown button');
+  // Filter by departments (Leadership/Engineering/Science/Operations), instead of individual cards
+  const sections = document.querySelectorAll('.team__section');           // each dept section
+  const chip     = document.querySelector('[data-filter="department"]');  // filter chip
+  const clearAll = document.querySelector('.clear-all');                  // clear button
+  const buttons  = document.querySelectorAll('[data-filter="department"] .dropdown button');
 
   let active = '';
 
-  function updateAlternating() {
-    const visible = [...cards].filter(c => !c.hidden);
-    visible.forEach((card, i) => {
-      card.classList.toggle('left',  i % 2 === 0);
-      card.classList.toggle('right', i % 2 === 1);
+  function render() {
+    sections.forEach(s => {
+      const dept = s.dataset.dept;                 // "leadership" | "engineering" | "science" | "operations"
+      s.hidden = !!active && dept !== active;       // hide sections that don't match
     });
+
+    // chip UI
+    chip.querySelector('.value').hidden  = !active;
+    chip.querySelector('button').hidden  = !active;
+    chip.querySelector('.value').innerHTML = active ? `<span>${active}</span>` : '';
+    clearAll.hidden = !active;
+
+    // highlight active in dropdown
+    buttons.forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === active));
   }
 
-  function render() {
-    cards.forEach(c => c.hidden = !!active && c.dataset.dept !== active);
-    /* chip UI */
-    chip.querySelector('.value').hidden = !active;
-    chip.querySelector('button').hidden = !active;
-    chip.querySelector('.value').innerHTML = active ? `<span>${active}</span>` : '';
-    clear.hidden = !active;
-    /* hilight inside dropdown */
-    buttons.forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === active));
-	/* restore zig-zag layout */
- 	updateAlternating();
-  	}
-	
-  /* wire clicks */
+  // open/close dropdown
   chip.addEventListener('click', e => {
-    if(['span','div','i'].includes(e.target.localName)) {
+    if (['span','div','i'].includes(e.target.localName)) {
       chip.querySelector('.dropdown').toggleAttribute('hidden');
       e.stopPropagation();
     }
   });
+  document.addEventListener('click', () => chip.querySelector('.dropdown').hidden = true);
+  // choose dept
   buttons.forEach(b => b.addEventListener('click', e => {
-    active = e.target.textContent.toLowerCase();
+    active = e.target.textContent.toLowerCase();   // must match data-dept value
     chip.querySelector('.dropdown').hidden = true;
     render();
   }));
-  chip.querySelector('button').addEventListener('click', () => { active=''; render(); });
-  clear.addEventListener('click', () => { active=''; render(); });
 
-  /* close dropdown on outside click */
-  document.addEventListener('click', () => chip.querySelector('.dropdown').hidden = true);
+  // clear
+  chip.querySelector('button').addEventListener('click', () => { active = ''; render(); });
+  clearAll.addEventListener('click', () => { active = ''; render(); });
 
-  render();            // initial draw
+  render(); // initial draw
 })();
 </script>
 {{end}}
