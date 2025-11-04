@@ -27,7 +27,6 @@ var Clients []Client = []Client{
 			Members["zeta"],
 			Members["bernardo"],
 			Members["robin"],
-			Members["lioba"],
 			Members["james"],
 			Members["nikolas"],
 			Members["julian"],
@@ -756,7 +755,6 @@ var Clients []Client = []Client{
 		Team: []TeamMember{
 			Members["bernardo"],
 			Members["dimitris"],
-			Members["lioba"],
 			Members["odysseas"],
 		}, 
 		Findings: []Finding{},

@@ -14,7 +14,17 @@
 					<span>{{ .Title }}</span>
 				</figcaption>
 			</a>
-			<p style="margin-bottom:16px;">on {{ .FormatDate }} by {{range .Authors}}<a href="/team#{{.Handle}}">{{.Name}}</a> {{end}}</p>
+			<p style="margin-bottom:16px;">on {{ .FormatDate }} by
+				{{ if gt (len .Authors) 0 }}
+					{{- $first := true -}}
+					{{- range .Authors -}}
+					{{- if $first -}}{{- $first = false -}}{{ else }}, {{ end -}}
+					<a href="/team#{{ .Handle }}">{{ .Name }}</a>
+					{{- end -}}
+				{{ else }}
+					{{ .AuthorHandles }}
+				{{ end }}
+			</p>
 			<p>{{ .Description }}</p>
 			<small>Reading time: {{ .ReadingTime }} minutes</small>
 		</figure>

@@ -2,7 +2,7 @@
 title: "The Landscape of Front-running Prevention"
 date: "01/09/2025"
 desc: "An exploration of the strategies and trade-offs in defending decentralized finance users against front-running attacks."
-authors: "lioba"
+authors: "Lioba Heimbach"
 index: true
 ---
 Picture this: on a quiet Sunday morning, Alice is excited to swap a few ETH for a hot new token on a decentralized exchange. She submits her transaction and leans back, coffee in hand. Her request goes into the mempool, the public pool of unconfirmed transactions that anyone on the network can inspect. A predatory bot spots Alice’s pending order, submits its own buy transaction before hers, and then places a sell transaction immediately after hers, causing her swap to execute at a significantly worse price rate. This is referred to as *front‑running* in decentralized finance. Front‑running happens when someone has advance knowledge of your pending transaction and executes theirs first to profit from the predictable price impact.
