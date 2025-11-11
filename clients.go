@@ -3,11 +3,102 @@ package main
 import "html/template"
 
 var Clients []Client = []Client{
+{
+		Handle: "axelar",
+		Name:   "Axelar",
+		Image: template.HTML(`<svg id="b" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 596.477 140.816">
+			<defs>
+				<filter id="d" data-name="drop-shadow-1" filterUnits="userSpaceOnUse">
+					<feOffset dx="0" dy="0"/>
+					<feGaussianBlur result="e" stdDeviation="1.491"/>
+					<feFlood flood-color="#000" flood-opacity=".13"/>
+					<feComposite in2="e" operator="in"/>
+					<feComposite in="SourceGraphic"/>
+				</filter>
+		  	</defs>
+			<g id="c" data-name="Layer 1">
+				<path d="M181.488,59.29l43.223-42.984L208.314,0l-35.023,34.83L138.267,0l-16.397,16.306,43.222,42.984c2.264,2.251,5.231,3.377,8.198,3.377s5.934-1.125,8.198-3.377Zm62.57,45.919l-35.023-34.83,35.023-34.831-16.397-16.306-43.221,42.984c-4.527,4.503-4.527,11.803,0,16.306l43.221,42.984,16.397-16.306h0Zm-70.828,.777l35.023,34.83,16.396-16.306-43.221-42.984c-4.529-4.503-11.868-4.503-16.397,0l-43.221,42.984,16.397,16.306,35.023-34.83h0Zm-11.15-27.395c2.175-2.163,3.396-5.095,3.396-8.153s-1.221-5.991-3.396-8.153L118.859,19.301l-16.397,16.306,35.023,34.83-35.023,34.831,16.397,16.306,43.222-42.984h0Zm-60.203,56.57h-36.348l-2.617-16.438h-23.697l-2.869,16.438H0L31.288,5.656h43.012l27.579,129.505Zm-43.095-44.202l-2.278-15.097c-.062-.055-.169-.811-.339-2.269-.111-1.224-.702-6.091-1.77-14.588-.114-.952-.252-2.251-.422-3.901-.169-1.65-.394-3.736-.674-6.253l-1.103-12.241c-.107,1.176-.263,2.489-.46,3.943-.197,1.454-.408,3.046-.633,4.782-.394,3.465-.674,5.871-.843,7.212-.173,1.337-.28,2.152-.335,2.434l-2.447,15.678-3.543,20.301h14.845Zm260.334,44.201v-31.114h-30.191v-19.798h27.069v-29.267h-27.069v-18.871h30.191V5.658h-65.36V135.16h65.36Zm69.171-31.114h-26.396V5.658h-35.17V135.16h61.566v-31.114h0Zm107.993,31.115h-36.345l-2.62-16.438h-23.697l-2.869,16.438h-36.348L425.691,5.656h43.013l27.579,129.505h0Zm-43.091-44.202l-2.282-15.097c-.058-.055-.169-.811-.339-2.269-.106-1.224-.701-6.091-1.77-14.588-.114-.952-.248-2.252-.421-3.902-.17-1.65-.395-3.736-.671-6.253l-1.103-12.241c-.11,1.176-.266,2.489-.464,3.943-.197,1.454-.408,3.045-.632,4.781-.393,3.465-.674,5.871-.844,7.212-.169,1.337-.279,2.152-.331,2.434l-2.451,15.678-3.543,20.301h14.849Zm143.286,44.202h-38.035l-17.368-46.13c-.169-.784-.47-1.818-.891-3.104-.422-1.286-.941-2.822-1.56-4.613l.252,8.556v45.291h-35V5.656h36.013c15.854,0,27.717,3.107,35.593,9.315,10.003,7.94,15.009,19.236,15.009,33.879,0,15.661-6.719,26.482-20.158,32.463l26.144,53.848h0Zm-40.903-85.891c0-9.669-5.088-14.506-15.264-14.506h-1.265v30.861h2.361c4.048,0,7.421-1.533,10.12-4.613,2.699-3.07,4.048-6.985,4.048-11.742Z" fill="currentColor" filter="url(#d)"/>
+			</g>
+		</svg>`),
+		Body: template.HTML(`Axelar is the leading interoperability solution for moving assets from one blockchain to another. A pioneer in the bridging of assets, they are the first in the field to implement a broadly deployed bridge that does not rely on a fixed committee or federation, unlike typical multisig bridges. Instead, they rely only on their underlying proof-of-stake security assumptions, by leveraging their population of Cosmos validators. We have worked together with Axelar as their technical advisor since the project's inception and have helped them audit their smart contracts that allow bridging into and out of EVM-compatible chains over multiple iterations.`),
+		Team: []TeamMember{
+			Members["nikolas"],
+			Members["dimitris"],
+			Members["orfeas"],
+			Members["themis"],
+			Members["ristic"],
+			Members["dionysis"],
+		},
+		Projects: []Project{
+			{
+				Title:    "Axelar Amplifier integration with XRPL",
+				IsBridge: true,
+				Desc:     template.HTML(`Common Prefix has partnered with Axelar to integrate Ripple's XRP Ledger (XRPL) with Axelar's Amplifier interoperability infrastructure. This integration enables bridging assets between XRPL and all Axelar-supported chains. It also allows smart contracts on on other chains to be called directly from XRPL.`),
+				Links: []ProjectLink{
+					{
+						Url:  "https://github.com/commonprefix/axelar-amplifier/tree/xrpl",
+						Name: "XRPL smart contracts GitHub repo",
+						Date: "2023-11-20 - Present",
+					},
+					{
+						Url:  "https://github.com/axelarnetwork/axelar-amplifier/pull/764",
+						Name: "XRPL verifier node pull request",
+						Date: "2023-11-20 - Present",
+					},
+					{
+						Url:  "https://github.com/commonprefix/axelar-xrpl-relayer",
+						Name: "XRPL relayer GitHub repo",
+						Date: "2024-02-20 - Present",
+					},
+				},
+			},
+			{
+				Title:    "Ethereum Light Client on Axelar implementation",
+				IsBridge: true,
+				Desc:     template.HTML(`Common Prefix collaborated with Axelar to develop a light client that employs Ethereum's Sync Committee protocol to bridge events from Ethereum to Axelar.`),
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/axelar/axelar_light_client_grant_proposal.pdf",
+						Name: "Grant proposal report",
+						Date: "2023-05-01",
+					},
+					{
+						Url:  "https://commonprefix.notion.site/Light-Client-Architecture-8fe5486c958e479ab41cdfc36a3d59ed",
+						Name: "Architecture documentation",
+						Date: "2024-01-29",
+					},
+					{
+						Url:  "https://github.com/commonprefix/axelar-light-client",
+						Name: "Implementation GitHub repo",
+						Date: "2023-08-28 - 2024-02-19",
+					},
+				},
+			},
+			{
+				Title: "Axelar Gateway audit",
+				Desc:  template.HTML(`The Axelar Gateway Solidity smart contract is deployed to every Axelar-supported EVM chain, enabling communication between the Axelar network and the connected chain. Common Prefix was commissioned to audit two versions of the Gateway smart contract (v1 and v2.1).`),
+				// Date:  "28/01/2024",
+				Links: []ProjectLink{
+					{
+						Url:  "/static/clients/axelar/axelar_gateway_audit.pdf",
+						Name: "Axelar Gateway v1 smart contract audit",
+						Date: "2021-11-22",
+					},
+					{
+						Url:  "/static/clients/axelar/axelar_gateway_v2_audit.pdf",
+						Name: "Axelar Gateway v2.1 smart contract audit",
+						Date: "2022-03-01",
+					},
+				},
+			},
+		},
+		Findings: []Finding{},
+	},
 	{
 		Handle: "pod",
 		Name:   "pod",
 		Image:  template.HTML(`<svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="40 210 620 280"
+     viewBox="09 185 620 280"
      preserveAspectRatio="xMidYMid meet"
      fill="currentColor"
      style="display:block;height:55px;width:auto">
@@ -124,97 +215,6 @@ var Clients []Client = []Client{
 				},
 			},
 		},
-	},
-	{
-		Handle: "axelar",
-		Name:   "Axelar",
-		Image: template.HTML(`<svg id="b" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 596.477 140.816">
-			<defs>
-				<filter id="d" data-name="drop-shadow-1" filterUnits="userSpaceOnUse">
-					<feOffset dx="0" dy="0"/>
-					<feGaussianBlur result="e" stdDeviation="1.491"/>
-					<feFlood flood-color="#000" flood-opacity=".13"/>
-					<feComposite in2="e" operator="in"/>
-					<feComposite in="SourceGraphic"/>
-				</filter>
-		  	</defs>
-			<g id="c" data-name="Layer 1">
-				<path d="M181.488,59.29l43.223-42.984L208.314,0l-35.023,34.83L138.267,0l-16.397,16.306,43.222,42.984c2.264,2.251,5.231,3.377,8.198,3.377s5.934-1.125,8.198-3.377Zm62.57,45.919l-35.023-34.83,35.023-34.831-16.397-16.306-43.221,42.984c-4.527,4.503-4.527,11.803,0,16.306l43.221,42.984,16.397-16.306h0Zm-70.828,.777l35.023,34.83,16.396-16.306-43.221-42.984c-4.529-4.503-11.868-4.503-16.397,0l-43.221,42.984,16.397,16.306,35.023-34.83h0Zm-11.15-27.395c2.175-2.163,3.396-5.095,3.396-8.153s-1.221-5.991-3.396-8.153L118.859,19.301l-16.397,16.306,35.023,34.83-35.023,34.831,16.397,16.306,43.222-42.984h0Zm-60.203,56.57h-36.348l-2.617-16.438h-23.697l-2.869,16.438H0L31.288,5.656h43.012l27.579,129.505Zm-43.095-44.202l-2.278-15.097c-.062-.055-.169-.811-.339-2.269-.111-1.224-.702-6.091-1.77-14.588-.114-.952-.252-2.251-.422-3.901-.169-1.65-.394-3.736-.674-6.253l-1.103-12.241c-.107,1.176-.263,2.489-.46,3.943-.197,1.454-.408,3.046-.633,4.782-.394,3.465-.674,5.871-.843,7.212-.173,1.337-.28,2.152-.335,2.434l-2.447,15.678-3.543,20.301h14.845Zm260.334,44.201v-31.114h-30.191v-19.798h27.069v-29.267h-27.069v-18.871h30.191V5.658h-65.36V135.16h65.36Zm69.171-31.114h-26.396V5.658h-35.17V135.16h61.566v-31.114h0Zm107.993,31.115h-36.345l-2.62-16.438h-23.697l-2.869,16.438h-36.348L425.691,5.656h43.013l27.579,129.505h0Zm-43.091-44.202l-2.282-15.097c-.058-.055-.169-.811-.339-2.269-.106-1.224-.701-6.091-1.77-14.588-.114-.952-.248-2.252-.421-3.902-.17-1.65-.395-3.736-.671-6.253l-1.103-12.241c-.11,1.176-.266,2.489-.464,3.943-.197,1.454-.408,3.045-.632,4.781-.393,3.465-.674,5.871-.844,7.212-.169,1.337-.279,2.152-.331,2.434l-2.451,15.678-3.543,20.301h14.849Zm143.286,44.202h-38.035l-17.368-46.13c-.169-.784-.47-1.818-.891-3.104-.422-1.286-.941-2.822-1.56-4.613l.252,8.556v45.291h-35V5.656h36.013c15.854,0,27.717,3.107,35.593,9.315,10.003,7.94,15.009,19.236,15.009,33.879,0,15.661-6.719,26.482-20.158,32.463l26.144,53.848h0Zm-40.903-85.891c0-9.669-5.088-14.506-15.264-14.506h-1.265v30.861h2.361c4.048,0,7.421-1.533,10.12-4.613,2.699-3.07,4.048-6.985,4.048-11.742Z" fill="currentColor" filter="url(#d)"/>
-			</g>
-		</svg>`),
-		Body: template.HTML(`Axelar is the leading interoperability solution for moving assets from one blockchain to another. A pioneer in the bridging of assets, they are the first in the field to implement a broadly deployed bridge that does not rely on a fixed committee or federation, unlike typical multisig bridges. Instead, they rely only on their underlying proof-of-stake security assumptions, by leveraging their population of Cosmos validators. We have worked together with Axelar as their technical advisor since the project's inception and have helped them audit their smart contracts that allow bridging into and out of EVM-compatible chains over multiple iterations.`),
-		Team: []TeamMember{
-			Members["nikolas"],
-			Members["dimitris"],
-			Members["orfeas"],
-			Members["themis"],
-			Members["ristic"],
-			Members["dionysis"],
-		},
-		Projects: []Project{
-			{
-				Title:    "Axelar Amplifier integration with XRPL",
-				IsBridge: true,
-				Desc:     template.HTML(`Common Prefix has partnered with Axelar to integrate Ripple's XRP Ledger (XRPL) with Axelar's Amplifier interoperability infrastructure. This integration enables bridging assets between XRPL and all Axelar-supported chains. It also allows smart contracts on on other chains to be called directly from XRPL.`),
-				Links: []ProjectLink{
-					{
-						Url:  "https://github.com/commonprefix/axelar-amplifier/tree/xrpl",
-						Name: "XRPL smart contracts GitHub repo",
-						Date: "2023-11-20 - Present",
-					},
-					{
-						Url:  "https://github.com/axelarnetwork/axelar-amplifier/pull/764",
-						Name: "XRPL verifier node pull request",
-						Date: "2023-11-20 - Present",
-					},
-					{
-						Url:  "https://github.com/commonprefix/axelar-xrpl-relayer",
-						Name: "XRPL relayer GitHub repo",
-						Date: "2024-02-20 - Present",
-					},
-				},
-			},
-			{
-				Title:    "Ethereum Light Client on Axelar implementation",
-				IsBridge: true,
-				Desc:     template.HTML(`Common Prefix collaborated with Axelar to develop a light client that employs Ethereum's Sync Committee protocol to bridge events from Ethereum to Axelar.`),
-				Links: []ProjectLink{
-					{
-						Url:  "/static/clients/axelar/axelar_light_client_grant_proposal.pdf",
-						Name: "Grant proposal report",
-						Date: "2023-05-01",
-					},
-					{
-						Url:  "https://commonprefix.notion.site/Light-Client-Architecture-8fe5486c958e479ab41cdfc36a3d59ed",
-						Name: "Architecture documentation",
-						Date: "2024-01-29",
-					},
-					{
-						Url:  "https://github.com/commonprefix/axelar-light-client",
-						Name: "Implementation GitHub repo",
-						Date: "2023-08-28 - 2024-02-19",
-					},
-				},
-			},
-			{
-				Title: "Axelar Gateway audit",
-				Desc:  template.HTML(`The Axelar Gateway Solidity smart contract is deployed to every Axelar-supported EVM chain, enabling communication between the Axelar network and the connected chain. Common Prefix was commissioned to audit two versions of the Gateway smart contract (v1 and v2.1).`),
-				// Date:  "28/01/2024",
-				Links: []ProjectLink{
-					{
-						Url:  "/static/clients/axelar/axelar_gateway_audit.pdf",
-						Name: "Axelar Gateway v1 smart contract audit",
-						Date: "2021-11-22",
-					},
-					{
-						Url:  "/static/clients/axelar/axelar_gateway_v2_audit.pdf",
-						Name: "Axelar Gateway v2.1 smart contract audit",
-						Date: "2022-03-01",
-					},
-				},
-			},
-		},
-		Findings: []Finding{},
 	},
 	{
 		Handle: "mysten",

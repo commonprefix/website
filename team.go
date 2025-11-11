@@ -64,33 +64,41 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "distributed systems, scaling blockchains, blockchain interoperability, applied cryptography, protocol analysis",
 		Department: "science",
 		Desc: template.HTML(`
-            Lukas is a blockchain researcher specializing in distributed systems, applied cryptography,
-            and protocol analysis, with a focus on blockchain scalability and interoperability.
-            Among others, his work includes advancements in Payment/Virtual Channel Network protocols,
-            bridges, light clients, crypto-economic incentives, and BitVM.
-            Lukas earned his PhD from the Technical University of Vienna (TU Wien),
-            under the supervision of Matteo Maffei and Pedro Moreno-Sanchez.
-            He has published in venues such as ACM CCS, USENIX Security, IEEE S&P (Oakland), and NDSS.
+			Lukas is a blockchain researcher 
+			<a href="https://dblp.org/pid/265/9073.html">specializing</a> in distributed systems, applied cryptography, and protocol analysis, 
+			with a focus on blockchain scalability and interoperability. 
+			Among others, his work includes advancements in Payment/Virtual Channel Network protocols, bridges, light clients, 
+			crypto-economic incentives, and BitVM. 
+			Notably, he has co-authored several papers on light clients and bridges, including 
+			<a href="https://eprint.iacr.org/2024/692.pdf">Blink: An Optimal Proof of Proof-of-Work</a>,
+			<a href="https://eprint.iacr.org/2024/197.pdf">Alba: The Dawn of Scalable Bridges for Blockchains</a>,
+			<a href="https://eprint.iacr.org/2022/1721.pdf">Glimpse: On-Demand PoW Light Client with Constant-Size Storage for DeFi</a>,
+			<a href="https://eprint.iacr.org/2025/1158.pdf">BitVM2: Bridging Bitcoin to Second Layers</a>.
+			Lukas is a research associate at the University of Edinburgh hosted by Aggelos Kiayias. 
+			Lukas holds a PhD from the Technical University of Vienna (TU Wien), where he was advised by Matteo Maffei 
+			and Pedro Moreno-Sanchez. His work has been published in top-tier venues such as 
+			ACM CCS, USENIX Security, IEEE Security & Privacy, NDSS, FC, and Asiacrypt.		
 		`),
 		Image: "lukas_aumayr.jpg",
 	},
 	"zeta": {
 		Handle:         "zeta",
-		Name:           "Dr. Zeta Avarikioti",
+		Name:           "Prof. Zeta Avarikioti",
 		Specialization: "distributed systems, scaling blockchains, cryptoeconomic incentive analysis",
 		Department: "leadership",
 		Desc: template.HTML(`
-			Zeta is an upcoming Assistant Professor at the Technical University of Vienna (TU Wien) in Austria.
-			She is currently a post-doctoral blockchain researcher at TU Wien working with professor Matteo Maffei.
-			She graduated with a PhD from ETH Zürich, advised by Roger Wattenhofer, and holds an engineering degree from the
-			National Technical University of Athens and a masters degree from National Kapodistian University of Athens.
-			She specializes in distributed systems, scaling blockchains via sharding and channels,
-			and the analysis of cryptoeconomic incentives.
-			Among other venues, she has published in USENIX Security, CSF, Financial Cryptography, AFT, AAAI, and SODA.
-			Highlights of her research include the papers
-			<a href="https://arxiv.org/pdf/1905.11360.pdf">BRICK: Asynchronous Payment Channels</a>,
-			<a href="https://eprint.iacr.org/2019/1092.pdf">Cerberus Channels: Incentivizing Watchtowers for Bitcoin</a>, and
-			<a href="https://arxiv.org/pdf/1910.10434.pdf">Divide and Scale: Formalization of Distributed Ledger Sharding Protocols</a>.
+			Zeta is an upcoming Assistant Professor at the Technical University of Vienna (TU Wien). 
+			She holds a PhD from ETH Zürich, advised by Roger Wattenhofer. 
+			She <a href="https://dblp.org/pid/183/6375.html">specializes</a> 
+			in distributed systems, scalability and interoperability of blockchains, and 
+			the analysis of cryptoeconomic incentives, 
+			and she has published numerous works on light clients and bridges, 
+			including 
+			<a href="https://eprint.iacr.org/2024/692.pdf">Blink</a>,
+			<a href="https://eprint.iacr.org/2024/197.pdf">Alba</a>,
+			<a href="https://eprint.iacr.org/2022/1721.pdf">Glimpse</a>,
+			<a href="https://eprint.iacr.org/2025/1158.pdf">BitVM</a>,
+			Among other venues, she has published at USENIX Security, ACM CCS, NDSS, CSF, FC, AFT, AAAI, and SODA.
 		`),
 		Image: "zeta_avarikioti.jpg",
 	},
@@ -127,28 +135,25 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "software engineering, auditing, quantitative trading",
 		Department: "engineering",
 		Desc: template.HTML(`
-			Dejan is a software engineer based in Belgrade, Serbia. He holds a Bachelor's degree in Computing and Information Systems from Goldsmiths, University of London. 
-			He has many years of experience building high-availability full stack software. He has also done work in data science and low-level programming. 
-			Previously he worked in an e-commerce startup and a quantitative trading firm in traditional finance.
+			Dejan is a senior software engineer with decades of C++ experience. He has worked on high-speed, high-concurrency, and high-availability trading systems at hedge funds. 
+			He has previously served as CTO and Director of Engineering in multiple companies. 
+			He holds a Computer Science degree from the Goldsmiths University of London.
 		`),
 		Image: "dejan_cabrilo.png",
 	},
 	"pyrros": {
 		Handle:         "pyrros",
-		Name:           "Dr. Pyrros Chaidos",
+		Name:           "Prof. Pyrros Chaidos",
 		Specialization: "zero-knowledge proofs, voting",
 		Department: "science",
 		Desc: template.HTML(`
-			Pyrros is a post-doctoral blockchain researcher at the University of Athens. He holds a PhD from the
-			University College of London, advised by Jens Groth and Allan Sikk, an MSc in Information Security from the University College of London, an MSc in
-			Theoretical Computer Science from the University of Athens, and a BA in Mathematics from the University of
-			Athens. He specializes in zero knowledge proof systems, with applications on proof-of-stake blockchains and
-			voting in particular. Among other venues, he has published in EUROCRYPT, ACM CCS, PKC, ESORICS, and the Journal
-			of Cryptology. Highlights of his research include the papers
-			<a href="https://eprint.iacr.org/2021/916.pdf">Mithril: Stake-based Threshold Multisignatures</a>,
-			<a href="https://eprint.iacr.org/2016/263.pdf">Efficient Zero-Knowledge Arguments for Arithmetic Circuits in
-			the Discrete Log Setting</a>, and
-			<a href="https://eprint.iacr.org/2016/368.pdf">Foundations of Fully Dynamic Group Signatures</a>.
+			Pyrros holds a PhD from UCL, advised by Jens Groth, the person behind modern ZK proofs. 
+			He <a href="https://dblp.org/pid/117/9032.html">specializes</a> in zero-knowledge proof systems, with applications on proof-of-stake blockchains 
+			and voting in particular, with notable scientific contributions including
+			<a href="http://www0.cs.ucl.ac.uk/staff/P.Chaidos/fosad.pdf">Efficient Zero-Knowledge Proof Systems</a>,
+			<a href="https://eprint.iacr.org/2016/263.pdf">Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting</a>,
+			<a href="https://eprint.iacr.org/2021/916.pdf">Mithril: Stake-based Threshold Multisignatures</a>.			
+			Additionally, he has audited multiple deployed zero-knowledge and cryptographic codebases.
 		`),
 		Image: "pyrros_chaidos.jpg",
 	},
@@ -158,7 +163,9 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "applied cryptography, privacy-enhancing technologies, blockchain protocols",
 		Department: "science",
 		Desc: template.HTML(`
-			James is a cryptography postdoctoral researcher at Aarhus University, advised by Ivan Damgård. He holds a PhD from the Technical University of Denmark where he was awarded the DTU Compute Fellowship and advised by Alberto Lluch-Lafuente, Bernardo David and Massimo Bartoletti. 
+			James is a postdoctoral researcher at the Systems Secruity Group at ETH Zurich, advised by Srdjan Capkun.
+			Previously, he was a cryptography postdoctoral researcher at Aarhus University, advised by Ivan Damgård.
+			He holds a PhD from the Technical University of Denmark where he was awarded the DTU Compute Fellowship and advised by Alberto Lluch-Lafuente, Bernardo David and Massimo Bartoletti. 
 			He holds a BSc with distinction from UCLA. His research focuses on privacy-preserving techniques motivated by recent blockchain applications and includes practical advancements in <a href="https://eprint.iacr.org/2025/113.pdf">post-quantum threshold ring signatures</a>, novel notions of <a href="https://eprint.iacr.org/2023/943.pdf">differential privacy for secure multi-party computation</a> (MPC), and the first formal model of <a href="https://arxiv.org/pdf/2106.01870">miner-extractable-value</a> (MEV).
 			His research has been published in ACM CCS, Financial Cryptography, AFT and recognized with the Sui Academic Research Award.
 			Prior to academia, James designed flight hardware for Mars rovers at JPL NASA, advised technology firms on three continents at the Boston Consulting Group, co-founded the leading solar business software company (Eturnity) and contributed to multiple open-source implementations of the original Bitcoin protocol (Core/Libbitcoin).	
@@ -182,15 +189,13 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "multiparty computation, consensus",
 		Department: "science",
 		Desc: template.HTML(`
-			Bernardo David is an Associate Professor at the IT University of Copenhagen, working on cryptographic protocols
-			for multiparty computation and blockchain consensus/applications with the support of Concordium Foundation,
-			Independent Research Fund Denmark and Protocol Labs research grants. He holds a PhD in Computer Science
-			from Aarhus University, under the supervision of Ivan Damgård and Jesper Buus Nielsen, and was previously an Assistant Professor at the Tokyo Institute of Technology,
-			where his work was supported by a JSPS research grant. Bernardo&rsquo;s research has been published as over 30 articles in
-			scientific journals and conferences. Among his main contributions is
-			<a href="https://eprint.iacr.org/2016/889.pdf">the first provably secure protocol for proof-of-stake blockchains</a>.
-			Besides academic activities, he has been a consultant for a number of industry projects
-			on blockchains and information security, having served as scientific advisor to Cardano and Concordium.
+			Bernardo is an Associate Professor <a href="https://dblp.org/pid/15/10106.html">working on</a> cryptographic protocols for multiparty computation (MPC) and blockchains at the IT-University of Copenhagen.
+			Among his main contributions is <a href="https://eprint.iacr.org/2016/889.pdf">the first provably secure protocol for proof-of-stake blockchains (Ouroboros)</a>
+			and <a href="https://eprint.iacr.org/2023/1651.pdf">the first publicly verifiable secret sharing (PVSS) with linear complexity (SCRAPE).</a>
+			He has also worked on privacy preserving (auditable) smart contracts and cryptocurrencies, random beacons, sharding, signatures, theshold cryptography, 
+			time-based cryptography and zero knowledge. 
+			His work has been published in top-tier venues such as Asiacrypt, Crypto, Eurocrypt, CCS and FC. 
+			Before working with Common Prefix, he has also consulted for IOG (Cardano) and Concordium.
 		`),
 		Image: "bernardo_david.jpg",
 	},
@@ -214,11 +219,12 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "smart contract development, auditing, software engineering, offensive security",
 		Department: "leadership",
 		Desc: template.HTML(`
-			Nikolas is a software engineer based in Athens, Greece.
-			He holds a Bachelor&rsquo;s degree in Computer Science with a minor in Cybersecurity from the University of Maryland.
-			He has multiple years of experience in full-stack software engineering and open-source development,
-			as well as some experience in offensive security.
-			Nikolas is currently focused on smart contract development and auditing at Common Prefix.
+		Nikolas is the CTO of Common Prefix, specializing in blockchain consensus and interoperability. 
+		He has represented Greece at the European Cyber Security Challenge, three years in a row. 
+		He holds a Bachelor's degree in Computer Science from the University of Maryland with a specialization in Cybersecurity. 
+		He has multiple years of experience in full-stack software engineering, open-source development, and offensive security. 
+		Among various projects, Nikolas led the <a href="https://www.commonprefix.com/clients/axelar">Axelar<>XRPL integration</a>
+		and the end-to-end development of an EVM-to-EVM multisig-based bridge, which have processed over $200M in volume.
 		`),
 		Image: "nikolaos_kamarinakis.jpg",
 	},
@@ -228,14 +234,11 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "cryptocurrency wallets, macroeconomics, checkpointing",
 		Department: "science",
 		Desc: template.HTML(`
-			Dimitris is a post-doctoral blockchain researcher at the University of Edinburgh where he works with professor
-			Aggelos Kiayias. He holds a PhD from the University of Edinburgh, advised by Aggelos Kiayias, and an Electrical and Computer Engineering
-			degree from the National Technical University of Athens. He specializes in cryptocurrency wallets and
-			macroeconomics, as well as chain checkpointing. Among other venues, he has published in Financial Crypto and
-			presented at Black Hat Europe and Asia. Highlights of his research include the papers
-			<a href="https://eprint.iacr.org/2019/034.pdf">A Formal Treatment of Hardware Wallets</a>,
-			<a href="https://arxiv.org/pdf/1907.02434.pdf">Cryptocurrency Egalitarianism: A Quantitative Approach</a>, and
-			<a href="https://eprint.iacr.org/2020/173.pdf">Securing Proof-of-Work Ledgers via Checkpointing</a>.
+			Dimitris is a cryptography researcher specialized in blockchain-based distributed ledger systems. 
+			His primary focus is on protocol design and analysis, game theory, and macroeconomic aspects of cryptocurrency systems. 
+			Notably, he was a core contributor of the Edinburgh Decentralization Index (EDI), where he worked on defining and measuring the notion of decentralization in blockchain systems. 
+			Dimitris holds a PhD from the University of Edinburgh, where he was advised by Aggelos Kiayias. 
+			His work has been published in venues like ACM CCS, Financial Cryptography, ESORICS, and ACNS.
 		`),
 		Image: "dimitris_karakostas.jpg",
 	},
@@ -273,12 +276,11 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "consensus, proof-of-work, machine learning",
 		Department: "science",
 		Desc: template.HTML(`
-		Odysseas is a blockchain researcher based in Athens,
-		specializing in consensus mechanisms and proof-of-work protocols for blockchain systems.
-		He holds a Master's degree in Electrical and Computer Engineering from Aristotle University of Thessaloniki,
-		with a focus on inverse rendering and machine learning.
-		He previously worked at the Information Technologies Institute,
-		where he conducted research on GANs and image-to-image translation.
+		Odysseas is a blockchain researcher specializing in consensus protocols. 
+		He holds an MEng in Electrical and Computer Engineering from Aristotle University of Thessaloniki and has previously worked on
+		designing consensus mechanisms, “consensus-less” architectures, Byzantine fault-tolerant systems, accountable protocols and 
+		blockchain interoperability protocols such as light clients. 
+		He is co-author of the paper <a href="https://arxiv.org/pdf/2501.14931">Pod: An Optimal-Latency, Censorship-Free, and Accountable Generalized Consensus Layer</a>.
 		`),
 		Image: "odysseas_sofikitis.jpg",
 	},
@@ -288,14 +290,12 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "cryptography, distributed systems, consensus",
 		Department: "science",
 		Desc: template.HTML(`
-		Julian is a professor at CISPA Helmholtz Center for Information Security, focusing on cryptography and its applications to distributed algorithms.  
-		He holds a PhD in Mathematics from Ruhr University Bochum, advised by Eike Kiltz, and a MSc in Computer Science from ETH Zurich.  
-		Julian was a postdoctoral researcher at the University of Maryland and Carnegie Mellon University. 
-		His interests include provable security, particularly digital signature schemes and algorithms for distributed consensus.
-		Among other venues, he has published in ACM CCS, ASIACRYPT, EUROCRYPT, FC, and IEEE S&P (Oakland). 
-		Highlights of his research include the papers <a href="https://eprint.iacr.org/2017/620.pdf"> The Algebraic Group Model and its Applications</a>, 
-		<a href="https://infoscience.epfl.ch/server/api/core/bitstreams/3820a5e9-3807-48ae-9604-c37037cc907d/content">On the Security of Two-Round Multi-Signatures</a>, 
-		and <a href="https://eprint.iacr.org/2020/945.pdf">On the (in)security of ROS</a>.
+		Julian is a tenured Professor at the CISPA Helmholtz Center for Information Security. 
+		He earned his Ph.D. in Mathematics from Ruhr University Bochum under the supervision of Eike Kiltz and subsequently held 
+		postdoctoral positions at the University of Maryland with Jonathan Katz and at Carnegie Mellon University with Elaine Shi. 
+		His <a href="https://dblp.org/pid/184/3870.html">research</a> focuses on the intersection of cryptography and distributed protocols, 
+		with particular expertise in digital signatures, payments, consensus, and randomness generation.
+		His work has been published in top-tier conferences, including IEEE S\&P, ACM CCS, CRYPTO, PODC, FC, AsiaCCS, and TCC.
 		`),
 		Image: "julian_loss.jpg",
 	},
@@ -305,11 +305,10 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "distributed systems, scaling blockchains, interoperability, protocol analysis, cryptoeconomic incentive analysis, voting, software engineering, payment channels",
 		Department: "science",
 		Desc: template.HTML(`
-		Orfeas is currently a research associate at Imperial College London.
-		He obtained his
-		<a
-			href="https://gitlab.com/orfeasLitos/thesis/-/raw/master/thesis.pdf?inline=false"
-		>PhD in Cryptography and Blockchains</a> at the University of Edinburgh in 2021, under the supervision of Aggelos Kiayias. He has worked on <a href="http://fc17.ifca.ai/preproceedings/paper_37.pdf">building and analyzing</a> decentralized applications on blockchains,
+		Orfeas is a research associate at Imperial College London. 
+		He obtained his <a href="https://gitlab.com/orfeasLitos/thesis/-/raw/master/thesis.pdf?inline=false">PhD in Cryptography and Blockchains</a> 
+		at the University of Edinburgh in 2021, under the supervision of Aggelos Kiayias. 
+		He has <a href="https://dblp.org/pid/197/1429.html">worked</a> on <a href="http://fc17.ifca.ai/preproceedings/paper_37.pdf">building and analyzing</a> decentralized applications on blockchains,
 		<a href="https://fc20.ifca.ai/preproceedings/132.pdf">layer-2 protocols</a>,
 		<a href="https://eprint.iacr.org/2021/747.pdf">payment channels</a>, and
 		<a href="https://tokenomics2019.org/Documents/proceedings-full.pdf#page=17">voting solutions</a>, all through formal cryptographic methods. Among others, he has
@@ -344,12 +343,11 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "smart contract development, testing, software engineering, algorithmic trading, rockets",
 		Department: "leadership",
 		Desc: template.HTML(`
-			Themis is a software engineer based in Athens.
-			He has significant experience developing software for a variety of projects
-			such as web applications, algorithmic traders and rockets.
-			He is pursuing a Master&rsquo;s degree in Electrical and Computer Engineering
-			from the National Technical University of Athens
-			and has also completed internships at Google and at the European Space Agency.
+			Themis is a software engineer based in Athens. 
+			He has significant experience developing software for a variety of projects such as web applications, algorithmic traders, and rockets. 
+			He has worked on the Ethereum light client on Axelar and on a monitoring and alerting system for an EVM blockchain bridge. 
+			He is pursuing a Master’s degree in Electrical and Computer Engineering from the National Technical University of Athens 
+			and has also completed internships at Google and at the European Space Agency. 
 			Currently, he is focused on smart contract development and testing.
 		`),
 		Image: "themis_papameletiou.jpg",
@@ -360,13 +358,15 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "scaling blockchains, blockchain interoperability, cryptoeconomic incentive analysis",
 		Department: "science",
 		Desc: template.HTML(`
-			Giulia is a doctoral blockchain researcher at the Technical University of Vienna (TU Wien),
-			working in the Security and Privacy group with Prof. Matteo Maffei.
-			She holds a Master's degree in Nuclear Physics from the University of Pavia, Italy,
-			and she has worked as a Salesforce developer at Deloitte Digital in Milan.
-			She specializes in blockchain interoperability and scalability protocols,
-			light clients, layer-2 solutions, and crypto-economic incentives.
-			Among other venues, she has published in the USENIX Security Symposium.
+			Giulia is a doctoral student at the Technical University of Vienna (TU Wien), 
+			where she <a href="https://dblp.org/pid/306/8308.html">focuses</a> on blockchain scalability, interoperability, and light clients
+			She has been a summer research intern at Mysten Labs (2024) and at a16z crypto (2025). 
+			Notably, in the <a href="https://eprint.iacr.org/2024/1680.pdf">Sunfish</a> paper she has formalized for the first time a new type of 
+			blockchain client: the sparse client (aka. partially stateless client). 
+			Among others, she has co-authored papers on light clients and bridges, including 
+			<a href="https://eprint.iacr.org/2024/692.pdf">Blink</a>,
+			<a href="https://eprint.iacr.org/2024/197.pdf">Alba</a>,
+			<a href="https://eprint.iacr.org/2022/1721.pdf">Glimpse</a>.
 		`),
 		Image: "giulia_scaffino.png",
 	},
@@ -375,8 +375,11 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Name:           "Nikos Sfakianakis",
 		Specialization: "software engineering, consensus, offensive security",
 		Department: "engineering",
-		Desc: template.HTML(`Nikos is a software engineer based in Athens. He is currently wrapping up his Master’s Degree in Electrical and Computer Engineering at the National Technical University of Athens where he is writing his thesis on Consensus Algorithms. 
-		He has previously worked at Mysten Labs as a Blockchain Engineer and completed an internship at the Cybersecurity Department of OTE Group. He has also competed in several Ethical Hacking and Offensive Security competitions.
+		Desc: template.HTML(`
+		Nikos is a software engineer based in Athens. He is currently wrapping up his Master’s Degree in Electrical and Computer Engineering at the National Technical University of Athens
+		where he is completing his thesis on Consensus Algorithms. 
+		He has previously worked at Mysten Labs as a Blockchain Engineer and completed an internship at the Cybersecurity Department of OTE Group. 
+		He has also competed in several Ethical Hacking and Offensive Security competitions.
 		`),
 		Image: "nikos_sfakianakis.jpg",
 	},	
@@ -426,8 +429,10 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "smart contract development, full-stack web development, software engineering, algorithms, circus acrobatics",
 		Department: "engineering",
 		Desc: template.HTML(`
-			Nikola is a self-taught software engineer based in Belgrade, Serbia. He started with algorithms in elementary school and won 2 gold medals in national high-school competitions in Serbia. Before his web3 journey he has helped various startups scale their products and teams, notably <a href="https://hellosuper.com">Super</a> and <a href="https://www.amondo.com">Amondo</a>, and has 10 years of freelance experience as a full-stack web developer.
-
+		Nikola has worked as a full-stack web developer for ten years before joining Common Prefix. 
+		During his career he worked on web applications, back-end services, WebAssembly and serverless applications, and has helped many startups grow. 
+		At Common Prefix, Nikola is working on Bitcoin-related projects, smart contracts for Ethereum, CosmWasm and Solana, and cross-chain bridging. 
+		He worked on various bridges including the Bitcoin Ordinals to EVM bridge, Filecoin IPC subnets on Bitcoin, and lead the integration of Hedera to Axelar's Amplifier bridging infrastructure.
 		`),
 		Image: "nikola_ristic.jpg",
 	},
