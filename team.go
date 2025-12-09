@@ -87,18 +87,30 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "distributed systems, scaling blockchains, cryptoeconomic incentive analysis",
 		Department: "leadership",
 		Desc: template.HTML(`
-			Zeta is an upcoming Assistant Professor at the Technical University of Vienna (TU Wien). 
-			She holds a PhD from ETH Zürich, advised by Roger Wattenhofer. 
-			She <a href="https://dblp.org/pid/183/6375.html">specializes</a> 
-			in distributed systems, scalability and interoperability of blockchains, and 
-			the analysis of cryptoeconomic incentives, 
-			and she has published numerous works on light clients and bridges, 
-			including 
+			Zeta is an Assistant Professor at the Technical University of Vienna (TU Wien), where she leads the
+			<a href="https://cysec.wien/initiatives/blockchain/">Blockchain Hub</a>, within the university’s Cybersecurity Center. 
+			She holds a PhD from ETH Zürich, advised by Roger Wattenhofer, and has previously held research positions at IST Austria and Columbia University.
+			She <a href="https://dblp.org/pid/183/6375.html">specializes</a>, in distributed systems, blockchain scalability and interoperability, and the analysis of cryptoeconomic incentives 
+			with numerous publications, spanning payment channels (e.g.,
+			<a href="https://dl.acm.org/doi/abs/10.1007/978-3-662-64331-0_11">Brick</a>,
+			<a href="https://link.springer.com/chapter/10.1007/978-3-030-51280-4_19">Cerberus</a>,
+			<a href="https://dl.acm.org/doi/10.1145/3658644.3670373">Crab</a>,
+			light clients and bridges (e.g.,		
 			<a href="https://eprint.iacr.org/2024/692.pdf">Blink</a>,
 			<a href="https://eprint.iacr.org/2024/197.pdf">Alba</a>,
 			<a href="https://eprint.iacr.org/2022/1721.pdf">Glimpse</a>,
-			<a href="https://eprint.iacr.org/2025/1158.pdf">BitVM</a>,
-			Among other venues, she has published at USENIX Security, ACM CCS, NDSS, CSF, FC, AFT, AAAI, and SODA.
+			<a href="https://eprint.iacr.org/2025/1158.pdf">BitVM</a>),
+			consensus (e.g., <a href="https://arxiv.org/pdf/2009.02235">FnF-BFT</a>, <a href="https://arxiv.org/abs/2503.16783">CoBRA</a>), 
+			and foundational research on
+			<a href="https://link.springer.com/chapter/10.1007/978-3-031-32733-9_10">sharding</a>,
+			<a href="https://arxiv.org/abs/2504.14965">layer 2 protocols</a>, and
+			<a href="https://arxiv.org/abs/2504.18214">compositional game theory</a>.
+			Her work has appeared at leading venues including USENIX Security, ACM CCS, NDSS, CSF, FC, AFT, AAAI, and SODA, 
+			and is supported by several major national funding bodies (FWF, WWTF) and industry-funded research donations (Ark Labs, Sui Foundation). 
+			She currently serves on the program committees of top-tier conferences such as CCS, USENIX Security, FC, 
+			and as Program Chair of the Advances in Financial Technologies (AFT 2025) conference. 
+			In 2025, she received the <a href="https://www.ots.at/presseaussendung/OTS_20251016_OTS0003/tu-wien-forscherin-georgia-avarikioti-erhaelt-hedy-lamarr-preis-2025">Hedy Lamarr Prize</a> from the City of Vienna for her contributions to information technology, 
+			as well as the <a href="https://brd.chaincode.com/#prize">Bitcoin Research Prize</a>, along with her collaborators, for their work on BitVM.
 		`),
 		Image: "zeta_avarikioti.jpg",
 	},
@@ -248,13 +260,12 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "business development, project management, quantitative finance, risk management",
 		Department: "leadership",
 		Desc: template.HTML(`
-			Haris works on the business side of things at Common Prefix.
-			His background includes roles at Amazon and Piraeus Bank,
-			where he gained valuable experience in operations, finance and risk management.
-			He holds a Master's degree in Quantitative Finance and Risk Management from Bocconi University
-			and an Electrical & Electronic Engineering Bachelor's degree from the University of Manchester.
-			At Common Prefix, he contributes to both business development and project management,
-			aiming to improve operational and financial efficiency.
+			Haris is the COO of Common Prefix. His background includes roles at
+			Amazon and Piraeus Bank, where he gained valuable experience in operations, finance, and
+			risk management. He holds a Master’s degree in Quantitative Finance and Risk Management
+			from Bocconi University and an Electrical & Electronic Engineering Bachelor’s degree from
+			the University of Manchester. At Common Prefix, he leads multiple facets of our business,
+			including finance, legal, sales & marketing.
 		`),
 		Image: "haris_karavasilis.jpg",
 	},
