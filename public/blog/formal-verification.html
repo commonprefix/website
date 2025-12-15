@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Common Prefix — Blockchains and Formal Verification - a Match Made in Heaven?</title>
+		<meta name="description" content="An accessible guide to formal verification, what it is, why it matters for blockchain security, and how developers can start using it to build more trustworthy systems." />
+
+		<meta property="og:title" content="Common Prefix — Blockchains and Formal Verification - a Match Made in Heaven?">
+		<meta property="og:description" content="An accessible guide to formal verification, what it is, why it matters for blockchain security, and how developers can start using it to build more trustworthy systems.">
+		<meta property="og:url" content="https://commonprefix.com/">
+		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
+
+		<meta name="twitter:title" content="Common Prefix — Blockchains and Formal Verification - a Match Made in Heaven?">
+		<meta name="twitter:description" content="An accessible guide to formal verification, what it is, why it matters for blockchain security, and how developers can start using it to build more trustworthy systems.">
+		<meta property="twitter:url" content="https://commonprefix.com/">
+		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="commonprefix.com">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/png" href="/static/favicon/favicon.png" />
+		<link rel="manifest" href="/static/site.webmanifest">
+
+		<link rel="preload" href="/static/main.css" as="style" />
+		<link rel="stylesheet" href="/static/main.css" />
+		<script src="/static/main.js"></script>
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVFWK2DDQF"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){ dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'G-ZVFWK2DDQF');
+		</script>
+
+		
+
+<link href="/static/prism.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="logo-graphic">
+			<img draggable="false" src="/static/commonprefix_logo.jpg" alt="" />
+			<img
+				style="visibility: hidden"
+				class="logo-graphic__clip"
+				draggable="false"
+				src="/static/commonprefix_logo.jpg"
+				alt=""
+			/>
+		</div>
+
+		<div class="outer-container">
+			<div class="container">
+				<div class="small-container">
+					<header>
+						<a href="/" class="header__company-name"
+							><h2>Common <span>⎵</span> Prefix</h2>
+						</a>
+						<nav>
+							<a href="/team.html">Team</a>
+							<a href="/research.html">Research</a>
+							
+							<a href="/bridges.html">Bridges</a>
+							<a href="/blog/">Blog</a>
+							<a href="/careers.html" class="careers-link">Careers</a>
+						</nav>
+					</header>
+
+					
+<main class="blog-post">
+	<h1>Blockchains and Formal Verification - a Match Made in Heaven?</h1>
+	<h5 class="mono light blog-post__date">12/12/2025<br />
+		<div class="blog-post__authors">
+		
+			<a href="/team#orfeas">Dr. Orfeas Stefanos Thyfronitis Litos</a>
+		
+		</div>
+	</h5>
+	<h5>Reading time: 22 minutes</h5>
+
+	
+
+	<section class="content">
+		<p>Formal verification is getting some traction in the world of blockchains. But what is formal verification, why is it relevant for blockchains, and how can we make good use of it? No matter whether you&rsquo;re just dabbling with crypto or you&rsquo;re a web3 native, there&rsquo;s definitely something here for you.</p>
+
+<h3 id="but-what-is-formal-verification">But what is formal verification?</h3>
+
+<p>Simply put, formal verification is a set of techniques for proving facts about code, e.g., &ldquo;function <code>foo()</code> needs at most fee <code>x</code>&rdquo; Or &ldquo;calling <code>bar(Bob)</code> makes Bob richer by <code>y</code> ETH&rdquo;. Formally verified projects consist of:</p>
+
+<ul>
+<li><p>A <em>specification</em> (a.k.a. <em>spec</em>): A relatively short definition of what the functionality should be in machine-readable language,</p></li>
+
+<li><p>An <em>implementation</em>: Runnable, practical (and hopefully efficient) code that provides the functionality of the spec,</p></li>
+
+<li><p>A <em>proof</em>: A piece of code that proves that the implementation realises the spec. (Some formal verification frameworks don&rsquo;t need a proof.)</p></li>
+</ul>
+
+<p>The developer has to choose a (trustworthy) formal verification framework (e.g., <a href="https://isabelle.in.tum.de/" target="_blank">Isabelle/HOL</a>, <a href="https://lean-lang.org/" target="_blank">Lean</a>, <a href="https://wiki.portal.chalmers.se/agda/pmwiki.php" target="_blank">Agda</a>, or <a href="https://pvs.csl.sri.com/" target="_blank">PVS</a>), write the spec, the implementation, and the proof, and make sure that the proof passes muster with the framework. Since it&rsquo;s code, the spec should also be accompanied by an explanation in natural language in the form of, e.g., documentation, a blog post, or even an academic paper. Alternatively, the spec is co-designed by the developer and the intendend user(s), or even exclusively by the user(s).</p>
+
+<p>You might now wonder &ldquo;why go through all this effort? Isn&rsquo;t the implementation enough of a pain to write already?&rdquo; The whole point of a formally verified project is to empower users to be able to do the following: first, the curious user reads the spec (manually, but without too much effort, likely aided by the natural-language explanation) to make sure that it expresses all the critical properties that the functionality should provide. (S)he then feeds the spec, the implementation, and the proof into the framework, which automatically checks that the proof is correct. Given that (s)he trusts the framework, the user then is certain that the implementation fulfills the spec, without reading a single line of implementation or proof.</p>
+
+<div style="text-align:center; margin: 2rem 0 1rem 0;">
+  <img src="/static/blog/formal-verification/workflow.svg"
+       alt="Formal verification workflow"
+       style="max-width:70%; height:auto; display:block; margin:0 auto;" />
+  <p style="font-style:italic; margin-top:0.5rem;">
+    A developer writes the spec, the implementation, and the proof. A user (a) manually checks that the spec defines the required functionality, (b) automatically verifies that the implementation realises the spec by (i) feeding the two, together with the proof, to the formal verification framework and (ii) checking that the proof passes, and then (c) executes the implementation.
+    </p>
+</div>
+
+<p>For example, consider an airplane manufacturer that wants to outsource the implementation of the autopilot logic. The manufacturer writes the spec (specifying important stuff like &ldquo;the plane won&rsquo;t crash under any conditions that permit flight&rdquo;), chooses a formal verification framework and hires a contractor to write code that provably implements the spec. The contractor writes the implementation and the proof and the manufacturer runs the proof by the framework – if it passes, the implementation is acceptable. Formal verification is used to increase security and reliability in a number of industries, such as aerospace, robotics, and, of course, blockchains.</p>
+
+<h3 id="an-allegory-for-formal-verification">An allegory for formal verification</h3>
+
+<p>The CTO is sold, you&rsquo;ll be using formal verification for the next project. You, a competent dev, know test-driven development, functional programming, and a whole host of languages of every flavour along with their libraries, so how should you think about this new shiny tool? Here&rsquo;s the best allegory I could come up with.</p>
+
+<p>You&rsquo;re browsing for a cleaning spray at the grocery store and you decide to ask the attendant for help. He immediately lights up:</p>
+
+<ul>
+<li><p>We just got this new brand that kills 99.9% of bacteria.</p></li>
+
+<li><p>Why the hype? Every brand claims the same nowadays.</p></li>
+
+<li><p>Sure, but this one isn&rsquo;t just a marketing claim. Come.</p></li>
+</ul>
+
+<p>He then proceeds to show me this peculiar bottle. It definitely looks overengineered. Sure enough, there&rsquo;s the familiar claim &ldquo;kills 99.9% of bacteria&rdquo; on the sticker. The attendant then takes the bottle to the counter, puts it in this unfamiliar box, and presses a button. The box starts whirring. After a minute or so, its display lights up green with the message &ldquo;Kills 99.9% of bacteria: Verified ✅&rdquo;.</p>
+
+<ul>
+<li>This box didn&rsquo;t come cheap, but it&rsquo;s a marvel of technology. It reads the sticker of any product you put in for claims like the one on this bottle and then starts this elaborate back-and-forth with the package. And this is no ordinary package, no. It&rsquo;s made by a special nanomaterial, custom made specifically for the formula of this liquid, that can prove beyond doubt that the liquid matches the claim on the sticker – please don&rsquo;t ask me how.</li>
+</ul>
+
+<p>To drive his point home, he proceeds to pick up one of the usual cleaning sprays in a plastic bottle from the shelf, pops it in the box, and presses the button. The screen lights up red this time: &ldquo;Kills 99.9% of bacteria: Not verified ❌&rdquo;.</p>
+
+<ul>
+<li>Sure enough, the box is made by a different company to the one that makes the cleaning spray and there&rsquo;s an industry standard that dictates the back-and-forth between the box and the package, so I trust that the result isn&rsquo;t rigged. Out of curiosity, I even tried replacing the cleaning liquid in the nanobottle with water and, as expected, the box wasn&rsquo;t fooled.</li>
+</ul>
+
+<p><a href="https://www.goodreads.com/quotes/14885-any-sufficiently-advanced-technology-is-indistinguishable-from-magic" target="_blank">Sounds like magic</a>, right?</p>
+
+<p>While technology is very far from such a feat for physical products<sup>[citation needed]</sup>, this is essentially what formal verification does for software today. You&rsquo;ve probably already gathered that the sticker is the spec, the nanobottle is the proof, the liquid is the implementation, and the box is the framework. And, contrary to the allegory, virtually all formal verification frameworks are free to use. They are also open-source – they wouldn&rsquo;t be trustworthy otherwise.</p>
+
+<h3 id="how-is-formal-verification-in-practice">How is formal verification in practice?</h3>
+
+<p>Allegories are nice and all, but how does formal verification <em>actually</em> look like? Most frameworks (that you should care about) integrate well with the usual <em>suspects</em> editors (VS Code, Vim, Emacs). The details largely depend on the framework, but <em>in general</em> there is an editor panel and an explorer panel. The editor is used to edit the spec, the implementation and the proof, while the proof explorer shows the progress towards proving the desired goals. Usual features such as &ldquo;go to definition&rdquo;, code completion, and hover hints are supported.</p>
+
+<div style="text-align:center; margin: 2rem 0 1rem 0;">
+  <img src="/static/blog/formal-verification/vscode-pvs.png"
+       alt="VS Code with PVS integration"
+       style="max-width:100%; height:auto; display:block; margin:0 auto;" />
+  <p style="font-style:italic; margin-top:0.5rem;">
+    VSCode-PVS with the proof explorer on the left and the editor and terminal on the right.
+    </p>
+</div>
+
+<p>This screenshot is taken from the formal verification environment PVS. Let&rsquo;s take a moment to understand what&rsquo;s going on here. The theory explorer contains a tree of proofs, in which each leaf is a &ldquo;proof obligation&rdquo;, i.e., a fact that needs to be proven. The proof obligations with a ✅ are already proven, whereas the rest are not. If all proof obligations are proven, then we&rsquo;re done. Under the theory explorer we can see the proof explorer. This pane shows the actual steps that have been taken while trying to prove the <code>vs_critical_rew</code> lemma. These include steps such as <code>expand</code>, which replaces functions with their definitions. These steps are done semi-automatically.</p>
+
+<p>The exact way in which these steps are taken vary wildly from framework to framework and different frameworks give different tradeoffs. Some, such as model checkers (e.g., <a href="https://lamport.azurewebsites.net/tla/tla.html" target="_blank">TLA<sup>+</sup></a>) are fully automatic but they may fail to find a proof within a reasonable amount of time, especially if the goal is complicated, and then you&rsquo;re out of luck. Older ones are too manual to be useful – we can all agree that manually expanding function definitions all the way to fully unrolled data types to prove anything is not the best use of our time, but should be done by machines. Modern ones (e.g., Lean) take advantage of powerful automation while allowing the developer to drop down to fully manual if desired.</p>
+
+<p>A popular type of automation tools is <em>SMT solvers</em> such as <a href="https://alt-ergo.ocamlpro.com/" target="_blank">Alt-Ergo</a> and <a href="https://cvc5.github.io/" target="_blank">cvc5</a>. These are tools that receive a logical formula parametrised with some variables and try out concrete values with a combination of brute force and heuristics until they can prove the formula or time out – they are somewhat like model checkers in this regard. In their most common use case, SMT solvers are integrated into an interactive formal verification framework and are used to prove relatively mundane and trivial low-level results, which the developer ties together manually into proofs of high-level facts. It is common to use an SMT solver (with the press of a button) to prove each leaf of the proof tree.</p>
+
+<div style="text-align:center; margin: 2rem 0 1rem 0;">
+  <img src="/static/blog/formal-verification/why3.png"
+       alt="Spec and implementation code in Why3"
+       style="max-width:100%; height:auto; display:block; margin:0 auto;" />
+  <p style="font-style:italic; margin-top:0.5rem;">
+    Why3 IDE showing how a post-condition and a loop variant are interspersed
+    with implementation code to guide the automated prover.
+  </p>
+</div>
+
+<p>The manual parts of the proof are usually provided as pre- and post-conditions that surround functions, as well as <code>expect()</code>-like requirements within the functions. Normally, such &ldquo;annotations&rdquo; are written in the specification language and are interspersed with the implementation language. In the screenshot above you can see how the <a href="https://www.why3.org/" target="_blank">Why3</a> framework uses an <code>ensures</code> block at the top of the function definition to encode a post-condition and a <code>variant</code> block within the function to aid the automated prover. Why3 has strived to keep the implementation and specification languages close to each other to flatten the learning curve.</p>
+
+<div style="text-align:center; margin: 2rem 0 1rem 0;">
+  <img src="/static/blog/formal-verification/vscode-agda.png"
+       alt="VS Code with Agda integration"
+       style="max-width:100%; height:auto; display:block; margin:0 auto;" />
+  <p style="font-style:italic; margin-top:0.5rem;">
+    VS Code with Agda mode: the editor on the left and the goal-and-context
+    panel on the right, assisting interactive proof development.
+  </p>
+</div>
+
+<p>The screenshot above is taken from Agda. Compared to other popular languages, it has less automation but a very strong type system that can prove lots of facts without leaning heavily on flaky approaches like SMT solvers. In its side pane, we can see the current goal that&rsquo;s being proven, as well as a list of available facts. As you can see, Agda&rsquo;s side pane is more geared towards proving individual goals, whereas Why3&rsquo;s and PVS&rsquo;s side panes give an overall view of all goals that are to be proven – this difference in interface reflects the differences in their underlying philosophy.</p>
+
+<p>Apart from the level of automation, here are a couple more considerations that go into choosing a framework: Firstly, how close is the implementation language to executable code, or how easy it is to extract efficient executable code. Frameworks such as <a href="https://dafny.org/" target="_blank">Dafny</a> and <a href="http://fstar-lang.org/" target="_blank">F∗</a> are designed with executable program extraction in mind. Secondly but also very importantly, make sure that the framework you choose has great documentation and a large and friendly community, ideally using it for things similar to what you plan to do: If you want to prove that your smart contracts won&rsquo;t lose your users&rsquo; money, don&rsquo;t choose a framework that&rsquo;s solely used in aerospace, except if you&rsquo;re willing to take a not-so-short detour before starting to verify your smart contracts. To wrap up this tour of frameworks, I should also mention <a href="https://isabelle.in.tum.de/" target="_blank">Isabelle</a> and the venerable <a href="https://rocq-prover.org/" target="_blank">Rocq</a> (formerly Coq).</p>
+
+<h3 id="blockchain-applications">Blockchain applications</h3>
+
+<p>There&rsquo;s a conspicuous lack of the word &ldquo;blockchain&rdquo; up to now. We put this right in this part. Formal verification is suitable both for verifying high-level properties of smart contracts and of the blockchain infrastructure itself. For example, a <a href="https://github.com/IntersectMBO/plutus/tree/master/plutus-metatheory" target="_blank">substantial effort</a> has been invested in formally proving that the Plutus Core language (the language used for smart contracts on the Cardano blockchain) and its semantics are correct. Furthermore, <a href="https://github.com/input-output-hk/ouroboros-praos-formal-spec" target="_blank">IOG is in the process of formally verifying</a> that Ouroboros Praos, the core consensus protocol of Cardano, provides the two high-level security guarantees that all blockchain consensus protocols should provide, namely <em>safety</em> and <em>liveness</em>. They are using Agda entirely for this effort. Another <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2022.10" target="_blank">consensus protocol that has been formally verified</a> is that of <a href="https://redbelly.network/" target="_blank">Redbelly</a>, this one using a model-checking approach.</p>
+
+<p>Some Layer-2 protocols have also been formally verified. For example, the author of this blog post (c&rsquo;est moi) has co-authored a <a href="https://fc25.ifca.ai/preproceedings/63.pdf" target="_blank">formal</a> <a href="https://github.com/grzegorzFabianski/LightningNetworkInWhy3" target="_blank">verification</a> effort of the <a href="https://lightning.network/" target="_blank">Lightning Network</a> using Why3.</p>
+
+<h4 id="formal-verification-of-smart-contract-properties">Formal verification of Smart Contract properties</h4>
+
+<p>(Statistically) more relevant to you dear reader is the wealth of projects that provide tools for formally verifying your Ethereum smart contracts. I won&rsquo;t go over all of them here, I&rsquo;ll just mention a few prominent ones.</p>
+
+<p>The most straightforward one to use is <a href="https://docs.soliditylang.org/en/latest/smtchecker.html" target="_blank">SMTChecker</a>, which has the advantage of being integrated in the <a href="https://www.soliditylang.org/" target="_blank">Solidity</a> compiler. It allows you to pepper your code with <code>assert()</code> statements and flags any ones that don&rsquo;t hold, in which case it also gives counterexamples. A useful trick is to write a <code>public view</code> function alongside your other Solidity functions that only contains <code>assert()</code> statements. The tool will then prove whether these &ldquo;invariants&rdquo; hold in between function calls. SMTChecker proves stuff fully automatically, so you don&rsquo;t need to go out of your way to make use of it, but it won&rsquo;t prove complicated things. <a href="https://security.erikelbieh.com/using-smtchecker" target="_blank">These setup instructions</a> worked for me (YMMV).</p>
+
+<p><a href="https://a16zcrypto.com/posts/article/symbolic-testing-with-halmos-leveraging-existing-tests-for-formal-verification/" target="_blank">Halmos</a> and <a href="https://hevm.dev/" target="_blank">hevm</a> are two competing <em>symbolic execution</em> frameworks that are easy to use if you&rsquo;re already familiar with <a href="https://getfoundry.sh/" target="_blank">Foundry</a>, a prominent smart contract development environment, and its fuzzing capabilities. Symbolic testing is a formal verification approach that is a bit like your run-of-the-mill testing. The difference is that, instead of using concrete, representative values for variables when testing, or generating large numbers of semi-random values when fuzzing, symbolic testing tries to check that your <code>assert()</code>s hold for any possible value. Like model checking, symbolic testing doesn&rsquo;t need a proof. Like model checking, it might run out of time and fail to prove all properties. The Foundry-friendly symbolic execution approach is taken a step further by <a href="https://kontrol.runtimeverification.com/" target="_blank">Kontrol</a>, which also allows you to manually help guide the automatic prover by writing intermediate lemmas. Like SMTChecker and differently to the high-level exposition above, these approaches allow you to mix the spec and the implementation.</p>
+
+<p><a href="https://www.certora.com/" target="_blank">Certora</a> is another smart contract formal verification tool that takes the automatic proof approach. More in keeping to our high-level division of spec and implementation though, it provides a specialised language for writing your spec, <a href="https://docs.certora.com/en/latest/docs/cvl/index.html" target="_blank">CVL</a>. It was initially closed-source, but was open-sourced in February 2025.</p>
+
+<p><a href="https://verx.ch" target="_blank">VerX</a> is a closed-source tool that allows you to describe complex properties of your smart contract. The specification is written in a separate file, which uses a few special &ldquo;temporal&rdquo; keywords such as <code>always()</code>, <code>prev()</code>, and <code>once()</code>, as well as the usual logical connectives such as <code>&amp;&amp;</code> and <code>==&gt;</code> (implication). More details can be found <a href="http://verx.ch/docs/" target="_blank">here</a>. You cannot run it locally but have to submit your code using their API, probably so that they can keep the source closed. In my opinion, keeping the source of security-critical software closed drastically reduces its trustworthiness.</p>
+
+<p>I shouldn&rsquo;t fail to mention <a href="https://github.com/NethermindEth/Clear" target="_blank">Clear</a>, the formal verification framework for the <a href="https://docs.soliditylang.org/en/v0.8.17/yul.html" target="_blank">Yul</a> intermediate representation language, as well as the <a href="https://aptos.dev/build/smart-contracts/prover" target="_blank">Move Prover</a> which is tightly integrated with the <a href="https://sui.io/move" target="_blank">Move</a> smart contract programming language.</p>
+
+<h4 id="formal-verification-of-blockchain-infrastructure">Formal verification of blockchain infrastructure</h4>
+
+<p>But maybe you&rsquo;re the exception and you&rsquo;re considering taking up the ambitious task of rolling out some new formally verified infrastructure, e.g., a new consensus engine or layer-2 solution. In that case, you&rsquo;re admittedly much more on your own – you won&rsquo;t find a wealth of blockhain-infrastructure-specific formal verification projects out there. The main difference is that you would presumably want to use an efficient programming language for bare-metal software such as <a href="https://rust-lang.org/" target="_blank">Rust</a> or <a href="https://go.dev/" target="_blank">Go</a> (or <a href="https://www.c-language.org/" target="_blank">C</a>/<a href="https://en.cppreference.com/w/cpp/26.html" target="_blank">C++</a> if you&rsquo;re old-school), not Solidity.</p>
+
+<p>One approach here is to write your code in such a language of your choice (I recommend Rust for the sake of your sanity), and then use one of the many available tools: the model checker <a href="https://github.com/model-checking/kani" target="_blank">Kani</a>, the experimental <a href="https://github.com/verus-lang/verus" target="_blank">Verus</a>, or the somewhat more mature <a href="https://github.com/AeneasVerif/aeneas" target="_blank">Aeneas</a> and <a href="https://github.com/creusot-rs/creusot" target="_blank">Creusot</a>. Apart from Kani, at a high level, their approach is this: they provide you with ways to annotate your Rust code with pre- and post-conditions, they then translate your Rust into a formal-verification-friendly language such as Lean and lastly try to automate the proof as much as possible. Don&rsquo;t be fooled though, for anything remotely complex you&rsquo;ll probably have to manually help the prover (or try your luck with LLMs). For translating Rust to F∗, you can also use <a href="https://hax.cryspen.com/" target="_blank">Hax</a>, while for translating Rust to Rocq there&rsquo;s also <a href="https://github.com/formal-land/coq-of-rust/" target="_blank">coq-of-rust</a>. If you&rsquo;re a fan of C, you can use <a href="https://vst.cs.princeton.edu/" target="_blank">VST</a>. There are also a couple of closed-source solutions for C/C++: <a href="https://eschertech.com/products/ecv.php" target="_blank">Escher C/C++ Verifier</a> and <a href="https://uk.mathworks.com/products/polyspace-code-prover.html" target="_blank">Polyspace Code Prover</a>, the second even provides certification for a few standards, namely EC 61508, ISO 26262, and DO-178. I wasn&rsquo;t able to find a non-experimental tool for formally verifying Go.</p>
+
+<p>This approach has the advantage that you&rsquo;re mostly writing your normal programming language. It has the drawback that the automatically derived spec and implementation in the formal verification language is more complex, so any help to the prover will likely be quite arcane. The other drawback is that many of these tools restrict your use of standard features of the language. For example, Aeneas doesn&rsquo;t support Rust closures.</p>
+
+<p>There&rsquo;s also the opposite approach: Write your spec, implementation, and proof directly in a language geared toward formal verification and translate that to a more standard programming language, which you can in turn compile to machine code. I&rsquo;d recommend F∗ which compiles to <a href="https://ocaml.org/" target="_blank">OCaml</a>, or <a href="https://dafny.org/" target="_blank">Dafny</a> which compiles to <a href="https://dotnet.microsoft.com/en-us/languages/csharp" target="_blank">C#</a>, <a href="https://www.java.com/" target="_blank">Java</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript</a>, Go and <a href="https://www.python.org/" target="_blank">Python</a>. This approach ensures that you&rsquo;re using a toolchain that&rsquo;s been designed from scratch with formal verification in mind. It has a couple of drawbacks though: Firstly, you do need to learn these somewhat complicated languages. Even after if you master the new language, the main drawback then is that the resulting executables will most likely be less performant than those compiled from highly efficient languages like Rust. And, of course, don&rsquo;t even think about tweaking the output code of F∗ or Dafny, otherwise you instantly lose all formal guarantees that you&rsquo;ve tried so hard to get!</p>
+
+<h4 id="honourable-mentions">Honourable mentions</h4>
+
+<p>There are various tools that scan your EVM smart contracts for common vulnerabilities. A prominent example is <a href="https://github.com/ConsenSysDiligence/mythril" target="_blank">Mythril</a>. Such tools are only designed to find a fixed set of vulnerabilities and are not suitable for proving custom, application-specific properties, so they are not classified as formal verification tools (at least in my mental model).</p>
+
+<p>Just the effort of writing a formal, executable specification of a language (a.k.a. semantics), without formally verifying that any specific compiler implements it, is substantial and important work. Such an example is <a href="https://jellopaper.org/" target="_blank">KEVM</a>, the formalisation of EVM, the bytecode language in which Ethereum smart contracts are stored and executed on-chain. To the best of my knowledge, no compiler to date provably implements the KEVM semantics.</p>
+
+<h3 id="integration-with-existing-systems">Integration with existing systems</h3>
+
+<p>If you&rsquo;re not starting a new project, but are trying to integrate formal verification into an existing one, well, that would be a bit more difficult in my opinion. First of all, you should be lucky enough to have chosen a language with some degree of formal verification ecosystem around it. Secondly, as we&rsquo;ve seen, many formal verification frameworks don&rsquo;t support important features of your language, so you&rsquo;ll have to heavily refactor.</p>
+
+<p>If this is your case, my recommendation is to start small and grow from there. Pick a simple part of your codebase and try to formally verify that first. This will force you to modify your toolchain to accommodate for the new tools and get a taste of the kinds of changes you&rsquo;ll need to make to your codebase. You can then expand from there. I recommend that you have some ambitious, but realistic end-goal in mind and gradually work towards that. Proving the safety and liveness of your core consensus engine in the face of Byzantine corruptions is a good example of aspirational goal – aiming to formally prove the correctness of every single interaction of your user with the client frontend is probably overkill.</p>
+
+<p>I am fully aware that you&rsquo;re very likely operating in a competitive environment, so moving fast at first is crucial – I don&rsquo;t blame you for not formally verifying your entire codebase from day one. If your consensus engine safeguards (hundreds of) millions of dollars though, you should probably start considering it, even though now you&rsquo;d wish you&rsquo;ve started off with formal verification in mind already. That&rsquo;s a textbook case of a <a href="https://en.wikipedia.org/wiki/Catch-22_(logic%29)" target="_blank">catch-22</a> if there is any.</p>
+
+<h3 id="these-are-some-hard-tradeoffs-anything-easier">These are some hard tradeoffs. Anything easier?</h3>
+
+<p>I won&rsquo;t pretend that formal verification is your run-of-the-mill development. You&rsquo;ll need a bigger engineering effort, higher expertise, and longer timelines than usual. Does that mean that you should just give up and write blazing-fast but totally unsafe C, put together a demo that seems to work and call it production-ready? Definitely not! The usual software development recommendations can still go a long way towards better software:</p>
+
+<ul>
+<li><p>Use a strongly-typed language (and actually make use of the types!) to rule out entire classes of bugs – <a href="https://github.com/IntersectMBO/cardano-node" target="_blank">some</a> go as far as putting <a href="https://haskell.org/" target="_blank">Haskell</a> in production, although in my opinion Rust is pretty much always the way to go (yes I&rsquo;m a fanboy <a href="https://smallcultfollowing.com/babysteps/" target="_blank">🦀</a>).</p></li>
+
+<li><p>Do <a href="https://rustprojectprimer.com/testing/property.html" target="_blank">property testing</a>, which essentially is a poor (wo)man&rsquo;s formal verification: you specify properties that your code should have and the property testing framework tests your implementation on a large number of intelligently chosen inputs that could make your code violate your properties – it then shows you the offending inputs if any, otherwise it gives you some level of assurance that your code behaves as it should.</p></li>
+
+<li><p>If you&rsquo;re doing low-level stuff (e.g., bit manipulations, low-level network code, pointer shenanigans) (which you honestly shouldn&rsquo;t be doing if you&rsquo;re implementing a blockchain, there are libraries for that), also do <a href="https://rust-fuzz.github.io/book/" target="_blank">fuzz testing</a>. This throws random inputs to your code, trying to make it crash. It doesn&rsquo;t test for arbitrary properties, but <a href="https://www.bjaress.com/posts/2021-07-03/fuzz-testing-vs-property-based-testing.html" target="_blank">is better at averting disaster</a> than property testing.</p></li>
+</ul>
+
+<h3 id="i-ve-formally-verified-my-code-is-it-finally-time-to-rest-on-my-laurels">I&rsquo;ve formally verified my code. Is it finally time to rest on my laurels?</h3>
+
+<p>No, not really. The ultimate goal is for your users to be able to read your spec, press a button, and run on their machine code that they can be sure implements the spec. That level of automated assurance isn&rsquo;t really possible today. Let&rsquo;s for a minute take stock of what level of support this would need: The operating system would have to somehow integrate trusted formal verification frameworks (independently from your code), download your source code, formally verify it against the spec, compile it with a trusted compiler, install it, and give your users the coveted &ldquo;Spec verified ✅&rdquo;. It took the industry several decades to make <a href="https://en.wikipedia.org/wiki/Cross-platform_software" target="_blank">cross-platform software</a> a reality, there&rsquo;s no reason to believe that integrating formal verification would happen overnight. Even if this worked, the whole procedure would be quite slow, as verifying formal proofs and compiling large codebases isn&rsquo;t instant. And slow = bad for UX. This is why most software managers just download and install pre-compiled executables, which of course the users can&rsquo;t really verify at all.</p>
+
+<p>In practice, the best you can do today to mitigate this glaring loophole is <a href="https://reproducible-builds.org/" target="_blank">reproducible builds</a>: Essentially, you publish your compilation pipeline and fix any possible source of randomness, so that a power user can follow your instructions, compile from source, and check that the executable (s)he built is exactly the same with the one distributed by their software manager. Most users will just use the pre-built executable, but a power user that chooses to compile from source can theoretically call you out publicly if the executable they build doesn&rsquo;t match the one they can get from the software manager.</p>
+
+<p>Also, who knows whether the users&rsquo; processors should be trusted not to send their secret keys to its manufacturer? After all, processors are almost exclusively closed-source and use opaque designs. More and more people <a href="https://en.wikipedia.org/wiki/Open-source_hardware" target="_blank">are actually taking this issue seriously</a>.</p>
+
+<p>Another issue is that any useful codebase relies on libraries, which most probably don&rsquo;t provide formally verified properties. This is an <a href="https://en.wikipedia.org/wiki/Supply_chain_attack" target="_blank">obvious weak point</a>. I specifically mention here cryptographic libraries, which arguably warrant formal verification more than other libraries. In fact, there are some tools specifically for formally verifying cryptographic implementations mainly following <a href="https://static.aminer.org/pdf/PDF/000/267/661/a_probabilistic_hoare_style_logic_for_game_based_cryptographic_proofs.pdf" target="_blank">game-based</a> cryptographic paradigm, such as <a href="http://tamarin-prover.github.io/" target="_blank">Tamarin</a>, <a href="https://bblanche.gitlabpages.inria.fr/proverif/" target="_blank">ProVerif</a>, <a href="https://www.easycrypt.info/" target="_blank">EasyCrypt</a>, and <a href="https://bblanche.gitlabpages.inria.fr/CryptoVerif/" target="_blank">CryptoVerif</a>. I won&rsquo;t give you a deep dive on these, this post is already getting too long.</p>
+
+<h3 id="conclusion-outlook">Conclusion &amp; Outlook</h3>
+
+<p>Phew, that was quite a ride! To sum up, we&rsquo;ve seen what formal verification is, how it works in practice, discussed relevant tools, and saw existing limitations and tradeoffs. Bottom line is that there can be no scalable, practical, provably robust security without formal verification. Still, the field has a long way to go. Currently it is very hard to get efficient formally verified code without investing immense engineering effort. It is also hard to integrate formal verification with existing codebases. Choosing your battles, i.e., which parts of your codebase to formally verify, is crucial. Still, this is a quickly evolving area, so watch this space and beat the curve! I wish you good luck in your explorations! You might find this <a href="https://github.com/ElNiak/awesome-formal-verification" target="_blank">list of formal verification tools</a> useful.</p>
+
+	</section>
+
+	<script
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+	  type="text/javascript">
+	</script>
+	<script src="/static/prism.js"></script>
+</main>
+
+
+					<footer>
+						<div class="socials">
+							<h3>Get in touch</h3>
+							<a
+								class="mbtn"
+								href="mailto:hello@commonprefix.com"
+							>
+								<span class="un">hello@commonprefix.com</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://twitter.com/CommonPrefix"
+							>
+								<span class="un">@commonprefix</span>
+							</a>
+						</div>
+						<div class="socials">
+							<br>
+							<a
+								class="mbtn"
+								href="https://github.com/commonprefix"
+							>
+								<span class="un">GitHub</span>
+							</a>							
+							<a
+								class="mbtn"
+								href="https://chaingrowth.xyz"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span class="un">chaingrowth.xyz</span>
+							</a>
+						</div>
+						<div class="footer__easter-egg">
+							<img
+								width="220px"
+								style="opacity: 0.5"
+								src="/static/footer_eq.svg"
+								draggable="false"
+								alt=""
+							/>
+							<img
+								width="220px"
+								style="mix-blend-mode: multiply"
+								src="/static/footer_blockchain.png"
+								draggable="false"
+								alt=""
+							/>
+							<p>
+								Rumpetur paritas cum sequens probatio operis
+								invenietur et ramus maior fiet.
+							</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			;(function () {
+				
+				document.querySelector('.footer__easter-egg').children[
+					Math.floor(Math.random() * 3)
+				].style.visibility = 'visible'
+
+				
+				window.requestAnimationFrame =
+					window.requestAnimationFrame ||
+					function (C) {
+						return setTimeout(function () {
+							C(+new Date())
+						}, 30)
+					}
+
+				function isTouchDevice() {
+					var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ')
+					var mq = function (query) {
+						return window.matchMedia(query).matches
+					}
+
+					if (
+						'ontouchstart' in window ||
+						(window.DocumentTouch &&
+							document instanceof DocumentTouch)
+					) {
+						return true
+					}
+
+					var query = [
+						'(',
+						prefixes.join('touch-enabled),('),
+						'heartz',
+						')',
+					].join('')
+					return mq(query)
+				}
+
+				var touchDevice = isTouchDevice()
+				if (touchDevice) {
+					document.body.classList.add('touchdevice')
+				}
+
+				var graphic = document.querySelector('.logo-graphic')
+				var clip = document.querySelector('.logo-graphic__clip')
+
+				if (!touchDevice) {
+					var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
+					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+
+					function reveal(e) {
+						var pos = graphic.getBoundingClientRect()
+						var x = e.clientX - pos.left - 150
+						var y = e.clientY - pos.top + 150
+
+						var v = `radial-gradient(circle at ${x}px ${y}px, black 0px, black 60px, transparent 120px)`
+						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+					}
+
+					window.addEventListener('mousemove', function (e) {
+						requestAnimationFrame(() => reveal(e))
+					})
+				}
+			})()
+		</script>
+	</body>
+</html>
