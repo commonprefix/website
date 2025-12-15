@@ -228,10 +228,10 @@ var Members map[string]TeamMember = map[string]TeamMember{
 	"nikolas": {
 		Handle:         "nikolas",
 		Name:           "Nikolaos Kamarinakis",
-		Specialization: "smart contract development, auditing, software engineering, offensive security",
+		Specialization: "interoperability, smart contracts, auditing, software engineering, offensive security",
 		Department: "leadership",
 		Desc: template.HTML(`
-		Nikolas is the CTO of Common Prefix, specializing in blockchain consensus and interoperability. 
+		Nikolas is the CTO of Common Prefix, specializing in blockchain interoperability. 
 		He has represented Greece at the European Cyber Security Challenge, three years in a row. 
 		He holds a Bachelor's degree in Computer Science from the University of Maryland with a specialization in Cybersecurity. 
 		He has multiple years of experience in full-stack software engineering, open-source development, and offensive security. 
@@ -279,7 +279,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			She holds a Law degree from Aristotle University of Thessaloniki and is a member of the Athens Bar Association. 
 			Her legal expertise and analytical mindset help ensure regulatory compliance, streamline internal processes, and reinforce the legal foundations of the organization’s activities.
 		`),
-		Image: "myrsini_koulouri.png",
+		Image: "myrsini_koulouri.jpeg",
 	},
 	"odysseas": {
 		Handle:         "odysseas",
