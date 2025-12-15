@@ -279,7 +279,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			She holds a Law degree from Aristotle University of Thessaloniki and is a member of the Athens Bar Association. 
 			Her legal expertise and analytical mindset help ensure regulatory compliance, streamline internal processes, and reinforce the legal foundations of the organization’s activities.
 		`),
-		Image: "myrsini_koulouri.png",
+		Image: "myrsini_koulouri.jpeg",
 	},
 	"odysseas": {
 		Handle:         "odysseas",
