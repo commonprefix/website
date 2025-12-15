@@ -58,8 +58,8 @@ var Clients []Client = []Client{
 				Desc:     template.HTML(`Common Prefix collaborated with Axelar to develop a light client that employs Ethereum's Sync Committee protocol to bridge events from Ethereum to Axelar.`),
 				Links: []ProjectLink{
 					{
-						Url:  "/static/clients/axelar/axelar_light_client_grant_proposal.pdf",
-						Name: "Grant proposal report",
+						Url:  "/static/clients/axelar/axelar_ethereum_light_client.pdf",
+						Name: "Whitepaper",
 						Date: "2023-05-01",
 					},
 					{
@@ -145,7 +145,7 @@ var Clients []Client = []Client{
 				},
 			},
 		},
-	},
+	},	
 	{
 		Handle: "flashbots",
 		Name:   "Flashbots",
