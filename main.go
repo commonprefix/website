@@ -32,6 +32,7 @@ const (
 	grantorTmplName  = "grantor.html"
 	researchTmplName = "research.html"
 	bridgesTmplName  = "bridges.html"
+	podcastTmplName  = "podcast.html"
 	careersTmplName  = "careers.html"
 )
 
@@ -61,6 +62,7 @@ var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 	},
 }).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
 var bridgesTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, bridgesTmplName)))
+var podcastTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, podcastTmplName)))
 var postTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, postTmplName)))
 var blogTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, blogTmplName)))
 var careersTmpl = template.Must(template.New("").ParseFiles(layoutPath, filepath.Join(tmplDir, careersTmplName)))
@@ -304,6 +306,13 @@ type CareersPage struct {
 	Openings       []JobOpening
 }
 
+type PodcastPage struct {
+	SmallContainer bool
+	Title          string
+	Description    string
+	Podcast        Podcast
+}
+
 type ResearchPage struct {
 	Title      string
 	TagToColor map[Tag]string
@@ -529,6 +538,21 @@ func build() {
 	fmt.Printf("🌉  %s sucessfully generated.\n", bridgesTmplName)
 
 	//
+	// Build podcast page
+	//
+	podcastPage := filepath.Join(buildDir, podcastTmplName)
+	// Remove the old version
+	os.Remove(podcastPage)
+	// Create new file
+	f, err = os.Create(podcastPage)
+	if err != nil {
+		log.Fatalf("can't create %s", podcastTmplName)
+	}
+	podcastTmpl.ExecuteTemplate(f, "base", PodcastPage{SmallContainer: true, Title: "Podcast — Honest Majority", Description: htmlToFormattedString(HonestMajorityPodcast.Description), Podcast: HonestMajorityPodcast})
+	f.Close()
+	fmt.Printf("🎙️  %s successfully generated.\n", podcastTmplName)
+
+	//
 	// Build careers page
 	//
 	careersPage := filepath.Join(buildDir, careersTmplName)
@@ -562,7 +586,7 @@ func main() {
 		fs := http.FileServer(http.Dir(buildDir))
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 			// Clean urls
-			if strings.HasPrefix(r.URL.Path, "/clients") || strings.HasPrefix(r.URL.Path, "/grants") || strings.HasPrefix(r.URL.Path, "/team") {
+			if strings.HasPrefix(r.URL.Path, "/clients") || strings.HasPrefix(r.URL.Path, "/grants") || strings.HasPrefix(r.URL.Path, "/team") || strings.HasPrefix(r.URL.Path, "/podcast") {
 				if !strings.HasSuffix(r.URL.Path, ".html") {
 					r.URL.Path = r.URL.Path + ".html"
 				}
