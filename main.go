@@ -548,7 +548,7 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", podcastTmplName)
 	}
-	podcastTmpl.ExecuteTemplate(f, "base", PodcastPage{SmallContainer: true, Title: "Podcast — Honest Majority", Description: htmlToFormattedString(HonestMajorityPodcast.Description), Podcast: HonestMajorityPodcast})
+	podcastTmpl.ExecuteTemplate(f, "base", PodcastPage{Title: "Podcast — Honest Majority", Description: htmlToFormattedString(HonestMajorityPodcast.Description), Podcast: HonestMajorityPodcast})
 	f.Close()
 	fmt.Printf("🎙️  %s successfully generated.\n", podcastTmplName)
 
