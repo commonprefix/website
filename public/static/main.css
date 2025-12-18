@@ -305,6 +305,15 @@ header nav a:hover {
   }
 }
 
+/* condense navigation on mobile */
+@media (max-width: 767px) {
+  header nav {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    justify-content: flex-start;
+  }
+}
+
 /* graphic */
 
 .logo-graphic {
@@ -1121,4 +1130,12 @@ a.finding {
 }
 .podcast-episode h3 img {
 	height: 0.9em;
+}
+
+/* decrease padding for the podcast page on mobile */
+@media (max-width: 768px) {
+	.podcast {
+		padding: 2rem 1.5rem;
+		margin: 1rem auto;
+	}
 }
