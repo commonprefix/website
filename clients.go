@@ -43,6 +43,8 @@ var Clients []Client = []Client{
 			Members["makis"],
 			Members["nikos_vlastaras"],
 			Members["nikos"],
+			Members["haris"],
+			Members["tor"],
 		},
 		Projects: []Project{
 			{
