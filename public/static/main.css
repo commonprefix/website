@@ -215,6 +215,12 @@ section {
     margin: 80px 0;
   }
 }
+@media (min-width: 768px) {
+  .hero-cta {
+    margin-top: 32px;
+  }
+}
+
 
 .with-arrow::after {
   content: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.4517 8L4.94886 7.50142L7.91477 4.53977H0.5V3.82386H7.91477L4.94886 0.862216L5.4517 0.363636L9.26989 4.18182L5.4517 8Z' fill='black'/%3E%3C/svg%3E");
@@ -233,6 +239,10 @@ section {
   content: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.4517 8L4.94886 7.50142L7.91477 4.53977H0.5V3.82386H7.91477L4.94886 0.862216L5.4517 0.363636L9.26989 4.18182L5.4517 8Z' fill='%23F90C61'/%3E%3C/svg%3E");
 }
 
+.with-arrow-beige::after {
+  content: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.4517 8L4.94886 7.50142L7.91477 4.53977H0.5V3.82386H7.91477L4.94886 0.862216L5.4517 0.363636L9.26989 4.18182L5.4517 8Z' fill='%23f8f8ec'/%3E%3C/svg%3E");
+}
+
 .with-arrow-down::after {
   content: url("data:image/svg+xml,%3Csvg width='8' height='9' viewBox='0 0 8 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4.9517L0.49858 4.44886L3.46023 7.41477V0H4.17614L4.17614 7.41477L7.13778 4.44886L7.63636 4.9517L3.81818 8.76989L0 4.9517Z' fill='%23424241'/%3E%3C/svg%3E");
   display: inline-block;
@@ -240,6 +250,17 @@ section {
   height: 16px;
   margin-left: 8px;
   transition: transform 0.3s;
+}
+
+/* Buttons – "Partner with us" (desktop + mobile) */
+.mbtn.mbtn-primary {
+  background-color: var(--c-pink);
+  color: var(--c-beige);
+}
+/* Buttons - enlarge "Partner with us" on desktop */
+.hero-cta .mbtn {
+  padding: 12px 24px;
+  font-size: 16px;
 }
 
 @media (max-width: 479px) {
@@ -271,6 +292,16 @@ header {
   text-decoration: none !important;
   font-style: normal;
   display: inline-block;
+}
+.header__company-name {
+  display: inline-flex;
+  align-items: center;
+}
+
+.header__logo {
+  display: block;
+  height: 24px;
+  width: auto;
 }
 
 .header__company-name span {
