@@ -41,7 +41,7 @@
 		<p>{{.Podcast.Description}}</p>
 		<ol>
 			{{range .Podcast.Episodes}}
-			<li>{{.Title}} — <a href="{{.GuestURL}}" target="_blank">{{.Guest}}</a>, partner at <a href="{{.AffiliationURL}}" target="_blank">{{.Affiliation}}</a></a></li>
+			<li>{{.Title}} — <a href="{{.GuestURL}}" target="_blank">{{.Guest}}</a>, <a href="{{.AffiliationURL}}" target="_blank">{{.Affiliation}}</a></a></li>
 			{{end}}
 		</ol>
 	</div>

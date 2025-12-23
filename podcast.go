@@ -50,12 +50,12 @@ var HonestMajorityPodcast = Podcast{
 		{
 			Number:      1,
 			AffiliationNumber: 2,
-			Title:       "Can Data Availability be Zero-Knowledge",
+			Title:       "Can Data Availability be Zero-Knowledge?",
 			Guest:       "Alex Evans",
 			GuestURL:    "https://x.com/alexhevans",
 			Affiliation: "Bain Capital Crypto",
 			AffiliationURL: "https://x.com/baincapcrypto",
-			Description: template.HTML(`In the inaugural episode of Honest Majority, we speak with Alex Evans (Bain Capital Crypto) about the evolving relationship between data availability and zero-knowledge proofs in blockchain systems. 
+			Description: template.HTML(`In the inaugural episode of Honest Majority, we speak with Alex Evans (partner at Bain Capital Crypto) about the evolving relationship between data availability and zero-knowledge proofs in blockchain systems. 
 The conversation begins with Alex’s path into crypto and research, before diving into the fundamentals of data availability and recent advances in zero-knowledge data availability constructions. We examine the theoretical guarantees these approaches offer, the trade-offs they introduce in terms of assumptions and complexity, and where current research still falls short. The episode concludes with a discussion of open problems and how these ideas may shape the design of future blockchain protocols.`),
 			Resources: []ResourceLink{
 				{
@@ -71,6 +71,27 @@ The conversation begins with Alex’s path into crypto and research, before divi
 				Spotify: "https://open.spotify.com/episode/432Fe1a4yZPYUbZXztzaKo?si=2a8f4dab29364550",
 				ApplePodcasts: "https://podcasts.apple.com/us/podcast/alex-evans-can-data-availability-be-zero-knowledge/id1860881793?i=1000741007403",
 				YouTube: "https://youtu.be/YhChZn2s9Uc?si=1otW6qokJ_vOc8Q5",
+			},
+		},
+		{
+			Number:      2,
+			AffiliationNumber: 3,
+			Title:       "How Does Static Analysis Secure Smart Contracts?",
+			Guest:       "Yannis Smaragdakis",
+			GuestURL:    "https://x.com/YSmaragdakis",
+			Affiliation: "Dedaub & University of Athens",
+			AffiliationURL: "https://x.com/dedaub",
+			Description: template.HTML(`In the second episode of Honest Majority, we speak with Yannis Smaragdakis (co-founder of Dedaub & Professor at the University of Athens) about compilers, program analysis, and why software foundations matter for blockchain security. We discuss how compiler theory and static analysis translate into practical tooling, where today’s smart-contract tooling still falls short, and what it would take to make correctness and security guarantees part of the default developer workflow. The conversation explores the gap between academic techniques and production systems, and why closing it is critical for the next generation of blockchain infrastructure.`),
+			Resources: []ResourceLink{
+				{
+					Url:  "https://app.dedaub.com/decompile",
+					Name: "Dedaub Decompiler",
+				},
+			},
+			EpisodeURLs: EpisodeURLs{
+				Spotify: "https://open.spotify.com/episode/1VV1QVLxfUGy3cNPAVNmin?si=qXNi67QGRpyEN1JVhsfU4w",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/yannis-smaragdakis-how-does-static-analysis-secure/id1860881793?i=1000742472743",
+				YouTube: "https://youtu.be/Me2CASD7fRA",
 			},
 		},
 	},
