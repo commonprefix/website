@@ -94,6 +94,43 @@ The conversation begins with Alex’s path into crypto and research, before divi
 				YouTube: "https://youtu.be/Me2CASD7fRA",
 			},
 		},
+				{
+			Number:      3,
+			AffiliationNumber: 4,
+			Title:       "Cardano Under Attack and Provable Security?",
+			Guest:       "Prof. Aggelos Kiayias",
+			GuestURL:    "https://x.com/sol3gga",
+			Affiliation: "University of Edinburgh & IOG",
+			AffiliationURL: "https://www.iog.io/research",
+			Description: template.HTML(`In the third episode of Honest Majority, we speak with Aggelos Kiayias, Professor at the University of Edinburgh and Chief Scientist at IOG,
+			about the foundations of blockchain consensus and how formal security assumptions shape real-world protocols. 
+			The conversation covers Aggelos’ path into cryptography, his early work on modeling Bitcoin’s consensus, and the motivation behind Proof-of-Stake systems that do not rely on hashing power. 
+			Using the recent Cardano incident as a case study, the discussion then covers disagreement among honest nodes, temporary adversarial majorities, and the self-healing properties of the Ouroboros protocol.  
+			The episode concludes with a forward-looking view on privacy-enhanced smart contracts, zero-knowledge techniques, and the need to design blockchain infrastructure that remains secure in a post-quantum setting.
+			`),
+
+			Resources: []ResourceLink{
+				{
+					Url:  "https://eprint.iacr.org/2016/889.pdf",
+					Name: "Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol",
+				},
+				{
+					Url:  "https://www.iog.io/papers/consensus-redux-distributed-ledgers-in-the-face-of-adversarial-supremacy",
+					Name: "Consesus Redux: Distributed Ledgers in the Face of Adversarial Supremacy",
+				},
+				{
+					Url:  "https://cardanofoundation.org/blog/november-2025-cardano-shows-resilience",
+					Name: "Cardano November 2025 incident blog post",
+				},
+
+			},
+			EpisodeURLs: EpisodeURLs{
+				Spotify: "https://open.spotify.com/episode/5pwSFbh2FMXsmeDpIcYAP8?si=55c48a4e0a6b4ab4",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/aggelos-kiayias-cardano-under-attack-and-provable/id1860881793?i=1000744450261",
+				YouTube: "https://youtu.be/Sqjz77ygpyw",
+			},
+		},
+
 	},
 }
 
