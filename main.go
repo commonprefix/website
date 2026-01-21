@@ -68,12 +68,12 @@ var blogTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplD
 var careersTmpl = template.Must(template.New("").ParseFiles(layoutPath, filepath.Join(tmplDir, careersTmplName)))
 // Fixed display order for the Leadership section
 var leadershipOrder = []string{
-	"CEO",
-	"CTO",
-	"Chief Scientist",
+	"CEO & Co-founder",
+	"CTO & Co-founder",
+	"Chief Scientist & Co-founder",
 	"COO",
 	"Engineer Lead",
-	"Product Lead",
+	"Product Lead & Co-founder",
 }
 
 // Build a fast lookup: title (lowercased) -> rank

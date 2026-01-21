@@ -4,12 +4,13 @@ import "html/template"
 
 // Titles for Leadership
 var Titles = map[string]string{
-	"dionysis": "CEO",
-	"nikolas": "CTO",
-	"zeta": "Chief Scientist",
+	"dionysis": "CEO & Co-founder",
+	"nikolas": "CTO & Co-founder",
+	"zeta": "Chief Scientist & Co-founder",
 	"haris":   "COO",
 	"themis":   "Engineer Lead",
-	"apostolos":   "Product Lead",
+	"apostolos":   "Product Lead & Co-founder",
+	"dimitris":   "Co-founder",
 }
 
 var Members map[string]TeamMember = map[string]TeamMember{
