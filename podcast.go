@@ -94,7 +94,7 @@ The conversation begins with Alex’s path into crypto and research, before divi
 				YouTube: "https://youtu.be/Me2CASD7fRA",
 			},
 		},
-				{
+		{
 			Number:      3,
 			AffiliationNumber: 4,
 			Title:       "Cardano Under Attack and Provable Security?",
@@ -128,6 +128,33 @@ The conversation begins with Alex’s path into crypto and research, before divi
 				Spotify: "https://open.spotify.com/episode/5pwSFbh2FMXsmeDpIcYAP8?si=55c48a4e0a6b4ab4",
 				ApplePodcasts: "https://podcasts.apple.com/us/podcast/aggelos-kiayias-cardano-under-attack-and-provable/id1860881793?i=1000744450261",
 				YouTube: "https://youtu.be/Sqjz77ygpyw",
+			},
+		},
+		{
+			Number:      4,
+			AffiliationNumber: 5,
+			Title:       "Killing Wall Street Flash Boys with Pod",
+			Guest:       "Shresth Agrawal",
+			GuestURL:    "https://x.com/shresth3103",
+			Affiliation: "Pod Network",
+			AffiliationURL: "https://x.com/poddotnetwork",
+			Description: template.HTML(`
+			In the fourth episode of Honest Majority, we speak with Shresth Agrawal, CEO of Pod Network, about building fast, fair, and global markets from first principles.
+			The conversation traces Shresth’s path into blockchain research and engineering, including early work on light clients, Common Prefix’s formative years, and the research collaboration that led to Pod’s origins. From a Flashbots grant on decentralized auctions, the discussion follows how a simple protocol evolved into a broader vision for high-performance, leaderless market infrastructure.
+			We then dive into Pod’s core technical ideas: eliminating blocks and leaders, confirming transactions in a single network round trip, and shifting bottlenecks from protocol logic to operating systems, networking, and memory. Shresth explains Pod’s continuous limit order book, the engineering behind achieving hundreds of thousands of orders per second, and why fairness and openness must be enforced at the protocol level, not assumed by market structure.
+			The episode concludes with a discussion on where blockchain infrastructure delivers real value today, why Pod frames its mission around global markets rather than Web3, and how markets and payments may drive adoption in the years ahead.
+			`),
+
+			Resources: []ResourceLink{
+				{
+					Url:  "https://pod.network/",
+					Name: "Pod Network",
+				},
+			},
+			EpisodeURLs: EpisodeURLs{
+				Spotify: "https://open.spotify.com/episode/2eQY5dXL9s3fml2vELDnyI?si=Xkc1rqFFSPO1wQ1yzV6nLw",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/shresth-agrawal-killing-wall-street-flash-boys-with-pod/id1860881793?i=1000746051995",
+				YouTube: "https://youtu.be/IuxxxmeqF8I",
 			},
 		},
 
