@@ -1,6 +1,6 @@
 ---
 title: "But, what about Economic Security?"
-date: "16/01/2026"
+date: "27/01/2026"
 desc: "A technical examination of economic security in blockchain systems and the design trade-offs involved in strengthening it."
 authors: "dimitris"
 index: true
