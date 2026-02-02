@@ -1,0 +1,14 @@
+[METADATA]
+modified = 2026-02-02T10:00:00.000Z
+
+[[VALIDATORS]]
+public_key = "nHBgzYRyy9VstzSm3uqZC34Uk72aEsyAu9aT4ZCkxxWec9DdmMD7"
+attestation = "6AAB3CF0F999B0C1A315A3F7047B7DAA0D3ECC99FD75F290D34BA24ACB0962ECC4F8E69FF15FF58FAAEB86E60F647AB7EB3CE36031C9AC937F6B3E4A98C3C401"
+network = "main"
+owner_country = "ee"
+server_country = "in"
+
+[[PRINCIPALS]]
+name = "Common Prefix"
+twitter = "@CommonPrefix"
+web = "https://www.commonprefix.com"

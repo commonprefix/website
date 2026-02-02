@@ -2,6 +2,17 @@
 	"framework": null,
 	"outputDirectory": "public",
 	"cleanUrls": true,
+    "headers": [
+      {
+        "source": "/.well-known/xrp-ledger.toml",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      }
+    ],
     "redirects": [
       {
         "source": "/projects/:path*",
