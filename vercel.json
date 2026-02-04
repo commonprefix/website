@@ -1,7 +1,7 @@
 {
-	"framework": null,
-	"outputDirectory": "public",
-	"cleanUrls": true,
+       "framework": null,
+       "outputDirectory": "public",
+       "cleanUrls": true,
     "headers": [
       {
         "source": "/.well-known/xrp-ledger.toml",
@@ -23,6 +23,17 @@
         "source": "/static/projects/:path*",
         "destination": "/static/clients/:path*",
         "permanent": true
-      }
-    ]
+      },
+    {
+      "source": "/:path((?!\\.well-known\\/xrp-ledger\\.toml$).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "commonprefix.com"
+        }
+      ],
+      "destination": "https://www.commonprefix.com/:path",
+      "permanent": true
+    }
+  ]
 }
