@@ -157,6 +157,56 @@ The conversation begins with Alex’s path into crypto and research, before divi
 				YouTube: "https://youtu.be/IuxxxmeqF8I",
 			},
 		},
+			{
+			Number:      5,
+			AffiliationNumber: 6,
+			Title:       "The Story Behind Mysticeti, Sui’s Consensus Algorithm",
+			Guest:       "Alberto Sonnino",
+			GuestURL:    "https://x.com/alberto_sonnino",
+			Affiliation: "Mysten Labs",
+			AffiliationURL: "https://x.com/Mysten_Labs",
+			Description: template.HTML(`
+			In the fifth episode of Honest Majority, we speak with Alberto Sonnino, Research Scientist at Mysten Labs, about the design and evolution of Mysticeti, Sui’s consensus protocol. 
+			Alberto traces his path from distributed systems research to building production blockchain infrastructure, including lessons from moving from paper prototypes to real-world systems. 
+			We unpack Mysticeti’s core ideas, DAG-based consensus, latency and throughput goals, and how it differs from earlier BFT and leader-based approaches, and discuss how consensus design interacts with networking, execution, and broader system assumptions. 
+			We close with Alberto’s recommended reading for getting up to speed, plus a look ahead at what matters most next: execution, privacy, UX, and building real applications.
+			`),
+			Resources: []ResourceLink{
+				{
+					Url: "https://arxiv.org/pdf/2310.14821",
+					Name: "Mysticeti: Reaching the Latency Limits with Uncertified DAGs",
+				},
+				{
+					Url:  "https://arxiv.org/pdf/2003.11506",
+					Name: "FastPay: High-Performance Byzantine Fault Tolerant Settlement",
+				},
+				{
+					Url:  "https://arxiv.org/pdf/2209.05633",
+					Name: "Bullshark: The Partially Synchronous Version",
+				},
+				{
+					Url:  "https://dl.acm.org/doi/epdf/10.1145/3492321.3519594",
+					Name: "Narwhal and Tusk: A DAG-based Mempool and Efficient BFT Consensus",
+				},
+				{
+					Url:  "https://arxiv.org/pdf/1803.05069",
+					Name: "HotStuff: BFT Consensus in the Lens of Blockchain",
+				},
+				{
+					Url:  "https://arxiv.org/pdf/2401.10369",
+					Name: "Autobahn: Seamless high speed BFT",
+				},
+				{
+					Url:  "https://eprint.iacr.org/2024/472.pdf",
+					Name: "Sailfish: Towards Improving the Latency of DAG-based BFT",
+				},
+			},
+			EpisodeURLs: EpisodeURLs{
+				Spotify: "https://open.spotify.com/episode/0rXN6fnmvwkZZo6wUkhlAy?si=MrlAEEXZSWyQSqOSkoqjAw",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/alberto-sonnino-the-story-behind-mysticeti-suis/id1860881793?i=1000748535332",
+				YouTube: "https://youtu.be/nuVSIOw5CA8",
+			},
+		},
 
 	},
 }
