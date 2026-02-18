@@ -296,6 +296,7 @@ header {
 .header__company-name {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .header__logo {
