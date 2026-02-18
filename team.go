@@ -388,10 +388,9 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Specialization: "software engineering, consensus, offensive security",
 		Department: "engineering",
 		Desc: template.HTML(`
-		Nikos is a software engineer based in Athens. He is currently wrapping up his Master’s Degree in Electrical and Computer Engineering at the National Technical University of Athens
-		where he is completing his thesis on Consensus Algorithms. 
+		Nikos is a software engineer based in Athens. He holds a Master’s Degree in Electrical and Computer Engineering at the National Technical University of Athens, with a thesis on Reliable Broadcast in Different Local Adversarial Models. 
 		He has previously worked at Mysten Labs as a Blockchain Engineer and completed an internship at the Cybersecurity Department of OTE Group. 
-		He has also competed in several Ethical Hacking and Offensive Security competitions.
+		Currently at Common Prefix, Nikos is focused on developing bridges and end-to-end testing.
 		`),
 		Image: "nikos_sfakianakis.jpg",
 	},	
