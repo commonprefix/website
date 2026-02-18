@@ -36,19 +36,19 @@ The CTO is sold, you'll be using formal verification for the next project. You, 
 
 You're browsing for a cleaning spray at the grocery store and you decide to ask the attendant for help. He immediately lights up:
 
-- We just got this new brand that kills 99.9% of bacteria.
+"We just got this new brand that kills 99.9% of bacteria."
 
-- Why the hype? Every brand claims the same nowadays.
+"Why the hype? Every brand claims the same nowadays."
 
-- Sure, but this one isn't just a marketing claim. Come.
+"Sure, but this one isn't just a marketing claim. Come."
 
 He then proceeds to show me this peculiar bottle. It definitely looks overengineered. Sure enough, there's the familiar claim "kills 99.9% of bacteria" on the sticker. The attendant then takes the bottle to the counter, puts it in this unfamiliar box, and presses a button. The box starts whirring. After a minute or so, its display lights up green with the message "Kills 99.9% of bacteria: Verified ✅".
 
-- This box didn't come cheap, but it's a marvel of technology. It reads the sticker of any product you put in for claims like the one on this bottle and then starts this elaborate back-and-forth with the package. And this is no ordinary package, no. It's made by a special nanomaterial, custom made specifically for the formula of this liquid, that can prove beyond doubt that the liquid matches the claim on the sticker – please don't ask me how.
+"This box didn't come cheap, but it's a marvel of technology. It reads the sticker of any product you put in for claims like the one on this bottle and then starts this elaborate back-and-forth with the package. And this is no ordinary package, no. It's made by a special nanomaterial, custom made specifically for the formula of this liquid, that can prove beyond doubt that the liquid matches the claim on the sticker – please don't ask me how."
 
 To drive his point home, he proceeds to pick up one of the usual cleaning sprays in a plastic bottle from the shelf, pops it in the box, and presses the button. The screen lights up red this time: "Kills 99.9% of bacteria: Not verified ❌".
 
-- Sure enough, the box is made by a different company to the one that makes the cleaning spray and there's an industry standard that dictates the back-and-forth between the box and the package, so I trust that the result isn't rigged. Out of curiosity, I even tried replacing the cleaning liquid in the nanobottle with water and, as expected, the box wasn't fooled.
+"Sure enough, the box is made by a different company to the one that makes the cleaning spray and there's an industry standard that dictates the back-and-forth between the box and the package, so I trust that the result isn't rigged. Out of curiosity, I even tried replacing the cleaning liquid in the nanobottle with water and, as expected, the box wasn't fooled."
 
 [Sounds like magic](https://www.goodreads.com/quotes/14885-any-sufficiently-advanced-technology-is-indistinguishable-from-magic), right?
 
