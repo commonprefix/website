@@ -157,7 +157,7 @@ The conversation begins with Alex’s path into crypto and research, before divi
 				YouTube: "https://youtu.be/IuxxxmeqF8I",
 			},
 		},
-			{
+		{
 			Number:      5,
 			AffiliationNumber: 6,
 			Title:       "The Story Behind Mysticeti, Sui’s Consensus Algorithm",
@@ -205,6 +205,38 @@ The conversation begins with Alex’s path into crypto and research, before divi
 				Spotify: "https://open.spotify.com/episode/0rXN6fnmvwkZZo6wUkhlAy?si=MrlAEEXZSWyQSqOSkoqjAw",
 				ApplePodcasts: "https://podcasts.apple.com/us/podcast/alberto-sonnino-the-story-behind-mysticeti-suis/id1860881793?i=1000748535332",
 				YouTube: "https://youtu.be/nuVSIOw5CA8",
+			},
+		},
+		{
+			Number:      6,
+			AffiliationNumber: 7,
+			Title:       "Making Bitcoin Useful Again with Trustless Lending",
+			Guest:       "Vitalis Salis",
+			GuestURL:    "https://x.com/vitsalis",
+			Affiliation: "Babylon",
+			AffiliationURL: "https://x.com/babylonlabs_io",
+			Description: template.HTML(`
+			In the sixth episode of Honest Majority, we speak with Vitalis Salis, Head of Engineering at Babylon, about making Bitcoin useful again through trustless lending. 
+			Using the example of a BTC holder taking a stablecoin loan while keeping Bitcoin as collateral, the conversation explores what “trustless” means in practice and how enforceable guarantees can be designed without introducing custody.
+			We discuss Trustless Bitcoin Vaults, how BTC can be locked into UTXOs under predefined conditions, and how supported-chain outcomes can be used to coordinate lending logic. 
+			The episode dives into Bitcoin’s constraints, BitVM and off-chain enforcement mechanisms, and the broader implications of extending Bitcoin’s security model beyond passive holding.
+			`),
+
+			Resources: []ResourceLink{
+				{
+					Url:  "Babylon - Open Positions",
+					Name: "https://babylonlabs.io/jobs",
+				},
+				{
+					Url:  "BitVM",
+					Name: "https://bitvm.org/",
+				},
+
+			},
+			EpisodeURLs: EpisodeURLs{
+				Spotify: "https://open.spotify.com/episode/4ymQq3VlSbtee4kXrrbs45?si=w6SItojTRie_fEf9HlUcag",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/vitalis-salis-making-bitcoin-useful-again-with/id1860881793?i=1000751548840",
+				YouTube: "https://youtu.be/B37I0IDOuGQ",
 			},
 		},
 
