@@ -234,9 +234,9 @@ The conversation begins with Alex’s path into crypto and research, before divi
 
 			},
 			EpisodeURLs: EpisodeURLs{
-				Spotify: "INSERT",
-				ApplePodcasts: "INSERT",
-				YouTube: "INSERT",
+				Spotify: "https://open.spotify.com/episode/4ymQq3VlSbtee4kXrrbs45?si=w6SItojTRie_fEf9HlUcag",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/vitalis-salis-making-bitcoin-useful-again-with/id1860881793?i=1000751548840",
+				YouTube: "https://youtu.be/B37I0IDOuGQ",
 			},
 		},
 
