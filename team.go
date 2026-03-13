@@ -212,20 +212,6 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "bernardo_david.jpg",
 	},
-	"robin": {
-		Handle:         "robin",
-		Name:           "Dr. Robin Fritsch",
-		Specialization: "DeFi, game theory, graph algorithms",
-		Department: "science",
-		Desc: template.HTML(`
-            Robin holds a PhD from ETH Zurich, advised by Roger Wattenhofer, focusing on game theory and decentralized finance. 
-			He completed his MSc degree in Mathematics in Data Science from the Technical University of Munich.  
-			Among other venues, he has published in AFT, ACM CCS, and AAMAS. Highlights of his research include the papers <a href="https://arxiv.org/pdf/2201.12303">The Price of Majority Support</a>, 
-			<a href="https://arxiv.org/pdf/2206.04634">The Economics of Automated Market Makers</a>, 
-			and <a href="https://drops.dagstuhl.de/storage/00lipics/lipics-vol282-aft2023/LIPIcs.AFT.2023.24/LIPIcs.AFT.2023.24.pdf">Batching trades on Automated Market Makers</a>.
-		`),
-		Image: "robin_fritsch.jpg",
-	},
 	"nikolas": {
 		Handle:         "nikolas",
 		Name:           "Nikolaos Kamarinakis",
