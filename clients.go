@@ -189,7 +189,6 @@ var Clients []Client = []Client{
 			Members["lukas"],
 			Members["zeta"],
 			Members["bernardo"],
-			Members["robin"],
 			Members["james"],
 			Members["nikolas"],
 			Members["julian"],
