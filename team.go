@@ -211,6 +211,19 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			Before working with Common Prefix, he has also consulted for IOG (Cardano) and Concordium.
 		`),
 		Image: "bernardo_david.jpg",
+	},	
+	"luz": {
+		Handle:         "luz",
+		Name:           "Luz Sevilla Garbarino",
+		Specialization: "people operations, talent acquisition, employee experience, culture, people analytics",
+		Department: "operations",
+		Desc: template.HTML(`
+			Luz is based in Buenos Aires, Argentina, and is a member of the Operations team at Common Prefix, where she leads the people side of things. 
+			She started her career in clinical psychology and found her way into tech, drawn by the same thing that has always driven her: the humans behind the work. 
+			She has spent the last few years building people operations and talent at Web3-native companies, most recently at Interop Labs. 
+			She holds a Master's in HR Management from EAE Business School, a Postgraduate degree in Cognitive Neuroscience from Universidad Favaloro, and a Bachelor's in Psychology from Universidad de Buenos Aires.
+		`),
+		Image: "luz_garbarino.jpg",
 	},
 	"nikolas": {
 		Handle:         "nikolas",
@@ -350,6 +363,31 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "themis_papameletiou.jpg",
 	},
+	"panos": {
+		Handle:         "panos",
+		Name:           "Panos Patsili",
+		Specialization: "marketing, communications, events",
+		Department: "operations",
+		Desc: template.HTML(`
+			Panos supports marketing, communications, and events at Common Prefix.
+			He holds a degree in Business Administration, with two years specializing in marketing, along with practical experience in social media management, marketing, and events. 
+			He combines this expertise with a passion for creativity and storytelling to bring ideas to life.
+		`),
+		Image: "panos_patsili.jpg",
+	},
+	"ivan": {
+		Handle:         "ivan",
+		Name:           "Ivan Randjelovic",
+		Specialization: "software engineering, fintech, quantitative trading",
+		Department: "engineering",
+		Desc: template.HTML(`
+			Ivan is a software engineer with over a decade of experience in the
+			fintech industry. He has worked across multiple domains, including cleared derivatives back-office systems, quantitative trading, and high-frequency trading platforms. 
+			He holds a degree in Information Systems and Technologies from the Faculty of Organizational Sciences at the University of Belgrade.
+		`),
+		Image: "ivan_randjelovic.jpg",
+	},
+
 	"giulia": {
 		Handle:         "giulia",
 		Name:           "Giulia Scaffino",
@@ -432,6 +470,29 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		He worked on various bridges including the Bitcoin Ordinals to EVM bridge, Filecoin IPC subnets on Bitcoin, and lead the integration of Hedera to Axelar's Amplifier bridging infrastructure.
 		`),
 		Image: "nikola_ristic.jpg",
+	},
+	"hannes": {
+		Handle:         "hannes",
+		Name:           "Hannes Verschore",
+		Specialization: "software engineering, distributed systems, performance engineering",
+		Department: "engineering",
+		Desc: template.HTML(`
+		Hannes is a software engineer who studied Machine Learning at Ghent University. After graduating, he joined Mozilla, where he worked on Firefox, focusing on improving the performance of the JavaScript engine. 
+		His work spanned the full performance stack, from JavaScript and C++ down to x86, x64, and ARM assembly. He later founded a drone light show company, building the complete technology stack to simultaneously coordinate hundreds of drones into large-scale synchronized aerial displays, taking the product from MVP to delivering drone light shows across Europe. 
+		Today, Hannes is part of Common Prefix, contributing to the development and robustness of the Axelar Network.
+		`),
+		Image: "hannes_verschore.jpeg",
+	},
+	"felix": {
+		Handle:         "felix",
+		Name:           "Félix Villemin",
+		Specialization: "software engineering, formal verification, security engineering",
+		Department: "engineering",
+		Desc: template.HTML(`
+		Félix is a software engineer based in Paris, France. He holds an Computer Science and Engineering degree from the University of Technology of Compiègne. 
+		Since then, he has been working on a variety of subjects including security applications, and telecommunications protocols. 
+		Félix is currently working at Common Prefix on formal verification and software engineering.		`),
+		Image: "felix_villemin.jpeg",
 	},
 	"nikos_vlastaras": {
 		Handle:         "nikos_vlastaras",
