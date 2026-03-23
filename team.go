@@ -375,6 +375,18 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "panos_patsili.jpg",
 	},
+	"kris": {
+		Handle:         "kris",
+		Name:           "Kris Paruch",
+		Specialization: "market and protocol design, blockchain systems architechture",
+		Department: "science",
+		Desc: template.HTML(`
+			Kris has been operating in crypto for nearly a decade, focusing on market and mechanism design across AMMs, bonding curves, prediction markets, and intellectual property markets. 
+			His work synthesizes mathematics, economics, and systems engineering to design robust, incentive-compatible network architectures. 
+			He has extensive experience across applied projects, integrating economic design with engineering constraints, legal frameworks, and business strategy.
+		`),
+		Image: "kris_paruch.jpg",
+	},
 	"ivan": {
 		Handle:         "ivan",
 		Name:           "Ivan Randjelovic",
