@@ -16,6 +16,13 @@ var Openings = []JobOpening{
 		Description: "We're looking for experienced engineers who are passionate about blockchains, distributed systems and cryptography.",
 	},
 	{
+		Name:        "Formal Verification Engineer",
+		Url:         "https://commonprefix.notion.site/formal-verification-engineer?pvs=74",
+		Location:    "Remote or on-site in Athens, Greece",
+		Type:        "Full-time",
+		Description: "We're looking for formal verification engineers with hands-on experience in functional and formal verification, ideally with blockchain software experience.",
+	},
+	{
 		Name:        "Support Engineer",
 		Url:         "https://commonprefix.notion.site/Opening-Support-Engineer-2cabf672de8280438811f66b37f4b685?pvs=143",
 		Location:    "On-site in Athens, Greece",
