@@ -239,7 +239,38 @@ The conversation begins with Alex’s path into crypto and research, before divi
 				YouTube: "https://youtu.be/B37I0IDOuGQ",
 			},
 		},
+		{
+			Number:      7,
+			AffiliationNumber: 8,
+			Title:       "Are Faster Block Times Eating up MEV?",
+			Guest:       "Jason Milionis",
+			GuestURL:    "https://x.com/jason_of_cs",
+			Affiliation: "Category Labs",
+			AffiliationURL: "https://x.com/category_xyz",
+			Description: template.HTML(`
+			In the seventh episode of Honest Majority, we speak with Jason Milionis, Senior Researcher at Category Labs, about the economics of decentralized exchanges and automated market makers. 
+			The conversation focuses on Loss-Versus-Rebalancing (LVR), a concept that captures the hidden cost faced by liquidity providers more precisely than impermanent loss. 
+			Using the mechanics of AMMs as a starting point, we explore how prices are updated without external information, how arbitrageurs extract value, and how block times influence the frequency of updates and competition. 
+			The episode also touches on broader implications for market design, MEV, and the distribution of value across participants in these on-chain systems.
+			`),
 
+			Resources: []ResourceLink{
+				{
+					Url:  "https://arxiv.org/pdf/2208.06046",
+					Name: "Automated Market Making and Loss-Versus-Rebalancing",
+				},
+				{
+					Url:  "https://arxiv.org/pdf/2305.14604",
+					Name: "Automated Market Making and Arbitrage Profits in the Presence of Fees",
+				},
+
+			},
+			EpisodeURLs: EpisodeURLs{
+				Spotify: "https://open.spotify.com/episode/2xfgR1zDIAR5GvkQEWlCET?si=MKCvh7PsTxOr2P9AQO0UmA",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/jason-milionis-are-faster-block-times-eating-up-mev/id1860881793?i=1000755974884",
+				YouTube: "https://youtu.be/Brdxonk-Pzo?si=Xnjx9NKaEnjwkoE7",
+			},
+		},
 	},
 }
 
