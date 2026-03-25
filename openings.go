@@ -17,7 +17,7 @@ var Openings = []JobOpening{
 	},
 	{
 		Name:        "Formal Verification Engineer",
-		Url:         "https://commonprefix.notion.site/formal-verification-engineer?pvs=74",
+		Url:         "https://commonprefix.notion.site/fve-folk",
 		Location:    "Remote or on-site in Athens, Greece",
 		Type:        "Full-time",
 		Description: "We're looking for formal verification engineers with hands-on experience in functional and formal verification, ideally with blockchain software experience.",
