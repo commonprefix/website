@@ -334,6 +334,18 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "orfeas_litos.jpg",
 	},
+	"nikos_melampianakis": {
+		Handle:         "nikos_melampianakis",
+		Name:           "Nikos Melampianakis",
+		Specialization: "full-stack development, distributed systems, software engineering",
+		Department: "engineering",
+		Desc: template.HTML(`
+			Nikos has experience as a full stack developer, building and maintaining applications across frontend and backend layers, including API development and system design. 
+			His work has involved supporting production systems, managing integrations, and improving application performance and reliability. 
+			He is currently wrapping up his studies in Informatics and Telecommunications at the National and Kapodistrian University of Athens.
+		`),
+		Image: "nikos_melampianakis.jpeg",
+	},
 	"jakov": {
 		Handle:         "jakov",
 		Name:           "Jakov Mitrovski",
