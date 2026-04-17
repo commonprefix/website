@@ -211,7 +211,18 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			Before working with Common Prefix, he has also consulted for IOG (Cardano) and Concordium.
 		`),
 		Image: "bernardo_david.jpg",
-	},	
+	},
+	"oleksii": {
+		Handle:         "oleksii",
+		Name:           "Oleksii Filonenko",
+		Specialization: "full-stack development, software engineering, distributed systems",
+		Department: "engineering",
+		Desc: template.HTML(`
+			Oleksii is a software engineer based in Braga, Portugal. He has experience in full-stack development, DevOps, developer tooling, open-source work, and, more recently, building and maintaining backends and distributed systems (notably for rollups such as Fuel and Syndicate). 
+			He holds a degree in Computer Science from Taras Shevchenko National University of Kyiv.
+		`),
+		Image: "oleksii_filonenko.jpg",
+	},		
 	"luz": {
 		Handle:         "luz",
 		Name:           "Luz Sevilla Garbarino",
@@ -344,7 +355,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			His work has involved supporting production systems, managing integrations, and improving application performance and reliability. 
 			He is currently wrapping up his studies in Informatics and Telecommunications at the National and Kapodistrian University of Athens.
 		`),
-		Image: "nikos_melampianakis.jpeg",
+		Image: "nikos_melampianakis.jpg",
 	},
 	"jakov": {
 		Handle:         "jakov",
