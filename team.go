@@ -471,6 +471,17 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "semeli_spanou.jpg",
 	},
+	"angelos": {
+		Handle:         "angelos",
+		Name:           "Angelos Stylianidis",
+		Specialization: "software engineering, distributed systems, interoperability",
+		Department: "engineering",
+		Desc: template.HTML(`
+		Angelos is a software engineer with over eight years of experience across Rust, C/C++, Linux systems, embedded systems, distributed systems, and industrial applications. His work spans blockchain interoperability, bridge infrastructure, and privacy-preserving systems, including protocol design and implementation for cross-chain applications and privacy-focused airdrop mechanisms. 
+		He has also worked on low-level systems and performance improvements in Linux-based environments.
+		`),
+		Image: "angelos_stylianidis.jpeg",
+	},		
 	"apostolos": {
 		Handle:         "apostolos",
 		Name:           "Apostolos Tzinas",
@@ -541,6 +552,17 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "nikos_vlastaras.jpg",
 	},
+	"matt": {
+		Handle:         "matt",
+		Name:           "Matt Weinberg",
+		Specialization: "algorithmic mechanism design, economics and computation, theoretical computer science",
+		Department: "science",
+		Desc: template.HTML(`
+		Matt Weinberg is an Associate Professor of Computer Science at Princeton University. He received his PhD in 2014, advised by Constantinos Daskalakis, and was a postdoc at the Simons Institute and Princeton's CS Theory group before starting as faculty in 2017. 
+		His primary research interest is Algorithmic Mechanism Design: algorithm design in settings where users have their own incentives. Some examples of his research pertaining to blockchains include strategic behavior within consensus protocols, transaction fee mechanism design, and understanding the economic impact of decentralization on users. His work has been recognized with an NSF CAREER Award, a Sloan Foundation Fellowship, and the ACM SIGecom Mid-Career award.
+		`),
+		Image: "matt_weinberg.jpg",
+	},	
 	"sravya": {
 		Handle:         "sravya",
 		Name:           "Dr. Sravya Yandamuri",
