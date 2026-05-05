@@ -345,6 +345,18 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "orfeas_litos.jpg",
 	},
+	"yiannis": {
+		Handle:         "yiannis",
+		Name:           "Yiannis Marangos",
+		Specialization: "software engineering, distributed systems, systems programming",
+		Department: "engineering",
+		Desc: template.HTML(`
+		Yiannis is a software engineer based in Nicosia, Cyprus, with a background in Rust, C/C++, distributed systems, Linux systems programming, and blockchain infrastructure.
+		He has built and maintained cross-platform infrastructure using Rust, WebAssembly, libp2p, and UniFFI, with support for browsers and mobile environments. He is a co-creator and core maintainer of Lumina, Celestia’s data availability light node, as well as core tooling for the Celestia Rust ecosystem, including foundations, RPC, and gRPC clients. He has also contributed to rust-libp2p, implemented in-browser WebTransport support, created Beetswap, and helped integrate Helios into an Internet Computer canister.
+		In his spare time, Yiannis enjoys 3D printing and designing things in FreeCAD.	
+		`),
+		Image: "yiannis_marangos.png",
+	},
 	"nikos_melampianakis": {
 		Handle:         "nikos_melampianakis",
 		Name:           "Nikos Melampianakis",
