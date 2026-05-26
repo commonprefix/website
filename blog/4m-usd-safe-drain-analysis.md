@@ -14,7 +14,7 @@ index: true
 - The observed victims were individual Safe smart accounts that had enabled the affected Safe module and granted delegate permissions through the module's permissions manager. The affected component was the affected Safe application module, not Axelar or Squid.
 - Across the indexed attack transactions, the observed drain total is approximately $3.98M across 313 attack transactions, including 308 successful drains and 5 reverted attempts, and 88 distinct victim Safes, using the investigation snapshot from 26th of May 2026.
 - The core issue was that the affected Safe module decoded a `delegate` address from attacker-controlled cross-chain payload bytes and then used that address for local Safe permission checks.
-- After the drains, funds were consolidated across Ethereum, Base, and Arbitrum via Relay and ultimately sent as DAI to an Ethereum address in the attacker cluster.
+- After the drains, a large portion of the proceeds was consolidated across Ethereum, Base, and Arbitrum via Relay and sent as 3,070,767.09 DAI to attacker wallet 5.
 
 ## Incident Summary
 
@@ -103,10 +103,10 @@ enum ExecuteActionType {
 
 Observed attacker wallets include:
 
-- Attacker wallet 1: [`0x7c82cb4b2909c50c7c0f2b696eee7565e0a23bb8`](https://etherscan.io/address/0x7c82cb4b2909c50c7c0f2b696eee7565e0a23bb8), the main operator wallet. It deployed attacker contracts, executed most attacker-contract calls, used Relay during consolidation, and sent DAI to the final Ethereum wallet.
-- Attacker wallet 2: [`0x9bdc730183821b6bb2b51be30b77c964fa645b91`](https://etherscan.io/address/0x9bdc730183821b6bb2b51be30b77c964fa645b91), a co-operator wallet. It deployed attacker contracts and funded attacker wallet 1 with operational gas across chains.
-- Attacker wallet 3: [`0x7e54c729148a95bca651f3214ac9ebefd3fb1271`](https://etherscan.io/address/0x7e54c729148a95bca651f3214ac9ebefd3fb1271), which deployed fake tokens and rigged Uniswap V3 pools and also made direct calls to the affected Safe module.
-- Attacker wallet 4: [`0xc8ef4003d9db3863b9af26afcf2275378bfa83e4`](https://etherscan.io/address/0xc8ef4003d9db3863b9af26afcf2275378bfa83e4), a secondary operator wallet that made direct calls to the affected Safe module.
+- Attacker wallet 1: [`0x7c82cb4b2909c50c7c0f2b696eee7565e0a23bb8`](https://etherscan.io/address/0x7c82cb4b2909c50c7c0f2b696eee7565e0a23bb8), the main operator wallet. It deployed attacker contracts, executed most attacker-contract calls, used Relay during consolidation, and sent DAI to attacker wallet 5. It also deployed and used the fake `"u"` token (`0xe6ff0fe017d09d690493dec0f0f55e8f9cdc3512`) as the worthless token in its swap path.
+- Attacker wallet 2: [`0x9bdc730183821b6bb2b51be30b77c964fa645b91`](https://etherscan.io/address/0x9bdc730183821b6bb2b51be30b77c964fa645b91), a co-operator wallet. It deployed attacker contracts, received two 1 ETH Tornado Cash withdrawals, and then funded attacker wallet 1 with operational gas across Ethereum, Base, and Arbitrum.
+- Attacker wallet 3: [`0x7e54c729148a95bca651f3214ac9ebefd3fb1271`](https://etherscan.io/address/0x7e54c729148a95bca651f3214ac9ebefd3fb1271), which made direct calls to the affected Safe module. It was funded by `0x51dbd97fa14f4d78f8afc2e92a692a9e087efb5c` with 0.0687 ETH, and deployed 19 fake-token contracts across Ethereum, Base, and Arbitrum, including fake `"USDT"` tokens, together with matching Uniswap V3 pools.
+- Attacker wallet 4: [`0xc8ef4003d9db3863b9af26afcf2275378bfa83e4`](https://etherscan.io/address/0xc8ef4003d9db3863b9af26afcf2275378bfa83e4), a secondary operator wallet that made direct calls to the affected Safe module. It was funded through Orbiter Finance Bridge 3, including 0.9865 ETH before the exploit window and 1.9945 ETH during the operation, and used separate fake tokens, specifically `"sasx"`, `"sas"` and `"ddxx v3"`.
 - Attacker wallet 5: [`0xa447f71782135ab96a71374271a749ff7aa54859`](https://etherscan.io/address/0xa447f71782135ab96a71374271a749ff7aa54859), which received the consolidated 3,070,767.09 DAI from attacker wallet 1.
 
 Observed attacker contracts include:
@@ -179,9 +179,9 @@ Across the current dataset, 76 of the 88 observed victim Safes were drained on t
 
 ## Fund Movement
 
-After the drains, funds were pulled together across Ethereum, Base, and Arbitrum. Funds were consolidated via attacker wallet 1 and Relay, then ultimately sent to attacker wallet 5 ([`0xa447f71782135ab96a71374271a749ff7aa54859`](https://etherscan.io/address/0xa447f71782135ab96a71374271a749ff7aa54859)) as 3,070,767.09 DAI.
+After the drains, a large portion of the proceeds was pulled together across Ethereum, Base, and Arbitrum. Attacker wallet 1 used Relay during cross-chain consolidation and DEX/settlement infrastructure to convert proceeds before sending  3,070,767.09 DAI to attacker wallet 5 ([`0xa447f71782135ab96a71374271a749ff7aa54859`](https://etherscan.io/address/0xa447f71782135ab96a71374271a749ff7aa54859)).
 
-At the time of the investigation notes, the DAI had not moved out of attacker wallet.
+At the time of the investigation notes, that DAI had not moved out of attacker wallet 5.
 
 <br/>
 
