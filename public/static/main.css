@@ -138,6 +138,15 @@ p {
   margin: 24px 0;
 }
 
+ul {
+  margin: 24px 0;
+}
+
+p code, li code {
+	font-size: 14px;
+	font-weight: 500;
+}
+
 @media (min-width: 480px) {
   body,
   p {
