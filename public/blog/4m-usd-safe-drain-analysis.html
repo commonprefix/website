@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Common Prefix — $4M Safe Module Drain: What Happened</title>
+		<meta name="description" content="Analysis of the third-party SquidRouterModule Safe module exploit on 25th May 2026." />
+
+		<meta property="og:title" content="Common Prefix — $4M Safe Module Drain: What Happened">
+		<meta property="og:description" content="Analysis of the third-party SquidRouterModule Safe module exploit on 25th May 2026.">
+		<meta property="og:url" content="https://commonprefix.com/">
+		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
+
+		<meta name="twitter:title" content="Common Prefix — $4M Safe Module Drain: What Happened">
+		<meta name="twitter:description" content="Analysis of the third-party SquidRouterModule Safe module exploit on 25th May 2026.">
+		<meta property="twitter:url" content="https://commonprefix.com/">
+		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="commonprefix.com">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/png" href="/static/favicon/favicon.png" />
+		<link rel="manifest" href="/static/site.webmanifest">
+
+		<link rel="preload" href="/static/main.css" as="style" />
+		<link rel="stylesheet" href="/static/main.css" />
+		<script src="/static/main.js"></script>
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVFWK2DDQF"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){ dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'G-ZVFWK2DDQF');
+		</script>
+
+		
+
+<link href="/static/prism.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="logo-graphic">
+			<img draggable="false" src="/static/commonprefix_logo.jpg" alt="" />
+			<img
+				style="visibility: hidden"
+				class="logo-graphic__clip"
+				draggable="false"
+				src="/static/commonprefix_logo.jpg"
+				alt=""
+			/>
+		</div>
+
+		<div class="outer-container">
+			<div class="container">
+				<div class="small-container">
+					<header>
+						<a href="/" class="header__company-name">
+							<img
+								src="/static/cp-text-logo.svg"
+								alt="Common Prefix"
+								class="header__logo"
+							/>
+						</a>
+						<nav>
+							<a href="/team.html">Team</a>
+							<a href="/research.html">Research</a>
+							
+							<a href="/bridges.html">Bridges</a>
+							<a href="/blog/">Blog</a>
+							<a href="/podcast.html">Podcast</a>
+							<a href="/careers.html" class="careers-link">Careers</a>
+						</nav>
+					</header>
+
+					
+<main class="blog-post">
+	<h1>$4M Safe Module Drain: What Happened</h1>
+	<h5 class="mono light blog-post__date">26/05/2026<br />
+		<div class="blog-post__authors">
+		
+			<a href="/team#nikolas">Nikolaos Kamarinakis</a>
+		
+			<a href="/team#ristic">Nikola Ristić</a>
+		
+		</div>
+	</h5>
+	<h5>Reading time: 8 minutes</h5>
+
+	
+
+	<section class="content">
+		<p><strong>All Axelar users, user funds, approvals, and integrations are unaffected, and no action is needed. Our integration partner Squid was also not affected.</strong></p>
+
+<h2 id="tl-dr">TL;DR</h2>
+
+<ul>
+<li>In May 2026, an exploit targeted <code>SquidRouterModule</code>, a third-party Safe module deployed at the same address on <a href="https://etherscan.io/address/0x1f1d37a3Bf840e35c6a860c7C2dA71Fe555123ca" target="_blank">Ethereum</a>, <a href="https://basescan.org/address/0x1f1d37a3Bf840e35c6a860c7C2dA71Fe555123ca" target="_blank">Base</a>, and <a href="https://arbiscan.io/address/0x1f1d37a3Bf840e35c6a860c7C2dA71Fe555123ca" target="_blank">Arbitrum</a>: <code>0x1f1d37a3Bf840e35c6a860c7C2dA71Fe555123ca</code>.</li>
+<li>The observed victims were individual Safe smart accounts, not a single protocol treasury. They had enabled <code>SquidRouterModule</code> and granted delegate permissions through a related permissions system. The affected component was the <code>SquidRouterModule</code> application module, not Axelar or Squid.</li>
+<li>Across the indexed attack set, the observed drain total is approximately $3.98M across 313 attack transactions, including 308 successful drains and 5 reverted attempts, and 88 distinct victim Safes, using the investigation snapshot from 26th of May 2026.</li>
+<li>The core issue was that <code>SquidRouterModule</code> decoded a <code>delegate</code> address from attacker-controlled cross-chain payload bytes and then used that address for local Safe permission checks.</li>
+<li>After the drains, funds were consolidated across Ethereum, Base, and Arbitrum via Relay and ultimately sent as DAI to an Ethereum address in the attacker cluster.</li>
+</ul>
+
+<h2 id="incident-summary">Incident Summary</h2>
+
+<p>On May 25th 2026 around 90 different Safe wallets were drained totalling to around $4M USD worth of tokens stolen. The exploit targeted a Safe module named <code>SquidRouterModule</code>. This module was written, deployed and operated by a third-party. <code>SquidRouterModule</code> was part of a larger Safe module suite whose deployer also deployed sibling modules for Aave, Morpho, Yearn, Uniswap V2/V3/V4, and Krystal.</p>
+
+<p>The identity of the deployer has not been confirmed, but given a recent <a href="https://etherscan.io/tx/0xa7db9793d4978a26ee01c2a6cbf5ba154925a7532e31ae731f7f08ba4295ee70" target="_blank">blockscan chat message</a> it&rsquo;s possible <a href="https://newmarkettrading.com" target="_blank">NewMarketTrading</a> is the party behind these contracts.</p>
+
+<p>The observed victims were individual Safe smart accounts. Each Safe had previously enabled the exploited module.</p>
+
+<p><br /></p>
+
+<h2 id="how-the-attack-played-out">How the Attack Played Out</h2>
+
+<p><br /></p>
+
+<h3 id="step-1-the-attacker-identified-enabled-safes-and-usable-delegates">Step 1. The attacker identified enabled Safes and usable delegates</h3>
+
+<p><code>SquidRouterModule</code> relied on a permission model where a delegate could be authorized to perform actions for a specific Safe through a specific module. A wildcard <code>&quot;*&quot;</code> grant meant that a delegate could use all supported actions for that module on that Safe.</p>
+
+<p>The attacker did not need to compromise the Safe owner&rsquo;s key or the delegate&rsquo;s key. Instead, the attacker selected delegates that already had broad permissions for victim Safes and then placed those delegate addresses inside attacker-controlled payloads.</p>
+
+<h3 id="step-2-the-vulnerable-handler-trusted-a-delegate-from-payload-bytes">Step 2. The vulnerable handler trusted a delegate from payload bytes</h3>
+
+<p>The vulnerable destination-chain handler decoded the <code>delegate</code> value from the cross-chain payload:</p>
+
+<pre><code class="language-solidity">(address module, address safe, address delegate, ActionsExecutionParams memory params)
+    = abi.decode(payload, (address, address, address, ActionsExecutionParams));
+
+require(module == address(this), ...);
+bridgedToken.safeTransfer(safe, bridgedTokenAmount);
+_handleActions(safe, delegate, params);
+</code></pre>
+
+<p>The <code>module == address(this)</code> check only verified that the payload claimed to be intended for <code>SquidRouterModule</code>. It&rsquo;s later checked that the delegate value had the right permissions:</p>
+
+<pre><code class="language-solidity">function _handleUniV3SwapExactIn(
+    address safe,
+    address delegate,
+    bytes memory encodedData
+) internal returns (bool result) {
+    _checkPermission(safe, delegate, Permissions.SWAP_PERMISSION);
+
+    // do the swap
+}
+</code></pre>
+
+<p>The core issue was therefore simple: the attacker could choose the delegate address inside the payload. If that delegate already had <code>&quot;*&quot;</code> permission for the victim Safe, <code>SquidRouterModule</code> accepted the request and executed the requested actions.</p>
+
+<p>The observed attacks used Axelar express execution. That was the delivery path, not the root cause. The vulnerable trust decision was inside <code>SquidRouterModule</code>&rsquo;s payload handling: the destination contract treated attacker-controlled message fields as authority for a local Safe operation.</p>
+
+<p>Some attacks called <code>SquidRouterModule</code> directly. Others went through attacker contracts that simplified the attack call. For example, the Ethereum attacker contract <a href="https://etherscan.io/address/0xfac7459683cdb9b6f367b42eedfebd745dc8760c" target="_blank"><code>0xfac7459683cdb9b6f367b42eedfebd745dc8760c</code></a> decompiled to a two-argument entry point taking a victim Safe and delegate. In this write-up we refer to that behavior as <code>drain(safe, delegate)</code>, but the name is not a verified ABI name.</p>
+
+<pre><code class="language-solidity">// label for illustration, actual selector is 0xf8c8f0a3
+drain(address safe, address delegate)
+</code></pre>
+
+<p>The attacker contract assembled the malicious <code>ActionsExecutionParams</code> internally and sent it to <code>SquidRouterModule</code>.</p>
+
+<p>The structure contained an ordered list of actions and a strictness flag. Each action carried an action type and ABI-encoded parameters interpreted by <code>SquidRouterModule</code>:</p>
+
+<pre><code class="language-solidity">struct ActionsExecutionParams {
+    ExecuteAction[] actions;
+    bool isStrict;
+}
+
+struct ExecuteAction {
+    ExecuteActionType actionType;
+    bytes encodedData;
+}
+
+enum ExecuteActionType {
+    UNI_V2_SWAP_EXACT_IN,
+    UNI_V2_SWAP_EXACT_OUT,
+    UNI_V3_SWAP_EXACT_IN,
+    UNI_V3_SWAP_EXACT_OUT,
+    ERC20_APPROVE,
+    PERMIT2_APPROVE,
+    NATIVE_WRAP,
+    NATIVE_UNWRAP
+}
+</code></pre>
+
+<p>Observed attacker wallets include:</p>
+
+<ul>
+<li>Attacker wallet 1: <a href="https://etherscan.io/address/0x7c82cb4b2909c50c7c0f2b696eee7565e0a23bb8" target="_blank"><code>0x7c82cb4b2909c50c7c0f2b696eee7565e0a23bb8</code></a>, the main operator wallet. It deployed attacker contracts, executed most attacker-contract calls, used Relay during consolidation, and sent DAI to the final Ethereum wallet.</li>
+<li>Attacker wallet 2: <a href="https://etherscan.io/address/0x9bdc730183821b6bb2b51be30b77c964fa645b91" target="_blank"><code>0x9bdc730183821b6bb2b51be30b77c964fa645b91</code></a>, a co-operator wallet. It deployed attacker contracts and funded attacker wallet 1 with operational gas across chains.</li>
+<li>Attacker wallet 3: <a href="https://etherscan.io/address/0x7e54c729148a95bca651f3214ac9ebefd3fb1271" target="_blank"><code>0x7e54c729148a95bca651f3214ac9ebefd3fb1271</code></a>, which deployed fake tokens and rigged Uniswap V3 pools and also made direct calls to <code>SquidRouterModule</code>.</li>
+<li>Attacker wallet 4: <a href="https://etherscan.io/address/0xc8ef4003d9db3863b9af26afcf2275378bfa83e4" target="_blank"><code>0xc8ef4003d9db3863b9af26afcf2275378bfa83e4</code></a>, a secondary operator wallet that made direct calls to <code>SquidRouterModule</code>.</li>
+<li>Final Ethereum wallet: <a href="https://etherscan.io/address/0xa447f71782135ab96a71374271a749ff7aa54859" target="_blank"><code>0xa447f71782135ab96a71374271a749ff7aa54859</code></a>, which received 3,070,767.09 DAI from attacker wallet 1.</li>
+</ul>
+
+<p>Observed attacker contracts include:</p>
+
+<ul>
+<li>Ethereum: <a href="https://etherscan.io/address/0xfac7459683cdb9b6f367b42eedfebd745dc8760c" target="_blank"><code>0xfac7459683cdb9b6f367b42eedfebd745dc8760c</code></a>, deployed by attacker wallet 1, with 33 observed calls.</li>
+<li>Ethereum: <a href="https://etherscan.io/address/0xe1d5fcfbba4d46f4937de369de415dd7e2d3265a" target="_blank"><code>0xe1d5fcfbba4d46f4937de369de415dd7e2d3265a</code></a>, deployed by attacker wallet 2, with 90 observed calls.</li>
+<li>Base: <a href="https://basescan.org/address/0x2d450322e3526f489afcc8c49923b35d355c70bc" target="_blank"><code>0x2d450322e3526f489afcc8c49923b35d355c70bc</code></a>, deployed by attacker wallet 2, with 44 observed calls.</li>
+<li>Base: <a href="https://basescan.org/address/0xcc5f66da5dc7f8a70fdfcd9da610fc7e753c4867" target="_blank"><code>0xcc5f66da5dc7f8a70fdfcd9da610fc7e753c4867</code></a>, deployed by attacker wallet 1, with 24 observed calls.</li>
+<li>Arbitrum: <a href="https://arbiscan.io/address/0x2d450322e3526f489afcc8c49923b35d355c70bc" target="_blank"><code>0x2d450322e3526f489afcc8c49923b35d355c70bc</code></a>, deployed by attacker wallet 2 at the same address as Base, with 44 observed calls.</li>
+<li>Arbitrum: <a href="https://arbiscan.io/address/0x35b94f725bfdc1d00ef15df99dafadf6ecf3a0e9" target="_blank"><code>0x35b94f725bfdc1d00ef15df99dafadf6ecf3a0e9</code></a>, deployed by attacker wallet 1, with 4 observed calls.</li>
+</ul>
+
+<h3 id="step-3-the-safe-approved-and-swapped-assets-into-attacker-controlled-destinations">Step 3. The Safe approved and swapped assets into attacker-controlled destinations</h3>
+
+<p>Once <code>SquidRouterModule</code> blindly accepted the payload, it called the victim Safe through <code>execTransactionFromModule</code>. The Safe then approved and swapped assets through attacker-controlled routing.</p>
+
+<p><code>SquidRouterModule</code> did not expose a generic transfer action or arbitrary Safe call. Its action menu was limited to swaps, approvals, and native wrap/unwrap operations, and approval spenders were constrained to Squid Router, supported Universal Routers, or Permit2. The attacker therefore could not simply approve an attacker wallet or transfer tokens directly out of the Safe.</p>
+
+<p>The extraction path was the swap itself. By routing through attacker-created Uniswap V3 pools paired against worthless attacker-issued tokens, the Safe sent real assets into the pool and received those worthless tokens back. The attacker, as the pool LP, could then withdraw the real assets from the pool.</p>
+
+<p>The attacker used multiple fake tokens and created Uniswap V3 pools as drain destinations. One example swap on Ethereum is <a href="https://etherscan.io/tx/0x8de614bdb7acf5dcbdfe5ce8ed17ec2a2058e7708e6a4cf44f0e523c72df24c3" target="_blank"><code>0x8de614bdb7acf5dcbdfe5ce8ed17ec2a2058e7708e6a4cf44f0e523c72df24c3</code></a>:</p>
+
+<ul>
+<li>The victim Safe sent 32,000 apyUSD.</li>
+<li>The Safe received a fake <code>&quot;USDT&quot;</code> token: <code>0xd7ef4cb5c57a4362a48abf4d33c5b9470d6681e1</code>.</li>
+<li>The fake token and the corresponding Uniswap V3 pool were both deployed by attacker wallet 3.</li>
+</ul>
+
+<h2 id="what-was-affected">What Was Affected</h2>
+
+<p>The affected accounts were Safe smart accounts that had enabled <code>SquidRouterModule</code> and had matching delegate permissions. The observed victims were individual Safe smart accounts, not a single protocol treasury.</p>
+
+<p>Axelar and Squid were not affected. Their users, funds, approvals, and integrations are unaffected, and no action is needed.</p>
+
+<p>The observed drain total was approximately $3.98M across 313 attack transactions, including 308 successful drains and 5 reverted attempts, and 88 distinct victim Safes:</p>
+
+<ul>
+<li>Ethereum: 125 successful drain transactions, approximately $1,083,764 drained.</li>
+<li>Base: 132 successful drain transactions, approximately $2,814,305 drained.</li>
+<li>Arbitrum: 51 successful drain transactions, approximately $80,765 drained.</li>
+<li>Total: 308 successful drain transactions, approximately $3,978,833 drained.</li>
+</ul>
+
+<p>By token, the observed stolen assets were approximately:</p>
+
+<ul>
+<li>USDC: about 1.18M tokens ($1.18M).</li>
+<li>cbBTC: about 12.4354 tokens ($961,682).</li>
+<li>WETH: about 181.3 tokens ($383,306).</li>
+<li>apyUSD: about 371,020 tokens ($371,020).</li>
+<li>gtUSDCp: about 257,606 tokens ($257,606).</li>
+<li>cbXRP: about 97,436 tokens ($132,513).</li>
+<li>sUSDat: about 111,098 tokens ($111,098).</li>
+<li>steakUSDC: about 107,347 tokens ($107,347).</li>
+<li>WBTC: about 1.243 tokens ($95,975).</li>
+<li>wTAO: about 286.5 tokens ($82,323).</li>
+<li>steakETH: about 25.1997 tokens ($55,951).</li>
+<li>SYRUP: about 45,215 tokens ($52,450).</li>
+<li>wstETH: about 19.3152 tokens ($50,574).</li>
+<li>BNKR: about 375,795 tokens ($37,580).</li>
+<li>sparkUSDC: about 14,579 tokens ($14,579).</li>
+<li>AAVE: about 151 tokens ($13,042).</li>
+<li>LIT: about 9,499.4 tokens ($12,349).</li>
+<li>ONDO: about 23,011 tokens ($9,870).</li>
+<li>UNI: about 2,603.6 tokens ($8,748).</li>
+<li>CFG: about 25,463 tokens ($7,749).</li>
+<li>MORPHO: about 3,009.3 tokens ($7,192).</li>
+<li>ENA: about 56,582 tokens ($5,718).</li>
+<li>FLUID: about 1,406.7 tokens ($4,220).</li>
+<li>USDT: about 3,533.1 tokens ($3,533).</li>
+<li>EUL, LBTC, ZRO, LINK, WLD, Anon, AERO, EURC, SKY, SLVon, SOL, msETH, XAUt, COOKIE, AVNT, USDT0, Cake, AUKI, and SAPIEN, together totaling about $12,171.</li>
+</ul>
+
+<p>Base was the largest loss surface in the observed data, accounting for roughly 71% of the total. Ethereum accounted for roughly 27%, and Arbitrum accounted for roughly 2%.</p>
+
+<p>Across the current dataset, 76 of the 88 observed victim Safes were drained on two or more chains.</p>
+
+<h2 id="fund-movement">Fund Movement</h2>
+
+<p>After the drains, funds were pulled together across Ethereum, Base, and Arbitrum. The consolidation hub was attacker wallet 1 (<a href="https://etherscan.io/address/0xa447f71782135ab96a71374271a749ff7aa54859" target="_blank"><code>0xa447f71782135ab96a71374271a749ff7aa54859</code></a>), which consolidated funds via Relay. The funds were bridged, swapped and eventually consolidated as 3,070,767.09 DAI.</p>
+
+<p>At the time of the investigation notes, the DAI had not moved out of attacker wallet.</p>
+
+<p><br/></p>
+
+<h2 id="faqs">FAQs</h2>
+
+<p><br/></p>
+
+<h3 id="were-axelar-or-squid-compromised">Were Axelar or Squid compromised?</h3>
+
+<p>No. The affected component was contract called <code>SquidRouterModule</code>, a third-party application module that incorrectly used Axelar&rsquo;s cross-chain execution protocol. Based on a recent <a href="https://etherscan.io/tx/0xa7db9793d4978a26ee01c2a6cbf5ba154925a7532e31ae731f7f08ba4295ee70" target="_blank">blockscan chat message</a> it&rsquo;s possible <a href="https://newmarkettrading.com" target="_blank">NewMarketTrading</a> is the victim platform and the author of these contracts.</p>
+
+<h3 id="did-the-attacker-compromise-victim-safe-owners">Did the attacker compromise victim Safe owners?</h3>
+
+<p>Victim owner keys were not compromised. The exploit used <code>SquidRouterModule</code>&rsquo;s module permissions and an attacker-controlled payload-provided delegate.</p>
+
+<h3 id="did-the-attacker-compromise-delegate-keys">Did the attacker compromise delegate keys?</h3>
+
+<p>Delegate private keys were not compromised. The attacker placed already-authorized delegate addresses into the payload and relied on <code>SquidRouterModule</code> to use those addresses for permission checks.</p>
+
+	</section>
+
+	<script
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+	  type="text/javascript">
+	</script>
+	<script src="/static/prism.js"></script>
+</main>
+
+
+					<footer>
+						<div class="socials">
+							<h3>Get in touch</h3>
+							<a
+								class="mbtn"
+								href="mailto:hello@commonprefix.com"
+							>
+								<span class="un">hello@commonprefix.com</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://twitter.com/CommonPrefix"
+							>
+								<span class="un">@commonprefix</span>
+							</a>
+						</div>
+						<div class="socials">
+							<br>
+							<a
+								class="mbtn"
+								href="https://github.com/commonprefix"
+							>
+								<span class="un">GitHub</span>
+							</a>							
+							<a
+								class="mbtn"
+								href="https://chaingrowth.xyz"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span class="un">chaingrowth.xyz</span>
+							</a>
+						</div>
+						<div class="footer__easter-egg">
+							<img
+								width="220px"
+								style="opacity: 0.5"
+								src="/static/footer_eq.svg"
+								draggable="false"
+								alt=""
+							/>
+							<img
+								width="220px"
+								style="mix-blend-mode: multiply"
+								src="/static/footer_blockchain.png"
+								draggable="false"
+								alt=""
+							/>
+							<p>
+								Rumpetur paritas cum sequens probatio operis
+								invenietur et ramus maior fiet.
+							</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			;(function () {
+				
+				document.querySelector('.footer__easter-egg').children[
+					Math.floor(Math.random() * 3)
+				].style.visibility = 'visible'
+
+				
+				window.requestAnimationFrame =
+					window.requestAnimationFrame ||
+					function (C) {
+						return setTimeout(function () {
+							C(+new Date())
+						}, 30)
+					}
+
+				function isTouchDevice() {
+					var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ')
+					var mq = function (query) {
+						return window.matchMedia(query).matches
+					}
+
+					if (
+						'ontouchstart' in window ||
+						(window.DocumentTouch &&
+							document instanceof DocumentTouch)
+					) {
+						return true
+					}
+
+					var query = [
+						'(',
+						prefixes.join('touch-enabled),('),
+						'heartz',
+						')',
+					].join('')
+					return mq(query)
+				}
+
+				var touchDevice = isTouchDevice()
+				if (touchDevice) {
+					document.body.classList.add('touchdevice')
+				}
+
+				var graphic = document.querySelector('.logo-graphic')
+				var clip = document.querySelector('.logo-graphic__clip')
+
+				if (!touchDevice) {
+					var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
+					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+
+					function reveal(e) {
+						var pos = graphic.getBoundingClientRect()
+						var x = e.clientX - pos.left - 150
+						var y = e.clientY - pos.top + 150
+
+						var v = `radial-gradient(circle at ${x}px ${y}px, black 0px, black 60px, transparent 120px)`
+						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+					}
+
+					window.addEventListener('mousemove', function (e) {
+						requestAnimationFrame(() => reveal(e))
+					})
+				}
+			})()
+		</script>
+	</body>
+</html>
