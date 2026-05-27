@@ -2,6 +2,13 @@ package main
 
 var Openings = []JobOpening{
 	{
+		Name:        "Product Designer",
+		Url:         "https://commonprefix.notion.site/design-folk",
+		Location:    "Remote or on-site in Athens, Greece",
+		Type:        "Full-time",
+		Description: "We're looking for a Product Designer to join as our first dedicated designer, owning UI/UX end-to-end across a growing pipeline of technical products and developer-facing interfaces.",
+	},
+	{
 		Name:        "Business Development Lead",
 		Url:         "https://commonprefix.notion.site/bd-folk",
 		Location:    "Remote or on-site in Athens, Greece",
