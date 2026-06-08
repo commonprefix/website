@@ -94,6 +94,8 @@
 	<section class="content">
 		<p>Common Prefix is a research and engineering company specializing in blockchain protocol design, analysis, and formal methods. We have worked extensively with Ripple on multiple projects, including documenting parts of the <code>xrpld</code> codebase. Recently, we began a new collaboration with Ripple to formally verify the XRP Ledger, a blockchain whose protocol implements a broad set of financial primitives, including multi-currency exchange, automated market makers, trust lines, vaults, and lending, natively in its execution layer.</p>
 
+<p><img src="/static/blog/fv-xrpl/cp_ripple_banner.jpg" alt="Common Prefix x Ripple" /></p>
+
 <p>The XRP Ledger is implemented in C++ by <code>xrpld</code>. The codebase is already well tested, with a substantial test suite and Antithesis-based fuzzing on top. But tests can only catch the bugs that actually surface in a testing scenario - they cannot show that a protocol invariant holds for every possible input. Formal verification can.</p>
 
 <p>Formal verification uses machine-checked mathematical proofs to show that software satisfies its specification for every possible input. Where a test suite can only check correctness on the inputs it actually runs, a proof covers the entire input space. The exercise also forces a precise, formal statement of what &ldquo;correct&rdquo; means, producing a durable specification of the system&rsquo;s intended behavior. And the accumulating body of theorems is something future work, in both engineering and research, can build on directly.</p>
