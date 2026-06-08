@@ -1,8 +1,8 @@
 ---
 title: "Formal Verification of XRPL: Foundations and First Proofs"
-date: "04/06/2026"
+date: "08/06/2026"
 desc: "How Common Prefix is moving the XRP Ledger from well-tested to formally verified: tooling decisions, modeling methodology, bugs uncovered in the process, and what comes next."
-authors: "dejan"
+authors: "dejan,felix"
 index: true
 ---
 Common Prefix is a research and engineering company specializing in blockchain protocol design, analysis, and formal methods. We have worked extensively with Ripple on multiple projects, including documenting parts of the `xrpld` codebase. Recently, we began a new collaboration with Ripple to formally verify the XRP Ledger, a blockchain whose protocol implements a broad set of financial primitives, including multi-currency exchange, automated market makers, trust lines, vaults, and lending, natively in its execution layer.
