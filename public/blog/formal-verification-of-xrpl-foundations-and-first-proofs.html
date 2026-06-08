@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Common Prefix — Formal Verification of XRPL: Foundations and First Proofs</title>
+		<meta name="description" content="How Common Prefix is moving the XRP Ledger from well-tested to formally verified: tooling decisions, modeling methodology, bugs uncovered in the process, and what comes next." />
+
+		<meta property="og:title" content="Common Prefix — Formal Verification of XRPL: Foundations and First Proofs">
+		<meta property="og:description" content="How Common Prefix is moving the XRP Ledger from well-tested to formally verified: tooling decisions, modeling methodology, bugs uncovered in the process, and what comes next.">
+		<meta property="og:url" content="https://commonprefix.com/">
+		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
+
+		<meta name="twitter:title" content="Common Prefix — Formal Verification of XRPL: Foundations and First Proofs">
+		<meta name="twitter:description" content="How Common Prefix is moving the XRP Ledger from well-tested to formally verified: tooling decisions, modeling methodology, bugs uncovered in the process, and what comes next.">
+		<meta property="twitter:url" content="https://commonprefix.com/">
+		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="commonprefix.com">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/png" href="/static/favicon/favicon.png" />
+		<link rel="manifest" href="/static/site.webmanifest">
+
+		<link rel="preload" href="/static/main.css" as="style" />
+		<link rel="stylesheet" href="/static/main.css" />
+		<script src="/static/main.js"></script>
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVFWK2DDQF"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){ dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'G-ZVFWK2DDQF');
+		</script>
+
+		
+
+<link href="/static/prism.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="logo-graphic">
+			<img draggable="false" src="/static/commonprefix_logo.jpg" alt="" />
+			<img
+				style="visibility: hidden"
+				class="logo-graphic__clip"
+				draggable="false"
+				src="/static/commonprefix_logo.jpg"
+				alt=""
+			/>
+		</div>
+
+		<div class="outer-container">
+			<div class="container">
+				<div class="small-container">
+					<header>
+						<a href="/" class="header__company-name">
+							<img
+								src="/static/cp-text-logo.svg"
+								alt="Common Prefix"
+								class="header__logo"
+							/>
+						</a>
+						<nav>
+							<a href="/team.html">Team</a>
+							<a href="/research.html">Research</a>
+							
+							<a href="/bridges.html">Bridges</a>
+							<a href="/blog/">Blog</a>
+							<a href="/podcast.html">Podcast</a>
+							<a href="/careers.html" class="careers-link">Careers</a>
+						</nav>
+					</header>
+
+					
+<main class="blog-post">
+	<h1>Formal Verification of XRPL: Foundations and First Proofs</h1>
+	<h5 class="mono light blog-post__date">04/06/2026<br />
+		<div class="blog-post__authors">
+		
+			<a href="/team#dejan">Dejan Cabrilo</a>
+		
+		</div>
+	</h5>
+	<h5>Reading time: 15 minutes</h5>
+
+	
+
+	<section class="content">
+		<p>Common Prefix is a research and engineering company specializing in blockchain protocol design, analysis, and formal methods. We have worked extensively with Ripple on multiple projects, including documenting parts of the <code>xrpld</code> codebase. Recently, we began a new collaboration with Ripple to formally verify the XRP Ledger, a blockchain whose protocol implements a broad set of financial primitives, including multi-currency exchange, automated market makers, trust lines, vaults, and lending, natively in its execution layer.</p>
+
+<p><img src="/static/blog/fv-xrpl/common_prefix_colab_1.jpg" alt="Common Prefix x Ripple" /></p>
+
+<p>The XRP Ledger is implemented in C++ by <code>xrpld</code>. The codebase is already well tested, with a substantial test suite and Antithesis-based fuzzing on top. But tests can only catch the bugs that actually surface in a testing scenario - they cannot show that a protocol invariant holds for every possible input. Formal verification can.</p>
+
+<p>Formal verification uses machine-checked mathematical proofs to show that software satisfies its specification for every possible input. Where a test suite can only check correctness on the inputs it actually runs, a proof covers the entire input space. The exercise also forces a precise, formal statement of what &ldquo;correct&rdquo; means, producing a durable specification of the system&rsquo;s intended behavior. And the accumulating body of theorems is something future work, in both engineering and research, can build on directly.</p>
+
+<p><code>xrpld</code>&rsquo;s engineers are actively building new functionality, and while much of the existing code has been battle-tested over years of live operation, both the new and the old functionality stand to benefit from the assurances that formal verification provides.</p>
+
+<h2 id="exploratory-phase">Exploratory Phase</h2>
+
+<p>Our first goal was to determine how to move <code>xrpld</code> from being well-tested to formally verified. This meant selecting the right languages and tools, deciding what to model in detail versus what to abstract or omit, identifying the most important properties to prove, and validating those decisions by modeling and verifying real components of <code>xrpld</code>.</p>
+
+<h3 id="methodology">Methodology</h3>
+
+<p>At first glance, the most straightforward approach would be to verify <code>xrpld</code>’s existing C++ implementation directly. In practice, however, formally verifying a large production C++ codebase is extremely difficult. The language itself presents major challenges for verification: undefined behavior, pointer aliasing, manual memory management, templates, exceptions, and a complex standard library all have to be modeled accurately before meaningful correctness proofs can even begin. Some verification tools sidestep this complexity by targeting a restricted, more analyzable subset of C++, but <code>xrpld</code> does not fit that subset. <code>xrpld</code> is not a small embedded program or academic prototype, but the production implementation of a complex, live system, built using modern enterprise-style C++ patterns and abstractions. After stripping C++ complexity out, the verifiable subset that remains is simply not the language <code>xrpld</code> is written in.</p>
+
+<p>Instead, we decided on a different approach. Rather than trying to verify <code>xrpld</code>’s C++ implementation directly, we would reimplement the parts of <code>xrpld</code> we want to reason about in a language designed for formal verification. We call this reimplementation a model: a verification-friendly version of the relevant code, which abstracts away parts of <code>xrpld</code> that are not the immediate target of verification while preserving the behavior and structure that matter for the properties we want to prove.</p>
+
+<p>When the model is in place, we can state the properties of the code we care about as mathematical theorems and prove them against the model. This is what formal verification gives us: a way to establish, by proof rather than by testing alone, that the specified properties hold. In this setup, modeling gives us a precise object to reason about, while verification gives us machine-checked evidence that it behaves as intended.</p>
+
+<p>A model is only as useful as its fidelity to the implementation, so much of our methodology work has gone into closing that gap: picking a language whose constructs line up cleanly with the C++ they mirror, and building bridges that let model and implementation be checked against each other directly.</p>
+
+<h3 id="tools">Tools</h3>
+
+<p>That led to the next major question: which formal verification system was the right fit for <code>xrpld</code>’s requirements? We needed something expressive enough to model the kinds of arithmetic and invariants <code>xrpld</code> relies on, practical enough to scale to real components of the system, and capable of maintaining a close correspondence with the underlying C++ implementation.</p>
+
+<p><strong>SMT-backed verification languages</strong> like Dafny are probably the closest thing to “traditional programming with proofs attached.” You write code, annotate it with preconditions, postconditions, and invariants, and the system hands the resulting proof obligations off to an SMT solver, usually Z3.</p>
+
+<p>When it works, it feels almost magical: many proofs discharge automatically, and the code stays close to ordinary imperative programming. But that automation is also a limitation. Once the proof obligations become too complex, particularly around non-linear arithmetic or tightly coupled invariants, the solver can stall or time out without giving much insight into what went wrong. In practice, the kinds of theorems you can comfortably prove are constrained by what the SMT solver can successfully discover on its own.</p>
+
+<p><strong>State-exploration languages</strong> like TLA+ and P take a very different approach. They model a system as a state machine and systematically explore all possible executions, checking for violations of properties like safety and liveness along the way. This makes them particularly well-suited to distributed protocols, where correctness depends on how multiple nodes interact over time and across many possible execution paths.</p>
+
+<p>But <code>xrpld</code>’s correctness challenges are often lower-level and more arithmetic in nature, involving balances, rounding behavior, and invariants across interacting quantities. Those kinds of proofs are less natural in a state-exploration setting, and the resulting models also tend to sit further away from the underlying C++ implementation.</p>
+
+<p><strong>Interactive theorem provers</strong> like Lean 4 or Coq sit at the opposite end of the spectrum from SMT-backed tools. Rather than relying heavily on automation, they ask you to construct the proofs yourself in a tactic language, with each step checked by a small trusted kernel. The cost is more manual proof work, but the payoff is far greater expressivity, precise control over the proof process, and the ability to reason about systems and invariants that fall well outside what automated solvers handle comfortably.</p>
+
+<p>State-exploration languages were the first category we ruled out. Much of <code>xrpld</code>’s correctness lives in arithmetic and rounding: balances, loan amortization, AMM pool ratios, fees, and currency conversions. The properties we care about are usually equations and inequalities that must hold for every possible input, not just across a finite set of execution paths. Exploring that space exhaustively quickly becomes infeasible.</p>
+
+<p>Even modeling all possible values of a single XRP balance would already produce an enormous state space. Once several quantities interact, such as two pool balances and a Multi-Purpose Token amount, exhaustive exploration becomes effectively intractable. We could restrict the model to edge cases and common inputs, but that would bring us back toward testing rather than proof, which is precisely what formal verification is meant to move beyond.</p>
+
+<p>SMT-backed languages were appealing for their automation and syntax, but the properties we want to verify in <code>xrpld</code> are not their strongest suit. Non-linear decimal floating-point arithmetic, recursive rounding, and invariants spanning several interlocked quantities are exactly what SMT solvers struggle with, and at this complexity we wanted to drive the proofs ourselves rather than rely on a solver.</p>
+
+<p>We settled on Lean 4. Its dependent type theory makes the invariants we care about easy to express, its tactic system gives us full control over the proof state, and mathlib and a maturing ecosystem make it a credible home for large-scale formalization. Its expressivity also extends well beyond arithmetic, to consensus in adversarial settings, distributed state-space exploration, and other problems on the road ahead. An important factor for <code>xrpld</code> was Lean 4&rsquo;s FFI: verified Lean code can be exposed as C-callable functions and linked directly into the <code>xrpld</code> build, which is what makes the model-implementation bridge feasible.</p>
+
+<h3 id="modeling">Modeling</h3>
+
+<p>We could not commit to a language without trying it on real code. To inform the decision, we modeled representative <code>xrpld</code> components in candidate languages and compared how each language coped with the actual structure of the code. That hands-on experience ultimately informed the language choice.</p>
+
+<p><code>xrpld</code>&rsquo;s <code>Number</code> class was the most foundational of those targets. <code>Number</code> is <code>xrpld</code>&rsquo;s decimal floating-point representation with explicit mantissa and exponent, used throughout the codebase as the basis for numerical representation and every arithmetic operation that touches balances, transfers, and conversions. Almost every higher-level property eventually reduces to a fact about <code>Number</code> arithmetic.</p>
+
+<p>One concrete deliverable from this exercise is a Lean 4 model of <code>Number</code>, which is on track to be merged into mainline <code>xrpld</code>. Some properties of multiplication under one of the rounding modes have been proven, and lemmas supporting further properties are in place.</p>
+
+<p>For example, we proved a rounding bound for multiplication in the to-nearest rounding mode (one of the rounding modes <code>Number</code> supports): the result of a multiplication is always within a known distance of the ideal mathematical product. This sounds like a small thing, but it is crucial. Nearly every higher-level property in <code>xrpld</code> chains together many multiplications, and without a precise bound on what each one contributes, no end-to-end correctness statement can be made.</p>
+
+<h3 id="interoperability">Interoperability</h3>
+
+<p>The bridge between the Lean model and <code>xrpld</code> exists so that the two can be checked against each other automatically and continuously, ensuring the model matches the actual implementation. Without it, the model and the C++ would drift, and proofs about the model would slowly become claims about code that no longer matches what&rsquo;s deployed.</p>
+
+<p>Lean 4’s foreign function interface is what makes the model-to-implementation bridge practical. Lean definitions can be exported as ordinary C symbols and linked directly into the <code>xrpld</code> build alongside the existing C++ code. At the boundary, a thin shim translates between native C++ values and the data representations expected by Lean’s runtime system. The <code>xrpld</code> test harness can then invoke the Lean implementation and the production C++ implementation on the same inputs and compare the outputs directly, bit for bit. Any divergence between the verified Lean model and the native implementation is surfaced immediately as a test failure.</p>
+
+<p>In the future, the same machinery opens up further ways to ensure confidence in the model.</p>
+
+<p>The first is to embed verified Lean code inside <code>xrpld</code> as a runtime oracle. Every operation the C++ performs is shadowed by a call into the corresponding Lean-compiled function, and the two results are compared on the spot. Any divergence is caught the moment it happens, in test or in production.</p>
+
+<p>Similar results can be achieved using log-tracing. <code>xrpld</code> runs unchanged but records the inputs, outputs, and intermediate states of its operations as it executes. Those recordings are then replayed through the Lean model offline, and any step that contradicts what the model says is possible is flagged as a concrete bug.</p>
+
+<h2 id="uncovering-bugs">Uncovering Bugs</h2>
+
+<p>Even at this early stage, the modeling work has surfaced some edge cases and bugs in <code>xrpld</code>&rsquo;s behavior that warranted a closer look. Some were numerical issues that appeared at extreme values, where precision and rounding behavior become especially important. Others were behavioral: cases where a sequence of otherwise valid actions could lead to an unexpected state. These issues have been addressed and deployed as part of <code>xrpld</code>’s 3.2.0 release.</p>
+
+<p>It is interesting how we discovered some issues: a theorem that does not hold cannot be proven, so when we set out to prove a property we believed should hold and the proof would not close, the gap was either in the code or in our understanding of how it should behave. Either way, it could not go unnoticed.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Modeling every line of <code>xrpld</code> in a reasonable timeframe is not realistic, so verification proceeds transactor by transactor. Our next phase of formal verification work begins with the Lending Protocol and Single Asset Vault transactors. For each, we care about arithmetic correctness, safety, and liveness. The goal is to ensure that neither a bug in the code nor an adversary acting against the protocol can compromise any of them.</p>
+
+<p>To make this work feasible, we draw a deliberate boundary between what gets modeled and what gets axiomatized.</p>
+
+<ul>
+<li><strong>Fully modeled.</strong> Core business logic is modeled faithfully against the C++ source. Theorems about it are stated and proven in terms of the actual implementation, including its rounding behavior and edge cases.</li>
+<li><strong>Abstractly modeled.</strong> Dependencies whose internals are not under verification are modeled at their interface and tested against C++ for fidelity. Components that get called but not modeled appear as axioms describing their expected behavior; proofs of higher-level logic are conditional on them.</li>
+</ul>
+
+<p>Where each line falls is a per-property decision: whether the component is load-bearing for the property being proven.</p>
+
+<p>This framework lets us formally verify discrete parts of the codebase incrementally. Future work can build on what already exists in two directions: higher-level code can layer new models and theorems on top of the proven foundations, and components that were initially abstract models or axioms can be turned into fully modeled components with their own theorems and lemmas.</p>
+
+<h3 id="single-asset-vault-and-lending-protocol">Single Asset Vault and Lending Protocol</h3>
+
+<p>The next phase applies the framework above to two recently deployed amendments: the Single Asset Vault (XLS-65) and the Lending Protocol (XLS-66). Together they introduce substantial new financial logic into <code>xrpld</code>, including share pricing, loan amortization, payment processing with fee routing, interest accrual, first-loss capital mechanics, and the rounding behavior that ties them all together.</p>
+
+<p>The work is organized into three logical groups. The first extends the verified foundation to cover the shared <code>xrpld</code> subsystems both amendments rely on: the arithmetic stack, ledger state access, balance and transfer primitives, freeze and authorization. The second covers the Single Asset Vault end to end, from share pricing through every Vault transactor and out to properties that hold across sequences of transactions. The third covers the Lending Protocol, where the interesting verification challenges lie in the multi-object interactions across loans, brokers, and vaults, and the financial logic governing amortization, payment, fee routing, and loss absorption.</p>
+
+<p>The properties we will prove fall into a few broad categories. At a high level, they cover both the financial behavior of the amendments and the ledger mechanics that make that behavior safe to execute: that a loan cannot enter a state where it is impossible to repay or close out; that vault shares, balances, fees, object references, and authorization checks stay consistent across long sequences of transactions; that rounding error is always bounded and cannot accumulate into a protocol-level inconsistency; and that no valid transaction, even one chosen adversarially, can move funds, bypass freeze rules, corrupt ledger state, or create value where none should exist.</p>
+
+<p><strong>Functional correctness</strong>. Each transactor&rsquo;s success and failure paths return the expected results for any valid input. Where arithmetic is involved, the ideal mathematical outcome is juxtaposed against the rounded concrete implementation, and the maximum rounding error is bounded explicitly.</p>
+
+<p>This is where our work on <code>Number</code> class and other arithmetic primitives becomes important. Higher-level correctness properties in <code>xrpld</code> are built out of many smaller arithmetic operations chained together. Without precise guarantees about the error introduced at each step, there is no way to make rigorous end-to-end statements about balances, repayments, fees or vault obligations. Proving explicit bounds on <code>Number</code> arithmetic gives us the foundation those larger proofs depend on.</p>
+
+<p><strong>Valid state preservation</strong>. A valid ledger state is one in which all the protocol&rsquo;s invariants hold at once: balances are consistent, accounting figures add up, references between ledger objects are well-formed. It is the precondition every transactor relies on, and if any transactor leaves the ledger in an invalid state, downstream transactors are working with broken data. Every transactor is proven to preserve valid state, regardless of inputs or ledger context. For the Lending Protocol, valid state spans loans, brokers, vaults, and the user accounts that interact with them.</p>
+
+<p><strong>Multi-transaction correctness</strong>. Some properties only make sense across sequences of transactions. Accumulated rounding drift in cross-object accounting must stay within known bounds. State quantities that should only grow must do so monotonically. Cross-object invariants must continue to hold over arbitrarily long histories of valid operations.</p>
+
+<p><strong>Safety</strong>. A blockchain operates in the presence of adversaries who will try to construct transactions designed to break the protocol. We need to prove that no such transactions, however constructed, can violate the protocol&rsquo;s safety guarantees, including things like creating value out of thin air, laundering frozen assets into unfrozen ones, or moving balances across accounts without authorization.</p>
+
+<p><strong>Liveness</strong>. Where safety properties promise that nothing bad happens, liveness properties promise that the protocol keeps making progress. We need to rule out states where things get stuck, both on the ledger side, where objects that should be advanceable by valid transactions can no longer move forward, and on the arithmetic side, where computations fail, produce meaningless results, or leave behind values that no valid transaction can clear.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Formal verification gives the kind of feedback that testing does not provide. Tests confirm that the code works on the cases they exercise; formal verification, when it stalls, tells you exactly which assumption isn&rsquo;t holding. Even before any of the larger theorems have been proven, the act of building and reasoning about the model is already reaping rewards.</p>
+
+	</section>
+
+	<script
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+	  type="text/javascript">
+	</script>
+	<script src="/static/prism.js"></script>
+</main>
+
+
+					<footer>
+						<div class="socials">
+							<h3>Get in touch</h3>
+							<a
+								class="mbtn"
+								href="mailto:hello@commonprefix.com"
+							>
+								<span class="un">hello@commonprefix.com</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://twitter.com/CommonPrefix"
+							>
+								<span class="un">@commonprefix</span>
+							</a>
+						</div>
+						<div class="socials">
+							<br>
+							<a
+								class="mbtn"
+								href="https://github.com/commonprefix"
+							>
+								<span class="un">GitHub</span>
+							</a>							
+							<a
+								class="mbtn"
+								href="https://chaingrowth.xyz"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span class="un">chaingrowth.xyz</span>
+							</a>
+						</div>
+						<div class="footer__easter-egg">
+							<img
+								width="220px"
+								style="opacity: 0.5"
+								src="/static/footer_eq.svg"
+								draggable="false"
+								alt=""
+							/>
+							<img
+								width="220px"
+								style="mix-blend-mode: multiply"
+								src="/static/footer_blockchain.png"
+								draggable="false"
+								alt=""
+							/>
+							<p>
+								Rumpetur paritas cum sequens probatio operis
+								invenietur et ramus maior fiet.
+							</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			;(function () {
+				
+				document.querySelector('.footer__easter-egg').children[
+					Math.floor(Math.random() * 3)
+				].style.visibility = 'visible'
+
+				
+				window.requestAnimationFrame =
+					window.requestAnimationFrame ||
+					function (C) {
+						return setTimeout(function () {
+							C(+new Date())
+						}, 30)
+					}
+
+				function isTouchDevice() {
+					var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ')
+					var mq = function (query) {
+						return window.matchMedia(query).matches
+					}
+
+					if (
+						'ontouchstart' in window ||
+						(window.DocumentTouch &&
+							document instanceof DocumentTouch)
+					) {
+						return true
+					}
+
+					var query = [
+						'(',
+						prefixes.join('touch-enabled),('),
+						'heartz',
+						')',
+					].join('')
+					return mq(query)
+				}
+
+				var touchDevice = isTouchDevice()
+				if (touchDevice) {
+					document.body.classList.add('touchdevice')
+				}
+
+				var graphic = document.querySelector('.logo-graphic')
+				var clip = document.querySelector('.logo-graphic__clip')
+
+				if (!touchDevice) {
+					var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
+					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+
+					function reveal(e) {
+						var pos = graphic.getBoundingClientRect()
+						var x = e.clientX - pos.left - 150
+						var y = e.clientY - pos.top + 150
+
+						var v = `radial-gradient(circle at ${x}px ${y}px, black 0px, black 60px, transparent 120px)`
+						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+					}
+
+					window.addEventListener('mousemove', function (e) {
+						requestAnimationFrame(() => reveal(e))
+					})
+				}
+			})()
+		</script>
+	</body>
+</html>
