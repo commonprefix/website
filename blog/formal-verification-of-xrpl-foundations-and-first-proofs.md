@@ -7,7 +7,7 @@ index: true
 ---
 Common Prefix is a research and engineering company specializing in blockchain protocol design, analysis, and formal methods. We have worked extensively with Ripple on multiple projects, including documenting parts of the `xrpld` codebase. Recently, we began a new collaboration with Ripple to formally verify the XRP Ledger, a blockchain whose protocol implements a broad set of financial primitives, including multi-currency exchange, automated market makers, trust lines, vaults, and lending, natively in its execution layer.
 
-![Common Prefix x Ripple](/static/blog/fv-xrpl/cp_ripple_banner.jpg)
+![Common Prefix x Ripple](/static/blog/fv-xrpl/common_prefix_colab_1.jpg)
 
 The XRP Ledger is implemented in C++ by `xrpld`. The codebase is already well tested, with a substantial test suite and Antithesis-based fuzzing on top. But tests can only catch the bugs that actually surface in a testing scenario - they cannot show that a protocol invariant holds for every possible input. Formal verification can.
 
