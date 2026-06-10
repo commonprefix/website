@@ -834,9 +834,9 @@ var Clients []Client = []Client{
 				We combine Ouroboros Praos, a well-known PoS protocol, with CryptoNote, a privacy-preserving payment system based on ring signatures, which has been widely used in practice.`),
 				Links: []ProjectLink{
 					{
-						Url:  "/static/clients/zano/zano-pos.pdf",
-						Name: "StakeNote - A Proof-of-Stake Protocol for CryptoNote Payments",
-						Date: "2025-09-25",
+						Url:  "/static/clients/zano/stakenote.pdf",
+                                                Name: "StakeNote: A Proof-of-Stake Protocol for CryptoNote Payments",
+						Date: "2026-06-10",
 					},
 				},
 			},
