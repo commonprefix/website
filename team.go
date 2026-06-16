@@ -541,6 +541,18 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "hannes_verschore.jpeg",
 	},
+	"nikos_verschore": {
+		Handle:         "nikos_verschore",
+		Name:           "Nikos Verschore",
+		Specialization: "software engineering, embedded systems, distributed systems, full-stack development, algorithms",
+		Department: "engineering",
+		Desc: template.HTML(`
+		Nikos is a software engineer based in Ghent, Belgium, with over a decade of experience building production systems across web, embedded, and distributed environments. 
+		He holds a Master's degree in Computer Science from Ghent University, where his thesis parallelized game-tree search for the board game Reversi on a GPU using CUDA. 
+		He co-founded Drones And Lights, where he built much of the full stack behind large-scale autonomous drone shows, designing 3D A* pathfinding for navigation across kilometer-scale areas, developing cross-platform embedded firmware for STM32, ESP32, and Raspberry Pi, and optimizing drone-to-server communication to coordinate hundreds of drones over a constrained 200 bps broadcast channel, achieving certification for commercial shows across Europe. 
+		Earlier, at IMEC, he was technical lead on a learning platform that grew from an internal University of Ghent system into an EU-wide solution, building an xAPI-based learning analytics engine, interactive video modules, and rule-based adaptive learning paths in collaboration with partners including TNO, Fraunhofer, and Aalto University.		`),
+		Image: "nikos_verschore.jpg",
+	},
 	"felix": {
 		Handle:         "felix",
 		Name:           "Félix Villemin",
@@ -575,6 +587,17 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "matt_weinberg.jpg",
 	},	
+	"cornelius": {
+		Handle:         "cornelius",
+		Name:           "Cornelius Yan",
+		Specialization: "software engineering, distributed systems, observability",
+		Department: "engineering",
+		Desc: template.HTML(`
+		Cornelius is a software engineer at Common Prefix specializing in distributed systems, reliability, and observability. He has built and operated large-scale production infrastructure at TikTok, Gojek, and MedMe Health, including core backend systems serving billions of users and end-to-end observability infrastructure for high-traffic services. 
+		He holds a BSc in Computer Science from the Bandung Institute of Technology and is based in Bandung, Indonesia.
+		`),
+		Image: "cornelius_yan.png",
+	},
 	"sravya": {
 		Handle:         "sravya",
 		Name:           "Dr. Sravya Yandamuri",
