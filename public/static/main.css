@@ -937,10 +937,33 @@ a.finding {
   margin-bottom: 40px;
 }
 
+.blog-post .content h2 {
+  margin-top: 48px;
+}
+
+.blog-post .content h3 {
+  margin-top: 32px;
+}
+
+.blog-post .content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.blog-post .content p code,
+.blog-post .content li code,
+.blog-post .content td code,
+.blog-post .content a {
+  overflow-wrap: anywhere;
+}
+
 .blog-post__authors {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
+  row-gap: 4px;
+  column-gap: 20px;
 }
 
 .blog-post .footnotes {
