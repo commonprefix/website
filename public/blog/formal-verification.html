@@ -92,7 +92,9 @@
 	
 
 	<section class="content">
-		<p>Formal verification is getting some traction in the world of blockchains. But what is formal verification, why is it relevant for blockchains, and how can we make good use of it? No matter whether you&rsquo;re just dabbling with crypto or you&rsquo;re a web3 native, there&rsquo;s definitely something here for you.</p>
+		<p><strong><em><em>2026-7-2 update: Added <a href="#bonus-proving-closed-source-code-is-true-to-spec-with-zero-knowledge">bonus</a> section</em></em></strong></p>
+
+<p>Formal verification is getting some traction in the world of blockchains. But what is formal verification, why is it relevant for blockchains, and how can we make good use of it? No matter whether you&rsquo;re just dabbling with crypto or you&rsquo;re a web3 native, there&rsquo;s definitely something here for you.</p>
 
 <h3 id="but-what-is-formal-verification">But what is formal verification?</h3>
 
@@ -255,6 +257,10 @@
 <p>Also, who knows whether the users&rsquo; processors should be trusted not to send their secret keys to its manufacturer? After all, processors are almost exclusively closed-source and use opaque designs. More and more people <a href="https://en.wikipedia.org/wiki/Open-source_hardware" target="_blank">are actually taking this issue seriously</a>.</p>
 
 <p>Another issue is that any useful codebase relies on libraries, which most probably don&rsquo;t provide formally verified properties. This is an <a href="https://en.wikipedia.org/wiki/Supply_chain_attack" target="_blank">obvious weak point</a>. I specifically mention here cryptographic libraries, which arguably warrant formal verification more than other libraries. In fact, there are some tools specifically for formally verifying cryptographic implementations mainly following <a href="https://static.aminer.org/pdf/PDF/000/267/661/a_probabilistic_hoare_style_logic_for_game_based_cryptographic_proofs.pdf" target="_blank">game-based</a> cryptographic paradigm, such as <a href="http://tamarin-prover.github.io/" target="_blank">Tamarin</a>, <a href="https://bblanche.gitlabpages.inria.fr/proverif/" target="_blank">ProVerif</a>, <a href="https://www.easycrypt.info/" target="_blank">EasyCrypt</a>, and <a href="https://bblanche.gitlabpages.inria.fr/CryptoVerif/" target="_blank">CryptoVerif</a>. I won&rsquo;t give you a deep dive on these, this post is already getting too long.</p>
+
+<h3 id="bonus-proving-closed-source-code-is-true-to-spec-with-zero-knowledge">Bonus: Proving closed-source code is true to spec with Zero Knowledge</h3>
+
+<p>What if you want to keep code closed-source but also prove it upholds a certain spec? Dan Boneh <a href="https://zeroknowledge.fm/podcast/400" target="_blank">proposed</a> using <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof" target="_blank">Zero-Knowledge proofs</a> for proving in zero knowledge the existence of a proof of adherence to some spec. Complicated, I know, and very much theoretical for now, but it would definitely integrate nicely with the automated assurance system described above. The developer publishes the compiled binary, the spec, and the zero-knowledge proof that shows the binary has the spec&rsquo;s properties. The developer would need a <a href="https://docs.succinct.xyz/docs/sp1/what-is-a-zkvm" target="_blank">zero-knowledge VM</a> that internally runs the proof checker. The assurance pipeline would need a trusted zero-knowledge verifier to check the proof.</p>
 
 <h3 id="conclusion-outlook">Conclusion &amp; Outlook</h3>
 
