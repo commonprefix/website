@@ -464,24 +464,6 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Currently at Common Prefix, Nikos is focused on developing bridges and end-to-end testing.
 		`),
 		Image: "nikos_sfakianakis.jpg",
-	},	
-	"semeli": {
-		Handle:         "semeli",
-		Name:           "Semeli Spanou",
-		Specialization: "operations, logistics, biotech, data analytics",
-		Department: "operations",
-		Desc: template.HTML(`
-			Semeli is a member of the Operations team at Common Prefix,
-			where she collaborates with a diverse range of stakeholders
-			to drive operational efficiency and effectiveness.
-			She holds a Master's degree in Biotechnology,
-			from the Agricultural University of Athens,
-			with a focus on bioinformatics and data analysis.
-			Semeli's organisational and analytical skills contribute to
-			enhancing operational procedures, streamline reporting,
-			and strengthening our logistics management.
-		`),
-		Image: "semeli_spanou.jpg",
 	},
 	"angelos": {
 		Handle:         "angelos",
