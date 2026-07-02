@@ -4,7 +4,10 @@ date: "12/12/2025"
 desc: "An accessible guide to formal verification, what it is, why it matters for blockchain security, and how developers can start using it to build more trustworthy systems."
 authors: "orfeas"
 index: true
+
 ---
+***_2026-7-2 update: Added [bonus](#bonus-proving-closed-source-code-is-true-to-spec-with-zero-knowledge) section_***
+
 Formal verification is getting some traction in the world of blockchains. But what is formal verification, why is it relevant for blockchains, and how can we make good use of it? No matter whether you're just dabbling with crypto or you're a web3 native, there's definitely something here for you.
 
 ### But what is formal verification?
@@ -154,6 +157,9 @@ In practice, the best you can do today to mitigate this glaring loophole is [rep
 Also, who knows whether the users' processors should be trusted not to send their secret keys to its manufacturer? After all, processors are almost exclusively closed-source and use opaque designs. More and more people [are actually taking this issue seriously](https://en.wikipedia.org/wiki/Open-source_hardware).
 
 Another issue is that any useful codebase relies on libraries, which most probably don't provide formally verified properties. This is an [obvious weak point](https://en.wikipedia.org/wiki/Supply_chain_attack). I specifically mention here cryptographic libraries, which arguably warrant formal verification more than other libraries. In fact, there are some tools specifically for formally verifying cryptographic implementations mainly following [game-based](https://static.aminer.org/pdf/PDF/000/267/661/a_probabilistic_hoare_style_logic_for_game_based_cryptographic_proofs.pdf) cryptographic paradigm, such as [Tamarin](http://tamarin-prover.github.io/), [ProVerif](https://bblanche.gitlabpages.inria.fr/proverif/), [EasyCrypt](https://www.easycrypt.info/), and [CryptoVerif](https://bblanche.gitlabpages.inria.fr/CryptoVerif/). I won't give you a deep dive on these, this post is already getting too long.
+
+### Bonus: Proving closed-source code is true to spec with Zero Knowledge
+What if you want to keep code closed-source but also prove it upholds a certain spec? Dan Boneh [proposed](https://zeroknowledge.fm/podcast/400) using [Zero-Knowledge proofs](https://en.wikipedia.org/wiki/Zero-knowledge_proof) for proving in zero knowledge the existence of a proof of adherence to some spec. Complicated, I know, and very much theoretical for now, but it would definitely integrate nicely with the automated assurance system described above. The developer publishes the compiled binary, the spec, and the zero-knowledge proof that shows the binary has the spec's properties. The developer would need a [zero-knowledge VM](https://docs.succinct.xyz/docs/sp1/what-is-a-zkvm) that internally runs the proof checker. The assurance pipeline would need a trusted zero-knowledge verifier to check the proof.
 
 ### Conclusion & Outlook
 Phew, that was quite a ride! To sum up, we've seen what formal verification is, how it works in practice, discussed relevant tools, and saw existing limitations and tradeoffs. Bottom line is that there can be no scalable, practical, provably robust security without formal verification. Still, the field has a long way to go. Currently it is very hard to get efficient formally verified code without investing immense engineering effort. It is also hard to integrate formal verification with existing codebases. Choosing your battles, i.e., which parts of your codebase to formally verify, is crucial. Still, this is a quickly evolving area, so watch this space and beat the curve! I wish you good luck in your explorations! You might find this [list of formal verification tools](https://github.com/ElNiak/awesome-formal-verification) useful.
