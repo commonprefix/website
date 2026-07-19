@@ -549,7 +549,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 	},
 	"matt": {
 		Handle:         "matt",
-		Name:           "Matt Weinberg",
+		Name:           "Prof. Matt Weinberg",
 		Specialization: "algorithmic mechanism design, economics and computation, theoretical computer science",
 		Department: "science",
 		Desc: template.HTML(`
