@@ -16,13 +16,6 @@ var Openings = []JobOpening{
 		Description: "We're looking for a Product Designer to join as our first dedicated designer, owning UI/UX end-to-end across a growing pipeline of technical products and developer-facing interfaces.",
 	},
 	{
-		Name:        "Business Development Lead",
-		Url:         "https://commonprefix.notion.site/bd-folk",
-		Location:    "Remote or on-site in Athens, Greece",
-		Type:        "Full-time",
-		Description: "We're looking for a Business Development Lead to help us grow our partnerships and establish Common Prefix as the technology leader in the blockchain-powered global economy.",
-	},
-	{
 		Name:        "Auditor",
 		Url:         "https://commonprefix.notion.site/auditing-folk",
 		Location:    "Remote or on-site in Athens, Greece",
