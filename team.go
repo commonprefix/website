@@ -11,6 +11,7 @@ var Titles = map[string]string{
 	"themis":   "Engineer Lead",
 	"apostolos":   "Product Lead & Co-Founder",
 	"dimitris":   "Co-Founder",
+	"adam":   "Head of Business Development",
 }
 
 var Members map[string]TeamMember = map[string]TeamMember{
@@ -169,6 +170,19 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			Additionally, he has audited multiple deployed zero-knowledge and cryptographic codebases.
 		`),
 		Image: "pyrros_chaidos.jpg",
+	},
+	"shoham": {
+		Handle:         "shoham",
+		Name:           "Shoham Chakraborty",
+		Specialization: "distributed systems, software engineering, consensus, performance engineering",
+		Department: "engineering",
+		Desc: template.HTML(`
+			Shoham is a software engineer based in Singapore, with a background in distributed systems and blockchain core infrastructure. 
+			He holds a Bachelor of Engineering in Computer Science and Design from the Singapore University of Technology and Design. 
+			He worked on Erigon - an Ethereum execution client, where his focus spanned sync architecture, parallel execution, account abstraction, and P2P networking. 
+			Earlier, he worked on Bitcoin sidechain infrastructure and on the design of automated market makers and lending protocols.
+		`),
+		Image: "shoham_chakraborty.jpg",
 	},
 	"james": {
 		Handle:         "james",
@@ -371,6 +385,18 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			and as a backend and blockchain engineer at <a href="https://www.netcetera.com/">Netcetera</a>, <a href="https://www.sorsix.com/">Sorsix</a>, and <a href="https://www.loka.com/">LOKA</a>.
 			`),
 		Image: "jakov_mitrovski.jpg",
+	},
+	"adam": {
+		Handle:         "adam",
+		Name:           "Adam Oozeer",
+		Specialization: "business development, strategic partnerships, ecosystem growth",
+		Department: "operations",
+		Desc: template.HTML(`
+		Adam leads business development initiatives at Common Prefix, helping blockchains, protocols, dapps, infrastructure providers, and ecosystem teams adopt interoperability solutions and research-driven technologies. 
+		He brings several years of experience in institutional crypto sales and strategic partnerships across custody, trading infrastructure, advisory, and Web3. 
+		Before joining Common Prefix, he was a sales lead at Sentora (formerly Trident Digital), where he helped scale the company's commercial efforts and closed strategic partnerships involving major industry participants including PayPal PYUSD. Previously, at SFOX, he managed institutional relationships and worked with financial institutions and enterprise clients, using automation to help scale both their inbound and outbound efforts. 
+		His focus is on connecting technical innovation with commercial adoption through long-term partnerships and ecosystem growth.`),
+		Image: "AdamOozeer.jpeg",
 	},
 	"themis": {
 		Handle:         "themis",
