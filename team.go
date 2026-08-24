@@ -384,7 +384,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			He has multi-year experience in software engineering, gained by working as a cloud engineer at <a href="https://www.etas.com/">ETAS (Bosch) GmbH</a> 
 			and as a backend and blockchain engineer at <a href="https://www.netcetera.com/">Netcetera</a>, <a href="https://www.sorsix.com/">Sorsix</a>, and <a href="https://www.loka.com/">LOKA</a>.
 			`),
-		Image: "jakov_mitrovski.jpg",
+		Image: "jakov_mitrovski_.jpg",
 	},
 	"adam": {
 		Handle:         "adam",
