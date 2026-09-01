@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Common Prefix — XRP Ledger Batch Transactions Security Audit Report</title>
+		<meta name="description" content="A security audit of the XRP Ledger Batch Transactions feature (XLS-0056): seven findings across batch signing, fee calculation, execution modes, and P2P relay, including two critical and high-severity signing-scheme flaws and a DoS amplification vector." />
+
+		<meta property="og:title" content="Common Prefix — XRP Ledger Batch Transactions Security Audit Report">
+		<meta property="og:description" content="A security audit of the XRP Ledger Batch Transactions feature (XLS-0056): seven findings across batch signing, fee calculation, execution modes, and P2P relay, including two critical and high-severity signing-scheme flaws and a DoS amplification vector.">
+		<meta property="og:url" content="https://commonprefix.com/">
+		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
+
+		<meta name="twitter:title" content="Common Prefix — XRP Ledger Batch Transactions Security Audit Report">
+		<meta name="twitter:description" content="A security audit of the XRP Ledger Batch Transactions feature (XLS-0056): seven findings across batch signing, fee calculation, execution modes, and P2P relay, including two critical and high-severity signing-scheme flaws and a DoS amplification vector.">
+		<meta property="twitter:url" content="https://commonprefix.com/">
+		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="commonprefix.com">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/png" href="/static/favicon/favicon.png" />
+		<link rel="manifest" href="/static/site.webmanifest">
+
+		<link rel="preload" href="/static/main.css" as="style" />
+		<link rel="stylesheet" href="/static/main.css" />
+		<script src="/static/main.js"></script>
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVFWK2DDQF"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){ dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'G-ZVFWK2DDQF');
+		</script>
+
+		
+
+<link href="/static/prism.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="logo-graphic">
+			<img draggable="false" src="/static/commonprefix_logo.jpg" alt="" />
+			<img
+				style="visibility: hidden"
+				class="logo-graphic__clip"
+				draggable="false"
+				src="/static/commonprefix_logo.jpg"
+				alt=""
+			/>
+		</div>
+
+		<div class="outer-container">
+			<div class="container">
+				<div class="small-container">
+					<header>
+						<a href="/" class="header__company-name">
+							<img
+								src="/static/cp-text-logo.svg"
+								alt="Common Prefix"
+								class="header__logo"
+							/>
+						</a>
+						<nav>
+							<a href="/team.html">Team</a>
+							<a href="/research.html">Research</a>
+							
+							<a href="/bridges.html">Bridges</a>
+							<a href="/blog/">Blog</a>
+							<a href="/podcast.html">Podcast</a>
+							<a href="/careers.html" class="careers-link">Careers</a>
+						</nav>
+					</header>
+
+					
+<main class="blog-post">
+	<h1>XRP Ledger Batch Transactions Security Audit Report</h1>
+	<h5 class="mono light blog-post__date">01/09/2026<br />
+		<div class="blog-post__authors">
+		
+			<a href="/team#dejan">Dejan Cabrilo</a>
+		
+			<a href="/team#nikolas">Nikolaos Kamarinakis</a>
+		
+			<a href="/team#ivan">Ivan Randjelovic</a>
+		
+		</div>
+	</h5>
+	<h5>Reading time: 19 minutes</h5>
+
+	
+
+	<section class="content">
+		<h2 id="abstract">Abstract</h2>
+
+<p>This report presents the findings of a security audit of the Batch Transactions feature (XLS-0056) for the XRP Ledger, conducted by Common Prefix. The audit focused on the reference C++ implementation in the <code>xrpld</code> codebase, covering batch signing, fee calculation, execution mode semantics, ledger state isolation, serialization, consensus integration, peer-to-peer relay, replay protection, and inner transaction independence. We identified seven findings across these areas, including two critical and high-severity issues in the batch signing scheme and a high-severity DoS amplification vector via transaction ID manipulation.</p>
+
+<p><img src="/static/blog/xrpl-batch-tx-audit/xrpl_batch_tx_audit_banner.jpg" alt="Common Prefix x XRP Ledger" /></p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Common Prefix was engaged by Ripple to conduct a security audit of the Batch Transactions feature for the XRP Ledger protocol. Batch transactions enable native atomic multi-transaction bundles, allowing multiple inner transactions to be submitted and executed as a single outer batch transaction with configurable execution semantics.</p>
+
+<p>The audit scope covered the following pull requests in the <code>rippled</code> C++ reference implementation:
+<a href="https://github.com/XRPLF/rippled/pull/5060" target="_blank">PR #5060</a>,
+<a href="http://github.com/XRPLF/rippled/pull/6176" target="_blank">PR #6176</a>,
+<a href="http://github.com/XRPLF/rippled/pull/6069" target="_blank">PR #6069</a>,
+<a href="https://github.com/XRPLF/rippled/pull/6446" target="_blank">PR #6446</a>.</p>
+
+<h3 id="findings-severity-breakdown">Findings Severity Breakdown</h3>
+
+<p>Our findings are classified under the following severity categories, according to their impact and their likelihood of leading to an attack.</p>
+
+<table style="border-collapse:collapse;width:100%;font-size:0.95em;line-height:1.5">
+  <thead>
+    <tr style="background:#f4f1ea">
+      <th style="border:1px solid #d9d4c7;padding:10px 16px;text-align:left;width:150px">Level</th>
+      <th style="border:1px solid #d9d4c7;padding:10px 16px;text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px;vertical-align:top">Critical</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Logical errors or implementation bugs that are easily exploited.</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px;vertical-align:top">High</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Logical errors or implementation bugs that can be exploited but require a particular set of circumstances or can lead to DoS attacks.</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px;vertical-align:top">Medium</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Issues that may break the intended logic or deviate from specification.</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px;vertical-align:top">Low</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Issues harder to exploit, can lead to poor performance, or error-prone implementation.</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px;vertical-align:top">Informational</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Advisory comments and recommendations that could help make the codebase clearer, more readable, and easier to maintain.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2 id="findings">Findings</h2>
+
+<h3 id="cp-batch-01-batch-transaction-replay-attack">CP-BATCH-01, Batch Transaction Replay Attack</h3>
+
+<p><strong>Severity: Critical</strong></p>
+
+<p><em>Description:</em> The batch signers&rsquo; signatures are not tied to the outer account or sequence number. The signing data (constructed in <code>serializeBatch</code> in <code>Batch.h</code>) includes only the batch prefix, flags, and inner transaction IDs, but does not include the outer account, sequence number, or any unique batch identifier.</p>
+
+<p>This allows an attacker who observes a valid batch transaction on the network to extract the <code>sfBatchSigners</code> array and replay the inner transactions in a new batch wrapper with different outer account credentials.</p>
+
+<p>The <code>tfOnlyOne</code> execution mode is the most severely affected: it executes only the first inner transaction that succeeds, leaving the rest unexecuted. An attacker can replay the batch repeatedly, each time with conditions arranged so that a different inner transaction succeeds, effectively executing all inner transactions individually, defeating the intended mutual exclusion guarantee.</p>
+
+<p>The <code>tfAllOrNothing</code> mode is also vulnerable: if a batch fails (e.g., insufficient funds), sequence numbers are not consumed. If conditions later change, the batch can be replayed since sequences remain valid.</p>
+
+<p>The <code>tfIndependent</code> and <code>tfUntilFailure</code> modes are less affected because they consume sequence numbers even for failed inner transactions.</p>
+
+<p><em>Impact:</em> An attacker can replay batch transactions across different execution contexts. In <code>tfOnlyOne</code> mode, the mutual exclusion guarantee is completely broken, allowing all N inner transactions to be executed when only 1 was intended. This can lead to direct loss of funds.</p>
+
+<pre><code class="language-cpp">// Batch.h, serializeBatch
+inline void serializeBatch(
+    Serializer&amp; msg, std::uint32_t const&amp; flags,
+    std::vector&lt;uint256&gt; const&amp; txids)
+{
+    msg.add32(HashPrefix::batch);
+    msg.add32(flags);
+    msg.add32(std::uint32_t(txids.size()));
+    for (auto const&amp; txid : txids)
+        msg.addBitString(txid);
+    // outer account, sequence, and batch ID are NOT included
+}
+</code></pre>
+
+<p><em>Resolution:</em> <code>serializeBatch</code> now includes the outer transaction&rsquo;s Account and Sequence in the data signed by each batch signer, so an <code>sfBatchSigners</code> array is valid only for one specific outer submission and cannot be reused in a different batch wrapper.</p>
+
+<hr>
+
+<h3 id="cp-batch-02-multi-sign-signature-reuse">CP-BATCH-02, Multi-Sign Signature Reuse</h3>
+
+<p><strong>Severity: High</strong></p>
+
+<p><em>Description:</em> In <code>checkBatchMultiSign</code>, the batch signer&rsquo;s own account ID is not included in the data that individual multi-signers sign. The signing data is constructed as: batch prefix + flags + inner transaction IDs + individual <code>sfSigner</code>&rsquo;s account (via <code>multiSignHelper</code>). The batch signer&rsquo;s account is not included.</p>
+
+<p>By contrast, <code>checkBatchSingleSign</code> correctly includes the batch signer&rsquo;s account via <code>finishMultiSigningData(batchSigner.getAccountID(sfAccount), msg)</code>.</p>
+
+<p>This means that if two batch signers (e.g., Alice and Bob) in the same batch share a common multi-signer (e.g., Carol appears on both signer lists), Carol&rsquo;s signature from Alice&rsquo;s entry can be copied into Bob&rsquo;s entry. The signed data is identical because the batch signer&rsquo;s account is not part of it.</p>
+
+<p><em>Impact:</em> A multi-signer&rsquo;s signature can be silently replayed across batch signer entries within the same batch transaction. This violates the fundamental property that a cryptographic signature represents explicit consent for a specific action.</p>
+
+<pre><code class="language-cpp">// STTx.cpp, checkBatchMultiSign
+Expected&lt;void, std::string&gt;
+STTx::checkBatchMultiSign(
+    STObject const&amp; batchSigner,
+    Rules const&amp; rules) const
+{
+    Serializer dataStart;
+    serializeBatch(dataStart, getFlags(),
+        getBatchTransactionIDs());
+    return multiSignHelper(
+        batchSigner,
+        std::nullopt,
+        [&amp;dataStart](AccountID const&amp; accountID)
+        -&gt; Serializer {
+            Serializer s = dataStart;
+            finishMultiSigningData(accountID, s); // individual multi-signer's account,
+                                                  // NOT the batch signer's account
+            return s;
+        },
+        rules);
+}
+</code></pre>
+
+<p><em>Resolution:</em> <code>checkBatchMultiSign</code> now includes the batch signer&rsquo;s <code>sfAccount</code> in the signing data shared by its multi-signers, matching what <code>checkBatchSingleSign</code> already did. The signed payload is now distinct per batch signer, so a multi-signer&rsquo;s signature can no longer be copied between batch signer entries.</p>
+
+<hr>
+
+<h3 id="cp-batch-03-batch-multi-sign-self-signing-bypass">CP-BATCH-03, Batch Multi-Sign Self-Signing Bypass</h3>
+
+<p><strong>Severity: Low</strong></p>
+
+<p><em>Description:</em> In <code>checkBatchMultiSign</code>, <code>std::nullopt</code> is passed to <code>multiSignHelper</code> as the <code>txnAccountID</code> parameter. In the regular <code>checkMultiSign</code> path, the transaction&rsquo;s account is (conditionally) passed instead, which triggers a check in <code>multiSignHelper</code> that prevents the account owner from appearing as one of their own multi-signers.</p>
+
+<p>By passing <code>std::nullopt</code>, batch multi-sign skips this restriction. A batch signer&rsquo;s own account can appear in its <code>sfSigners</code> array and count toward the multi-sign quorum, effectively signing for itself.</p>
+
+<p><em>Impact:</em> A batch signer who is also on their own signer list can satisfy quorum requirements with fewer independent signers than intended.</p>
+
+<p><em>Resolution:</em> Passing the batch signer&rsquo;s account ID instead of <code>std::nullopt</code> reactivates the check in <code>multiSignHelper</code> that prevents an account from appearing in its own <code>sfSigners</code> array. Self-signing was confirmed not to be an intentional carve-out.</p>
+
+<hr>
+
+<h3 id="cp-batch-04-fee-escalation-undercount-for-batch-transactions">CP-BATCH-04, Fee Escalation Undercount for Batch Transactions</h3>
+
+<p><strong>Severity: Informational</strong></p>
+
+<p><em>Description:</em> During open ledger fee escalation, a batch transaction containing N inner transactions counts as only +1 toward the <code>txCount</code> that drives the escalation curve. The same N transactions submitted individually would count as +N.</p>
+
+<p>The batch transaction pays a correct fee for its own admission, but exerts significantly less upward pressure on the fee curve for subsequent transactions.</p>
+
+<p>With <code>maxBatchTxCount</code> = 8, a batch gets 8 transactions processed while only raising the escalation counter by 1 instead of 8.</p>
+
+<p><em>Impact:</em> During network congestion, batch transactions exert disproportionately low upward pressure on the fee escalation curve.</p>
+
+<pre><code class="language-cpp">// TxQ.cpp, scaleFeeLevel
+auto const current = view.txCount(); // batch = +1, not +N
+if (current &gt; target)
+    return mulDiv(multiplier,
+        current * current,
+        target * target);
+</code></pre>
+
+<p><em>Resolution:</em> No code change. Ripple confirmed the behavior is intentional: a batch is a single transaction at the protocol layer, and the cost of its inner transactions is already charged through the aggregated fee in <code>Batch::calculateBaseFee</code> at admission time, so <code>txCount</code> deliberately remains a per-transaction count. The design rationale will be documented in the XLS-0056 specification.</p>
+
+<hr>
+
+<h3 id="cp-batch-05-sfbatchsigners-permutation-allows-transaction-id-manipulation">CP-BATCH-05, sfBatchSigners Permutation Allows Transaction ID Manipulation</h3>
+
+<p><strong>Severity: High</strong></p>
+
+<p><em>Description:</em> Two properties combine to create this vulnerability:</p>
+
+<ol>
+<li><code>sfBatchSigners</code> is excluded from the outer signature but included in the transaction ID. The <code>notSigning</code> flag in <code>sfields.macro</code> means the outer account&rsquo;s signature does not cover <code>sfBatchSigners</code>. But the transaction ID is computed via <code>STObject::getHash</code> with <code>withAllFields = true</code>, which includes <code>notSigning</code> fields.</li>
+<li><code>STArray</code> serializes elements in insertion order with no sorting applied. <code>STArray::add</code> iterates the array in order-dependent fashion. Compare with regular <code>sfSigners</code>, where <code>multiSignHelper</code> enforces ascending <code>AccountID</code> order. No equivalent ordering check exists in <code>checkBatchSign</code>.</li>
+</ol>
+
+<p>With up to 8 batch signers (<code>maxBatchTxCount</code> = 8), this allows up to 8! = 40,320 permutations of the same valid batch transaction, each with a unique transaction ID. Each permutation has a valid outer signature (<code>sfBatchSigners</code> is <code>notSigning</code>), valid batch signer signatures (they sign flags + inner tx IDs, not signer order), and a different transaction ID (different serialization = different hash).</p>
+
+<p><em>Impact:</em> A malicious node can observe a legitimate batch transaction, generate all permutations of <code>sfBatchSigners</code>, and relay them directly to peers via the overlay. Each permutation is seen as a new transaction by the <code>HashRouter</code> and triggers preflight including cryptographic signature verification on every receiving node.</p>
+
+<p>Furthermore, other permutation attacks may be exposed as Batch functionality is built on.</p>
+
+<p><em>Proof of Concept:</em> We confirmed the vulnerability on a test network with three honest validator nodes and one malicious node, all peered on a private network with the <code>BatchV1_1</code> amendment enabled. The malicious node was modified to intercept batch transactions in <code>NetworkOPsImp::processTransaction</code>, generate all permutations using <code>std::next_permutation</code>, and relay them directly via the overlay, bypassing local processing.</p>
+
+<p>One batch transaction with 8 batch signers was submitted to the network:</p>
+
+<p>table style=&ldquo;border-collapse:collapse;width:100%;font-size:0.95em;line-height:1.5&rdquo;&gt;
+  <thead>
+    <tr style="background:#f4f1ea">
+      <th style="border:1px solid #d9d4c7;padding:10px 16px;text-align:left;width:60%">Metric</th>
+      <th style="border:1px solid #d9d4c7;padding:10px 16px;text-align:left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Batch signers</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">8</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Permutations generated and relayed</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">40,319</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Fee paid (victim)</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">180 drops (once)</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Attacker cost</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">zero</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">Batch txs in validated ledger</td>
+      <td style="border:1px solid #d9d4c7;padding:10px 16px">1</td>
+    </tr>
+  </tbody>
+</table></p>
+
+<p>Each preflight verification involves 8 cryptographic signature operations (one per batch signer). All permutations passed preflight before any sequence check. Detection is difficult because each permutation is a fully valid, properly signed transaction.</p>
+
+<pre><code class="language-cpp">// sfields.macro
+UNTYPED_SFIELD(sfBatchSigners, ARRAY, 31,
+    SField::sMD_Default, SField::notSigning)
+
+// STObject::getHash - includes notSigning fields
+uint256 STObject::getHash(HashPrefix prefix) const
+{
+    Serializer s;
+    s.add32(prefix);
+    add(s, withAllFields); // includes notSigning
+    return s.getSHA512Half();
+}
+
+// No ordering check for sfBatchSigners.
+// Compare: multiSignHelper enforces order for sfSigners:
+//    if (lastAccountID &gt; accountID)
+//      return Unexpected(&quot;Unsorted Signers array.&quot;);
+</code></pre>
+
+<p><em>Resolution:</em> <code>sfBatchSigners</code> is now required to be sorted by <code>AccountID</code>, matching the existing rule for <code>sfSigners</code>, via a strictly increasing <code>AccountID</code> check that also subsumes the previous duplicate check. This leaves exactly one canonical serialization, and therefore one transaction ID, per set of batch signers. Finding was accepted as a consensus-determinism issue rather than DoS amplification, which we agree.</p>
+
+<hr>
+
+<h3 id="cp-batch-06-missing-signature-caching-for-batch-signers">CP-BATCH-06, Missing Signature Caching for Batch Signers</h3>
+
+<p><strong>Severity: Low</strong></p>
+
+<p><em>Description:</em> The outer account signature of a batch transaction is cached via the <code>SF_SIGGOOD</code> flag in the <code>HashRouter</code> (<code>checkValidity</code> in <code>apply.cpp</code>). Once cached, subsequent preflight passes skip the outer signature check entirely. However, batch signer signatures are verified through a separate path that has no caching mechanism. They are re-verified from scratch on every preflight and preclaim invocation.</p>
+
+<p>A batch transaction&rsquo;s lifecycle involves four full rounds of batch signer signature verification:</p>
+
+<ul>
+<li><strong>Stage 1, transaction submission preflight:</strong> When a batch transaction is first received (via <code>PeerImp::checkTransaction</code> or direct submission), the outer signature is checked and cached via <code>SF_SIGGOOD</code>. The transaction then enters <code>tryDirectApply</code>, which runs preflight. <code>Batch::preflightSigValidated</code> calls <code>STTx::checkBatchSign</code>, performing the first full cryptographic verification of every batch signer&rsquo;s signature.</li>
+<li><strong>Stage 2, tryDirectApply preclaim:</strong> <code>invoke_preclaim</code> in <code>applySteps.cpp</code> calls <code>Batch::checkSign</code>, which in turn calls <code>Batch::checkBatchSign</code>.</li>
+<li><strong>Stage 3, ledger close preflight:</strong> When the transaction is applied during ledger close, preflight runs again. <code>Batch::preflightSigValidated</code> calls <code>STTx::checkBatchSign</code>.</li>
+<li><strong>Stage 4, ledger close preclaim:</strong> <code>invoke_preclaim</code> calls <code>Batch::checkSign</code>, which calls <code>Batch::checkBatchSign</code>.</li>
+</ul>
+
+<p><em>Impact:</em> With 8 batch signers, each verification round performs 8 cryptographic signature operations. Across the 4 rounds, this totals 32 <code>verify()</code> calls per batch transaction. In the worst case with multi-signing (up to 32 multi-signers per batch signer), a single batch transaction triggers up to 1,024 <code>verify()</code> calls. Since the outer signature is cached via <code>SF_SIGGOOD</code> but batch signer signatures are not, this asymmetry means that batch transactions impose significantly more CPU load than their outer signature caching would suggest. During periods of high batch transaction volume, this could contribute to ledger close delays.</p>
+
+<pre><code class="language-cpp">// apply.cpp, checkValidity - outer signature cached
+if (!any(flags &amp; SF_SIGGOOD))
+{
+    auto const sigVerify = tx.checkSign(rules);
+    router.setFlags(id, SF_SIGGOOD); // cached
+}
+
+// Batch.cpp, preflightSigValidated - NOT cached
+auto const sigResult =
+    ctx.tx.checkBatchSign(ctx.rules);
+
+// Batch.cpp, checkSign (preclaim) - verified AGAIN
+if (ctx.tx.isFieldPresent(sfBatchSigners))
+{
+    if (auto ret = checkBatchSign(ctx);
+        !isTesSuccess(ret))
+        return ret;
+}
+</code></pre>
+
+<p><em>Resolution:</em> No code change. Ripple does not consider the missing cache a security issue at current batch volumes, since the per-signer component of <code>Batch::calculateBaseFee</code> and open ledger fee escalation limit the cost of repeated submissions. Extending <code>SF_SIGGOOD</code> caching to batch signers, or adding a separate <code>SF_BATCHSIGGOOD</code> flag, is tracked as a follow-up optimization to be prioritized if profiling shows batch signer verification contributing to ledger close latency.</p>
+
+<hr>
+
+<h3 id="cp-batch-07-amendment-guard-gap-for-inner-batch-transactions">CP-BATCH-07, Amendment Guard Gap for Inner Batch Transactions</h3>
+
+<p><strong>Severity: Low</strong></p>
+
+<p><em>Description:</em> In <code>NetworkOPs.cpp</code>, both <code>submitTransaction</code> and <code>preProcessTransaction</code> reject inner batch transactions only when <code>featureBatchV1_1</code> is enabled. In practice, when the amendment is not enabled, this code path is unreachable: <code>Transactor::preflight1</code> already returns <code>temINVALID_FLAG</code> for any transaction with <code>tfInnerBatchTxn</code> when the amendment is inactive. Nevertheless, the guards in <code>NetworkOPs</code> are unnecessary and inconsistent with the rest of the codebase.</p>
+
+<p>By contrast, <code>PeerImp::handleTransaction</code> and <code>PeerImp::checkTransaction</code> reject <code>tfInnerBatchTxn</code> unconditionally, with an explicit comment explaining that the flag indicates an invalid transaction regardless of amendment status.</p>
+
+<p><em>Impact:</em> Before <code>featureBatchV1_1</code> activation, an attacker could submit transactions with the <code>tfInnerBatchTxn</code> flag directly to the network. While these would likely fail during processing, they would consume network resources before being rejected.</p>
+
+<pre><code class="language-cpp">// NetworkOPs.cpp, submitTransaction
+if (iTrans-&gt;isFlag(tfInnerBatchTxn) &amp;&amp;
+    m_ledgerMaster.getValidatedRules()
+        .enabled(featureBatchV1_1))
+{
+    JLOG(m_journal.error())
+        &lt;&lt; &quot;Submitted transaction invalid: &quot;
+           &quot;tfInnerBatchTxn flag present.&quot;;
+    return;
+}
+</code></pre>
+
+<p><em>Resolution:</em> Both checks in <code>NetworkOPs.cpp</code> now reject transactions carrying <code>tfInnerBatchTxn</code> regardless of amendment status, matching <code>Transactor::preflight1</code> and <code>PeerImp</code>.</p>
+
+<hr>
+
+<h2 id="3-audit-structure">3 Audit Structure</h2>
+
+<h3 id="3-1-batch-signing-scheme">3.1 Batch Signing Scheme</h3>
+
+<p>We performed a line-by-line review of the entire batch signature verification chain.</p>
+
+<p>We identified three issues in this area. The most critical is that the signing data does not include the outer batch transaction&rsquo;s account or sequence number, making batch signer signatures transferable across different batch wrappers (CP-BATCH-01). The second issue is that <code>checkBatchMultiSign</code> omits the batch signer&rsquo;s account from the data that individual multi-signers sign, while <code>checkBatchSingleSign</code> correctly includes it (CP-BATCH-02). A third, lower-severity issue is that the self-signing restriction present in regular multi-sign is bypassed in batch multi-sign (CP-BATCH-03).</p>
+
+<h3 id="3-2-fee-calculation">3.2 Fee Calculation</h3>
+
+<p>We audited <code>Batch::calculateBaseFee</code> in <code>Batch.cpp</code>, which computes the required fee for a batch transaction. The function correctly aggregates: the default Transactor base fee, an additional <code>view.fees().base</code> for batch overhead, the sum of each inner transaction&rsquo;s individual base fee, and a per-signer fee based on the number of signature verification operations.</p>
+
+<p>Overflow checks are present throughout the calculation. The fee is always claimed by the outer batch transaction regardless of whether inner transactions succeed.</p>
+
+<p>We identified one concern with the interaction between batch transactions and the open ledger fee escalation mechanism (CP-BATCH-04).</p>
+
+<h3 id="3-3-execution-mode-semantics">3.3 Execution Mode Semantics</h3>
+
+<p>We traced the execution of all four batch modes through <code>applyBatchTransactions</code> in <code>apply.cpp</code>. Each mode was analyzed for atomicity, state rollback, and partial application correctness.</p>
+
+<p><strong>tfAllOrNothing:</strong> If any inner transaction returns a non-<code>tesSUCCESS</code> result, the function returns false immediately. The entire <code>wholeBatchView</code> is never applied, so all accumulated state changes (including sequence increments for previously-successful inner transactions) are rolled back. This correctly implements all-or-nothing atomicity.</p>
+
+<p><strong>tfOnlyOne:</strong> The loop breaks on the first <code>tesSUCCESS</code> inner transaction. Inner transactions that result in <code>tecCLAIM</code> still have their views applied, consuming their sequence and fee, and the loop continues past them.</p>
+
+<p><strong>tfUntilFailure:</strong> The loop breaks on the first non-<code>tesSUCCESS</code> result. All previously executed transactions (<code>tesSUCCESS</code> and <code>tecCLAIM</code>) have their state changes persisted. The failed transaction&rsquo;s changes are also applied if the result is <code>tecCLAIM</code> (consuming sequence and fee), but discarded if it is a non-tec/non-tes failure (<code>tem</code>, <code>tel</code>, <code>tef</code>).</p>
+
+<p><strong>tfIndependent:</strong> All inner transactions execute regardless of individual results. Both <code>tesSUCCESS</code> and <code>tecCLAIM</code> transactions have their views applied and state changes persisted. Only non-tec/non-tes failures have their views discarded.</p>
+
+<p>Across all modes, each inner transaction&rsquo;s <code>perTxBatchView</code> is applied to the parent <code>batchView</code> whenever the result is <code>tesSUCCESS</code> or <code>tecCLAIM</code>. This means tec-class results (&ldquo;claimed&rdquo; transactions) consume their sequence and fee, and their state changes are persisted, just like successful transactions. Only non-tec/non-tes failures (<code>tem</code>, <code>tel</code>, <code>tef</code>) have their views discarded.</p>
+
+<p>No findings were identified in the execution mode logic itself. The replay concerns affecting <code>tfOnlyOne</code> and <code>tfAllOrNothing</code> modes stem from the signing scheme (see CP-BATCH-01 in Section 2), not from the mode implementation.</p>
+
+<h3 id="3-4-ledger-state-isolation">3.4 Ledger State Isolation</h3>
+
+<p>We examined the ledger state isolation mechanism for inner transactions. Each inner transaction executes in its own OpenView (<code>perTxBatchView</code>), constructed with the <code>batch_view</code> tag from the shared <code>batchView</code>. This creates a two-tier isolation model.</p>
+
+<p><strong>Tier 1, per-transaction isolation:</strong> Each inner transaction&rsquo;s state modifications (account balances, sequence increments, trust line changes, offer book mutations) are confined to its <code>perTxBatchView</code>. Only on successful application are changes promoted to the parent <code>batchView</code>.</p>
+
+<p><strong>Tier 2, whole-batch isolation:</strong> The <code>batchView</code> accumulates all successfully-applied inner transaction changes. This view is applied to the main ledger view only if <code>applyBatchTransactions</code> returns true. For <code>tfAllOrNothing</code> mode, returning false discards the entire batch&rsquo;s accumulated state.</p>
+
+<p>Inner transactions can see the effects of prior inner transactions in the same batch (because successful <code>perTxBatchViews</code> are applied to the shared <code>batchView</code>). This is intentional and necessary for correct sequence numbering.</p>
+
+<p>No findings were identified. The two-tier OpenView model provides proper isolation with controlled promotion of state changes.</p>
+
+<h3 id="3-5-serialization-and-parsing">3.5 Serialization and Parsing</h3>
+
+<p>We reviewed the serialization of batch-specific fields and their interaction with transaction ID computation and signature verification.</p>
+
+<p><code>sfRawTransactions</code> (defined in <code>sfields.macro</code>) is a standard ARRAY field included in the outer transaction signature. Inner transaction data is therefore committed to by the outer account&rsquo;s signature, preventing modification.</p>
+
+<p><code>sfBatchSigners</code> (also in <code>sfields.macro</code>) is marked as <code>notSigning</code>, correctly excluding it from the outer transaction signature hash. However, it is included in the transaction ID computation. We identified that the lack of canonical ordering on this array creates a DoS amplification vector.</p>
+
+<h3 id="3-6-consensus-and-ledger-building">3.6 Consensus and Ledger Building</h3>
+
+<p>We traced the batch transaction&rsquo;s path through the consensus and ledger building pipeline. During ledger close, the batch transaction is applied via <code>applyTransaction</code> in <code>apply.cpp</code>. The outer batch transaction consumes the outer account&rsquo;s sequence and fee first. Inner transactions then execute within a <code>wholeBatchView</code>, and accumulated changes are applied to the main view only if <code>applyBatchTransactions</code> returns true.</p>
+
+<p>The outer batch transaction is always committed to the ledger (consuming sequence and fee) regardless of inner transaction outcomes. Even if all inner transactions fail in <code>tfAllOrNothing</code> mode, the outer batch is recorded.</p>
+
+<p>We checked for potential consensus divergence scenarios (different validators producing different results for the same batch) and found none. The deterministic execution model (sequential inner transaction application, deterministic view merging) ensures all validators arrive at the same result.</p>
+
+<p>No findings were identified. The fee escalation undercount (CP-BATCH-04 in Section 2) has an indirect effect on ledger fill dynamics but does not threaten consensus integrity.</p>
+
+<h3 id="3-7-peer-to-peer-relay">3.7 Peer-to-Peer Relay</h3>
+
+<p>We reviewed all entry points where batch transactions interact with the P2P relay layer. <code>PeerImp.cpp</code> provides the first line of defense: <code>handleTransaction</code> and <code>checkTransaction</code> both reject inner batch transactions received from peers, applying a moderate resource charge (<code>feeModerateBurdenPeer</code>). This is not gated behind an amendment and provides unconditional protection.</p>
+
+<p>For DoS resistance, the <code>HashRouter</code> treats each batch transaction as a unique entry keyed by transaction ID. Since <code>sfBatchSigners</code> permutations produce different transaction IDs (see CP-BATCH-05 in Section 2), the <code>HashRouter</code> cannot deduplicate them.</p>
+
+<p>We identified one performance concern related to signature caching (CP-BATCH-06 in Section 2).</p>
+
+<h3 id="3-8-sequence-ticket-and-replay-protection">3.8 Sequence, Ticket, and Replay Protection</h3>
+
+<p>We analyzed sequence and ticket consumption across all four execution modes.</p>
+
+<p>The outer batch transaction always consumes its sequence/ticket via <code>Transactor::consumeSeqProxy</code>, called before <code>doApply</code>. This prevents the outer batch itself from being replayed.</p>
+
+<p>Inner transactions consume their own accounts&rsquo; sequences within isolated <code>perTxBatchViews</code>. As described in Section 3.3, both <code>tesSUCCESS</code> and <code>tecCLAIM</code> results have their views applied, meaning sequences are consumed in both cases. Sequence consumption behavior differs by mode: <code>tfAllOrNothing</code> discards the entire <code>wholeBatchView</code> on any non-<code>tesSUCCESS</code> result, rolling back all inner sequences. <code>tfOnlyOne</code> applies all views up to and including the first <code>tesSUCCESS</code> transaction (<code>tecCLAIM</code> results before it also consume their sequences). <code>tfUntilFailure</code> applies inner transactions sequentially, consuming sequences for <code>tesSUCCESS</code> and <code>tecCLAIM</code> results, but breaks on the first non-<code>tesSUCCESS</code> result (including <code>tecCLAIM</code>). A <code>tecCLAIM</code> transaction is applied (sequence consumed) and then the loop stops, so remaining transactions are never attempted. <code>tfIndependent</code> consume sequences for all <code>tesSUCCESS</code> and <code>tecCLAIM</code> inner transactions.</p>
+
+<p>Batch preflight validates that inner transactions have valid sequence or ticket values, prevents duplicate sequences within the same batch, and rejects transactions with both <code>sfSequence</code> and <code>sfTicketSequence</code>.</p>
+
+<p>No additional findings were identified beyond CP-BATCH-01 (Section 2), which describes how the signing scheme&rsquo;s lack of outer context binding undermines replay protection. The sequence and ticket validation logic itself is correct.</p>
+
+<h3 id="3-9-inner-transaction-independence">3.9 Inner Transaction Independence</h3>
+
+<p>We systematically verified that inner transactions cannot be extracted from a batch and submitted independently. The defense consists of multiple layers:</p>
+
+<ul>
+<li><strong>Layer 1, structural markers:</strong> Inner transactions must have the <code>tfInnerBatchTxn</code> flag (enforced in <code>Batch::preflight</code>), zero fee, and empty <code>SigningPubKey</code>.</li>
+<li><strong>Layer 2, P2P rejection:</strong> <code>PeerImp.cpp</code> rejects any relayed transaction with <code>tfInnerBatchTxn</code> via <code>handleTransaction</code> and <code>checkTransaction</code>, and charges a resource penalty. This is not gated behind an amendment.</li>
+<li><strong>Layer 3, network submission rejection:</strong> <code>NetworkOPs.cpp</code> rejects inner transactions at <code>submitTransaction</code> and <code>preProcessTransaction</code>. However, both checks are gated behind <code>featureBatchV1_1</code>.</li>
+<li><strong>Layer 4, validity checking:</strong> <code>checkValidity</code> in <code>apply.cpp</code> rejects inner batch transactions with signatures, signing public keys, or signer arrays.</li>
+</ul>
+
+<h3 id="3-10-lending-protocol-integration">3.10 Lending Protocol Integration</h3>
+
+<p>We reviewed the <code>LoanSet</code> transactor&rsquo;s batch handling. <code>LoanSet</code> normally requires a <code>sfCounterpartySignature</code>; for batch inner transactions, this requirement is waived and the counterparty is instead expected to authorize as a batch signer; the <code>sfCounterparty</code> field is required. Fee calculation correctly accounts for the absent counterparty signature.</p>
+
+<p>No additional findings were identified.</p>
+
+	</section>
+
+	<script
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+	  type="text/javascript">
+	</script>
+	<script src="/static/prism.js"></script>
+</main>
+
+
+					<footer>
+						<div class="socials">
+							<h3>Get in touch</h3>
+							<a
+								class="mbtn"
+								href="mailto:hello@commonprefix.com"
+							>
+								<span class="un">hello@commonprefix.com</span>
+							</a>
+							<a
+								class="mbtn"
+								href="https://twitter.com/CommonPrefix"
+							>
+								<span class="un">@commonprefix</span>
+							</a>
+						</div>
+						<div class="socials">
+							<br>
+							<a
+								class="mbtn"
+								href="https://github.com/commonprefix"
+							>
+								<span class="un">GitHub</span>
+							</a>							
+							<a
+								class="mbtn"
+								href="https://chaingrowth.xyz"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span class="un">chaingrowth.xyz</span>
+							</a>
+						</div>
+						<div class="footer__easter-egg">
+							<img
+								width="220px"
+								style="opacity: 0.5"
+								src="/static/footer_eq.svg"
+								draggable="false"
+								alt=""
+							/>
+							<img
+								width="220px"
+								style="mix-blend-mode: multiply"
+								src="/static/footer_blockchain.png"
+								draggable="false"
+								alt=""
+							/>
+							<p>
+								Rumpetur paritas cum sequens probatio operis
+								invenietur et ramus maior fiet.
+							</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			;(function () {
+				
+				document.querySelector('.footer__easter-egg').children[
+					Math.floor(Math.random() * 3)
+				].style.visibility = 'visible'
+
+				
+				window.requestAnimationFrame =
+					window.requestAnimationFrame ||
+					function (C) {
+						return setTimeout(function () {
+							C(+new Date())
+						}, 30)
+					}
+
+				function isTouchDevice() {
+					var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ')
+					var mq = function (query) {
+						return window.matchMedia(query).matches
+					}
+
+					if (
+						'ontouchstart' in window ||
+						(window.DocumentTouch &&
+							document instanceof DocumentTouch)
+					) {
+						return true
+					}
+
+					var query = [
+						'(',
+						prefixes.join('touch-enabled),('),
+						'heartz',
+						')',
+					].join('')
+					return mq(query)
+				}
+
+				var touchDevice = isTouchDevice()
+				if (touchDevice) {
+					document.body.classList.add('touchdevice')
+				}
+
+				var graphic = document.querySelector('.logo-graphic')
+				var clip = document.querySelector('.logo-graphic__clip')
+
+				if (!touchDevice) {
+					var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
+					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+
+					function reveal(e) {
+						var pos = graphic.getBoundingClientRect()
+						var x = e.clientX - pos.left - 150
+						var y = e.clientY - pos.top + 150
+
+						var v = `radial-gradient(circle at ${x}px ${y}px, black 0px, black 60px, transparent 120px)`
+						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
+					}
+
+					window.addEventListener('mousemove', function (e) {
+						requestAnimationFrame(() => reveal(e))
+					})
+				}
+			})()
+		</script>
+	</body>
+</html>
