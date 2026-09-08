@@ -92,7 +92,8 @@
 	
 
 	<section class="content">
-		<p><strong><em><em>2026-7-2 update: Added <a href="#bonus-proving-closed-source-code-is-true-to-spec-with-zero-knowledge">bonus</a> section</em></em></strong></p>
+		<p><strong><em><em>2026-7-2 update: Added <a href="#bonus-proving-closed-source-code-is-true-to-spec-with-zero-knowledge">bonus</a> section</em></em></strong><br>
+<strong><em><em>2026-8-12 update: Added <a href="#bonus-proving-closed-source-code-is-true-to-spec-with-zero-knowledge">link</a> to zkPi paper</em></em></strong></p>
 
 <p>Formal verification is getting some traction in the world of blockchains. But what is formal verification, why is it relevant for blockchains, and how can we make good use of it? No matter whether you&rsquo;re just dabbling with crypto or you&rsquo;re a web3 native, there&rsquo;s definitely something here for you.</p>
 
@@ -260,7 +261,7 @@
 
 <h3 id="bonus-proving-closed-source-code-is-true-to-spec-with-zero-knowledge">Bonus: Proving closed-source code is true to spec with Zero Knowledge</h3>
 
-<p>What if you want to keep code closed-source but also prove it upholds a certain spec? Dan Boneh <a href="https://zeroknowledge.fm/podcast/400" target="_blank">proposed</a> using <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof" target="_blank">Zero-Knowledge proofs</a> for proving in zero knowledge the existence of a proof of adherence to some spec. Complicated, I know, and very much theoretical for now, but it would definitely integrate nicely with the automated assurance system described above. The developer publishes the compiled binary, the spec, and the zero-knowledge proof that shows the binary has the spec&rsquo;s properties. The developer would need a <a href="https://docs.succinct.xyz/docs/sp1/what-is-a-zkvm" target="_blank">zero-knowledge VM</a> that internally runs the proof checker. The assurance pipeline would need a trusted zero-knowledge verifier to check the proof.</p>
+<p>What if you want to keep code closed-source but also prove it upholds a certain spec? Dan Boneh proposed (<a href="https://zeroknowledge.fm/podcast/400" target="_blank">1</a>, <a href="https://eprint.iacr.org/2024/267" target="_blank">2</a>) using <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof" target="_blank">Zero-Knowledge proofs</a> for proving in zero knowledge the existence of a proof of adherence to some spec. Complicated, I know, and very much theoretical for now, but it would definitely integrate nicely with the automated assurance system described above. The developer publishes the compiled binary, the spec, and the zero-knowledge proof that shows the binary has the spec&rsquo;s properties. The developer would need a <a href="https://docs.succinct.xyz/docs/sp1/what-is-a-zkvm" target="_blank">zero-knowledge VM</a> that internally runs the proof checker. The assurance pipeline would need a trusted zero-knowledge verifier to check the proof.</p>
 
 <h3 id="conclusion-outlook">Conclusion &amp; Outlook</h3>
 
