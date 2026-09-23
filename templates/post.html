@@ -8,7 +8,7 @@
 	<h5 class="mono light blog-post__date">{{ .Date }}{{ if .IsDraft}} — DRAFT{{end}}<br />
 		<div class="blog-post__authors">
 		{{range .Authors}}
-			<a href="/team#{{.Handle}}">{{.Name}}</a>
+			{{if .Handle}}<a href="/team#{{.Handle}}">{{.Name}}</a>{{else}}{{.Name}}{{end}}
 		{{end}}
 		</div>
 	</h5>

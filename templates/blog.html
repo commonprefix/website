@@ -19,7 +19,7 @@
 					{{- $first := true -}}
 					{{- range .Authors -}}
 					{{- if $first -}}{{- $first = false -}}{{ else }}, {{ end -}}
-					<a href="/team#{{ .Handle }}">{{ .Name }}</a>
+					{{ if .Handle }}<a href="/team#{{ .Handle }}">{{ .Name }}</a>{{ else }}{{ .Name }}{{ end }}
 					{{- end -}}
 				{{ else }}
 					{{ .AuthorHandles }}

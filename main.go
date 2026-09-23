@@ -112,6 +112,9 @@ func distinctDepartments(members []TeamMember) []string {
 // john_doe.jpg -> john_doe_w150.jpg
 func (m *TeamMember) ImageLow() string {
 	bits := strings.Split(m.Image, ".")
+	if len(bits) < 2 {
+		return "" // no image (e.g. former authors)
+	}
 	return fmt.Sprintf("%s_w150.%s", bits[0], bits[1])
 }
 
