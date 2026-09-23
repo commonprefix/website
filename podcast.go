@@ -271,6 +271,152 @@ The conversation begins with Alex’s path into crypto and research, before divi
 				YouTube: "https://youtu.be/Brdxonk-Pzo?si=Xnjx9NKaEnjwkoE7",
 			},
 		},
+		{
+			Number:      8,
+			AffiliationNumber: 9,
+			Title:       "Coding Techniques in Walrus for Massive Storage",
+			Guest:       "Lefteris Kokoris-Kogias",
+			GuestURL:    "https://x.com/LefKok",
+			Affiliation: "Mysten Labs",
+			AffiliationURL: "https://x.com/Mysten_Labs",
+			Description: template.HTML(`
+			In the eighth episode of Honest Majority, we speak with Lefteris Kokoris-Kogias of Mysten Labs about the coding techniques behind Walrus, a decentralized storage protocol designed for massive data. 
+			Starting from the challenges of existing storage systems, the conversation explores how Walrus uses a two‑dimensional coding scheme based on Reed–Solomon codes to achieve self‑healing, efficiently reconfigurable storage without having to constantly move large volumes of data. 
+			We discuss how this design enables cheap, robust storage for use cases like NFTs, websites, and large media, and how Seal, a privacy and key‑management layer built on multi‑party computation, can provide strong cryptographic guarantees without forcing users to manage keys themselves.
+			`),
+			Resources: []ResourceLink{
+				{
+					Url:  "https://arxiv.org/pdf/2505.05370",
+					Name: "Walrus: An Efficient Decentralized Storage Network",
+				},
+				{
+					Url:  "https://github.com/MystenLabs/seal/blob/main/docs/content/Seal_White_Paper_v2.pdf",
+					Name: "Seal: Decentralized Secrets Management",
+				},
+			},
+			EpisodeURLs: EpisodeURLs{
+				Spotify: "https://open.spotify.com/episode/22Yrqi0qxqeLHdYZ5y6Akx",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/lefteris-kokoris-kogias-coding-techniques-in-walrus/id1860881793?i=1000757737489",
+				YouTube: "https://youtu.be/j2AGlgfcGQ0",
+			},
+		},
+		{
+			Number:      9,
+			AffiliationNumber: 10,
+			Title:       "Is FasterPay faster than FastPay?",
+			Guest:       "Giorgos Tsimos",
+			GuestURL:    "https://x.com/giorgos_tsimos",
+			Affiliation: "Pod Network",
+			AffiliationURL: "https://x.com/poddotnetwork",
+			Description: template.HTML(`
+			In the ninth episode of Honest Majority, we speak with Giorgos Tsimos, researcher at Pod Network, about the latest research directions at Pod, the protocol's design, and how Pod tackled the challenge of recovery mechanisms in payment systems. 
+			The conversation explores a new approach where validators can process transactions without waiting for each previous one to finalize, making the system faster and more efficient without sacrificing consistency. 
+			We also discuss how a single equivocation — even an accidental one — can permanently freeze a user's account, and how Pod addressed this by implementing a recovery mechanism inspired by the Simplex protocol, ensuring that an accidental equivocation never permanently costs a user their account access.
+			`),
+			Resources: []ResourceLink{
+				{
+					Url:  "https://arxiv.org/pdf/2003.11506",
+					Name: "FastPay: High-Performance Byzantine Fault Tolerant Settlement",
+				},
+				{
+					Url:  "https://arxiv.org/pdf/2501.14931",
+					Name: "Pod: An Optimal-Latency, Censorship-Free, and Accountable Generalized Consensus Layer",
+				},
+				{
+					Url:  "https://eprint.iacr.org/2023/463.pdf",
+					Name: "Simplex Consensus: A Simple and Fast Consensus Protocol",
+				},
+			},
+			EpisodeURLs: EpisodeURLs{
+				Spotify: "https://open.spotify.com/episode/2rBFghHz1UmSirasrWKhhj",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/giorgos-tsimos-is-fasterpay-faster-than-fastpay/id1860881793?i=1000764136606",
+				YouTube: "https://youtu.be/ilp5PVA0Tk8",
+			},
+		},
+		{
+			Number:      10,
+			AffiliationNumber: 11,
+			Title:       "Can You Trust Your Smart Contracts 100%?",
+			Guest:       "Zoe Paraskevopoulou",
+			GuestURL:    "https://zoep.github.io/",
+			Affiliation: "National Technical University of Athens",
+			AffiliationURL: "https://www.ntua.gr/en/",
+			Description: template.HTML(`
+			In the tenth episode of Honest Majority, we speak with Zoe Paraskevopoulou, Assistant Professor at the National Technical University of Athens and former member of the Ethereum Foundation's formal verification team, about the importance of formal verification for smart contract security. 
+			The conversation begins with Zoe's path from programming languages and formal methods research into the blockchain space, before diving into what formal verification actually is and why it goes beyond testing and code review. 
+			We discuss how mathematical proofs can guarantee smart contract correctness for all possible inputs and states, and explore ACT v0.2.0, a formal specification and verification framework for EVM smart contracts developed at Argot Collective. 
+			The episode covers how ACT models contracts as state transition systems, how it automatically proves equivalence between bytecode and formal specifications, and the open challenges ahead including unknown code and re-entrancy vulnerabilities. 
+			The conversation closes with Zoe's vision for the future, where LLMs could make formal verification more accessible and software increasingly comes with machine-checked proofs of correctness.
+			`),
+			Resources: []ResourceLink{
+				{
+					Url:  "https://github.com/argotorg/act",
+					Name: "Act: Smart Contract Specification Language",
+				},
+			},
+			EpisodeURLs: EpisodeURLs{
+				Spotify: "https://open.spotify.com/episode/5gSmWwnZslex0L8ut4bFXs",
+				ApplePodcasts: "https://podcasts.apple.com/us/podcast/zoe-paraskevopoulou-can-you-trust-your-smart-contracts-100/id1860881793?i=1000768413022",
+				YouTube: "https://youtu.be/bnSVJTKdbdM",
+			},
+		},
+		{
+			Number:      11,
+			AffiliationNumber: 12,
+			Title:       "Do Fees in Rollups Bring Attacks?",
+			Guest:       "Stefanos Chaliasos",
+			GuestURL:    "https://x.com/schaliasosvons",
+			Affiliation: "ZK Security & UCL",
+			AffiliationURL: "https://x.com/zksecurityXYZ",
+			Description: template.HTML(`
+			In the eleventh episode of Honest Majority, we speak with Stefanos Chaliasos, Senior Security Researcher at ZK Security and Assistant Professor at UCL, about how mispriced fees in major rollups can enable practical denial-of-service and finality attacks. 
+			The conversation begins with Stefanos’s journey from systems security and programming languages into blockchain and zero-knowledge proofs, before diving into the different fee vectors a rollup must handle: L2 gas execution, data availability costs, and settlement fees. 
+			We discuss how mispricing these fees opens up two classes of attacks: DA Saturation, which floods a rollup’s data availability, delays finality, and reduces throughput, and Prover Killers, which exploit instructions that are cheap to execute but expensive to prove, potentially stalling provers in ZK rollups. 
+			The episode also covers the challenges of conducting responsible security research and the critical security risks zero-knowledge proofs face on the path to mainstream adoption. 
+			The conversation closes with Stefanos’s vision for more accessible ZKP tooling, stronger security practices, and privacy-preserving blockchain systems.
+			`),
+			Resources: []ResourceLink{
+				{
+					Url:  "https://arxiv.org/pdf/2509.17126",
+					Name: "Unaligned Incentives: Pricing Attacks Against Blockchain Rollups",
+				},
+				{
+					Url:  "https://eprint.iacr.org/2024/889.pdf",
+					Name: "Analyzing and Benchmarking ZK-Rollups",
+				},
+			},
+			EpisodeURLs: EpisodeURLs{
+				YouTube: "https://youtu.be/AZvCGMqt5tA",
+			},
+		},
+		{
+			Number:      12,
+			AffiliationNumber: 13,
+			Title:       "The New Era of Axelar",
+			Guest:       "Nikolaos Kamarinakis",
+			GuestURL:    "https://x.com/nikolaskama",
+			Affiliation: "Common Prefix",
+			AffiliationURL: "https://x.com/CommonPrefix",
+			Description: template.HTML(`
+			In the twelfth episode of Honest Majority, we speak with Nikolaos Kamarinakis, Co-Founder and CTO of Common Prefix, about how Common Prefix became the lead steward of Axelar. 
+			The conversation looks back on the early years of Common Prefix and its long collaboration with Axelar, which began in 2021 and led to taking over the network after the acquisition of Interop Labs in December 2025. 
+			Nikolas reflects on the first months of running the network in production and the work that went into stabilising it. 
+			He then looks ahead to the new Axelar App, which makes the infrastructure that has always run behind the scenes something users can access directly.
+			`),
+			Resources: []ResourceLink{
+				{
+					Url:  "https://www.commonprefix.com/blog/axelar-roadmap",
+					Name: "The New Era of Axelar: 2026 Roadmap",
+				},
+				{
+					Url:  "https://app.axelar.network",
+					Name: "Axelar App",
+				},
+			},
+			EpisodeURLs: EpisodeURLs{
+				YouTube: "https://youtu.be/B6fFBgiy2Ic",
+			},
+		},
 	},
 }
 

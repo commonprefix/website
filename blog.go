@@ -30,6 +30,7 @@ type Post struct {
 	ReadingTime    int          // in minutes
 	Title          string       `yaml:"title"`
 	AuthorHandles  string       `yaml:"authors"`
+	FormerAuthors  string       `yaml:"former_authors"` // Comma-separated names of authors no longer on the team (shown without a profile link)
 	Authors        []TeamMember `yaml:"ignore"`
 	IsDraft        bool         `yaml:"draft"`
 	Date           string       `yaml:"date"`
@@ -121,6 +122,11 @@ func newPost(fn string) (*Post, error) {
 		}
 	}
 	sortTeamMembers(authors)
+	if p.FormerAuthors != "" {
+		for _, name := range strings.Split(p.FormerAuthors, ",") {
+			authors = append(authors, TeamMember{Name: strings.TrimSpace(name)})
+		}
+	}
 	p.Authors = authors
 
 	p.DescBody = template.HTML(p.Description)

@@ -52,9 +52,9 @@
 		<div class="podcast-episode">
 			<h3>
 				{{.Number}}. {{.Title}}
-				<a href="{{.EpisodeURLs.Spotify}}"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-				<a href="{{.EpisodeURLs.ApplePodcasts}}"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-				<a href="{{.EpisodeURLs.YouTube}}"><img src="/static/youtube-icon.png" alt="YouTube"></a>
+				{{with .EpisodeURLs.Spotify}}<a href="{{.}}"><img src="/static/spotify-icon.png" alt="Spotify"></a>{{end}}
+				{{with .EpisodeURLs.ApplePodcasts}}<a href="{{.}}"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>{{end}}
+				{{with .EpisodeURLs.YouTube}}<a href="{{.}}"><img src="/static/youtube-icon.png" alt="YouTube"></a>{{end}}
 			</h3>
 			<p>{{.Description}}</p>
 			{{if .Resources}}

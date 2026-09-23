@@ -2,7 +2,8 @@
 title: "Event-Driven Consensus in the Age of Dynamic Availability"
 date: "03/11/2025"
 desc: "Exploring how event-driven designs bridge synchrony and asynchrony to achieve low-latency consensus under dynamic participation."
-authors: "sravya"
+authors: ""
+former_authors: "Dr. Sravya Yandamuri"
 index: true
 ---
 
