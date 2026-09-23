@@ -11,8 +11,7 @@ var Titles = map[string]string{
 	"themis":   "Engineer Lead",
 	"apostolos":   "Product Lead & Co-Founder",
 	"dimitris":   "Co-Founder",
-	"adam":   "Head of Business Development",
-}
+	"adam":   "Head of Growth",}
 
 var Members map[string]TeamMember = map[string]TeamMember{
 	"orestis": {
@@ -424,6 +423,18 @@ var Members map[string]TeamMember = map[string]TeamMember{
 			He combines this expertise with a passion for creativity and storytelling to bring ideas to life.
 		`),
 		Image: "panos_patsili.jpg",
+	},
+	"razvan": {
+		Handle:         "razvan",
+		Name:           "Răzvan Gabriel Apostu",
+		Specialization: "product design, full-stack engineering",
+		Department: "operations",
+		Desc: template.HTML(`
+			Razvan is a product designer and full-stack engineer based in Romania.
+			He previously co-founded Sablier, the vesting and token distribution protocol, where he led product across EVM and Solana.
+			Razvan has over 11 years of experience crafting end-to-end software, has worked in web3 since 2019, and holds a degree from the UAIC Faculty of Computer Science in Iasi.
+		`),
+		Image: "razvan_apostu.jpg",
 	},
 	"kris": {
 		Handle:         "kris",

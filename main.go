@@ -354,7 +354,7 @@ func build() {
 		log.Fatalf("can't create %s", teamTmplName)
 	}
 	//fixed scroll order
-	deptOrder := []string{"leadership", "engineering", "science", "operations"}
+	deptOrder := []string{"leadership", "science", "engineering", "operations"}
 	//grouped data (used by the template)
 	grouped := groupByDepartment(team)	
 	allDepartments := distinctDepartments(team)
