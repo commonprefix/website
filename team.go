@@ -11,7 +11,8 @@ var Titles = map[string]string{
 	"themis":   "Engineer Lead",
 	"apostolos":   "Product Lead & Co-Founder",
 	"dimitris":   "Co-Founder",
-	"adam":   "Head of Growth",}
+	"adam":   "Head of Growth",
+}
 
 var Members map[string]TeamMember = map[string]TeamMember{
 	"orestis": {
@@ -428,7 +429,7 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		Handle:         "razvan",
 		Name:           "Răzvan Gabriel Apostu",
 		Specialization: "product design, full-stack engineering",
-		Department: "operations",
+		Department: "engineering",
 		Desc: template.HTML(`
 			Razvan is a product designer and full-stack engineer based in Romania.
 			He previously co-founded Sablier, the vesting and token distribution protocol, where he led product across EVM and Solana.
