@@ -179,6 +179,13 @@ var Clients []Client = []Client{
 		<br>
 		In addition, we maintain the <a href="https://github.com/commonprefix/payment-system-docs">Payment Engine specification</a>, developed in collaboration with RippleX, ensuring it remains in sync with xrpld releases and monitoring changes to the code base.
 		`),
+		Team: []TeamMember{
+			Members["nikolas"],
+			Members["dionysis"],
+			Members["dejan"],
+			Members["felix"],
+			Members["odysseas"],
+		},
 		Findings: []Finding{},
 	},
 	{
