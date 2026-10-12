@@ -582,6 +582,12 @@ a.clients__card, a.grants__card {
   opacity: 0.4;
 }
 
+/* symbol-only logos (no wordmark) are drawn smaller than wordmarks */
+.clients__card svg.logo-mark,
+.grants__card svg.logo-mark {
+  width: 70px;
+}
+
 .clients__card:hover svg,
 .grants__card:hover svg {
   mix-blend-mode: none;
@@ -595,6 +601,12 @@ a.clients__card, a.grants__card {
   max-width: 180px;
   color: var(--c-gray);
   mix-blend-mode: luminosity;
+}
+
+.client__logo svg.logo-mark,
+.grantor__logo svg.logo-mark {
+  display: block;
+  width: 80px;
 }
 
 /* next client & next grantor section */
