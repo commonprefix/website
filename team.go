@@ -437,6 +437,19 @@ var Members map[string]TeamMember = map[string]TeamMember{
 		`),
 		Image: "razvan_apostu.jpg",
 	},
+	"dimitrios_matzoros": {
+		Handle:         "dimitrios_matzoros",
+		Name:           "Dimitrios Matzoros",
+		Specialization: "accounting, financial compliance",
+		Department: "operations",
+		Desc: template.HTML(`
+			Dimitrios oversees accounting and financial compliance at Common Prefix.
+			He collaborates closely with the finance and engineering teams to ensure the accuracy of day-to-day accounting, payroll, VAT, and annual reporting, and to ensure that digital-asset transactions are recorded in a manner that withstands regulatory and audit scrutiny.
+			He also contributes to improving the company’s financial workflows by identifying opportunities to replace manual effort with more effective automated processes.
+			He has several years of experience running an independent accounting and tax practice and holds an MSc in Financial Technology from Democritus University of Thrace and a BSc in Economics from the Athens University of Economics and Business.
+		`),
+		Image: "dimitrios_matzoros.jpg",
+	},
 	"kris": {
 		Handle:         "kris",
 		Name:           "Kris Paruch",
