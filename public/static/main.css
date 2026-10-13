@@ -602,6 +602,10 @@ a.clients__card, a.grants__card {
   display: none;
 }
 
+.clients__more-button--expanded::after {
+  transform: rotate(180deg);
+}
+
 .clients__more-button {
   margin-top: 32px;
   padding: 0;

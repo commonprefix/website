@@ -48,17 +48,24 @@
 		</div>
 
 		<button type="button" class="clients__more-button with-arrow-down" aria-controls="more-clients" aria-expanded="false">
-			<span class="un">More partners</span>
+			<span class="un">Show more</span>
 		</button>
 
 		<script>
 		;(function () {
 			var button = document.querySelector('.clients__more-button')
+			var label = button.querySelector('span')
 			var list = document.getElementById('more-clients')
 			button.addEventListener('click', function () {
-				list.hidden = false
-				button.setAttribute('aria-expanded', 'true')
-				button.hidden = true
+				var expand = list.hidden
+				list.hidden = !expand
+				button.setAttribute('aria-expanded', String(expand))
+				button.classList.toggle('clients__more-button--expanded', expand)
+				label.textContent = expand ? 'Show less' : 'Show more'
+				// When collapsing, keep the button in view instead of leaving the page scrolled past it
+				if (!expand && button.getBoundingClientRect().top < 0) {
+					button.scrollIntoView({ block: 'center' })
+				}
 			})
 		})()
 		</script>
