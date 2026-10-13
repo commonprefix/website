@@ -1215,17 +1215,40 @@ a.finding {
 .podcast-section h2 {
 	margin-bottom: 0.5rem;
 }
+.podcast-episodes {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem 2.5rem;
+	margin-top: 1.5rem;
+}
 .podcast-episode {
-	margin-top: 1rem;
+	min-width: 0;
+}
+.podcast-episode__thumb {
+	display: block;
+	margin-bottom: 1rem;
+}
+.podcast-episode__thumb img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	border-radius: 4px;
 }
 .podcast-episode h3 {
-	margin-bottom: 0.25rem;
-	display: flex;
+	margin-bottom: 0.5rem;
+}
+.podcast-episode__platforms {
+	display: inline-flex;
 	align-items: center;
 	gap: 0.4rem;
+	margin-left: 0.4rem;
+	white-space: nowrap;
+	vertical-align: middle;
 }
 .podcast-episode h3 img {
 	height: 0.9em;
+	display: block;
 }
 
 /* decrease padding for the podcast page on mobile */
@@ -1233,5 +1256,8 @@ a.finding {
 	.podcast {
 		padding: 2rem 1.5rem;
 		margin: 1rem auto;
+	}
+	.podcast-episodes {
+		grid-template-columns: 1fr;
 	}
 }

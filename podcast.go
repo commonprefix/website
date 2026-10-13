@@ -1,6 +1,10 @@
 package main
 
-import "html/template"
+import (
+	"html/template"
+	"net/url"
+	"strings"
+)
 
 type PodcastEpisode struct {
 	Number      int
@@ -14,6 +18,23 @@ type PodcastEpisode struct {
 	Resources   []ResourceLink
 	Date        string // optional
 	EpisodeURLs EpisodeURLs
+}
+
+// Thumbnail returns the episode's YouTube thumbnail URL, or "" if it has no YouTube link.
+// Supports https://youtu.be/<id> and https://www.youtube.com/watch?v=<id> links.
+func (e PodcastEpisode) Thumbnail() string {
+	u, err := url.Parse(e.EpisodeURLs.YouTube)
+	if err != nil {
+		return ""
+	}
+	id := u.Query().Get("v")
+	if u.Host == "youtu.be" {
+		id = strings.TrimPrefix(u.Path, "/")
+	}
+	if id == "" {
+		return ""
+	}
+	return "https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg"
 }
 
 type ResourceLink struct {
