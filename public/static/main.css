@@ -1199,16 +1199,6 @@ a.finding {
 .podcast-links img {
 	height: 1.2em;
 }
-.podcast-authors {
-	text-align: center;
-	margin-top: 2rem;
-}
-.podcast-affiliations {
-	text-align: center;
-	margin-top: 1rem;
-	font-size: 0.85rem;
-	color: #666;
-}
 .podcast-section {
 	margin-top: 1.5rem;
 }

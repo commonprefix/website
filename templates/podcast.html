@@ -22,32 +22,13 @@
 		</a>
 	</div>
 	
-	<div class="podcast-authors">
-		Dionysis Zindros<sup>1</sup>
-		{{range .Podcast.Episodes}}
-		{{.Guest}}<sup>{{.AffiliationNumber}}</sup>
-		{{end}}
-	</div>
-	
-	<div class="podcast-affiliations">
-		<sup>1</sup>Common Prefix
-		{{range .Podcast.Episodes}}
-		<sup>{{.AffiliationNumber}}</sup>{{.Affiliation}}
-		{{end}}
-	</div>
-	
 	<div class="podcast-section">
-		<h2>1 Executive Summary</h2>
+		<h2>Executive Summary</h2>
 		<p>{{.Podcast.Description}}</p>
-		<ol>
-			{{range .Podcast.Episodes}}
-			<li>{{.Title}} — <a href="{{.GuestURL}}" target="_blank">{{.Guest}}</a>, <a href="{{.AffiliationURL}}" target="_blank">{{.Affiliation}}</a></a></li>
-			{{end}}
-		</ol>
 	</div>
 	
 	<div class="podcast-section">
-		<h2>2 Episodes</h2>
+		<h2>Episodes</h2>
 		<div class="podcast-episodes">
 			{{range .Podcast.Episodes}}
 			{{$episode := .}}
