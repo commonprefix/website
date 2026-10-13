@@ -31,7 +31,6 @@ const (
 	clientTmplName   = "client.html"
 	grantorTmplName  = "grantor.html"
 	researchTmplName = "research.html"
-	bridgesTmplName  = "bridges.html"
 	podcastTmplName  = "podcast.html"
 	careersTmplName  = "careers.html"
 )
@@ -61,7 +60,6 @@ var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 		return member.Handle
 	},
 }).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
-var bridgesTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, bridgesTmplName)))
 var podcastTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, podcastTmplName)))
 var postTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, postTmplName)))
 var blogTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, blogTmplName)))
@@ -278,13 +276,6 @@ type Page struct {
 	Grants         []Grantor
 	Research       Research
 	Posts          []*Post
-}
-
-type BridgesPage struct {
-	SmallContainer bool
-	Title          string
-	Description    string
-	Projects       []Project
 }
 
 type ClientPage struct {
@@ -550,31 +541,6 @@ func build() {
 
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
-	//
-	// Build bridges page
-	//
-	bridgeProjects := []Project{}
-	for _, c := range Clients {
-		for _, p := range c.Projects {
-			if p.IsBridge {
-				bridgeProjects = append(bridgeProjects, p)
-			}
-		}
-	}
-
-	bridgesPage := filepath.Join(buildDir, bridgesTmplName)
-	// Remove the old version
-	os.Remove(bridgesPage)
-	// Create new file
-	f, err = os.Create(bridgesPage)
-	if err != nil {
-		log.Fatalf("can't create %s", bridgesTmplName)
-	}
-	bridgesTmpl.ExecuteTemplate(f, "base", BridgesPage{SmallContainer: true, Title: "Bridges", Description: description, Projects: bridgeProjects})
-
-	f.Close()
-	fmt.Printf("🌉  %s sucessfully generated.\n", bridgesTmplName)
-
 	//
 	// Build podcast page
 	//

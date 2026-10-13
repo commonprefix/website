@@ -15,6 +15,11 @@
     ],
     "redirects": [
       {
+        "source": "/bridges(.html)?",
+        "destination": "/blog/building-bridges",
+        "permanent": true
+      },
+      {
         "source": "/projects/:path*",
         "destination": "/clients/:path*",
         "permanent": true
