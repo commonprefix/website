@@ -273,6 +273,8 @@ type Page struct {
 	Titles    	   map[string]string       // handle → title (leaders only)
 	Departments    []string
 	Clients        []Client
+	FeaturedClients []Client // shown on the landing page
+	MoreClients     []Client // shown on the landing page after "More partners"
 	Grants         []Grantor
 	Research       Research
 	Posts          []*Post
@@ -323,6 +325,38 @@ type ResearchPage struct {
 
 var team = []TeamMember{}
 
+// Partners shown on the landing page before "More partners", in this order
+var featuredClientHandles = []string{
+	"axelar",
+	"ripple",
+	"xrplf",
+	"pod",
+	"mysten",
+	"babylon",
+	"celestia",
+	"espresso",
+	"bob",
+	"citrea",
+}
+
+// Splits the clients shown on the landing page into the featured ones (in
+// featuredClientHandles order) and the rest (in their original order).
+func splitFeaturedClients(clients []Client) (featured []Client, more []Client) {
+	for _, handle := range featuredClientHandles {
+		idx := slices.IndexFunc(clients, func(c Client) bool { return c.Handle == handle })
+		if idx == -1 {
+			log.Fatalf("featured client %q not found", handle)
+		}
+		featured = append(featured, clients[idx])
+	}
+	for _, c := range clients {
+		if !c.HideOnIndex && !slices.Contains(featuredClientHandles, c.Handle) {
+			more = append(more, c)
+		}
+	}
+	return featured, more
+}
+
 func htmlToFormattedString(s template.HTML) string {
 	bmp := bluemonday.StripTagsPolicy()
 	replacer := strings.NewReplacer("\n", " ", "\t", "")
@@ -341,7 +375,8 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", indexTmplName)
 	}
-	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients, Grants: Grants})
+	featuredClients, moreClients := splitFeaturedClients(Clients)
+	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients, FeaturedClients: featuredClients, MoreClients: moreClients, Grants: Grants})
 	f.Close()
 	fmt.Printf("🏠  %s sucessfully generated.\n", indexTmplName)
 
