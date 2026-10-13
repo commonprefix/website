@@ -1250,6 +1250,29 @@ a.finding {
 	height: 0.9em;
 	display: block;
 }
+/* collapsed episodes show the first lines of the description only */
+.podcast-episode__body--collapsed .podcast-episode__description {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+.podcast-episode__body--collapsed .podcast-episode__resources {
+	display: none;
+}
+.podcast-episode__toggle {
+	padding: 0;
+	border: none;
+	background: none;
+	font: inherit;
+	font-weight: 700;
+	color: inherit;
+	cursor: pointer;
+}
+.podcast-episode__toggle:hover {
+	text-decoration: underline;
+}
 
 /* decrease padding for the podcast page on mobile */
 @media (max-width: 768px) {

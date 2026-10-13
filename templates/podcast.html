@@ -60,23 +60,46 @@
 				<h3>
 					<span>{{.Number}}. {{.Title}}</span>
 					<span class="podcast-episode__platforms">
-						{{with .EpisodeURLs.Spotify}}<a href="{{.}}"><img src="/static/spotify-icon.png" alt="Spotify"></a>{{end}}
-						{{with .EpisodeURLs.ApplePodcasts}}<a href="{{.}}"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>{{end}}
-						{{with .EpisodeURLs.YouTube}}<a href="{{.}}"><img src="/static/youtube-icon.png" alt="YouTube"></a>{{end}}
+						{{with .EpisodeURLs.Spotify}}<a href="{{.}}" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>{{end}}
+						{{with .EpisodeURLs.ApplePodcasts}}<a href="{{.}}" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>{{end}}
+						{{with .EpisodeURLs.YouTube}}<a href="{{.}}" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>{{end}}
 					</span>
 				</h3>
-				<p>{{.Description}}</p>
-				{{if .Resources}}
-				<p>Resources:</p>
-				<ul>
-					{{range .Resources}}
-					<li><a href="{{.Url}}">{{.Name}}</a></li>
+				<div class="podcast-episode__body podcast-episode__body--collapsed">
+					<p class="podcast-episode__description">{{.Description}}</p>
+					{{if .Resources}}
+					<div class="podcast-episode__resources">
+						<p>Resources:</p>
+						<ul>
+							{{range .Resources}}
+							<li><a href="{{.Url}}" target="_blank" rel="noopener noreferrer">{{.Name}}</a></li>
+							{{end}}
+						</ul>
+					</div>
 					{{end}}
-				</ul>
-				{{end}}
+					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
+				</div>
 			</div>
 			{{end}}
 		</div>
+
+		<script>
+		;(function () {
+			document.querySelectorAll('.podcast-episode__toggle').forEach(function (button) {
+				var body = button.closest('.podcast-episode__body')
+				button.addEventListener('click', function () {
+					var expand = body.classList.contains('podcast-episode__body--collapsed')
+					body.classList.toggle('podcast-episode__body--collapsed', !expand)
+					button.setAttribute('aria-expanded', String(expand))
+					button.textContent = expand ? 'Show less' : '...more'
+					// When collapsing, keep the episode in view instead of leaving the page scrolled past it
+					if (!expand && body.getBoundingClientRect().top < 0) {
+						body.closest('.podcast-episode').scrollIntoView({ block: 'start' })
+					}
+				})
+			})
+		})()
+		</script>
 	</div>
 </main>
 {{end}}
