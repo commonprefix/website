@@ -1251,6 +1251,18 @@ a.finding {
 .podcast-episode__body--collapsed .podcast-episode__resources {
 	display: none;
 }
+/* collapsed: "...more" sits at the end of the last visible line, over a fade */
+.podcast-episode__body {
+	position: relative;
+}
+.podcast-episode__body--collapsed .podcast-episode__toggle {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	line-height: inherit;
+	padding-left: 3em;
+	background: linear-gradient(to right, transparent, var(--c-white) 2.5em);
+}
 .podcast-episode__toggle {
 	padding: 0;
 	border: none;
