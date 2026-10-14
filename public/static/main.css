@@ -594,6 +594,28 @@ a.clients__card, a.grants__card {
   opacity: 1;
 }
 
+.clients__more-list {
+  margin-top: 16px;
+}
+
+.clients__more-list[hidden] {
+  display: none;
+}
+
+.clients__more-button--expanded::after {
+  transform: rotate(180deg);
+}
+
+.clients__more-button {
+  margin-top: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
 /* client & grantor page */
 
 .client__logo,
@@ -626,7 +648,6 @@ a.clients__card, a.grants__card {
 
 .careers-link, .careers-link a {
   font-weight: 700;
-  color: var(--c-pink);
 }
 
 .client__next-client a,
@@ -1178,33 +1199,81 @@ a.finding {
 .podcast-links img {
 	height: 1.2em;
 }
-.podcast-authors {
-	text-align: center;
-	margin-top: 2rem;
-}
-.podcast-affiliations {
-	text-align: center;
-	margin-top: 1rem;
-	font-size: 0.85rem;
-	color: #666;
-}
 .podcast-section {
 	margin-top: 1.5rem;
 }
 .podcast-section h2 {
 	margin-bottom: 0.5rem;
 }
+.podcast-episodes {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem 2.5rem;
+	margin-top: 1.5rem;
+}
 .podcast-episode {
-	margin-top: 1rem;
+	min-width: 0;
+}
+.podcast-episode__thumb {
+	display: block;
+	margin-bottom: 1rem;
+}
+.podcast-episode__thumb img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	border-radius: 4px;
 }
 .podcast-episode h3 {
-	margin-bottom: 0.25rem;
-	display: flex;
+	margin-bottom: 0.5rem;
+}
+.podcast-episode__platforms {
+	display: inline-flex;
 	align-items: center;
 	gap: 0.4rem;
+	margin-left: 0.4rem;
+	white-space: nowrap;
+	vertical-align: middle;
 }
 .podcast-episode h3 img {
 	height: 0.9em;
+	display: block;
+}
+/* collapsed episodes show the first lines of the description only */
+.podcast-episode__body--collapsed .podcast-episode__description {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+.podcast-episode__body--collapsed .podcast-episode__resources {
+	display: none;
+}
+/* collapsed: "...more" sits at the end of the last visible line, over a fade */
+.podcast-episode__body {
+	position: relative;
+}
+.podcast-episode__body--collapsed .podcast-episode__toggle {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	line-height: inherit;
+	padding-left: 3em;
+	background: linear-gradient(to right, transparent, var(--c-white) 2.5em);
+}
+.podcast-episode__toggle {
+	padding: 0;
+	border: none;
+	background: none;
+	font: inherit;
+	font-weight: 700;
+	color: inherit;
+	cursor: pointer;
+}
+.podcast-episode__toggle:hover {
+	text-decoration: underline;
 }
 
 /* decrease padding for the podcast page on mobile */
@@ -1212,5 +1281,8 @@ a.finding {
 	.podcast {
 		padding: 2rem 1.5rem;
 		margin: 1rem auto;
+	}
+	.podcast-episodes {
+		grid-template-columns: 1fr;
 	}
 }

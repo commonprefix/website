@@ -31,7 +31,6 @@ const (
 	clientTmplName   = "client.html"
 	grantorTmplName  = "grantor.html"
 	researchTmplName = "research.html"
-	bridgesTmplName  = "bridges.html"
 	podcastTmplName  = "podcast.html"
 	careersTmplName  = "careers.html"
 )
@@ -61,7 +60,6 @@ var researchTmpl = template.Must(template.New("").Funcs(template.FuncMap{
 		return member.Handle
 	},
 }).ParseFiles(layoutPath, filepath.Join(tmplDir, researchTmplName)))
-var bridgesTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, bridgesTmplName)))
 var podcastTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, podcastTmplName)))
 var postTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, postTmplName)))
 var blogTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, blogTmplName)))
@@ -273,16 +271,11 @@ type Page struct {
 	Titles    	   map[string]string       // handle → title (leaders only)
 	Departments    []string
 	Clients        []Client
+	FeaturedClients []Client // shown on the landing page
+	MoreClients     []Client // shown on the landing page after "More partners"
 	Grants         []Grantor
 	Research       Research
 	Posts          []*Post
-}
-
-type BridgesPage struct {
-	SmallContainer bool
-	Title          string
-	Description    string
-	Projects       []Project
 }
 
 type ClientPage struct {
@@ -323,6 +316,38 @@ type ResearchPage struct {
 
 var team = []TeamMember{}
 
+// Partners shown on the landing page before "More partners", in this order
+var featuredClientHandles = []string{
+	"axelar",
+	"ripple",
+	"xrplf",
+	"pod",
+	"mysten",
+	"babylon",
+	"celestia",
+	"espresso",
+	"bob",
+	"citrea",
+}
+
+// Splits the clients shown on the landing page into the featured ones (in
+// featuredClientHandles order) and the rest (in their original order).
+func splitFeaturedClients(clients []Client) (featured []Client, more []Client) {
+	for _, handle := range featuredClientHandles {
+		idx := slices.IndexFunc(clients, func(c Client) bool { return c.Handle == handle })
+		if idx == -1 {
+			log.Fatalf("featured client %q not found", handle)
+		}
+		featured = append(featured, clients[idx])
+	}
+	for _, c := range clients {
+		if !c.HideOnIndex && !slices.Contains(featuredClientHandles, c.Handle) {
+			more = append(more, c)
+		}
+	}
+	return featured, more
+}
+
 func htmlToFormattedString(s template.HTML) string {
 	bmp := bluemonday.StripTagsPolicy()
 	replacer := strings.NewReplacer("\n", " ", "\t", "")
@@ -341,7 +366,8 @@ func build() {
 	if err != nil {
 		log.Fatalf("can't create %s", indexTmplName)
 	}
-	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients, Grants: Grants})
+	featuredClients, moreClients := splitFeaturedClients(Clients)
+	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients, FeaturedClients: featuredClients, MoreClients: moreClients, Grants: Grants})
 	f.Close()
 	fmt.Printf("🏠  %s sucessfully generated.\n", indexTmplName)
 
@@ -515,31 +541,6 @@ func build() {
 
 	f.Close()
 	fmt.Printf("👫  %s sucessfully generated.\n", researchTmplName)
-	//
-	// Build bridges page
-	//
-	bridgeProjects := []Project{}
-	for _, c := range Clients {
-		for _, p := range c.Projects {
-			if p.IsBridge {
-				bridgeProjects = append(bridgeProjects, p)
-			}
-		}
-	}
-
-	bridgesPage := filepath.Join(buildDir, bridgesTmplName)
-	// Remove the old version
-	os.Remove(bridgesPage)
-	// Create new file
-	f, err = os.Create(bridgesPage)
-	if err != nil {
-		log.Fatalf("can't create %s", bridgesTmplName)
-	}
-	bridgesTmpl.ExecuteTemplate(f, "base", BridgesPage{SmallContainer: true, Title: "Bridges", Description: description, Projects: bridgeProjects})
-
-	f.Close()
-	fmt.Printf("🌉  %s sucessfully generated.\n", bridgesTmplName)
-
 	//
 	// Build podcast page
 	//
