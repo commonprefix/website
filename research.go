@@ -196,7 +196,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2024,
 		Authors:        []string{"Apostolos Tzinas", "Srivatsan Sridhar", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2023/1648.pdf",
-		Tags:           []Tag{}, // TIMELINESS, SUPERSAFETY
+		Tags:           []Tag{CONSENSUS},
 		Citations:      1,
 	},
 	{
@@ -266,7 +266,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2023,
 		Authors:        []string{"Orestis Alpos", "Mariarosaria Barbaraci", "Christian Cachin", "Noah Schmid", "Michael Senn"},
 		Url:            "https://dl.acm.org/doi/pdf/10.1145/3626564.3629100",
-		Tags:           []Tag{},
+		Tags:           []Tag{MPC, SIGNATURES},
 		Citations:      1,
 	},
 	{
@@ -366,7 +366,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2025,
 		Authors:        []string{"Mariarosaria Barbaraci", "Michael Senn", "Nicolas Schmid", "Orestis Alpos", "Christian Cachin"},
 		Url:            "https://arxiv.org/pdf/2502.03247.pdf",
-		Tags:           []Tag{},
+		Tags:           []Tag{MPC, SIGNATURES},
 		Citations:      2,
 	},
 	{
@@ -406,7 +406,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2025,
 		Authors:        []string{"Zeta Avarikioti", "Matteo Maffei", "Yuheng Wang"},
 		Url:            "https://arxiv.org/pdf/2504.14965.pdf",
-		Tags:           []Tag{},
+		Tags:           []Tag{PAYMENT_CHANNELS},
 		Citations:      2,
 	},
 	{
@@ -416,7 +416,7 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2025,
 		Authors:        []string{"Zeta Avarikioti", "Georg Fuchsbauer", "Pim Keer", "Matteo Maffei", "Fabian Regen"},
 		Url:            "https://arxiv.org/pdf/2504.18214.pdf",
-		Tags:           []Tag{},
+		Tags:           []Tag{UC, FAIRNESS},
 		Citations:      3,
 	},
 	{
@@ -940,7 +940,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2018,
 		Authors:        []string{"Bernardo David", "Rafael Dowsley", "Mario Larangeira"},
 		Url:            "https://dl.acm.org/doi/10.1145/3211933.3211948",
-		Tags:           []Tag{},
+		Tags:           []Tag{PAYMENT_CHANNELS},
 		Citations:      12,
 	},
 	{
@@ -1000,7 +1000,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2012,
 		Authors:        []string{"Bernardo Machado David", "Anderson CA Nascimento", "Rafael T de Sousa"},
 		Url:            "https://ieeexplore.ieee.org/document/6089575",
-		Tags:           []Tag{},
+		Tags:           []Tag{OBLIVIOUS_TRANSFER},
 		Citations:      7,
 	},
 	{
@@ -1260,7 +1260,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2018,
 		Authors:        []string{"Zeta Avarikioti", "Gerrit Janssen", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1810.07585.pdf",
-		Tags:           []Tag{}, //keywords:  blockchain, layer 2, channels, lightning protocol
+		Tags:           []Tag{PAYMENT_CHANNELS},
 		Citations:      32,
 	},
 	{
@@ -1280,7 +1280,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2023,
 		Authors:        []string{"Zeta Avarikioti", "Lioba Heimbach", "Roland Schmid", "Laurent Vanbever", "Roger Wattenhofer", "Patrick Wintermeyer"},
 		Url:            "https://tik-old.ee.ethz.ch/file/34168cbbbcfa75bf48c87a84844b3ae9/FnF_BFT__SIROCCO_2023_-1.pdf",
-		Tags:           []Tag{},
+		Tags:           []Tag{CONSENSUS},
 		Citations:      29,
 	},
 	{
@@ -1290,7 +1290,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2019,
 		Authors:        []string{"Zeta Avarikioti", "Lukas Käppeli", "Yuyi Wang", "Roger Wattenhofer"},
 		Url:            "https://arxiv.org/pdf/1908.00427.pdf",
-		Tags:           []Tag{}, //keywords : Bitcoin, Security, Dishonest Majority, Offline Players, Sleepy Model
+		Tags:           []Tag{BITCOIN, PROOF_OF_WORK, CONSENSUS},
 		Citations:      23,
 	},
 	{
@@ -1300,26 +1300,28 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2022,
 		Authors:        []string{"Zeta Avarikioti", "Krzysztof Pietrzak", "Iosif Salem", "Stefan Schmid", "Samarth Tiwari", "Michelle Yeo"},
 		Url:            "https://arxiv.org/pdf/2110.08848.pdf",
-		Tags:           []Tag{}, //keywords : Payment Channel Networks, Privacy, Rebalancing.
+		Tags:           []Tag{PAYMENT_CHANNELS, PRIVACY},
 		Citations:      25,
 	},
 	{
-		Handle:     "tx-chain",
-		Name:       "TxChain: Efficient Cryptocurrency Light Clients via Contingent Transaction Aggregation",
-		Conference: DPMCBT,
-		Authors:    []string{"Alexei Zamyatin", "Zeta Avarikioti", "Daniel Perez", "William J. Knottenbelt"},
-		Url:        "https://eprint.iacr.org/2020/580.pdf",
-		Tags:       []Tag{LIGHT_CLIENTS},
-		Citations:  15,
+		Handle:         "tx-chain",
+		Name:           "TxChain: Efficient Cryptocurrency Light Clients via Contingent Transaction Aggregation",
+		Conference:     DPMCBT,
+		ConferenceYear: 2020,
+		Authors:        []string{"Alexei Zamyatin", "Zeta Avarikioti", "Daniel Perez", "William J. Knottenbelt"},
+		Url:            "https://eprint.iacr.org/2020/580.pdf",
+		Tags:           []Tag{LIGHT_CLIENTS},
+		Citations:      15,
 	},
 	{
-		Handle:     "payment-networks-as-creation-games",
-		Name:       "Payment Networks as Creation Games",
-		Conference: DPMCBT,
-		Authors:    []string{"Zeta Avarikioti", "Rolf Scheuner", "Roger Wattenhofer"},
-		Url:        "https://arxiv.org/pdf/1908.00436.pdf",
-		Tags:       []Tag{PAYMENT_CHANNELS},
-		Citations:  15,
+		Handle:         "payment-networks-as-creation-games",
+		Name:           "Payment Networks as Creation Games",
+		Conference:     DPMCBT,
+		ConferenceYear: 2019,
+		Authors:        []string{"Zeta Avarikioti", "Rolf Scheuner", "Roger Wattenhofer"},
+		Url:            "https://arxiv.org/pdf/1908.00436.pdf",
+		Tags:           []Tag{PAYMENT_CHANNELS},
+		Citations:      15,
 	},
 	{
 		Handle:         "algorithmic-channel-design",
@@ -1358,7 +1360,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2023,
 		Authors:        []string{"Sophie Rain", "Zeta Avarikioti", "Laura Kovács", "Matteo Maffei"},
 		Url:            "https://arxiv.org/pdf/2109.07429.pdf",
-		Tags:           []Tag{},
+		Tags:           []Tag{PAYMENT_CHANNELS, FAIRNESS},
 		Citations:      11,
 	},
 	{
@@ -1418,7 +1420,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2020,
 		Authors:        []string{"Kostis Karantias", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2019/1096.pdf",
-		Tags:           []Tag{},
+		Tags:           []Tag{INTEROPERABILITY},
 		Citations:      167,
 	},
 	{
@@ -1448,7 +1450,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2020,
 		Authors:        []string{"Michele Ciampi", "Nikos Karayannidis", "Aggelos Kiayias", "Dionysis Zindros"},
 		Url:            "https://eprint.iacr.org/2020/887.pdf",
-		Tags:           []Tag{},
+		Tags:           []Tag{CONSENSUS},
 		Citations:      17,
 	},
 	{
@@ -1688,7 +1690,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2023,
 		Authors:        []string{"Orestis Alpos", "Christian Cachin"},
 		Url:            "https://eprint.iacr.org/2022/1767.pdf",
-		Tags:           []Tag{},
+		Tags:           []Tag{MPC},
 		Citations:      1,
 	},
 	{
@@ -1728,7 +1730,7 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2024,
 		Authors:        []string{"Dionysis Zindros", "Apostolos Tzinas", "David Tse"},
 		Url:            "https://eprint.iacr.org/2024/210.pdf",
-		Tags:           []Tag{},
+		Tags:           []Tag{CONSENSUS},
 		Citations:      0,
 	},
 	{
