@@ -479,6 +479,16 @@ var ResearchPapers []ResearchPaper = []ResearchPaper{
 		Tags:           []Tag{CONSENSUS, DECENTRALIZATION},
 		Citations:      0,
 	},
+	{
+		Handle:         "musketeer",
+		Name:           "Musketeer: Incentive-Compatible Rebalancing for Payment Channel Networks",
+		Conference:     AFT,
+		ConferenceYear: 2024,
+		Authors:        []string{"Zeta Avarikioti", "Stefan Schmid", "Samarth Tiwari"},
+		Url:            "https://eprint.iacr.org/2023/938.pdf",
+		Tags:           []Tag{PAYMENT_CHANNELS},
+		Citations:      0,
+	},
 }
 
 
@@ -1718,16 +1728,6 @@ var OldResearchPapers []ResearchPaper = []ResearchPaper{
 		ConferenceYear: 2024,
 		Authors:        []string{"Zeta Avarikioti", "Paweł Kędzior", "Tomasz Lizurej", "Tomasz Michalak"},
 		Url:            "https://arxiv.org/pdf/2402.01363v1",
-		Tags:           []Tag{PAYMENT_CHANNELS},
-		Citations:      0,
-	},
-	{
-		Handle:         "musketeer",
-		Name:           "Musketeer: Incentive-Compatible Rebalancing for Payment Channel Networks",
-		Conference:     EPRINT,
-		ConferenceYear: 2023,
-		Authors:        []string{"Zeta Avarikioti", "Stefan Schmid", "Samarth Tiwari"},
-		Url:            "https://eprint.iacr.org/2023/938.pdf",
 		Tags:           []Tag{PAYMENT_CHANNELS},
 		Citations:      0,
 	},
