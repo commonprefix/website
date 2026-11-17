@@ -4,124 +4,109 @@
 {{end}}
 {{define "content"}}
 <main class="coder">
-	<!-- Hero: one large, centred visual -->
+	<!-- Hero -->
 	<section class="bleed cx-hero">
-		<p class="cx-eyebrow">Introducing</p>
-		<h1 class="cx-hero__title">Common Prefix <span class="cx-pink">Coder</span></h1>
-		<p class="cx-hero__tagline">
-			Vibe-code and vibe-prove your mission-critical software works, from inception to production.
-		</p>
-		<div class="hero-cta cx-cta">
-			<a
-				href="mailto:hello@commonprefix.com?subject=Partnership%20inquiry"
-				class="with-arrow mbtn mbtn-fit mbtn-primary with-arrow-beige"
-			>
-				<span class="un">Join the waiting list</span>
-			</a>
+		<h1 class="cx-hero__title">Common Prefix <span class="cx-soft">Coder</span></h1>
+		<p class="cx-hero__tagline">Vibe-code and vibe-prove your mission-critical software works from inception to production.</p>
+
+		<div class="cx-demo">
+			<div class="cx-prompt cx-reveal">
+				<span>Build a payment service where a refund can never exceed the original charge.</span>
+				<span class="cx-prompt__send" aria-hidden="true">
+					<svg viewBox="0 0 16 16"><path d="M8 12.5V3.5M4 7.5L8 3.5L12 7.5" /></svg>
+				</span>
+			</div>
+			<div class="cx-result cx-reveal">
+				<div class="cx-result__head">
+					<span>Software written. Every property proved in Lean.</span>
+					<span class="cx-pill cx-pill--green">All proved</span>
+				</div>
+				<div class="cx-result__row"><span>A refund never exceeds the original charge.</span><span class="cx-pill cx-pill--green">Correct</span></div>
+				<div class="cx-result__row"><span>A charge is never applied twice for one payment.</span><span class="cx-pill cx-pill--green">Correct</span></div>
+				<div class="cx-result__row"><span>The account balance always equals the sum of its transactions.</span><span class="cx-pill cx-pill--green">Correct</span></div>
+				<div class="cx-result__row"><span>Every payment ends as either settled or refunded.</span><span class="cx-pill cx-pill--green">Correct</span></div>
+			</div>
+			<p class="cx-note">Illustrative example</p>
 		</div>
-		<svg class="cx-seal" viewBox="0 0 400 400" aria-hidden="true">
-			<circle class="cx-seal__track" cx="200" cy="200" r="150" />
-			<circle class="cx-seal__ring" cx="200" cy="200" r="150" />
-			<circle class="cx-seal__ring2" cx="200" cy="200" r="122" />
-			<path class="cx-seal__check" d="M146 204 L184 240 L258 164" />
-		</svg>
+
+		<div class="cx-bar cx-reveal">
+			<span>Built for mission-critical systems.</span>
+			<a class="cx-btn" href="mailto:hello@commonprefix.com?subject=Partnership%20inquiry">Talk to our team</a>
+		</div>
 	</section>
 
-	<!-- The statement lights up word by word -->
-	<section class="bleed cx-scene" data-scene="statement" style="--len: 220vh">
+	<!-- AI ships the code -->
+	<section class="bleed cx-section">
+		<h2 class="cx-h2 cx-reveal">AI ships the code now.</h2>
+		<p class="cx-sub cx-reveal">Written, reviewed and audited by AI. Read by no one.</p>
+		<div class="cx-flow cx-reveal" data-flow>
+			<span class="cx-flow__text">Business<br />requirements</span>
+			<span class="cx-flow__arrow"></span>
+			<span class="cx-flow__box">AI programmer</span>
+			<span class="cx-flow__arrow"></span>
+			<span class="cx-flow__text">Pull request</span>
+			<span class="cx-flow__arrow"></span>
+			<span class="cx-flow__box">AI reviewer</span>
+			<span class="cx-flow__arrow"></span>
+			<span class="cx-flow__text">Merged<br />pull request</span>
+			<span class="cx-flow__arrow"></span>
+			<span class="cx-flow__box">AI auditor</span>
+			<span class="cx-flow__arrow"></span>
+			<span class="cx-flow__text">Production<br />software</span>
+		</div>
+	</section>
+
+	<!-- 99% -->
+	<section class="bleed cx-section">
+		<h2 class="cx-h2 cx-reveal">AI gets 99% right.</h2>
+		<div class="cx-ring cx-reveal" data-ring="99">
+			<svg viewBox="0 0 200 200" aria-hidden="true">
+				<circle class="cx-ring__track" cx="100" cy="100" r="80" />
+				<circle class="cx-ring__fill" cx="100" cy="100" r="80" />
+				<circle class="cx-ring__gap" cx="100" cy="100" r="80" />
+			</svg>
+			<span class="cx-ring__count">0%</span>
+		</div>
+		<p class="cx-caption cx-reveal">This 1% can be the most critical.</p>
+	</section>
+
+	<!-- 100% -->
+	<section class="bleed cx-section">
+		<h2 class="cx-h2 cx-reveal">Getting to 100%.</h2>
+		<div class="cx-ring cx-ring--green cx-reveal" data-ring="100">
+			<svg viewBox="0 0 200 200" aria-hidden="true">
+				<circle class="cx-ring__track" cx="100" cy="100" r="80" />
+				<circle class="cx-ring__fill" cx="100" cy="100" r="80" />
+			</svg>
+			<span class="cx-ring__count">0%</span>
+		</div>
+		<p class="cx-caption cx-reveal">Mathematically prove that software does what it should.</p>
+	</section>
+
+	<!-- How it works: one line fills as you scroll, through three steps -->
+	<section class="bleed cx-scene" data-scene="steps">
 		<div class="cx-sticky">
-			<p class="cx-statement">100% of software will be AI generated, AI reviewed, and AI audited</p>
-		</div>
-	</section>
-
-	<!-- 99% → the missing 1% → 100% -->
-	<section class="bleed cx-scene" data-scene="ring" style="--len: 560vh">
-		<div class="cx-sticky cx-ring">
-			<div class="cx-ring__text">
-				<h2 class="cx-ring__title" data-t="0">AI gets 99% of cases right</h2>
-				<h2 class="cx-ring__title" data-t="1">The missing 1%</h2>
-				<h2 class="cx-ring__title" data-t="2">Getting to 100%</h2>
-				<p class="cx-ring__sub" data-s="0">It can be the most critical.</p>
-				<p class="cx-ring__sub" data-s="1">Today, AI makes it increasingly possible for adversaries to effectively discover it.</p>
-				<p class="cx-ring__sub" data-s="2">Mathematically prove that software does what it should.</p>
-			</div>
-			<div class="cx-ring__stage">
-				<svg class="cx-ring__soft" viewBox="0 0 1000 1000" aria-hidden="true">
-					<g class="cx-cam">
-						<circle class="cx-ring__track" cx="500" cy="500" r="300" />
-						<circle class="cx-ring__dark" cx="500" cy="500" r="300" transform="rotate(-90 500 500)" />
-						<circle class="cx-ring__green" cx="500" cy="500" r="300" transform="rotate(-90 500 500)" />
-						<text class="cx-ring__count" x="500" y="535" text-anchor="middle">0%</text>
-					</g>
-				</svg>
-				<svg class="cx-ring__sharp" viewBox="0 0 1000 1000" aria-hidden="true">
-					<g class="cx-cam">
-						<circle class="cx-ring__gap" cx="500" cy="500" r="300" transform="rotate(-90 500 500)" />
-					</g>
-					<g class="cx-ring__arrow">
-						<path d="M500 300 L500 420" />
-						<path d="M482 397 Q496 403 500 420 M518 397 Q504 403 500 420" />
-					</g>
-				</svg>
-			</div>
-		</div>
-	</section>
-
-	<!-- How it works -->
-	<section class="bleed cx-scene" data-scene="steps" style="--len: 380vh">
-		<div class="cx-sticky cx-steps">
-			<h2 class="cx-steps__title">How Common Prefix Coder works</h2>
+			<h2 class="cx-h2">How it works.</h2>
 			<div class="cx-track">
 				<div class="cx-track__line"><div class="cx-track__fill"></div></div>
-				<div class="cx-node" data-n="0"><span class="cx-node__dot"></span><span class="cx-node__label">Specify</span></div>
-				<div class="cx-node" data-n="1"><span class="cx-node__dot"></span><span class="cx-node__label">Prove</span></div>
-				<div class="cx-node" data-n="2"><span class="cx-node__dot cx-node__dot--check"></span><span class="cx-node__label">Check</span></div>
+				<div class="cx-node"><span class="cx-node__dot"></span><span class="cx-node__label">Specify</span></div>
+				<div class="cx-node"><span class="cx-node__dot"></span><span class="cx-node__label">Prove</span></div>
+				<div class="cx-node"><span class="cx-node__dot cx-node__dot--check"></span><span class="cx-node__label">Check</span></div>
 			</div>
 			<div class="cx-steps__copy">
-				<p data-c="0">The AI Specifier turns your business requirements into an English and a formal specification.</p>
-				<p data-c="1">The AI Prover proves that your production software meets that specification.</p>
-				<p data-c="2">An automated theorem checker verifies every proof. If the software is wrong, you get a reproducible counterexample instead.</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- Domains -->
-	<section class="bleed cx-domains">
-		<h2 class="cx-domains__title cx-reveal">Built for mission-critical systems</h2>
-		<div class="domains">
-			<div class="domains__item cx-reveal">
-				<img src="/static/coder/finance.svg" alt="" draggable="false" />
-				<h3>Finance</h3>
-			</div>
-			<div class="domains__item cx-reveal">
-				<img src="/static/coder/biomedical.svg" alt="" draggable="false" />
-				<h3>Biomedical</h3>
-			</div>
-			<div class="domains__item cx-reveal">
-				<img src="/static/coder/automotive.svg" alt="" draggable="false" />
-				<h3>Automotive</h3>
-			</div>
-			<div class="domains__item cx-reveal">
-				<img src="/static/coder/space-aviation.svg" alt="" draggable="false" />
-				<h3>Space &amp; Aviation</h3>
-			</div>
-			<div class="domains__item cx-reveal">
-				<img src="/static/coder/robotics.svg" alt="" draggable="false" />
-				<h3>Robotics</h3>
+				<p>The AI Specifier turns your business requirements into an English and a formal specification.</p>
+				<p>The AI Prover proves that your production software meets that specification.</p>
+				<p>An automated theorem checker verifies every proof. If the software is wrong, you get a reproducible counterexample instead.</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- Closing -->
-	<section class="bleed cx-end cx-reveal">
-		<h2 class="cx-end__title">Common Prefix <span class="cx-pink">Coder</span></h2>
-		<div class="hero-cta cx-cta">
-			<a
-				href="mailto:hello@commonprefix.com?subject=Partnership%20inquiry"
-				class="with-arrow mbtn mbtn-fit mbtn-primary with-arrow-beige"
-			>
-				<span class="un">Join the waiting list</span>
-			</a>
+	<section class="bleed cx-section cx-end">
+		<h2 class="cx-h2 cx-reveal">Built for mission-critical systems.</h2>
+		<div class="cx-end__actions cx-reveal">
+			<a class="cx-btn" href="mailto:hello@commonprefix.com?subject=Partnership%20inquiry">Talk to our team</a>
+			<a class="cx-link" href="/blog">Read the blog post &rsaquo;</a>
 		</div>
 	</section>
 </main>
