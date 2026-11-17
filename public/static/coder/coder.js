@@ -47,7 +47,6 @@
 		const bubble = root.querySelector('.cx-bubble')
 		const reply = root.querySelector('.cx-reply')
 		const replyText = root.querySelector('.cx-reply__text')
-		const draft = root.querySelector('.cx-draft')
 		const toggle = root.querySelector('.cx-chat__toggle')
 		let paused = false
 		let run = 0
@@ -75,7 +74,6 @@
 			bubble.hidden = true
 			reply.hidden = true
 			replyText.textContent = ''
-			draft.hidden = true
 		}
 
 		const finalState = () => {
@@ -85,7 +83,6 @@
 			root.classList.add('has-msgs')
 			reply.hidden = false
 			replyText.innerHTML = REPLY.join(' ')
-			draft.hidden = false
 			root.classList.add('is-done')
 		}
 
@@ -118,8 +115,6 @@
 				replyText.innerHTML = REPLY.slice(0, i).join(' ')
 				await wait(40, id)
 			}
-			await wait(350, id)
-			draft.hidden = false
 			root.classList.add('is-done')
 		}
 
