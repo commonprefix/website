@@ -1595,7 +1595,7 @@ html.cx body {
 
 .cx-composer {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 14px;
   padding: 10px 10px 10px 16px;
@@ -1647,8 +1647,14 @@ html.cx body {
   transition: background 0.25s, transform 0.2s;
 }
 
-.cx-chat.has-text .cx-composer__send {
+.cx-chat.is-ready .cx-composer__send {
   background: var(--c-pink);
+  animation: cx-ready 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes cx-ready {
+  from { transform: scale(0.7); }
+  to { transform: scale(1); }
 }
 
 .cx-composer__send.is-pressed {

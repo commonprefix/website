@@ -68,7 +68,7 @@
 			})
 
 		const reset = () => {
-			root.classList.remove('is-typing', 'has-text', 'is-done', 'is-paused', 'has-msgs')
+			root.classList.remove('is-typing', 'has-text', 'is-ready', 'is-done', 'is-paused', 'has-msgs')
 			paused = false
 			typed.textContent = ''
 			bubble.hidden = true
@@ -98,11 +98,14 @@
 				root.classList.add('has-text')
 				await wait(18, id)
 			}
-			await wait(450, id)
+			// typing finished: the send button becomes active, then is pressed
+			root.classList.remove('is-typing')
+			root.classList.add('is-ready')
+			await wait(550, id)
 			send.classList.add('is-pressed')
 			await wait(140, id)
 			send.classList.remove('is-pressed')
-			root.classList.remove('is-typing', 'has-text')
+			root.classList.remove('is-typing', 'has-text', 'is-ready')
 			typed.textContent = ''
 			bubble.textContent = USER
 			bubble.hidden = false
