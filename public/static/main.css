@@ -1302,6 +1302,17 @@ html.cx {
   --cx-red-bg: #f9e7e4;
   --cx-band: #dce6d6;
   --cx-sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+  --cx-bg: #fbfcfd;
+  --cx-cool: #eef3f7;
+}
+
+/* cool, light background as in the design */
+html.cx body {
+  background-color: var(--cx-bg);
+}
+
+html.cx .logo-graphic {
+  display: none;
 }
 
 /* full-width sections: the content column starts 16px inside a centred 1040px wrapper */
@@ -1314,7 +1325,7 @@ html.cx {
 }
 
 .cx-soft {
-  color: var(--cx-soft);
+  color: #797b7f;
 }
 
 .cx-wrap {
@@ -1328,14 +1339,19 @@ html.cx {
   padding-top: 48px;
   padding-bottom: 96px;
   text-align: center;
-  background: linear-gradient(180deg, rgba(254, 254, 248, 0) 0%, #eef0f0 100%);
+}
+
+/* the hero's cool tint reaches up behind the header */
+html.cx body {
+  background-image: linear-gradient(180deg, var(--cx-cool) 0px, var(--cx-cool) 760px, var(--cx-bg) 1250px);
+  background-repeat: no-repeat;
 }
 
 .cx-hero__title {
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(40px, 6vw, 76px);
   line-height: 1.05;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
 }
 
 .cx-hero__tagline {
@@ -1344,7 +1360,7 @@ html.cx {
   font-size: clamp(17px, 1.8vw, 20px);
   line-height: 1.45;
   text-align: center;
-  color: var(--cx-dim);
+  color: #5f656b;
 }
 
 .cx-demo {
@@ -1496,7 +1512,7 @@ html.cx {
 
 .cx-section--tint {
   padding-bottom: 120px;
-  background: linear-gradient(180deg, rgba(254, 254, 248, 0) 0%, #eef0f0 30%, #eef0f0 70%, rgba(254, 254, 248, 0) 100%);
+  background: linear-gradient(180deg, rgba(251, 252, 253, 0) 0%, var(--cx-cool) 30%, var(--cx-cool) 70%, rgba(251, 252, 253, 0) 100%);
 }
 
 .cx-h2 {
@@ -1870,8 +1886,8 @@ html.cx {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 2px solid #c9c9c0;
-  background: var(--c-beige-light);
+  border: 2px solid #c9ccd0;
+  background: var(--cx-bg);
   transition: background 0.4s, border-color 0.4s, transform 0.4s;
 }
 
