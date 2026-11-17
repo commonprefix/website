@@ -1364,8 +1364,8 @@ html.cx body {
 }
 
 .cx-demo {
-  max-width: 720px;
-  margin: 44px auto 0;
+  max-width: min(1120px, 94vw);
+  margin: 56px auto 0;
   text-align: left;
   font-family: var(--cx-sans);
 }
@@ -1517,13 +1517,13 @@ html.cx body {
 
 .cx-chat {
   position: relative;
-  padding: 16px;
+  padding: clamp(16px, 2.4vw, 32px);
+  border-radius: 24px;
   background: #fff;
   border: 1px solid var(--cx-line);
-  border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(30, 40, 50, 0.12);
+  box-shadow: 0 30px 80px rgba(30, 40, 50, 0.14);
   font-family: var(--cx-sans);
-  font-size: 15px;
+  font-size: clamp(15px, 1.45vw, 19px);
   letter-spacing: 0;
   text-align: left;
 }
@@ -1531,13 +1531,13 @@ html.cx body {
 .cx-chat__body {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: clamp(18px, 2.2vw, 30px);
 }
 
 .cx-bubble {
   align-self: flex-end;
-  max-width: 82%;
-  padding: 14px 18px;
+  max-width: 76%;
+  padding: clamp(14px, 1.6vw, 22px) clamp(16px, 2vw, 28px);
   border: 1px solid #e3e5e8;
   border-radius: 14px;
   background: #f4f5f7;
@@ -1548,7 +1548,7 @@ html.cx body {
 .cx-reply__text {
   text-align: left;
   font-family: var(--cx-sans);
-  font-size: 15px;
+  font-size: inherit;
   line-height: 1.6;
   letter-spacing: 0;
   min-height: 1.6em;
@@ -1598,14 +1598,14 @@ html.cx body {
   align-items: flex-end;
   justify-content: space-between;
   gap: 14px;
-  padding: 10px 10px 10px 16px;
+  padding: clamp(10px, 1.1vw, 14px) clamp(10px, 1.1vw, 14px) clamp(10px, 1.1vw, 14px) clamp(16px, 1.8vw, 24px);
   border: 1px solid #e3e5e8;
-  border-radius: 14px;
+  border-radius: 18px;
   color: var(--cx-ink);
 }
 
 .cx-chat.has-msgs .cx-composer {
-  margin-top: 18px;
+  margin-top: clamp(18px, 2.4vw, 32px);
 }
 
 .cx-composer__text {
@@ -1640,8 +1640,8 @@ html.cx body {
   flex: none;
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: clamp(32px, 3vw, 40px);
+  height: clamp(32px, 3vw, 40px);
   border-radius: 50%;
   background: #e8eaed;
   transition: background 0.25s, transform 0.2s;
@@ -1759,8 +1759,8 @@ html.cx body {
 }
 
 .cx-ref svg {
-  width: 14px;
-  height: 14px;
+  width: 0.9em;
+  height: 0.9em;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.4;
@@ -1769,7 +1769,7 @@ html.cx body {
 }
 
 .cx-ref__arrow {
-  font-size: 12px;
+  font-size: 0.8em;
 }
 
 .cx-draft[hidden] {
