@@ -33,6 +33,8 @@ const (
 	researchTmplName = "research.html"
 	podcastTmplName  = "podcast.html"
 	careersTmplName  = "careers.html"
+	coderTmplName    = "coder.html"
+	homeAliasName    = "home.html"
 )
 
 const description string = "Common Prefix is a team of scientists and engineers researching and implementing blockchain protocols."
@@ -64,6 +66,7 @@ var podcastTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tm
 var postTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, postTmplName)))
 var blogTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, blogTmplName)))
 var careersTmpl = template.Must(template.New("").ParseFiles(layoutPath, filepath.Join(tmplDir, careersTmplName)))
+var coderTmpl = template.Must(template.ParseFiles(layoutPath, filepath.Join(tmplDir, coderTmplName)))
 // Fixed display order for the Leadership section
 var leadershipOrder = []string{
 	"CEO & Co-founder",
@@ -367,9 +370,34 @@ func build() {
 		log.Fatalf("can't create %s", indexTmplName)
 	}
 	featuredClients, moreClients := splitFeaturedClients(Clients)
-	homeTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients, FeaturedClients: featuredClients, MoreClients: moreClients, Grants: Grants})
+	homePage := Page{SmallContainer: true, Title: "", Description: description, Members: team, Clients: Clients, FeaturedClients: featuredClients, MoreClients: moreClients, Grants: Grants}
+	homeTmpl.ExecuteTemplate(f, "base", homePage)
 	f.Close()
 	fmt.Printf("🏠  %s sucessfully generated.\n", indexTmplName)
+
+	// The landing page is also served at /home, since / redirects to /coder (see vercel.json)
+	home := filepath.Join(buildDir, homeAliasName)
+	os.Remove(home)
+	f, err = os.Create(home)
+	if err != nil {
+		log.Fatalf("can't create %s", homeAliasName)
+	}
+	homeTmpl.ExecuteTemplate(f, "base", homePage)
+	f.Close()
+	fmt.Printf("🏠  %s sucessfully generated.\n", homeAliasName)
+
+	//
+	// Build Common Prefix Coder page
+	//
+	coderPage := filepath.Join(buildDir, coderTmplName)
+	os.Remove(coderPage)
+	f, err = os.Create(coderPage)
+	if err != nil {
+		log.Fatalf("can't create %s", coderTmplName)
+	}
+	coderTmpl.ExecuteTemplate(f, "base", Page{SmallContainer: true, Title: "Coder", Description: "Vibe-code and vibe-prove your mission-critical software works, from inception to production."})
+	f.Close()
+	fmt.Printf("🧪  %s successfully generated.\n", coderTmplName)
 
 	//
 	// Build team page

@@ -39,6 +39,11 @@
       ],
       "destination": "https://www.commonprefix.com/:path",
       "permanent": true
+    },
+    {
+      "source": "/",
+      "destination": "/coder",
+      "permanent": false
     }
   ]
 }
