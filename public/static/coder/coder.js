@@ -32,16 +32,22 @@
 
 	// Hero chat: someone types a request, the assistant answers and proves the properties
 	function chatPlayer(root) {
-		const USER = 'Build a payment service where a refund can never exceed the original charge.'
-		const REPLY = 'Done. I wrote the payment service and proved its properties in Lean.'
+		const USER =
+			'Draft a second theorem that states that successful signing payloads for two different signing domains cannot have equal bytes. ' +
+			'Use the existing Lean model and the selected signing-domain theorem. Give the draft a new name. ' +
+			'Include business conditions and an explanation for every complete input and the complete outcome. Do not attempt a proof.'
+		const LINK =
+			'<span class="cx-ref"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8l5 1.9v4c0 3-2.1 5.4-5 6.5-2.9-1.1-5-3.5-5-6.5v-4z M5.6 8l1.7 1.7 3.2-3.4" /></svg>Signing domain separation <span class="cx-ref__arrow">&#8599;</span></span>'
+		// reply tokens: plain words, plus the theorem reference as one piece
+		const REPLY = ['This', 'proposal', 'restates', LINK].concat(
+			'with explicit successful payload results. The domains must differ, and both payload calls must succeed. The resulting byte sequences must differ. This draft has not been checked by Lean.'.split(' ')
+		)
 		const typed = root.querySelector('.cx-composer__typed')
 		const send = root.querySelector('.cx-composer__send')
 		const bubble = root.querySelector('.cx-bubble')
 		const reply = root.querySelector('.cx-reply')
 		const replyText = root.querySelector('.cx-reply__text')
-		const props = root.querySelector('.cx-props')
-		const rows = [...root.querySelectorAll('.cx-props__row')]
-		const allProved = root.querySelector('.cx-props__head .cx-pill')
+		const draft = root.querySelector('.cx-draft')
 		const toggle = root.querySelector('.cx-chat__toggle')
 		let paused = false
 		let run = 0
@@ -51,14 +57,15 @@
 			new Promise((resolve) => {
 				let left = ms
 				let last = performance.now()
-				const tick = (now) => {
+				const tick = () => {
 					if (id !== run) return
+					const now = performance.now()
 					if (!paused) left -= now - last
 					last = now
 					if (left <= 0) resolve()
-					else requestAnimationFrame(tick)
+					else setTimeout(tick, Math.min(16, Math.max(0, left)))
 				}
-				requestAnimationFrame(tick)
+				setTimeout(tick, Math.min(16, ms))
 			})
 
 		const reset = () => {
@@ -68,9 +75,7 @@
 			bubble.hidden = true
 			reply.hidden = true
 			replyText.textContent = ''
-			props.hidden = true
-			rows.forEach((r) => r.classList.remove('is-on'))
-			allProved.classList.remove('is-on')
+			draft.hidden = true
 		}
 
 		const finalState = () => {
@@ -79,10 +84,8 @@
 			bubble.hidden = false
 			root.classList.add('has-msgs')
 			reply.hidden = false
-			replyText.textContent = REPLY
-			props.hidden = false
-			rows.forEach((r) => r.classList.add('is-on'))
-			allProved.classList.add('is-on')
+			replyText.innerHTML = REPLY.join(' ')
+			draft.hidden = false
 			root.classList.add('is-done')
 		}
 
@@ -91,10 +94,12 @@
 			reset()
 			await wait(500, id)
 			root.classList.add('is-typing')
-			for (const ch of USER) {
-				typed.textContent += ch
+			// fast typing: a few characters at a time
+			for (let i = 0; i < USER.length; ) {
+				i = Math.min(USER.length, i + 2 + Math.floor(Math.random() * 3))
+				typed.textContent = USER.slice(0, i)
 				root.classList.add('has-text')
-				await wait(ch === ' ' ? 45 : 26 + Math.random() * 30, id)
+				await wait(18, id)
 			}
 			await wait(450, id)
 			send.classList.add('is-pressed')
@@ -109,20 +114,12 @@
 			reply.hidden = false
 			replyText.innerHTML = '<span class="cx-dots"><span></span><span></span><span></span></span>'
 			await wait(1100, id)
-			replyText.textContent = ''
-			const words = REPLY.split(' ')
-			for (let i = 0; i < words.length; i++) {
-				replyText.textContent += (i ? ' ' : '') + words[i]
-				await wait(55, id)
-			}
-			await wait(300, id)
-			props.hidden = false
-			for (const r of rows) {
-				await wait(380, id)
-				r.classList.add('is-on')
+			for (let i = 1; i <= REPLY.length; i++) {
+				replyText.innerHTML = REPLY.slice(0, i).join(' ')
+				await wait(40, id)
 			}
 			await wait(350, id)
-			allProved.classList.add('is-on')
+			draft.hidden = false
 			root.classList.add('is-done')
 		}
 
