@@ -1364,7 +1364,7 @@ html.cx body {
 }
 
 .cx-demo {
-  max-width: min(1120px, 94vw);
+  max-width: min(960px, 94vw);
   margin: 56px auto 0;
   text-align: left;
   font-family: var(--cx-sans);
@@ -1537,7 +1537,7 @@ html.cx .cx-cta-row.is-in {
   border: 1px solid var(--cx-line);
   box-shadow: 0 30px 80px rgba(30, 40, 50, 0.14);
   font-family: var(--cx-sans);
-  font-size: clamp(15px, 1.45vw, 19px);
+  font-size: clamp(15px, 1.3vw, 17px);
   letter-spacing: 0;
   text-align: left;
 }
