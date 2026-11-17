@@ -1503,6 +1503,20 @@ html.cx body {
   margin-top: 64px;
 }
 
+/* appears once the hero chat has finished */
+html.cx .cx-cta-row {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.cx .cx-cta-row.is-in {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
 .cx-btn--lg {
   padding: 13px 28px;
   font-size: 15px;

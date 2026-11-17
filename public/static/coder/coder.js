@@ -48,6 +48,11 @@
 		const reply = root.querySelector('.cx-reply')
 		const replyText = root.querySelector('.cx-reply__text')
 		const toggle = root.querySelector('.cx-chat__toggle')
+		const cta = document.querySelector('[data-chat-cta]')
+		const done = () => {
+			root.classList.add('is-done')
+			if (cta) cta.classList.add('is-in')
+		}
 		let paused = false
 		let run = 0
 
@@ -83,7 +88,7 @@
 			root.classList.add('has-msgs')
 			reply.hidden = false
 			replyText.innerHTML = REPLY.join(' ')
-			root.classList.add('is-done')
+			done()
 		}
 
 		async function play() {
@@ -118,7 +123,8 @@
 				replyText.innerHTML = REPLY.slice(0, i).join(' ')
 				await wait(40, id)
 			}
-			root.classList.add('is-done')
+			await wait(300, id)
+			done()
 		}
 
 		toggle.addEventListener('click', () => {
