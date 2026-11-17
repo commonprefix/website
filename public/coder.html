@@ -84,21 +84,31 @@
 		<p class="cx-hero__tagline">Vibe-code and vibe-prove your mission-critical software works from inception to production.</p>
 
 		<div class="cx-demo">
-			<div class="cx-prompt cx-reveal">
-				<span>Build a payment service where a refund can never exceed the original charge.</span>
-				<span class="cx-prompt__send" aria-hidden="true">
-					<svg viewBox="0 0 16 16"><path d="M8 12.5V3.5M4 7.5L8 3.5L12 7.5" /></svg>
-				</span>
-			</div>
-			<div class="cx-result cx-reveal">
-				<div class="cx-result__head">
-					<span>Software written. Every property proved in Lean.</span>
-					<span class="cx-pill cx-pill--green">All proved</span>
+			<div class="cx-chat cx-reveal" data-chat>
+				<div class="cx-chat__body">
+					<div class="cx-bubble" hidden></div>
+					<div class="cx-reply" hidden>
+						<p class="cx-reply__text"></p>
+						<div class="cx-props" hidden>
+							<div class="cx-props__head"><span>Every property proved in Lean.</span><span class="cx-pill cx-pill--green">All proved</span></div>
+							<div class="cx-props__row"><span>A refund never exceeds the original charge.</span><span class="cx-pill cx-pill--green">Correct</span></div>
+							<div class="cx-props__row"><span>A charge is never applied twice for one payment.</span><span class="cx-pill cx-pill--green">Correct</span></div>
+							<div class="cx-props__row"><span>The account balance always equals the sum of its transactions.</span><span class="cx-pill cx-pill--green">Correct</span></div>
+							<div class="cx-props__row"><span>Every payment ends as either settled or refunded.</span><span class="cx-pill cx-pill--green">Correct</span></div>
+						</div>
+					</div>
 				</div>
-				<div class="cx-result__row"><span>A refund never exceeds the original charge.</span><span class="cx-pill cx-pill--green">Correct</span></div>
-				<div class="cx-result__row"><span>A charge is never applied twice for one payment.</span><span class="cx-pill cx-pill--green">Correct</span></div>
-				<div class="cx-result__row"><span>The account balance always equals the sum of its transactions.</span><span class="cx-pill cx-pill--green">Correct</span></div>
-				<div class="cx-result__row"><span>Every payment ends as either settled or refunded.</span><span class="cx-pill cx-pill--green">Correct</span></div>
+				<div class="cx-composer">
+					<span class="cx-composer__text"><span class="cx-composer__typed"></span><span class="cx-caret"></span><span class="cx-composer__ph">Describe what your software must do&hellip;</span></span>
+					<span class="cx-composer__send" aria-hidden="true">
+						<svg viewBox="0 0 16 16"><path d="M8 12.5V3.5M4 7.5L8 3.5L12 7.5" /></svg>
+					</span>
+				</div>
+				<button class="cx-chat__toggle" type="button" aria-label="Pause">
+					<svg class="cx-ico-pause" viewBox="0 0 16 16"><path d="M5.5 3.5v9M10.5 3.5v9" /></svg>
+					<svg class="cx-ico-play" viewBox="0 0 16 16"><path d="M5 3.2v9.6L12.5 8z" /></svg>
+					<svg class="cx-ico-replay" viewBox="0 0 16 16"><path d="M3.5 8a4.5 4.5 0 1 0 1.4-3.3M3.5 2.8v2.4h2.4" /></svg>
+				</button>
 			</div>
 			<p class="cx-note">Illustrative example</p>
 		</div>

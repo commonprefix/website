@@ -30,6 +30,112 @@
 		requestAnimationFrame(step)
 	}
 
+	// Hero chat: someone types a request, the assistant answers and proves the properties
+	function chatPlayer(root) {
+		const USER = 'Build a payment service where a refund can never exceed the original charge.'
+		const REPLY = 'Done. I wrote the payment service and proved its properties in Lean.'
+		const typed = root.querySelector('.cx-composer__typed')
+		const send = root.querySelector('.cx-composer__send')
+		const bubble = root.querySelector('.cx-bubble')
+		const reply = root.querySelector('.cx-reply')
+		const replyText = root.querySelector('.cx-reply__text')
+		const props = root.querySelector('.cx-props')
+		const rows = [...root.querySelectorAll('.cx-props__row')]
+		const allProved = root.querySelector('.cx-props__head .cx-pill')
+		const toggle = root.querySelector('.cx-chat__toggle')
+		let paused = false
+		let run = 0
+
+		// a delay that stops counting while paused, and is abandoned on replay
+		const wait = (ms, id) =>
+			new Promise((resolve) => {
+				let left = ms
+				let last = performance.now()
+				const tick = (now) => {
+					if (id !== run) return
+					if (!paused) left -= now - last
+					last = now
+					if (left <= 0) resolve()
+					else requestAnimationFrame(tick)
+				}
+				requestAnimationFrame(tick)
+			})
+
+		const reset = () => {
+			root.classList.remove('is-typing', 'has-text', 'is-done', 'is-paused', 'has-msgs')
+			paused = false
+			typed.textContent = ''
+			bubble.hidden = true
+			reply.hidden = true
+			replyText.textContent = ''
+			props.hidden = true
+			rows.forEach((r) => r.classList.remove('is-on'))
+			allProved.classList.remove('is-on')
+		}
+
+		const finalState = () => {
+			reset()
+			bubble.textContent = USER
+			bubble.hidden = false
+			root.classList.add('has-msgs')
+			reply.hidden = false
+			replyText.textContent = REPLY
+			props.hidden = false
+			rows.forEach((r) => r.classList.add('is-on'))
+			allProved.classList.add('is-on')
+			root.classList.add('is-done')
+		}
+
+		async function play() {
+			const id = ++run
+			reset()
+			await wait(500, id)
+			root.classList.add('is-typing')
+			for (const ch of USER) {
+				typed.textContent += ch
+				root.classList.add('has-text')
+				await wait(ch === ' ' ? 45 : 26 + Math.random() * 30, id)
+			}
+			await wait(450, id)
+			send.classList.add('is-pressed')
+			await wait(140, id)
+			send.classList.remove('is-pressed')
+			root.classList.remove('is-typing', 'has-text')
+			typed.textContent = ''
+			bubble.textContent = USER
+			bubble.hidden = false
+			root.classList.add('has-msgs')
+			await wait(450, id)
+			reply.hidden = false
+			replyText.innerHTML = '<span class="cx-dots"><span></span><span></span><span></span></span>'
+			await wait(1100, id)
+			replyText.textContent = ''
+			const words = REPLY.split(' ')
+			for (let i = 0; i < words.length; i++) {
+				replyText.textContent += (i ? ' ' : '') + words[i]
+				await wait(55, id)
+			}
+			await wait(300, id)
+			props.hidden = false
+			for (const r of rows) {
+				await wait(380, id)
+				r.classList.add('is-on')
+			}
+			await wait(350, id)
+			allProved.classList.add('is-on')
+			root.classList.add('is-done')
+		}
+
+		toggle.addEventListener('click', () => {
+			if (root.classList.contains('is-done')) return play()
+			paused = !paused
+			root.classList.toggle('is-paused', paused)
+			toggle.setAttribute('aria-label', paused ? 'Play' : 'Pause')
+		})
+
+		return { play, finalState }
+	}
+
 	function init() {
 		document.querySelectorAll('.cx-ring__fill, .cx-ring__gap').forEach((el) => setArc(el, 0, 0))
 
@@ -47,6 +153,22 @@
 			{ threshold: 0.3 }
 		)
 		document.querySelectorAll('.cx-reveal').forEach((el) => io.observe(el))
+
+		// start the chat once it is on screen
+		const chatEl = document.querySelector('[data-chat]')
+		if (chatEl) {
+			const chat = chatPlayer(chatEl)
+			if (reduced) chat.finalState()
+			else {
+				const co = new IntersectionObserver((es) => {
+					if (es.some((e) => e.isIntersecting)) {
+						co.disconnect()
+						chat.play()
+					}
+				}, { threshold: 0.4 })
+				co.observe(chatEl)
+			}
+		}
 
 		// How it works: the line fills with the scroll and lights the three steps in turn
 		const steps = document.querySelector('[data-scene="steps"]')
