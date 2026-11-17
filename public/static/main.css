@@ -1497,6 +1497,17 @@ html.cx body {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.cx-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+.cx-btn--lg {
+  padding: 13px 28px;
+  font-size: 15px;
+}
+
 .cx-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(249, 12, 97, 0.3);
