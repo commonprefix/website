@@ -3,7 +3,7 @@ package main
 var Openings = []JobOpening{
 	{
 		Name:        "Senior Software Engineer",
-		Url:         "https://commonprefix.notion.site/seniorswe-folk",
+		Url:         "https://commonprefix.notion.site/swe-folk-bedrock",
 		Location:    "Remote or on-site in Athens, Greece",
 		Type:        "Full-time",
 		Description: "We're looking for a Senior Software Engineer to lead the design, implementation, and deployment of production systems that secure and move real economic value.",
