@@ -1,710 +1,219 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Common Prefix — Podcast — Honest Majority</title>
-		<meta name="description" content="Honest Majority by Common Prefix explores the people and ideas shaping trust technology. Guests share their journey into the space, the technical problems they are solving, and where they see the next five years of secure, scalable, and interoperable distributed systems headed." />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Internal design test: Common Prefix's podcast, Honest Majority, generated from commonprefix.com/podcast.html; the words and links are theirs. -->
+    <title>Podcast · Common Prefix</title>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preload" href="/fonts/allo-var-v1.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="/podcast-icon.svg" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+      <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.*"}}]},"eagerness":"moderate"}]}</script>
+    <script type="module" crossorigin src="/assets/main-TUfcB80-.js"></script>
+    <script type="module" crossorigin src="/assets/page-icon-CVqIpTXT.js"></script>
+    <script type="module" crossorigin src="/assets/library-h0-6wSDw.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-CkPN0-vI.css">
+    <link rel="stylesheet" crossorigin href="/assets/library-kdhy28wB.css">
+    <link rel="stylesheet" crossorigin href="/assets/cp-CD1E68sr.css">
+    <link rel="stylesheet" crossorigin href="/assets/story--IqGdH1H.css">
+      <meta name="description" content="Common Prefix is a team of scientists and engineers researching and implementing blockchain protocols." />
+    <meta property="og:title" content="Podcast · Common Prefix" />
+    <meta property="og:description" content="Common Prefix is a team of scientists and engineers researching and implementing blockchain protocols." />
+    <meta property="og:image" content="https://commonprefix.com/static/meta.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Podcast · Common Prefix" />
+    <meta name="twitter:description" content="Common Prefix is a team of scientists and engineers researching and implementing blockchain protocols." />
+    <meta name="twitter:image" content="https://commonprefix.com/static/meta.png" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVFWK2DDQF"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){ dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "G-ZVFWK2DDQF");</script>
+  </head>
+  <body class="cp story lib-page lib-podcast">
+    <a class="skip" href="#main">Skip to content</a>
 
-		<meta property="og:title" content="Common Prefix — Podcast — Honest Majority">
-		<meta property="og:description" content="Honest Majority by Common Prefix explores the people and ideas shaping trust technology. Guests share their journey into the space, the technical problems they are solving, and where they see the next five years of secure, scalable, and interoperable distributed systems headed.">
-		<meta property="og:url" content="https://commonprefix.com/">
-		<meta property="og:image" content="https://commonprefix.com/static/meta.png">
+    <div class="nav-shell">
+      <header class="nav" data-squircle="22" data-squircle-glass="nav" data-squircle-shadow>
+        <a class="nav-brand" href="/" aria-label="Common Prefix, home">
+          <span class="cp-cut cp-nav-logo"><img src="/cp-wordmark.svg" alt="Common Prefix" width="120" height="17" /></span>
+        </a>
+        <nav class="nav-links" aria-label="Sections">
+          <a href="/team">Team</a>
+          <a href="/research">Research</a>
+          <a href="/blog">Blog</a>
+          <a href="/podcast" aria-current="page">Podcast</a>
+        </nav>
+        <a class="btn btn-primary btn-small nav-cta" href="/coder" data-squircle="18" data-squircle-glass="accent">See Coder</a>
+      </header>
+    </div>
 
-		<meta name="twitter:title" content="Common Prefix — Podcast — Honest Majority">
-		<meta name="twitter:description" content="Honest Majority by Common Prefix explores the people and ideas shaping trust technology. Guests share their journey into the space, the technical problems they are solving, and where they see the next five years of secure, scalable, and interoperable distributed systems headed.">
-		<meta property="twitter:url" content="https://commonprefix.com/">
-		<meta name="twitter:image" content="https://commonprefix.com/static/meta.png">
-		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:domain" content="commonprefix.com">
-
-		<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
-		<link rel="icon" type="image/png" href="/static/favicon/favicon.png" />
-		<link rel="manifest" href="/static/site.webmanifest">
-
-		<link rel="preload" href="/static/main.css" as="style" />
-		<link rel="stylesheet" href="/static/main.css" />
-		<script src="/static/main.js"></script>
-		
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVFWK2DDQF"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){ dataLayer.push(arguments); }
-			gtag('js', new Date());
-			gtag('config', 'G-ZVFWK2DDQF');
-		</script>
-
-		
-	</head>
-	<body>
-		<div class="logo-graphic">
-			<img draggable="false" src="/static/commonprefix_logo.jpg" alt="" />
-			<img
-				style="visibility: hidden"
-				class="logo-graphic__clip"
-				draggable="false"
-				src="/static/commonprefix_logo.jpg"
-				alt=""
-			/>
-		</div>
-
-		<div class="outer-container">
-			<div class="container">
-				<div class="">
-					<header>
-						<a href="/" class="header__company-name">
-							<img
-								src="/static/cp-text-logo.svg"
-								alt="Common Prefix"
-								class="header__logo"
-							/>
-						</a>
-						<nav>
-							<a href="/team.html">Team</a>
-							<a href="/research.html">Research</a>
-							
-							<a href="/blog/">Blog</a>
-							<a href="/podcast.html">Podcast</a>
-							<a href="/careers.html" class="careers-link">Careers</a>
-						</nav>
-					</header>
-
-					
-<main class="podcast">
-	<div class="podcast-header">
-		<h1>Honest Majority</h1>
-		<div>a podcast series by Common Prefix</div>
-	</div>
-	
-	<div class="podcast-links">
-		<a href="https://open.spotify.com/show/3dZtQUzhbcnv9I5qZmaRkF?si=2996b42327d444fa">
-			<img src="/static/spotify-icon.png" alt="">
-			Spotify
-		</a>
-		<a href="https://podcasts.apple.com/us/podcast/honest-majority-by-common-prefix/id1860881793">
-			<img src="/static/apple-podcasts-icon.svg" alt="">
-			Apple Podcasts
-		</a>
-		<a href="https://www.youtube.com/@CommonPrefix">
-			<img src="/static/youtube-icon.png" alt="">
-			YouTube
-		</a>
-	</div>
-	
-	<div class="podcast-section">
-		<h2>Executive Summary</h2>
-		<p>Honest Majority by Common Prefix explores the people and ideas shaping trust technology. Guests share their journey into the space, the technical problems they are solving, and where they see the next five years of secure, scalable, and interoperable distributed systems headed.</p>
-	</div>
-	
-	<div class="podcast-section">
-		<h2>Episodes</h2>
-		<div class="podcast-episodes">
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/YhChZn2s9Uc?si=1otW6qokJ_vOc8Q5" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/YhChZn2s9Uc/maxresdefault.jpg" alt="Can Data Availability be Zero-Knowledge?">
-				</a>
-				
-				<h3>
-					<span>1. Can Data Availability be Zero-Knowledge?</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/432Fe1a4yZPYUbZXztzaKo?si=2a8f4dab29364550" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/alex-evans-can-data-availability-be-zero-knowledge/id1860881793?i=1000741007403" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/YhChZn2s9Uc?si=1otW6qokJ_vOc8Q5" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">In the inaugural episode of Honest Majority, we speak with Alex Evans (partner at Bain Capital Crypto) about the evolving relationship between data availability and zero-knowledge proofs in blockchain systems. 
-The conversation begins with Alex’s path into crypto and research, before diving into the fundamentals of data availability and recent advances in zero-knowledge data availability constructions. We examine the theoretical guarantees these approaches offer, the trade-offs they introduce in terms of assumptions and complexity, and where current research still falls short. The episode concludes with a discussion of open problems and how these ideas may shape the design of future blockchain protocols.</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://arxiv.org/pdf/1809.09044" target="_blank" rel="noopener noreferrer">⁠Fraud and Data Availability Proofs: Maximising Light Client Security and Scaling Blockchains with Dishonest Majorities</a></li>
-							
-							<li><a href="https://eprint.iacr.org/2025/034.pdf" target="_blank" rel="noopener noreferrer">ZODA: Zero-Overhead Data Availability</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/Me2CASD7fRA" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/Me2CASD7fRA/maxresdefault.jpg" alt="How Does Static Analysis Secure Smart Contracts?">
-				</a>
-				
-				<h3>
-					<span>2. How Does Static Analysis Secure Smart Contracts?</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/1VV1QVLxfUGy3cNPAVNmin?si=qXNi67QGRpyEN1JVhsfU4w" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/yannis-smaragdakis-how-does-static-analysis-secure/id1860881793?i=1000742472743" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/Me2CASD7fRA" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">In the second episode of Honest Majority, we speak with Yannis Smaragdakis (co-founder of Dedaub & Professor at the University of Athens) about compilers, program analysis, and why software foundations matter for blockchain security. We discuss how compiler theory and static analysis translate into practical tooling, where today’s smart-contract tooling still falls short, and what it would take to make correctness and security guarantees part of the default developer workflow. The conversation explores the gap between academic techniques and production systems, and why closing it is critical for the next generation of blockchain infrastructure.</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://app.dedaub.com/decompile" target="_blank" rel="noopener noreferrer">Dedaub Decompiler</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/Sqjz77ygpyw" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/Sqjz77ygpyw/maxresdefault.jpg" alt="Cardano Under Attack and Provable Security?">
-				</a>
-				
-				<h3>
-					<span>3. Cardano Under Attack and Provable Security?</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/5pwSFbh2FMXsmeDpIcYAP8?si=55c48a4e0a6b4ab4" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/aggelos-kiayias-cardano-under-attack-and-provable/id1860881793?i=1000744450261" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/Sqjz77ygpyw" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">In the third episode of Honest Majority, we speak with Aggelos Kiayias, Professor at the University of Edinburgh and Chief Scientist at IOG,
-			about the foundations of blockchain consensus and how formal security assumptions shape real-world protocols. 
-			The conversation covers Aggelos’ path into cryptography, his early work on modeling Bitcoin’s consensus, and the motivation behind Proof-of-Stake systems that do not rely on hashing power. 
-			Using the recent Cardano incident as a case study, the discussion then covers disagreement among honest nodes, temporary adversarial majorities, and the self-healing properties of the Ouroboros protocol.  
-			The episode concludes with a forward-looking view on privacy-enhanced smart contracts, zero-knowledge techniques, and the need to design blockchain infrastructure that remains secure in a post-quantum setting.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://eprint.iacr.org/2016/889.pdf" target="_blank" rel="noopener noreferrer">Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol</a></li>
-							
-							<li><a href="https://www.iog.io/papers/consensus-redux-distributed-ledgers-in-the-face-of-adversarial-supremacy" target="_blank" rel="noopener noreferrer">Consesus Redux: Distributed Ledgers in the Face of Adversarial Supremacy</a></li>
-							
-							<li><a href="https://cardanofoundation.org/blog/november-2025-cardano-shows-resilience" target="_blank" rel="noopener noreferrer">Cardano November 2025 incident blog post</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/IuxxxmeqF8I" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/IuxxxmeqF8I/maxresdefault.jpg" alt="Killing Wall Street Flash Boys with Pod">
-				</a>
-				
-				<h3>
-					<span>4. Killing Wall Street Flash Boys with Pod</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/2eQY5dXL9s3fml2vELDnyI?si=Xkc1rqFFSPO1wQ1yzV6nLw" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/shresth-agrawal-killing-wall-street-flash-boys-with-pod/id1860881793?i=1000746051995" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/IuxxxmeqF8I" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">
-			In the fourth episode of Honest Majority, we speak with Shresth Agrawal, Co-Founder and CEO of Pod Network, about building fast, fair, and global markets from first principles.
-			The conversation traces Shresth’s path into blockchain research and engineering, including early work on light clients, Common Prefix’s formative years, and the research collaboration that led to Pod’s origins. From a Flashbots grant on decentralized auctions, the discussion follows how a simple protocol evolved into a broader vision for high-performance, leaderless market infrastructure.
-			We then dive into Pod’s core technical ideas: eliminating blocks and leaders, confirming transactions in a single network round trip, and shifting bottlenecks from protocol logic to operating systems, networking, and memory. Shresth explains Pod’s central limit order book, the engineering behind achieving hundreds of thousands of orders per second, and why fairness and openness must be enforced at the protocol level, not assumed by market structure.
-			The episode concludes with a discussion on where blockchain infrastructure delivers real value today, why Pod frames its mission around global markets rather than Web3, and how markets and payments may drive adoption in the years ahead.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://pod.network/" target="_blank" rel="noopener noreferrer">Pod Network</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/nuVSIOw5CA8" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/nuVSIOw5CA8/maxresdefault.jpg" alt="The Story Behind Mysticeti, Sui’s Consensus Algorithm">
-				</a>
-				
-				<h3>
-					<span>5. The Story Behind Mysticeti, Sui’s Consensus Algorithm</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/0rXN6fnmvwkZZo6wUkhlAy?si=MrlAEEXZSWyQSqOSkoqjAw" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/alberto-sonnino-the-story-behind-mysticeti-suis/id1860881793?i=1000748535332" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/nuVSIOw5CA8" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">
-			In the fifth episode of Honest Majority, we speak with Alberto Sonnino, Research Scientist at Mysten Labs, about the design and evolution of Mysticeti, Sui’s consensus protocol. 
-			Alberto traces his path from distributed systems research to building production blockchain infrastructure, including lessons from moving from paper prototypes to real-world systems. 
-			We unpack Mysticeti’s core ideas, DAG-based consensus, latency and throughput goals, and how it differs from earlier BFT and leader-based approaches, and discuss how consensus design interacts with networking, execution, and broader system assumptions. 
-			We close with Alberto’s recommended reading for getting up to speed, plus a look ahead at what matters most next: execution, privacy, UX, and building real applications.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://arxiv.org/pdf/2310.14821" target="_blank" rel="noopener noreferrer">Mysticeti: Reaching the Latency Limits with Uncertified DAGs</a></li>
-							
-							<li><a href="https://arxiv.org/pdf/2003.11506" target="_blank" rel="noopener noreferrer">FastPay: High-Performance Byzantine Fault Tolerant Settlement</a></li>
-							
-							<li><a href="https://arxiv.org/pdf/2209.05633" target="_blank" rel="noopener noreferrer">Bullshark: The Partially Synchronous Version</a></li>
-							
-							<li><a href="https://dl.acm.org/doi/epdf/10.1145/3492321.3519594" target="_blank" rel="noopener noreferrer">Narwhal and Tusk: A DAG-based Mempool and Efficient BFT Consensus</a></li>
-							
-							<li><a href="https://arxiv.org/pdf/1803.05069" target="_blank" rel="noopener noreferrer">HotStuff: BFT Consensus in the Lens of Blockchain</a></li>
-							
-							<li><a href="https://arxiv.org/pdf/2401.10369" target="_blank" rel="noopener noreferrer">Autobahn: Seamless high speed BFT</a></li>
-							
-							<li><a href="https://eprint.iacr.org/2024/472.pdf" target="_blank" rel="noopener noreferrer">Sailfish: Towards Improving the Latency of DAG-based BFT</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/B37I0IDOuGQ" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/B37I0IDOuGQ/maxresdefault.jpg" alt="Making Bitcoin Useful Again with Trustless Lending">
-				</a>
-				
-				<h3>
-					<span>6. Making Bitcoin Useful Again with Trustless Lending</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/4ymQq3VlSbtee4kXrrbs45?si=w6SItojTRie_fEf9HlUcag" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/vitalis-salis-making-bitcoin-useful-again-with/id1860881793?i=1000751548840" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/B37I0IDOuGQ" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">
-			In the sixth episode of Honest Majority, we speak with Vitalis Salis, Head of Engineering at Babylon, about making Bitcoin useful again through trustless lending. 
-			Using the example of a BTC holder taking a stablecoin loan while keeping Bitcoin as collateral, the conversation explores what “trustless” means in practice and how enforceable guarantees can be designed without introducing custody.
-			We discuss Trustless Bitcoin Vaults, how BTC can be locked into UTXOs under predefined conditions, and how supported-chain outcomes can be used to coordinate lending logic. 
-			The episode dives into Bitcoin’s constraints, BitVM and off-chain enforcement mechanisms, and the broader implications of extending Bitcoin’s security model beyond passive holding.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="Babylon%20-%20Open%20Positions" target="_blank" rel="noopener noreferrer">https://babylonlabs.io/jobs</a></li>
-							
-							<li><a href="BitVM" target="_blank" rel="noopener noreferrer">https://bitvm.org/</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/Brdxonk-Pzo?si=Xnjx9NKaEnjwkoE7" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/Brdxonk-Pzo/maxresdefault.jpg" alt="Are Faster Block Times Eating up MEV?">
-				</a>
-				
-				<h3>
-					<span>7. Are Faster Block Times Eating up MEV?</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/2xfgR1zDIAR5GvkQEWlCET?si=MKCvh7PsTxOr2P9AQO0UmA" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/jason-milionis-are-faster-block-times-eating-up-mev/id1860881793?i=1000755974884" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/Brdxonk-Pzo?si=Xnjx9NKaEnjwkoE7" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">
-			In the seventh episode of Honest Majority, we speak with Jason Milionis, Senior Researcher at Category Labs, about the economics of decentralized exchanges and automated market makers. 
-			The conversation focuses on Loss-Versus-Rebalancing (LVR), a concept that captures the hidden cost faced by liquidity providers more precisely than impermanent loss. 
-			Using the mechanics of AMMs as a starting point, we explore how prices are updated without external information, how arbitrageurs extract value, and how block times influence the frequency of updates and competition. 
-			The episode also touches on broader implications for market design, MEV, and the distribution of value across participants in these on-chain systems.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://arxiv.org/pdf/2208.06046" target="_blank" rel="noopener noreferrer">Automated Market Making and Loss-Versus-Rebalancing</a></li>
-							
-							<li><a href="https://arxiv.org/pdf/2305.14604" target="_blank" rel="noopener noreferrer">Automated Market Making and Arbitrage Profits in the Presence of Fees</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/j2AGlgfcGQ0" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/j2AGlgfcGQ0/maxresdefault.jpg" alt="Coding Techniques in Walrus for Massive Storage">
-				</a>
-				
-				<h3>
-					<span>8. Coding Techniques in Walrus for Massive Storage</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/22Yrqi0qxqeLHdYZ5y6Akx" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/lefteris-kokoris-kogias-coding-techniques-in-walrus/id1860881793?i=1000757737489" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/j2AGlgfcGQ0" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">
-			In the eighth episode of Honest Majority, we speak with Lefteris Kokoris-Kogias of Mysten Labs about the coding techniques behind Walrus, a decentralized storage protocol designed for massive data. 
-			Starting from the challenges of existing storage systems, the conversation explores how Walrus uses a two‑dimensional coding scheme based on Reed–Solomon codes to achieve self‑healing, efficiently reconfigurable storage without having to constantly move large volumes of data. 
-			We discuss how this design enables cheap, robust storage for use cases like NFTs, websites, and large media, and how Seal, a privacy and key‑management layer built on multi‑party computation, can provide strong cryptographic guarantees without forcing users to manage keys themselves.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://arxiv.org/pdf/2505.05370" target="_blank" rel="noopener noreferrer">Walrus: An Efficient Decentralized Storage Network</a></li>
-							
-							<li><a href="https://github.com/MystenLabs/seal/blob/main/docs/content/Seal_White_Paper_v2.pdf" target="_blank" rel="noopener noreferrer">Seal: Decentralized Secrets Management</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/ilp5PVA0Tk8" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/ilp5PVA0Tk8/maxresdefault.jpg" alt="Is FasterPay faster than FastPay?">
-				</a>
-				
-				<h3>
-					<span>9. Is FasterPay faster than FastPay?</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/2rBFghHz1UmSirasrWKhhj" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/giorgos-tsimos-is-fasterpay-faster-than-fastpay/id1860881793?i=1000764136606" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/ilp5PVA0Tk8" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">
-			In the ninth episode of Honest Majority, we speak with Giorgos Tsimos, researcher at Pod Network, about the latest research directions at Pod, the protocol's design, and how Pod tackled the challenge of recovery mechanisms in payment systems. 
-			The conversation explores a new approach where validators can process transactions without waiting for each previous one to finalize, making the system faster and more efficient without sacrificing consistency. 
-			We also discuss how a single equivocation — even an accidental one — can permanently freeze a user's account, and how Pod addressed this by implementing a recovery mechanism inspired by the Simplex protocol, ensuring that an accidental equivocation never permanently costs a user their account access.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://arxiv.org/pdf/2003.11506" target="_blank" rel="noopener noreferrer">FastPay: High-Performance Byzantine Fault Tolerant Settlement</a></li>
-							
-							<li><a href="https://arxiv.org/pdf/2501.14931" target="_blank" rel="noopener noreferrer">Pod: An Optimal-Latency, Censorship-Free, and Accountable Generalized Consensus Layer</a></li>
-							
-							<li><a href="https://eprint.iacr.org/2023/463.pdf" target="_blank" rel="noopener noreferrer">Simplex Consensus: A Simple and Fast Consensus Protocol</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/bnSVJTKdbdM" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/bnSVJTKdbdM/maxresdefault.jpg" alt="Can You Trust Your Smart Contracts 100%?">
-				</a>
-				
-				<h3>
-					<span>10. Can You Trust Your Smart Contracts 100%?</span>
-					<span class="podcast-episode__platforms">
-						<a href="https://open.spotify.com/episode/5gSmWwnZslex0L8ut4bFXs" target="_blank" rel="noopener noreferrer"><img src="/static/spotify-icon.png" alt="Spotify"></a>
-						<a href="https://podcasts.apple.com/us/podcast/zoe-paraskevopoulou-can-you-trust-your-smart-contracts-100/id1860881793?i=1000768413022" target="_blank" rel="noopener noreferrer"><img src="/static/apple-podcasts-icon.svg" alt="Apple Podcasts"></a>
-						<a href="https://youtu.be/bnSVJTKdbdM" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">
-			In the tenth episode of Honest Majority, we speak with Zoe Paraskevopoulou, Assistant Professor at the National Technical University of Athens and former member of the Ethereum Foundation's formal verification team, about the importance of formal verification for smart contract security. 
-			The conversation begins with Zoe's path from programming languages and formal methods research into the blockchain space, before diving into what formal verification actually is and why it goes beyond testing and code review. 
-			We discuss how mathematical proofs can guarantee smart contract correctness for all possible inputs and states, and explore ACT v0.2.0, a formal specification and verification framework for EVM smart contracts developed at Argot Collective. 
-			The episode covers how ACT models contracts as state transition systems, how it automatically proves equivalence between bytecode and formal specifications, and the open challenges ahead including unknown code and re-entrancy vulnerabilities. 
-			The conversation closes with Zoe's vision for the future, where LLMs could make formal verification more accessible and software increasingly comes with machine-checked proofs of correctness.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://github.com/argotorg/act" target="_blank" rel="noopener noreferrer">Act: Smart Contract Specification Language</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/AZvCGMqt5tA" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/AZvCGMqt5tA/maxresdefault.jpg" alt="Do Fees in Rollups Bring Attacks?">
-				</a>
-				
-				<h3>
-					<span>11. Do Fees in Rollups Bring Attacks?</span>
-					<span class="podcast-episode__platforms">
-						
-						
-						<a href="https://youtu.be/AZvCGMqt5tA" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">
-			In the eleventh episode of Honest Majority, we speak with Stefanos Chaliasos, Senior Security Researcher at ZK Security and Assistant Professor at UCL, about how mispriced fees in major rollups can enable practical denial-of-service and finality attacks. 
-			The conversation begins with Stefanos’s journey from systems security and programming languages into blockchain and zero-knowledge proofs, before diving into the different fee vectors a rollup must handle: L2 gas execution, data availability costs, and settlement fees. 
-			We discuss how mispricing these fees opens up two classes of attacks: DA Saturation, which floods a rollup’s data availability, delays finality, and reduces throughput, and Prover Killers, which exploit instructions that are cheap to execute but expensive to prove, potentially stalling provers in ZK rollups. 
-			The episode also covers the challenges of conducting responsible security research and the critical security risks zero-knowledge proofs face on the path to mainstream adoption. 
-			The conversation closes with Stefanos’s vision for more accessible ZKP tooling, stronger security practices, and privacy-preserving blockchain systems.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://arxiv.org/pdf/2509.17126" target="_blank" rel="noopener noreferrer">Unaligned Incentives: Pricing Attacks Against Blockchain Rollups</a></li>
-							
-							<li><a href="https://eprint.iacr.org/2024/889.pdf" target="_blank" rel="noopener noreferrer">Analyzing and Benchmarking ZK-Rollups</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-			
-			<div class="podcast-episode">
-				
-				<a class="podcast-episode__thumb" href="https://youtu.be/B6fFBgiy2Ic" target="_blank" rel="noopener noreferrer">
-					<img loading="lazy" src="https://i.ytimg.com/vi/B6fFBgiy2Ic/maxresdefault.jpg" alt="The New Era of Axelar">
-				</a>
-				
-				<h3>
-					<span>12. The New Era of Axelar</span>
-					<span class="podcast-episode__platforms">
-						
-						
-						<a href="https://youtu.be/B6fFBgiy2Ic" target="_blank" rel="noopener noreferrer"><img src="/static/youtube-icon.png" alt="YouTube"></a>
-					</span>
-				</h3>
-				<div class="podcast-episode__body podcast-episode__body--collapsed">
-					<p class="podcast-episode__description">
-			In the twelfth episode of Honest Majority, we speak with Nikolaos Kamarinakis, Co-Founder and CTO of Common Prefix, about how Common Prefix became the lead steward of Axelar. 
-			The conversation looks back on the early years of Common Prefix and its long collaboration with Axelar, which began in 2021 and led to taking over the network after the acquisition of Interop Labs in December 2025. 
-			Nikolas reflects on the first months of running the network in production and the work that went into stabilising it. 
-			He then looks ahead to the new Axelar App, which makes the infrastructure that has always run behind the scenes something users can access directly.
-			</p>
-					
-					<div class="podcast-episode__resources">
-						<p>Resources:</p>
-						<ul>
-							
-							<li><a href="https://www.commonprefix.com/blog/axelar-roadmap" target="_blank" rel="noopener noreferrer">The New Era of Axelar: 2026 Roadmap</a></li>
-							
-							<li><a href="https://app.axelar.network" target="_blank" rel="noopener noreferrer">Axelar App</a></li>
-							
-						</ul>
-					</div>
-					
-					<button type="button" class="podcast-episode__toggle" aria-expanded="false">...more</button>
-				</div>
-			</div>
-			
-		</div>
-
-		<script>
-		;(function () {
-			document.querySelectorAll('.podcast-episode__toggle').forEach(function (button) {
-				var body = button.closest('.podcast-episode__body')
-				button.addEventListener('click', function () {
-					var expand = body.classList.contains('podcast-episode__body--collapsed')
-					body.classList.toggle('podcast-episode__body--collapsed', !expand)
-					button.setAttribute('aria-expanded', String(expand))
-					button.textContent = expand ? 'Show less' : '...more'
-					
-					if (!expand && body.getBoundingClientRect().top < 0) {
-						body.closest('.podcast-episode').scrollIntoView({ block: 'start' })
-					}
-				})
-			})
-		})()
-		</script>
-	</div>
-</main>
+    <main id="main">
+      <header class="wrap lib-head">
+        <h1 class="h2 lib-title"><span class="page-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="1em" height="1em"><path class="pi-tile" d="M14.85 0h2.3c5.47 0 8.2 0 10.25 1.15a9 9 0 0 1 3.45 3.45C32 6.65 32 9.38 32 14.85v2.3c0 5.47 0 8.2-1.15 10.25a9 9 0 0 1-3.45 3.45C25.35 32 22.62 32 17.15 32h-2.3c-5.47 0-8.2 0-10.25-1.15a9 9 0 0 1-3.45-3.45C0 25.35 0 22.62 0 17.15v-2.3C0 9.38 0 6.65 1.15 4.6A9 9 0 0 1 4.6 1.15C6.65 0 9.38 0 14.85 0Z"/><g class="pi-brackets"><path class="pi-l" d="M10.2 8.2H7.6v15.6h2.6"/><path class="pi-r" d="M21.8 8.2h2.6v15.6h-2.6"/></g><g class="pi-g"><rect x="14" y="9.2" width="4" height="7.8" rx="2" class="pi-fill"/><path class="pi-line-only" d="M12.4 15a3.6 3.6 0 0 0 7.2 0M16 18.8v2.8"/></g></svg></span>Podcast</h1>
+        <p class="lead" data-reveal><b>Honest Majority</b>, a podcast by Common Prefix, explores the people and ideas shaping trust technology. Guests share their journey into the space, the technical problems they are solving, and where they see the next five years of secure, scalable, and interoperable distributed systems headed.</p>
+        <p class="lib-listen" data-reveal><a class="btn btn-secondary btn-small" href="https://open.spotify.com/show/3dZtQUzhbcnv9I5qZmaRkF?si=2996b42327d444fa" target="_blank" rel="noopener" data-squircle="16" data-squircle-glass="light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a class="btn btn-secondary btn-small" href="https://podcasts.apple.com/us/podcast/honest-majority-by-common-prefix/id1860881793" target="_blank" rel="noopener" data-squircle="16" data-squircle-glass="light"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a class="btn btn-secondary btn-small" href="https://www.youtube.com/@CommonPrefix" target="_blank" rel="noopener" data-squircle="16" data-squircle-glass="light"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+      </header>
+      <skullet-reveal class="lib-reveal" label="Loading the episodes"><section class="wrap">
+        <ol class="lib-list lib-eps">
+          <li class="lib-row lib-ep">
+            <p class="lib-num">01</p>
+            <a class="lib-thumb" href="https://youtu.be/YhChZn2s9Uc?si=1otW6qokJ_vOc8Q5" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/YhChZn2s9Uc/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/YhChZn2s9Uc?si=1otW6qokJ_vOc8Q5" target="_blank" rel="noopener">Can Data Availability be Zero-Knowledge?</a></h3>
+              <div class="lib-more"><p class="lib-text">In the inaugural episode of Honest Majority, we speak with Alex Evans (partner at Bain Capital Crypto) about the evolving relationship between data availability and zero-knowledge proofs in blockchain systems. The conversation begins with Alex’s path into crypto and research, before diving into the fundamentals of data availability and recent advances in zero-knowledge data availability constructions. We examine the theoretical guarantees these approaches offer, the trade-offs they introduce in terms of assumptions and complexity, and where current research still falls short. The episode concludes with a discussion of open problems and how these ideas may shape the design of future blockchain protocols.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://arxiv.org/pdf/1809.09044" target="_blank" rel="noopener">Fraud and Data Availability Proofs: Maximising Light Client Security and Scaling Blockchains with Dishonest Majorities</a></li><li><a href="https://eprint.iacr.org/2025/034.pdf" target="_blank" rel="noopener">ZODA: Zero-Overhead Data Availability</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/432Fe1a4yZPYUbZXztzaKo?si=2a8f4dab29364550" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/alex-evans-can-data-availability-be-zero-knowledge/id1860881793?i=1000741007403" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/YhChZn2s9Uc?si=1otW6qokJ_vOc8Q5" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">02</p>
+            <a class="lib-thumb" href="https://youtu.be/Me2CASD7fRA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/Me2CASD7fRA/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/Me2CASD7fRA" target="_blank" rel="noopener">How Does Static Analysis Secure Smart Contracts?</a></h3>
+              <div class="lib-more"><p class="lib-text">In the second episode of Honest Majority, we speak with Yannis Smaragdakis (co-founder of Dedaub &amp; Professor at the University of Athens) about compilers, program analysis, and why software foundations matter for blockchain security. We discuss how compiler theory and static analysis translate into practical tooling, where today’s smart-contract tooling still falls short, and what it would take to make correctness and security guarantees part of the default developer workflow. The conversation explores the gap between academic techniques and production systems, and why closing it is critical for the next generation of blockchain infrastructure.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://app.dedaub.com/decompile" target="_blank" rel="noopener">Dedaub Decompiler</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/1VV1QVLxfUGy3cNPAVNmin?si=qXNi67QGRpyEN1JVhsfU4w" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/yannis-smaragdakis-how-does-static-analysis-secure/id1860881793?i=1000742472743" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/Me2CASD7fRA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">03</p>
+            <a class="lib-thumb" href="https://youtu.be/Sqjz77ygpyw" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/Sqjz77ygpyw/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/Sqjz77ygpyw" target="_blank" rel="noopener">Cardano Under Attack and Provable Security?</a></h3>
+              <div class="lib-more"><p class="lib-text">In the third episode of Honest Majority, we speak with Aggelos Kiayias, Professor at the University of Edinburgh and Chief Scientist at IOG, about the foundations of blockchain consensus and how formal security assumptions shape real-world protocols. The conversation covers Aggelos’ path into cryptography, his early work on modeling Bitcoin’s consensus, and the motivation behind Proof-of-Stake systems that do not rely on hashing power. Using the recent Cardano incident as a case study, the discussion then covers disagreement among honest nodes, temporary adversarial majorities, and the self-healing properties of the Ouroboros protocol. The episode concludes with a forward-looking view on privacy-enhanced smart contracts, zero-knowledge techniques, and the need to design blockchain infrastructure that remains secure in a post-quantum setting.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://eprint.iacr.org/2016/889.pdf" target="_blank" rel="noopener">Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol</a></li><li><a href="https://www.iog.io/papers/consensus-redux-distributed-ledgers-in-the-face-of-adversarial-supremacy" target="_blank" rel="noopener">Consesus Redux: Distributed Ledgers in the Face of Adversarial Supremacy</a></li><li><a href="https://cardanofoundation.org/blog/november-2025-cardano-shows-resilience" target="_blank" rel="noopener">Cardano November 2025 incident blog post</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/5pwSFbh2FMXsmeDpIcYAP8?si=55c48a4e0a6b4ab4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/aggelos-kiayias-cardano-under-attack-and-provable/id1860881793?i=1000744450261" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/Sqjz77ygpyw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">04</p>
+            <a class="lib-thumb" href="https://youtu.be/IuxxxmeqF8I" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/IuxxxmeqF8I/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/IuxxxmeqF8I" target="_blank" rel="noopener">Killing Wall Street Flash Boys with Pod</a></h3>
+              <div class="lib-more"><p class="lib-text">In the fourth episode of Honest Majority, we speak with Shresth Agrawal, Co-Founder and CEO of Pod Network, about building fast, fair, and global markets from first principles. The conversation traces Shresth’s path into blockchain research and engineering, including early work on light clients, Common Prefix’s formative years, and the research collaboration that led to Pod’s origins. From a Flashbots grant on decentralized auctions, the discussion follows how a simple protocol evolved into a broader vision for high-performance, leaderless market infrastructure. We then dive into Pod’s core technical ideas: eliminating blocks and leaders, confirming transactions in a single network round trip, and shifting bottlenecks from protocol logic to operating systems, networking, and memory. Shresth explains Pod’s central limit order book, the engineering behind achieving hundreds of thousands of orders per second, and why fairness and openness must be enforced at the protocol level, not assumed by market structure. The episode concludes with a discussion on where blockchain infrastructure delivers real value today, why Pod frames its mission around global markets rather than Web3, and how markets and payments may drive adoption in the years ahead.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://pod.network/" target="_blank" rel="noopener">Pod Network</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/2eQY5dXL9s3fml2vELDnyI?si=Xkc1rqFFSPO1wQ1yzV6nLw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/shresth-agrawal-killing-wall-street-flash-boys-with-pod/id1860881793?i=1000746051995" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/IuxxxmeqF8I" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">05</p>
+            <a class="lib-thumb" href="https://youtu.be/nuVSIOw5CA8" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/nuVSIOw5CA8/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/nuVSIOw5CA8" target="_blank" rel="noopener">The Story Behind Mysticeti, Sui’s Consensus Algorithm</a></h3>
+              <div class="lib-more"><p class="lib-text">In the fifth episode of Honest Majority, we speak with Alberto Sonnino, Research Scientist at Mysten Labs, about the design and evolution of Mysticeti, Sui’s consensus protocol. Alberto traces his path from distributed systems research to building production blockchain infrastructure, including lessons from moving from paper prototypes to real-world systems. We unpack Mysticeti’s core ideas, DAG-based consensus, latency and throughput goals, and how it differs from earlier BFT and leader-based approaches, and discuss how consensus design interacts with networking, execution, and broader system assumptions. We close with Alberto’s recommended reading for getting up to speed, plus a look ahead at what matters most next: execution, privacy, UX, and building real applications.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://arxiv.org/pdf/2310.14821" target="_blank" rel="noopener">Mysticeti: Reaching the Latency Limits with Uncertified DAGs</a></li><li><a href="https://arxiv.org/pdf/2003.11506" target="_blank" rel="noopener">FastPay: High-Performance Byzantine Fault Tolerant Settlement</a></li><li><a href="https://arxiv.org/pdf/2209.05633" target="_blank" rel="noopener">Bullshark: The Partially Synchronous Version</a></li><li><a href="https://dl.acm.org/doi/epdf/10.1145/3492321.3519594" target="_blank" rel="noopener">Narwhal and Tusk: A DAG-based Mempool and Efficient BFT Consensus</a></li><li><a href="https://arxiv.org/pdf/1803.05069" target="_blank" rel="noopener">HotStuff: BFT Consensus in the Lens of Blockchain</a></li><li><a href="https://arxiv.org/pdf/2401.10369" target="_blank" rel="noopener">Autobahn: Seamless high speed BFT</a></li><li><a href="https://eprint.iacr.org/2024/472.pdf" target="_blank" rel="noopener">Sailfish: Towards Improving the Latency of DAG-based BFT</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/0rXN6fnmvwkZZo6wUkhlAy?si=MrlAEEXZSWyQSqOSkoqjAw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/alberto-sonnino-the-story-behind-mysticeti-suis/id1860881793?i=1000748535332" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/nuVSIOw5CA8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">06</p>
+            <a class="lib-thumb" href="https://youtu.be/B37I0IDOuGQ" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/B37I0IDOuGQ/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/B37I0IDOuGQ" target="_blank" rel="noopener">Making Bitcoin Useful Again with Trustless Lending</a></h3>
+              <div class="lib-more"><p class="lib-text">In the sixth episode of Honest Majority, we speak with Vitalis Salis, Head of Engineering at Babylon, about making Bitcoin useful again through trustless lending. Using the example of a BTC holder taking a stablecoin loan while keeping Bitcoin as collateral, the conversation explores what “trustless” means in practice and how enforceable guarantees can be designed without introducing custody. We discuss Trustless Bitcoin Vaults, how BTC can be locked into UTXOs under predefined conditions, and how supported-chain outcomes can be used to coordinate lending logic. The episode dives into Bitcoin’s constraints, BitVM and off-chain enforcement mechanisms, and the broader implications of extending Bitcoin’s security model beyond passive holding.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://babylonlabs.io/jobs" target="_blank" rel="noopener">https://babylonlabs.io/jobs</a></li><li><a href="https://bitvm.org/" target="_blank" rel="noopener">https://bitvm.org/</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/4ymQq3VlSbtee4kXrrbs45?si=w6SItojTRie_fEf9HlUcag" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/vitalis-salis-making-bitcoin-useful-again-with/id1860881793?i=1000751548840" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/B37I0IDOuGQ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">07</p>
+            <a class="lib-thumb" href="https://youtu.be/Brdxonk-Pzo?si=Xnjx9NKaEnjwkoE7" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/Brdxonk-Pzo/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/Brdxonk-Pzo?si=Xnjx9NKaEnjwkoE7" target="_blank" rel="noopener">Are Faster Block Times Eating up MEV?</a></h3>
+              <div class="lib-more"><p class="lib-text">In the seventh episode of Honest Majority, we speak with Jason Milionis, Senior Researcher at Category Labs, about the economics of decentralized exchanges and automated market makers. The conversation focuses on Loss-Versus-Rebalancing (LVR), a concept that captures the hidden cost faced by liquidity providers more precisely than impermanent loss. Using the mechanics of AMMs as a starting point, we explore how prices are updated without external information, how arbitrageurs extract value, and how block times influence the frequency of updates and competition. The episode also touches on broader implications for market design, MEV, and the distribution of value across participants in these on-chain systems.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://arxiv.org/pdf/2208.06046" target="_blank" rel="noopener">Automated Market Making and Loss-Versus-Rebalancing</a></li><li><a href="https://arxiv.org/pdf/2305.14604" target="_blank" rel="noopener">Automated Market Making and Arbitrage Profits in the Presence of Fees</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/2xfgR1zDIAR5GvkQEWlCET?si=MKCvh7PsTxOr2P9AQO0UmA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/jason-milionis-are-faster-block-times-eating-up-mev/id1860881793?i=1000755974884" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/Brdxonk-Pzo?si=Xnjx9NKaEnjwkoE7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">08</p>
+            <a class="lib-thumb" href="https://youtu.be/j2AGlgfcGQ0" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/j2AGlgfcGQ0/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/j2AGlgfcGQ0" target="_blank" rel="noopener">Coding Techniques in Walrus for Massive Storage</a></h3>
+              <div class="lib-more"><p class="lib-text">In the eighth episode of Honest Majority, we speak with Lefteris Kokoris-Kogias of Mysten Labs about the coding techniques behind Walrus, a decentralized storage protocol designed for massive data. Starting from the challenges of existing storage systems, the conversation explores how Walrus uses a two‑dimensional coding scheme based on Reed–Solomon codes to achieve self‑healing, efficiently reconfigurable storage without having to constantly move large volumes of data. We discuss how this design enables cheap, robust storage for use cases like NFTs, websites, and large media, and how Seal, a privacy and key‑management layer built on multi‑party computation, can provide strong cryptographic guarantees without forcing users to manage keys themselves.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://arxiv.org/pdf/2505.05370" target="_blank" rel="noopener">Walrus: An Efficient Decentralized Storage Network</a></li><li><a href="https://github.com/MystenLabs/seal/blob/main/docs/content/Seal_White_Paper_v2.pdf" target="_blank" rel="noopener">Seal: Decentralized Secrets Management</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/22Yrqi0qxqeLHdYZ5y6Akx" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/lefteris-kokoris-kogias-coding-techniques-in-walrus/id1860881793?i=1000757737489" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/j2AGlgfcGQ0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">09</p>
+            <a class="lib-thumb" href="https://youtu.be/ilp5PVA0Tk8" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/ilp5PVA0Tk8/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/ilp5PVA0Tk8" target="_blank" rel="noopener">Is FasterPay faster than FastPay?</a></h3>
+              <div class="lib-more"><p class="lib-text">In the ninth episode of Honest Majority, we speak with Giorgos Tsimos, researcher at Pod Network, about the latest research directions at Pod, the protocol's design, and how Pod tackled the challenge of recovery mechanisms in payment systems. The conversation explores a new approach where validators can process transactions without waiting for each previous one to finalize, making the system faster and more efficient without sacrificing consistency. We also discuss how a single equivocation — even an accidental one — can permanently freeze a user's account, and how Pod addressed this by implementing a recovery mechanism inspired by the Simplex protocol, ensuring that an accidental equivocation never permanently costs a user their account access.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://arxiv.org/pdf/2003.11506" target="_blank" rel="noopener">FastPay: High-Performance Byzantine Fault Tolerant Settlement</a></li><li><a href="https://arxiv.org/pdf/2501.14931" target="_blank" rel="noopener">Pod: An Optimal-Latency, Censorship-Free, and Accountable Generalized Consensus Layer</a></li><li><a href="https://eprint.iacr.org/2023/463.pdf" target="_blank" rel="noopener">Simplex Consensus: A Simple and Fast Consensus Protocol</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/2rBFghHz1UmSirasrWKhhj" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/giorgos-tsimos-is-fasterpay-faster-than-fastpay/id1860881793?i=1000764136606" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/ilp5PVA0Tk8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">10</p>
+            <a class="lib-thumb" href="https://youtu.be/bnSVJTKdbdM" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/bnSVJTKdbdM/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/bnSVJTKdbdM" target="_blank" rel="noopener">Can You Trust Your Smart Contracts 100%?</a></h3>
+              <div class="lib-more"><p class="lib-text">In the tenth episode of Honest Majority, we speak with Zoe Paraskevopoulou, Assistant Professor at the National Technical University of Athens and former member of the Ethereum Foundation's formal verification team, about the importance of formal verification for smart contract security. The conversation begins with Zoe's path from programming languages and formal methods research into the blockchain space, before diving into what formal verification actually is and why it goes beyond testing and code review. We discuss how mathematical proofs can guarantee smart contract correctness for all possible inputs and states, and explore ACT v0.2.0, a formal specification and verification framework for EVM smart contracts developed at Argot Collective. The episode covers how ACT models contracts as state transition systems, how it automatically proves equivalence between bytecode and formal specifications, and the open challenges ahead including unknown code and re-entrancy vulnerabilities. The conversation closes with Zoe's vision for the future, where LLMs could make formal verification more accessible and software increasingly comes with machine-checked proofs of correctness.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://github.com/argotorg/act" target="_blank" rel="noopener">Act: Smart Contract Specification Language</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://open.spotify.com/episode/5gSmWwnZslex0L8ut4bFXs" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.4 9.3c3.8-1.1 8.1-.8 11.3 1.1M7 12.5c3.1-.9 6.6-.6 9.2 1M7.6 15.5c2.5-.7 5.1-.4 7.2.8" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a><a href="https://podcasts.apple.com/us/podcast/zoe-paraskevopoulou-can-you-trust-your-smart-contracts-100/id1860881793?i=1000768413022" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="apg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="24" height="24" rx="5.5" fill="url(#apg)"/><circle cx="12" cy="10.4" r="1.9" fill="#fff"/><path d="M11.1 13.6h1.8l-.35 5.2h-1.1Z" fill="#fff"/><path d="M8.3 14.2a4.9 4.9 0 1 1 7.4 0M6.3 16.2a7.6 7.6 0 1 1 11.4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>Apple Podcasts</a><a href="https://youtu.be/bnSVJTKdbdM" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">11</p>
+            <a class="lib-thumb" href="https://youtu.be/AZvCGMqt5tA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/AZvCGMqt5tA/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/AZvCGMqt5tA" target="_blank" rel="noopener">Do Fees in Rollups Bring Attacks?</a></h3>
+              <div class="lib-more"><p class="lib-text">In the eleventh episode of Honest Majority, we speak with Stefanos Chaliasos, Senior Security Researcher at ZK Security and Assistant Professor at UCL, about how mispriced fees in major rollups can enable practical denial-of-service and finality attacks. The conversation begins with Stefanos’s journey from systems security and programming languages into blockchain and zero-knowledge proofs, before diving into the different fee vectors a rollup must handle: L2 gas execution, data availability costs, and settlement fees. We discuss how mispricing these fees opens up two classes of attacks: DA Saturation, which floods a rollup’s data availability, delays finality, and reduces throughput, and Prover Killers, which exploit instructions that are cheap to execute but expensive to prove, potentially stalling provers in ZK rollups. The episode also covers the challenges of conducting responsible security research and the critical security risks zero-knowledge proofs face on the path to mainstream adoption. The conversation closes with Stefanos’s vision for more accessible ZKP tooling, stronger security practices, and privacy-preserving blockchain systems.</p><div class="lib-res"><p>Resources</p><ul><li><a href="https://arxiv.org/pdf/2509.17126" target="_blank" rel="noopener">Unaligned Incentives: Pricing Attacks Against Blockchain Rollups</a></li><li><a href="https://eprint.iacr.org/2024/889.pdf" target="_blank" rel="noopener">Analyzing and Benchmarking ZK-Rollups</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://youtu.be/AZvCGMqt5tA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+          <li class="lib-row lib-ep">
+            <p class="lib-num">12</p>
+            <a class="lib-thumb" href="https://youtu.be/B6fFBgiy2Ic" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="https://i.ytimg.com/vi/B6fFBgiy2Ic/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180" /><span class="lib-play"></span></a>
+            <div class="lib-main">
+              <h3 class="lib-name"><a href="https://youtu.be/B6fFBgiy2Ic" target="_blank" rel="noopener">The New Era of Axelar</a></h3>
+              <div class="lib-more"><p class="lib-text">In the twelfth episode of Honest Majority, we speak with Nikolaos Kamarinakis, Co-Founder and CTO of Common Prefix, about how Common Prefix became the lead steward of Axelar. The conversation looks back on the early years of Common Prefix and its long collaboration with Axelar, which began in 2021 and led to taking over the network after the acquisition of Interop Labs in December 2025. Nikolas reflects on the first months of running the network in production and the work that went into stabilising it. He then looks ahead to the new Axelar App, which makes the infrastructure that has always run behind the scenes something users can access directly.</p><div class="lib-res"><p>Resources</p><ul><li><a href="/blog/axelar-roadmap" target="_blank" rel="noopener">The New Era of Axelar: 2026 Roadmap</a></li><li><a href="https://app.axelar.network" target="_blank" rel="noopener">Axelar App</a></li></ul></div></div>
+              <button type="button" class="lib-more-btn" aria-expanded="false" hidden>Read more</button>
+              <p class="lib-links"><a href="https://youtu.be/B6fFBgiy2Ic" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="16" rx="4.6" fill="#FF0033"/><path d="M9.8 8.6v6.8l5.8-3.4Z" fill="#fff"/></svg>YouTube</a></p>
+            </div>
+          </li>
+        </ol>
+      </section></skullet-reveal>
+    </main>
 
 
-					<footer>
-						<div class="socials">
-							<h3>Get in touch</h3>
-							<a
-								class="mbtn"
-								href="mailto:hello@commonprefix.com"
-							>
-								<span class="un">hello@commonprefix.com</span>
-							</a>
-							<a
-								class="mbtn"
-								href="https://twitter.com/CommonPrefix"
-							>
-								<span class="un">@commonprefix</span>
-							</a>
-						</div>
-						<div class="socials">
-							<br>
-							<a
-								class="mbtn"
-								href="https://github.com/commonprefix"
-							>
-								<span class="un">GitHub</span>
-							</a>							
-							<a
-								class="mbtn"
-								href="https://chaingrowth.xyz"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<span class="un">chaingrowth.xyz</span>
-							</a>
-						</div>
-						<div class="footer__easter-egg">
-							<img
-								width="220px"
-								style="opacity: 0.5"
-								src="/static/footer_eq.svg"
-								draggable="false"
-								alt=""
-							/>
-							<img
-								width="220px"
-								style="mix-blend-mode: multiply"
-								src="/static/footer_blockchain.png"
-								draggable="false"
-								alt=""
-							/>
-							<p>
-								Rumpetur paritas cum sequens probatio operis
-								invenietur et ramus maior fiet.
-							</p>
-						</div>
-					</footer>
-				</div>
-			</div>
-		</div>
-
-		<script>
-			;(function () {
-				
-				document.querySelector('.footer__easter-egg').children[
-					Math.floor(Math.random() * 3)
-				].style.visibility = 'visible'
-
-				
-				window.requestAnimationFrame =
-					window.requestAnimationFrame ||
-					function (C) {
-						return setTimeout(function () {
-							C(+new Date())
-						}, 30)
-					}
-
-				function isTouchDevice() {
-					var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ')
-					var mq = function (query) {
-						return window.matchMedia(query).matches
-					}
-
-					if (
-						'ontouchstart' in window ||
-						(window.DocumentTouch &&
-							document instanceof DocumentTouch)
-					) {
-						return true
-					}
-
-					var query = [
-						'(',
-						prefixes.join('touch-enabled),('),
-						'heartz',
-						')',
-					].join('')
-					return mq(query)
-				}
-
-				var touchDevice = isTouchDevice()
-				if (touchDevice) {
-					document.body.classList.add('touchdevice')
-				}
-
-				var graphic = document.querySelector('.logo-graphic')
-				var clip = document.querySelector('.logo-graphic__clip')
-
-				if (!touchDevice) {
-					var v = `radial-gradient(circle at 0px 0px, transparent 0px, transparent 60px, transparent 120px)`
-					clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
-
-					function reveal(e) {
-						var pos = graphic.getBoundingClientRect()
-						var x = e.clientX - pos.left - 150
-						var y = e.clientY - pos.top + 150
-
-						var v = `radial-gradient(circle at ${x}px ${y}px, black 0px, black 60px, transparent 120px)`
-						clip.style = `-webkit-mask-image: ${v}; mask-image: ${v};`
-					}
-
-					window.addEventListener('mousemove', function (e) {
-						requestAnimationFrame(() => reveal(e))
-					})
-				}
-			})()
-		</script>
-	</body>
+    <footer class="footer">
+      <div class="foot-glow" aria-hidden="true"><span></span><span></span></div>
+      <div class="footer-panel" data-squircle="44">
+        <div class="footer-top">
+          <div class="footer-main">
+            <p class="footer-brand"><img src="/cp-wordmark-white.svg" alt="Common Prefix" width="160" height="23" /></p>
+            <p class="footer-line cp-motto">Rumpetur paritas cum sequens probatio operis invenietur et ramus maior fiet.</p>
+          </div>
+          <nav class="footer-cols" aria-label="Footer">
+            <div>
+              <h3>Common Prefix</h3>
+              <a href="/team">Team</a>
+              <a href="/research">Research</a>
+              <a href="/blog">Blog</a>
+              <a href="/podcast">Podcast</a>
+              <a href="/careers">Careers</a>
+            </div>
+            <div>
+              <h3>Products</h3>
+              <a href="/coder">Coder</a>
+            </div>
+            <div>
+              <h3>Get in touch</h3>
+              <a href="mailto:hello@commonprefix.com">hello@commonprefix.com</a>
+              <a href="https://twitter.com/CommonPrefix">@commonprefix</a>
+              <a href="https://github.com/commonprefix">GitHub</a>
+              <a href="https://chaingrowth.xyz">chaingrowth.xyz</a>
+            </div>
+          </nav>
+        </div>
+        <p class="footer-legal">© 2026 Common Prefix.</p>
+      </div>
+    </footer>
+    <div class="edge-blur" aria-hidden="true"><span></span><span></span><span></span></div>
+  </body>
 </html>

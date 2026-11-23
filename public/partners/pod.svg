@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="09 185 620 280"
+     preserveAspectRatio="xMidYMid meet"
+     fill="#363636"
+     style="display:block;height:55px;width:auto"><rect x="575" y="395" width="30" height="210" transform="rotate(180 575 395)"/><path fill-rule="evenodd" clip-rule="evenodd" d="M455 365V395H515V365H545V275H515V245H455V275H425V365H455ZM515 275V305H485V275H515Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M365 245H275V275H245V365H275V395H365V365H395V275H365V245ZM365 275V305H335V275H365Z"/><rect x="65" y="245" width="30" height="210"/><path fill-rule="evenodd" clip-rule="evenodd" d="M185 245H125V275H95V365H125V395H185V365H215V275H185V245ZM185 275V305H155V275H185Z"/></svg>

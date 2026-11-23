@@ -1,44 +1,72 @@
 {
-       "framework": null,
-       "outputDirectory": "public",
-       "cleanUrls": true,
+    "framework": null,
+    "outputDirectory": "public",
+    "cleanUrls": true,
     "headers": [
-      {
-        "source": "/.well-known/xrp-ledger.toml",
-        "headers": [
-          {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
-          }
-        ]
-      }
+        {
+            "source": "/.well-known/xrp-ledger.toml",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                }
+            ]
+        },
+        {
+            "source": "/assets/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/fonts/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        }
     ],
     "redirects": [
-      {
-        "source": "/bridges(.html)?",
-        "destination": "/blog/building-bridges",
-        "permanent": true
-      },
-      {
-        "source": "/projects/:path*",
-        "destination": "/clients/:path*",
-        "permanent": true
-      },
-      {
-        "source": "/static/projects/:path*",
-        "destination": "/static/clients/:path*",
-        "permanent": true
-      },
-    {
-      "source": "/:path((?!\\.well-known\\/xrp-ledger\\.toml$).*)",
-      "has": [
         {
-          "type": "host",
-          "value": "commonprefix.com"
+            "source": "/bridges(.html)?",
+            "destination": "/blog/building-bridges",
+            "permanent": true
+        },
+        {
+            "source": "/projects/:path*",
+            "destination": "/clients/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/static/projects/:path*",
+            "destination": "/static/clients/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/cp(.html)?",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/home(.html)?",
+            "destination": "/",
+            "permanent": false
+        },
+        {
+            "source": "/:path((?!\\.well-known\\/xrp-ledger\\.toml$).*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "commonprefix.com"
+                }
+            ],
+            "destination": "https://www.commonprefix.com/:path",
+            "permanent": true
         }
-      ],
-      "destination": "https://www.commonprefix.com/:path",
-      "permanent": true
-    }
-  ]
+    ]
 }
