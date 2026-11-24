@@ -1,0 +1,1 @@
+.nf .hero{gap:20px;padding-bottom:max(64px,14svh)}.nf-title{letter-spacing:-.04em;font-variation-settings:"ROND" var(--rond);font-variant-numeric:tabular-nums;font-size:clamp(96px,16vw,200px);font-weight:660;line-height:.9}.nf-line{color:var(--muted);font-family:var(--tech);font-size:clamp(17px,1.5vw,20px)}.nf .hero-actions{margin-top:12px}

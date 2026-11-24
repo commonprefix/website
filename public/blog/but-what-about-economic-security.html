@@ -7,24 +7,19 @@
     <meta name="description" content="A technical examination of economic security in blockchain systems and the design trade-offs involved in strengthening it." />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/allo-var-v1.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/seal-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/seal-16.png" />
-    <link rel="apple-touch-icon" href="/icons/seal-180.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script>
       document.documentElement.classList.add("js");
     </script>
       <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.*"}}]},"eagerness":"moderate"}]}</script>
-    <script type="module" crossorigin src="/assets/main-EoaHyyMq.js"></script>
-    <script type="module" crossorigin src="/assets/sheet-Lik0qCkV.js"></script>
-    <script type="module" crossorigin src="/assets/seal-CDodipdy.js"></script>
-    <script type="module" crossorigin src="/assets/post-DktO8Qxg.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-DQpWGP2x.css">
-    <link rel="stylesheet" crossorigin href="/assets/post-KHWCHLNC.css">
-    <link rel="stylesheet" crossorigin href="/assets/cp-DE0BeZNs.css">
-    <link rel="stylesheet" crossorigin href="/assets/story-D7CBB1cr.css">
-      <link rel="canonical" href="https://www.commonprefix.com/blog/but-what-about-economic-security" />
-    <meta property="og:url" content="https://www.commonprefix.com/blog/but-what-about-economic-security" />
-    <meta property="og:title" content="But, what about Economic Security? · Common Prefix" />
+    <script type="module" crossorigin src="/assets/main-CZ8amzqn.js"></script>
+    <script type="module" crossorigin src="/assets/sheet-CcFwKBX4.js"></script>
+    <script type="module" crossorigin src="/assets/post-Dm6NVBDm.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-Ik55dkXb.css">
+    <link rel="stylesheet" crossorigin href="/assets/post-B6r3RVuZ.css">
+    <link rel="stylesheet" crossorigin href="/assets/cp-CTCiKTuo.css">
+    <link rel="stylesheet" crossorigin href="/assets/story-DcNx3Brx.css">
+      <meta property="og:title" content="But, what about Economic Security? · Common Prefix" />
     <meta property="og:description" content="A technical examination of economic security in blockchain systems and the design trade-offs involved in strengthening it." />
     <meta property="og:image" content="https://commonprefix.com/static/meta.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -43,7 +38,7 @@
           <span class="cp-cut cp-nav-logo"><img src="/cp-wordmark.svg" alt="Common Prefix" width="120" height="17" /></span>
         </a>
         <nav class="nav-links" aria-label="Sections">
-          <a class="nav-coder" href="/coder">Coder</a>
+          <a href="/coder">Coder</a>
           <a href="/team">Team</a>
           <a href="/research">Research</a>
           <a href="/blog" aria-current="page">Blog</a>
@@ -53,13 +48,12 @@
     </div>
 
     <main id="main">
-      <div class="cp-seal post-seal" aria-hidden="true"></div>
       <article class="wrap post">
         <a class="post-back" href="/blog"><span aria-hidden="true">←</span> Blog</a>
         <h1 class="h2 post-title">But, what about Economic Security?</h1>
         <p class="post-meta">on January 27, 2026 by <a href="/team#dimitris" data-person="dimitris">Dimitris Karakostas</a> · 9 min read</p>
         <div class="post-body">
-<h3 id="summary">Summary:</h3>
+<h2 id="summary">Summary:</h2>
 
 <ul>
 <li><em>Blockchain systems are secured by resources, such as stake or computational power. If the resource’s price goes down, the cost of buying enough resources to attack the system also goes down.</em></li>
@@ -75,7 +69,7 @@
 
 <p>In this blog post, we explore the most common and well-studied options for enhancing a system’s economic security.</p>
 
-<h2 id="different-assets-for-different-jobs">Different assets for different jobs</h2>
+<h1 id="different-assets-for-different-jobs">Different assets for different jobs</h1>
 
 <p>The first approach is to use different resources, such as staking assets, for securing different parts of the system. For example, the parties that control resource A would run the block producing protocol, whereas the parties that control resource B could run a finality gadget for achieving optimistically faster finality (such as GRANDPA<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>), while resource C would back a committee that enforces slashing, and so on.</p>
 
@@ -83,9 +77,9 @@
 
 <p>However, if the composition of modules is tighter, compromising one could lead to adverse effects in another. Again looking at the above example, if the majority of resource C is maliciously controlled, then the adversary could potentially slash honest parties. In that scenario, honest control over resource A would be reduced, potentially cascading to a compromise of the block production mechanism.</p>
 
-<p>One instance where this approach is used in practice is Babylon. Specifically, Babylon uses both Bitcoin and BABY staking. BABY token holders produce blocks in the Babylon Genesis chain by running a CometBFT protocol instance. Bitcoin stakers act as <a href="https://docs.babylonlabs.io/guides/architecture/babylon_genesis_modules/" target="_blank" rel="noopener">finality provider</a>, who run a voting protocol that finalizes blocks. Although these two staking processes are seemingly independent, Bitcoin staking is prioritized over BABY staking; for instance, if more than one third of staked Bitcoin fails to participate, then the finalization process - and the whole system - stalls.</p>
+<p>One instance where this approach is used in practice is Babylon. Specifically, Babylon uses both Bitcoin and BABY staking. BABY token holders produce blocks in the Babylon Genesis chain by running a CometBFT protocol instance. Bitcoin stakers act as <a href="https://docs.babylonlabs.io/guides/architecture/babylon_genesis_modules/finality/" target="_blank">finality provider</a>, who run a voting protocol that finalizes blocks. Although these two staking processes are seemingly independent, Bitcoin staking is prioritized over BABY staking; for instance, if more than one third of staked Bitcoin fails to participate, then the finalization process - and the whole system - stalls.</p>
 
-<h2 id="checkpointing">Checkpointing</h2>
+<h1 id="checkpointing">Checkpointing</h1>
 
 <p>The second approach is a special case of the resource-based job allocation of the first approach. Here the whole system is backed by a single resource, except a single module that periodically checkpoints the system’s state. Checkpoints are unambiguous commitments of the system’s state which cannot be rolled back, preventing chain reorganization or long-range attacks. As long as the checkpointing protocol is secure, checkpoints both are produced on time and are not conflicting.</p>
 
@@ -93,11 +87,11 @@
 
 <p>Most commonly, checkpointing is run by a committee of parties. These parties collectively sign each checkpoint and, as long as the majority of committee members are honest, checkpoints are correctly issued, meaning both that they are produced on time and that no two checkpoints correspond to conflicting states. The committee members are selected in a permissioned manner, e.g., by centrally choosing a set of designated parties or electing them based on their control of some alternative resource, like stake.</p>
 
-<p>An alternative approach is using an external blockchain to record and organize checkpoints. In this case, the ledger’s state is periodically committed within transactions in the checkpointing blockchain. If the checkpointing blockchain is secure, meaning that it offers safety and liveness guarantees, then the checkpoints are published in an absolute and persistent order. In practice, this approach is also <a href="https://web.archive.org/web/20250506204802/https://docs.babylonlabs.io/guides/architecture/babylon_genesis_modules/checkpointing/" target="_blank" rel="noopener">used in Babylon</a>, where the state of the Babylon Genesis chain is periodically published on the Bitcoin blockchain.</p>
+<p>An alternative approach is using an external blockchain to record and organize checkpoints. In this case, the ledger’s state is periodically committed within transactions in the checkpointing blockchain. If the checkpointing blockchain is secure, meaning that it offers safety and liveness guarantees, then the checkpoints are published in an absolute and persistent order. In practice, this approach is also <a href="https://docs.babylonlabs.io/guides/architecture/babylon_genesis_modules/checkpointing/" target="_blank">used in Babylon</a>, where the state of the Babylon Genesis chain is periodically published on the Bitcoin blockchain.</p>
 
 <p>The main concern regarding checkpointing is that the system’s security relies solely on the security of the checkpointing module. Specifically, the final choice of the canonical state of the system is made via the issued checkpoints. If the checkpointing module is compromised, e.g., if the checkpointing committee becomes malicious or the checkpointing blockchain is vulnerable, then the system’s security guarantees break down.</p>
 
-<h2 id="synthetic-stake">Synthetic stake</h2>
+<h1 id="synthetic-stake">Synthetic stake</h1>
 
 <p>In both previous approaches the system’s security is eventually dependent on control over a single resource. In the first approach, even if alternative resources are used for securing different parts of the system, the core module is controlled by a single type of resource. Similarly, under checkpointing the final decision regarding the system’s state is made via the checkpoints, which are again controlled by a single resource.</p>
 
@@ -109,7 +103,7 @@
 
 <p>The problem is that market prices are not immediately available to a blockchain system, but instead are accessible via oracles. Therefore, the system’s security becomes highly dependent on the oracle’s implementation and trust assumptions. Such oracles are implemented either via a trusted third party, a distributed computing system, or on-chain marketplaces. Each of these options present a tradeoff between high accuracy and centralization.</p>
 
-<h2 id="conclusion">Conclusion</h2>
+<h1 id="conclusion">Conclusion</h1>
 
 <p>Increasing economic security of blockchain systems is a pressing problem, particularly when the capital that secures the system is much less than the financial activity conducted on it.</p>
 
@@ -117,27 +111,27 @@
 
 <p>Regardless of which option one chooses though, a designer’s first step should always be to understand their own system’s particularities. Once they define how their system’s modules cooperate, which trust and centralization compromises they can tolerate, and what level of performance they strive for, choosing an appropriate solution should become straightforward.</p>
 
-<h4 id="references">References</h4>
+<h3 id="references">References</h3>
 
 <div class="footnotes">
 
 
 <ol>
-<li id="fn:1">Stewart, Alistair, and Eleftherios Kokoris-Kogia. &ldquo;Grandpa: a byzantine finality gadget.&rdquo; arXiv preprint arXiv:2007.01560 (2020); <a href="https://arxiv.org/pdf/2007.01560" target="_blank" rel="noopener">arXiv 2007.01560</a></li>
+<li id="fn:1">Stewart, Alistair, and Eleftherios Kokoris-Kogia. &ldquo;Grandpa: a byzantine finality gadget.&rdquo; arXiv preprint arXiv:2007.01560 (2020); <a href="https://arxiv.org/pdf/2007.01560" target="_blank">arXiv 2007.01560</a></li>
 
-<li id="fn:2">Rana, Ranvir, et al. &ldquo;Optimal bootstrapping of pow blockchains.&rdquo; Proceedings of the Twenty-Third International Symposium on Theory, Algorithmic Foundations, and Protocol Design for Mobile Networks and Mobile Computing. 2022; <a href="https://arxiv.org/pdf/2208.10618" target="_blank" rel="noopener">arxiv 2208.10618</a></li>
+<li id="fn:2">Rana, Ranvir, et al. &ldquo;Optimal bootstrapping of pow blockchains.&rdquo; Proceedings of the Twenty-Third International Symposium on Theory, Algorithmic Foundations, and Protocol Design for Mobile Networks and Mobile Computing. 2022; <a href="https://arxiv.org/pdf/2208.10618" target="_blank">arxiv 2208.10618</a></li>
 
-<li id="fn:3">Karakostas, Dimitris, and Aggelos Kiayias. &ldquo;Securing proof-of-work ledgers via checkpointing.&rdquo; 2021 IEEE International Conference on Blockchain and Cryptocurrency (ICBC). IEEE, 2021; <a href="https://eprint.iacr.org/2020/173.pdf" target="_blank" rel="noopener">eprint 2020 / 173</a></li>
+<li id="fn:3">Karakostas, Dimitris, and Aggelos Kiayias. &ldquo;Securing proof-of-work ledgers via checkpointing.&rdquo; 2021 IEEE International Conference on Blockchain and Cryptocurrency (ICBC). IEEE, 2021; <a href="https://eprint.iacr.org/2020/173.pdf" target="_blank">eprint 2020 / 173</a></li>
 
-<li id="fn:4">Dinsdale-Young, Thomas, et al. &ldquo;Afgjort: A partially synchronous finality layer for blockchains.&rdquo; International Conference on Security and Cryptography for Networks. Cham: Springer International Publishing, 2020; <a href="https://eprint.iacr.org/2019/504.pdf" target="_blank" rel="noopener">eprint 2019 / 504</a></li>
+<li id="fn:4">Dinsdale-Young, Thomas, et al. &ldquo;Afgjort: A partially synchronous finality layer for blockchains.&rdquo; International Conference on Security and Cryptography for Networks. Cham: Springer International Publishing, 2020; <a href="https://eprint.iacr.org/2019/504.pdf" target="_blank">eprint 2019 / 504</a></li>
 
-<li id="fn:5">Bentov, Iddo, et al. &ldquo;Proof of activity: Extending bitcoin&rsquo;s proof of work via proof of stake [Extended abstract].&rdquo; ACM SIGMETRICS Performance Evaluation Review 42.3 (2014): 34-37; <a href="https://dl.acm.org/doi/epdf/10.1145/2695533.2695545" target="_blank" rel="noopener">DOI 10.1145 / 2695533.2695545</a></li>
+<li id="fn:5">Bentov, Iddo, et al. &ldquo;Proof of activity: Extending bitcoin&rsquo;s proof of work via proof of stake [Extended abstract].&rdquo; ACM SIGMETRICS Performance Evaluation Review 42.3 (2014): 34-37; <a href="https://dl.acm.org/doi/epdf/10.1145/2695533.2695545" target="_blank">DOI 10.1145 / 2695533.2695545</a></li>
 
-<li id="fn:7">Duong, Tuyet, et al. &ldquo;Twinscoin: A cryptocurrency via proof-of-work and proof-of-stake.&rdquo; Proceedings of the 2nd ACM Workshop on Blockchains, Cryptocurrencies, and Contracts. 2018; <a href="https://dl.acm.org/doi/pdf/10.1145/3205230.3205233" target="_blank" rel="noopener">DOI 10.1145 / 3205230.3205233</a></li>
+<li id="fn:7">Duong, Tuyet, et al. &ldquo;Twinscoin: A cryptocurrency via proof-of-work and proof-of-stake.&rdquo; Proceedings of the 2nd ACM Workshop on Blockchains, Cryptocurrencies, and Contracts. 2018; <a href="https://dl.acm.org/doi/pdf/10.1145/3205230.3205233" target="_blank">DOI 10.1145 / 3205230.3205233</a></li>
 
-<li id="fn:6">Duong, Tuyet, et al. &ldquo;2-hop blockchain: combining proof-of-work and proof-of-stake securely.&rdquo; European Symposium on Research in Computer Security. Cham: Springer International Publishing, 2020; <a href="https://eprint.iacr.org/2016/716.pdf" target="_blank" rel="noopener">eprint 2016 / 716</a></li>
+<li id="fn:6">Duong, Tuyet, et al. &ldquo;2-hop blockchain: combining proof-of-work and proof-of-stake securely.&rdquo; European Symposium on Research in Computer Security. Cham: Springer International Publishing, 2020; <a href="https://eprint.iacr.org/2016/716.pdf" target="_blank">eprint 2016 / 716</a></li>
 
-<li id="fn:8">Fitzi, Matthias, et al. &ldquo;Minotaur: Multi-resource blockchain consensus.&rdquo; Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security. 2022; <a href="https://dl.acm.org/doi/epdf/10.1145/3548606.3559356" target="_blank" rel="noopener">DOI 10.1145 / 3548606.3559356</a></li>
+<li id="fn:8">Fitzi, Matthias, et al. &ldquo;Minotaur: Multi-resource blockchain consensus.&rdquo; Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security. 2022; <a href="https://dl.acm.org/doi/epdf/10.1145/3548606.3559356" target="_blank">DOI 10.1145 / 3548606.3559356</a></li>
 </ol>
 
 </div>
