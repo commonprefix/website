@@ -580,11 +580,22 @@ func main() {
 	}
 	sortTeamMembers(team)
 
-	serve := flag.Bool("serve", false, "serve mode")
+	serve := flag.Bool("serve", false, "serve ./public (without building anything)")
 	port := flag.String("p", servePort, "port to serve on")
+	legacy := flag.Bool("legacy-pages", false, "rebuild the previous site's pages into ./public: this OVERWRITES the current site's pages")
 	flag.Parse()
 
-	build()
+	// The site's pages are built by common-prefix-coder (Vite) and copied into ./public (see
+	// README.md). This generator made the previous site; run on its own it would overwrite
+	// them, so it only builds when asked to explicitly.
+	if *legacy {
+		build()
+	} else if !*serve {
+		fmt.Println("Nothing built: the site's pages come from common-prefix-coder (see README.md).")
+		fmt.Println("  go run . --serve          serve ./public on http://localhost:" + servePort)
+		fmt.Println("  go run . --legacy-pages   rebuild the previous site's pages (overwrites ./public)")
+		os.Exit(1)
+	}
 
 	if *serve == true {
 		fs := http.FileServer(http.Dir(buildDir))
