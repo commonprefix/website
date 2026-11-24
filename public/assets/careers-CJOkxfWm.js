@@ -1,1 +1,0 @@
-import"./main-D2G6GSjo.js";/* empty css           *//* empty css              *//* empty css                */var e=document.querySelectorAll(`.perk-icon`);if(e.length&&`IntersectionObserver`in window){let t=new IntersectionObserver(e=>{for(let t of e)t.target.classList.toggle(`is-off`,!t.isIntersecting)});e.forEach(e=>t.observe(e))}
