@@ -13,11 +13,11 @@
       document.documentElement.classList.add("js");
     </script>
       <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.*"}}]},"eagerness":"moderate"}]}</script>
-    <script type="module" crossorigin src="/assets/cp-B24gjM22.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/main-CFimfb46.js">
+    <script type="module" crossorigin src="/assets/cp-lXj9Aj6w.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/main-DTmW__Bq.js">
     <link rel="modulepreload" crossorigin href="/assets/seal-CDodipdy.js">
-    <link rel="stylesheet" crossorigin href="/assets/main-CFVXXdLx.css">
-    <link rel="stylesheet" crossorigin href="/assets/cp-B9Dsz-sJ.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-B2sGpkGv.css">
+    <link rel="stylesheet" crossorigin href="/assets/cp-DE0BeZNs.css">
       <meta name="description" content="Common Prefix is a team of scientists and engineers researching and implementing blockchain protocols." />
     <link rel="canonical" href="https://www.commonprefix.com/" />
     <meta property="og:url" content="https://www.commonprefix.com/" />
@@ -50,25 +50,40 @@
     </div>
 
     <main id="main">
-      <!-- 1. Coder first: only its title, and a way in. -->
+      <!-- 1. Coder, introduced by Common Prefix: what it is, a way in, and the demo. -->
       <section class="hero" id="top" aria-labelledby="hero-title">
         <div class="page-glow" aria-hidden="true"><span></span><span></span></div>
-        <p class="eyebrow" data-squircle="16" data-squircle-glass="halo" data-reveal><span class="eyebrow-in"><svg class="mark" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="6.2" y="4.5" width="3.6" height="15" rx="0.6" fill="currentColor"/><path d="M9.8 12h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="wordmark">Coder</span></span></p>
-        <h1 class="hero-title" id="hero-title" aria-label="Software, proven correct." data-reveal>
-          <span aria-hidden="true">
-            <span class="hero-line">Software,</span>
-            <span class="hero-line">
-              <span class="hero-proven">proven</span>
-              <span class="hero-word"><span id="hero-word">correct</span><span class="hero-stop">.</span></span>
-            </span>
-          </span>
+        <!-- On computers, more blue as the pointer nears "See Coder" (src/cp.ts). -->
+        <div class="glow-boost" aria-hidden="true"></div>
+        <p class="eyebrow" data-squircle="16" data-squircle-glass="halo" data-reveal><span class="eyebrow-in"><span class="eyebrow-new">New</span><svg class="mark" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="6.2" y="4.5" width="3.6" height="15" rx="0.6" fill="currentColor"/><path d="M9.8 12h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="wordmark">Coder</span></span></p>
+        <h1 class="hero-title" id="hero-title" data-reveal>
+          <span class="hero-line">Coder, a new product</span>
+          <span class="hero-line">from Common Prefix.</span>
         </h1>
+        <p class="hero-sub" data-reveal>Build verified software from scratch.</p>
         <div class="hero-actions" data-reveal>
           <a class="btn btn-primary" href="/coder" data-squircle="20" data-squircle-glass="accent">See Coder</a>
           <a class="btn btn-secondary" href="#about" data-squircle="20" data-squircle-glass="light">
             Common Prefix
             <svg class="arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M8 3v10M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
+        </div>
+        <!-- The demo, as on Coder's page: muted, plays inline while it is on screen (main.ts, film).
+             A click goes to the demo on Coder's page. Phones skip it (cp.css). -->
+        <div class="cp-demo" id="film" data-reveal>
+          <div class="cp-demo-box">
+            <div class="cp-bezel" data-squircle="36" data-squircle-glass="halo">
+              <div class="frame" data-squircle="26" data-squircle-glass="light">
+                <video class="frame-video" src="/film.mp4" poster="/film-poster.webp" muted loop playsinline preload="none" aria-label="Product tour: Coder runs a security verification, then a chat drafts a theorem about device approvals."></video>
+                <!-- The whole video is a way to Coder's own demo. -->
+                <a class="demo-link" href="/coder#film" aria-label="Watch the demo on Coder's page"></a>
+                <button class="film-toggle" type="button" aria-label="Pause the demo" data-squircle="20" data-squircle-glass="dark">
+                  <svg class="i-pause" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M5 3.5v9M11 3.5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                  <svg class="i-play" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M5.5 3.6v8.8a.7.7 0 0 0 1.06.6l7-4.4a.7.7 0 0 0 0-1.2l-7-4.4a.7.7 0 0 0-1.06.6Z" fill="currentColor"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
