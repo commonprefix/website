@@ -600,10 +600,15 @@ func main() {
 	if *serve == true {
 		fs := http.FileServer(http.Dir(buildDir))
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-			// Clean urls
-			if strings.HasPrefix(r.URL.Path, "/clients") || strings.HasPrefix(r.URL.Path, "/grants") || strings.HasPrefix(r.URL.Path, "/team") || strings.HasPrefix(r.URL.Path, "/podcast") {
-				if !strings.HasSuffix(r.URL.Path, ".html") {
-					r.URL.Path = r.URL.Path + ".html"
+			// Clean URLs, as Vercel serves them (cleanUrls): /blog is blog/index.html,
+			// /team is team.html, /blog/a-post is blog/a-post.html.
+			p := strings.TrimSuffix(r.URL.Path, "/")
+			if p != "" && filepath.Ext(p) == "" {
+				local := filepath.Join(buildDir, filepath.FromSlash(p))
+				if st, err := os.Stat(local); err == nil && st.IsDir() {
+					r.URL.Path = p + "/"
+				} else if _, err := os.Stat(local + ".html"); err == nil {
+					r.URL.Path = p + ".html"
 				}
 			}
 
