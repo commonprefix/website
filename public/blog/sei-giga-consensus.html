@@ -7,19 +7,24 @@
     <meta name="description" content="The first instalment focuses on Sei Giga’s consensus, with the Autobahn protocol at the heart of it." />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/allo-var-v1.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/seal-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/seal-16.png" />
+    <link rel="apple-touch-icon" href="/icons/seal-180.png" />
     <script>
       document.documentElement.classList.add("js");
     </script>
       <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.*"}}]},"eagerness":"moderate"}]}</script>
-    <script type="module" crossorigin src="/assets/main-B-E66nmp.js"></script>
-    <script type="module" crossorigin src="/assets/sheet-C4XTJbwz.js"></script>
-    <script type="module" crossorigin src="/assets/post-B_cOgHec.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-DJEL0esL.css">
-    <link rel="stylesheet" crossorigin href="/assets/post-B6r3RVuZ.css">
-    <link rel="stylesheet" crossorigin href="/assets/cp-CTCiKTuo.css">
-    <link rel="stylesheet" crossorigin href="/assets/story-DcNx3Brx.css">
-      <meta property="og:title" content="Sei Giga, Under the Hood - Part 1: Consensus · Common Prefix" />
+    <script type="module" crossorigin src="/assets/main-CFimfb46.js"></script>
+    <script type="module" crossorigin src="/assets/sheet-CJOnNIe4.js"></script>
+    <script type="module" crossorigin src="/assets/seal-CDodipdy.js"></script>
+    <script type="module" crossorigin src="/assets/post-DhIF3WbC.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-CFVXXdLx.css">
+    <link rel="stylesheet" crossorigin href="/assets/post-KHWCHLNC.css">
+    <link rel="stylesheet" crossorigin href="/assets/cp-B9Dsz-sJ.css">
+    <link rel="stylesheet" crossorigin href="/assets/story-D7CBB1cr.css">
+      <link rel="canonical" href="https://www.commonprefix.com/blog/sei-giga-consensus" />
+    <meta property="og:url" content="https://www.commonprefix.com/blog/sei-giga-consensus" />
+    <meta property="og:title" content="Sei Giga, Under the Hood - Part 1: Consensus · Common Prefix" />
     <meta property="og:description" content="The first instalment focuses on Sei Giga’s consensus, with the Autobahn protocol at the heart of it." />
     <meta property="og:image" content="https://commonprefix.com/static/meta.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -38,7 +43,7 @@
           <span class="cp-cut cp-nav-logo"><img src="/cp-wordmark.svg" alt="Common Prefix" width="120" height="17" /></span>
         </a>
         <nav class="nav-links" aria-label="Sections">
-          <a href="/coder">Coder</a>
+          <a class="nav-coder" href="/coder">Coder</a>
           <a href="/team">Team</a>
           <a href="/research">Research</a>
           <a href="/blog" aria-current="page">Blog</a>
@@ -48,6 +53,7 @@
     </div>
 
     <main id="main">
+      <div class="cp-seal post-seal" aria-hidden="true"></div>
       <article class="wrap post">
         <a class="post-back" href="/blog"><span aria-hidden="true">←</span> Blog</a>
         <h1 class="h2 post-title">Sei Giga, Under the Hood - Part 1: Consensus</h1>
@@ -99,39 +105,39 @@
 
 
 <ol>
-<li id="fn:1"><a href="https://www.sei.io" target="_blank">https://www.sei.io</a></li>
+<li id="fn:1"><a href="https://www.sei.io" target="_blank" rel="noopener">https://www.sei.io</a></li>
 
-<li id="fn:2"><a href="https://arxiv.org/abs/2401.10369" target="_blank">https://arxiv.org/abs/2401.10369</a></li>
+<li id="fn:2"><a href="https://arxiv.org/abs/2401.10369" target="_blank" rel="noopener">https://arxiv.org/abs/2401.10369</a></li>
 
 <li id="fn:3">Autobahn was published and presented in the 30th Symposium on Operating Systems Principles.</li>
 
-<li id="fn:4">For a more detailed description of Autobahn, we refer to the mentioned paper and a detailed blog post by Sei: <a href="https://seiresearch.io/articles/autobahn-sei-giga-s-multi-proposer-approach-to-blockchain-consensus" target="_blank">https://seiresearch.io/articles/autobahn-sei-giga-s-multi-proposer-approach-to-blockchain-consensus</a>.</li>
+<li id="fn:4">For a more detailed description of Autobahn, we refer to the mentioned paper and a detailed blog post by Sei: <a href="https://seiresearch.io/articles/autobahn-sei-giga-s-multi-proposer-approach-to-blockchain-consensus" target="_blank" rel="noopener">https://seiresearch.io/articles/autobahn-sei-giga-s-multi-proposer-approach-to-blockchain-consensus</a>.</li>
 
-<li id="fn:5">For example see Prism (<a href="https://eprint.iacr.org/2018/992" target="_blank">https://eprint.iacr.org/2018/992</a>) and Parallel Chains (<a href="https://eprint.iacr.org/2018/1119" target="_blank">https://eprint.iacr.org/2018/1119</a>).</li>
+<li id="fn:5">For example see Prism (<a href="https://eprint.iacr.org/2018/992" target="_blank" rel="noopener">https://eprint.iacr.org/2018/992</a>) and Parallel Chains (<a href="https://eprint.iacr.org/2018/1119" target="_blank" rel="noopener">https://eprint.iacr.org/2018/1119</a>).</li>
 
 <li id="fn:6">See Section 6 (evaluation) of the Autobahn paper.</li>
 
-<li id="fn:7">Practical Byzantine Fault Tolerance (PBFT) was published at the third Symposium on Operating Systems Design and Implementation (<a href="http://pmg.csail.mit.edu/papers/osdi99.pdf" target="_blank">http://pmg.csail.mit.edu/papers/osdi99.pdf</a>).</li>
+<li id="fn:7">Practical Byzantine Fault Tolerance (PBFT) was published at the third Symposium on Operating Systems Design and Implementation (<a href="http://pmg.csail.mit.edu/papers/osdi99.pdf" target="_blank" rel="noopener">http://pmg.csail.mit.edu/papers/osdi99.pdf</a>).</li>
 
-<li id="fn:8">Published at the 2022 ACM Conference on Computer and Communications Security (<a href="https://arxiv.org/abs/2201.05677" target="_blank">https://arxiv.org/abs/2201.05677</a>).</li>
+<li id="fn:8">Published at the 2022 ACM Conference on Computer and Communications Security (<a href="https://arxiv.org/abs/2201.05677" target="_blank" rel="noopener">https://arxiv.org/abs/2201.05677</a>).</li>
 
-<li id="fn:9"><a href="https://arxiv.org/abs/1906.05552" target="_blank">https://arxiv.org/abs/1906.05552</a></li>
+<li id="fn:9"><a href="https://arxiv.org/abs/1906.05552" target="_blank" rel="noopener">https://arxiv.org/abs/1906.05552</a></li>
 
-<li id="fn:10"><a href="https://bitnodes.io/" target="_blank">https://bitnodes.io</a></li>
+<li id="fn:10"><a href="https://bitnodes.io/" target="_blank" rel="noopener">https://bitnodes.io</a></li>
 
-<li id="fn:11"><a href="https://beaconcha.in/charts/validators" target="_blank">https://beaconcha.in/charts/validators</a>; <a href="https://ethernodes.org" target="_blank">https://ethernodes.org</a></li>
+<li id="fn:11"><a href="https://beaconcha.in/charts/validators" target="_blank" rel="noopener">https://beaconcha.in/charts/validators</a>; <a href="https://ethernodes.org" target="_blank" rel="noopener">https://ethernodes.org</a></li>
 
-<li id="fn:12"><a href="https://cexplorer.io/pool" target="_blank">https://cexplorer.io/pool</a></li>
+<li id="fn:12"><a href="https://cexplorer.io/pool" target="_blank" rel="noopener">https://cexplorer.io/pool</a></li>
 
-<li id="fn:13"><a href="https://tzstats.com/bakers" target="_blank">https://tzstats.com/bakers</a></li>
+<li id="fn:13"><a href="https://tzstats.com/bakers" target="_blank" rel="noopener">https://tzstats.com/bakers</a></li>
 
-<li id="fn:14"><a href="https://suivision.xyz/validators" target="_blank">https://suivision.xyz/validators</a></li>
+<li id="fn:14"><a href="https://suivision.xyz/validators" target="_blank" rel="noopener">https://suivision.xyz/validators</a></li>
 
-<li id="fn:15"><a href="https://sei.explorers.guru/validators" target="_blank">https://sei.explorers.guru/validators</a>; <a href="https://www.seiscan.app/pacific-1/validators" target="_blank">https://www.seiscan.app/pacific-1/validators</a>.</li>
+<li id="fn:15"><a href="https://sei.explorers.guru/validators" target="_blank" rel="noopener">https://sei.explorers.guru/validators</a>; <a href="https://www.seiscan.app/pacific-1/validators" target="_blank" rel="noopener">https://www.seiscan.app/pacific-1/validators</a>.</li>
 
-<li id="fn:16"><a href="https://xrpscan.com/validators" target="_blank">https://xrpscan.com/validators</a></li>
+<li id="fn:16"><a href="https://xrpscan.com/validators" target="_blank" rel="noopener">https://xrpscan.com/validators</a></li>
 
-<li id="fn:17"><a href="https://stellarbeat.io/" target="_blank">https://stellarbeat.io/</a></li>
+<li id="fn:17"><a href="https://web.archive.org/web/20260507175718/https://stellarbeat.io/" target="_blank" rel="noopener">https://stellarbeat.io/</a></li>
 </ol>
 
 </div>

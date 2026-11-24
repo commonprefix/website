@@ -580,19 +580,35 @@ func main() {
 	}
 	sortTeamMembers(team)
 
-	serve := flag.Bool("serve", false, "serve mode")
+	serve := flag.Bool("serve", false, "serve ./public (without building anything)")
 	port := flag.String("p", servePort, "port to serve on")
+	legacy := flag.Bool("legacy-pages", false, "rebuild the previous site's pages into ./public: this OVERWRITES the current site's pages")
 	flag.Parse()
 
-	build()
+	// The site's pages are built by common-prefix-coder (Vite) and copied into ./public (see
+	// README.md). This generator made the previous site; run on its own it would overwrite
+	// them, so it only builds when asked to explicitly.
+	if *legacy {
+		build()
+	} else if !*serve {
+		fmt.Println("Nothing built: the site's pages come from common-prefix-coder (see README.md).")
+		fmt.Println("  go run . --serve          serve ./public on http://localhost:" + servePort)
+		fmt.Println("  go run . --legacy-pages   rebuild the previous site's pages (overwrites ./public)")
+		os.Exit(1)
+	}
 
 	if *serve == true {
 		fs := http.FileServer(http.Dir(buildDir))
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-			// Clean urls
-			if strings.HasPrefix(r.URL.Path, "/clients") || strings.HasPrefix(r.URL.Path, "/grants") || strings.HasPrefix(r.URL.Path, "/team") || strings.HasPrefix(r.URL.Path, "/podcast") {
-				if !strings.HasSuffix(r.URL.Path, ".html") {
-					r.URL.Path = r.URL.Path + ".html"
+			// Clean URLs, as Vercel serves them (cleanUrls): /blog is blog/index.html,
+			// /team is team.html, /blog/a-post is blog/a-post.html.
+			p := strings.TrimSuffix(r.URL.Path, "/")
+			if p != "" && filepath.Ext(p) == "" {
+				local := filepath.Join(buildDir, filepath.FromSlash(p))
+				if st, err := os.Stat(local); err == nil && st.IsDir() {
+					r.URL.Path = p + "/"
+				} else if _, err := os.Stat(local + ".html"); err == nil {
+					r.URL.Path = p + ".html"
 				}
 			}
 
