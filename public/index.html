@@ -13,11 +13,11 @@
       document.documentElement.classList.add("js");
     </script>
       <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.*"}}]},"eagerness":"moderate"}]}</script>
-    <script type="module" crossorigin src="/assets/cp-FMBWNxyd.js"></script>
+    <script type="module" crossorigin src="/assets/cp-NyyOt90N.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/main-cn-djlxG.js">
     <link rel="modulepreload" crossorigin href="/assets/seal-CDodipdy.js">
     <link rel="stylesheet" crossorigin href="/assets/main-Br8fYXMS.css">
-    <link rel="stylesheet" crossorigin href="/assets/cp-Dex9CCKk.css">
+    <link rel="stylesheet" crossorigin href="/assets/cp-DaQ7laZn.css">
       <meta name="description" content="Common Prefix is a team of scientists and engineers researching and implementing blockchain protocols." />
     <link rel="canonical" href="https://www.commonprefix.com/" />
     <meta property="og:url" content="https://www.commonprefix.com/" />
@@ -69,14 +69,14 @@
           </a>
         </div>
         <!-- The demo, as on Coder's page: muted, plays inline while it is on screen (main.ts, film).
-             A click opens it large (src/cp.ts). -->
+             A click goes to the demo on Coder's page. Phones skip it (cp.css). -->
         <div class="cp-demo" id="film" data-reveal>
           <div class="cp-demo-box">
             <div class="cp-bezel" data-squircle="36" data-squircle-glass="halo">
               <div class="frame" data-squircle="26" data-squircle-glass="light">
-                <video class="frame-video" src="/film.mp4" poster="/film-poster.webp" muted loop playsinline preload="metadata" aria-label="Product tour: Coder runs a security verification, then a chat drafts a theorem about device approvals."></video>
-                <!-- A click on the video opens it large (src/cp.ts); this is the same for the keyboard. -->
-                <button class="demo-open" type="button">Watch the demo larger</button>
+                <video class="frame-video" src="/film.mp4" poster="/film-poster.webp" muted loop playsinline preload="none" aria-label="Product tour: Coder runs a security verification, then a chat drafts a theorem about device approvals."></video>
+                <!-- The whole video is a way to Coder's own demo. -->
+                <a class="demo-link" href="/coder#film" aria-label="Watch the demo on Coder's page"></a>
                 <button class="film-toggle" type="button" aria-label="Pause the demo" data-squircle="20" data-squircle-glass="dark">
                   <svg class="i-pause" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M5 3.5v9M11 3.5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
                   <svg class="i-play" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M5.5 3.6v8.8a.7.7 0 0 0 1.06.6l7-4.4a.7.7 0 0 0 0-1.2l-7-4.4a.7.7 0 0 0-1.06.6Z" fill="currentColor"/></svg>
