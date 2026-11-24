@@ -7,19 +7,24 @@
     <meta name="description" content="A security audit of the XRP Ledger Batch Transactions feature (XLS-0056): seven findings across batch signing, fee calculation, execution modes, and P2P relay, including two critical and high-severity signing-scheme flaws and a DoS amplification vector." />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/allo-var-v1.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/seal-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/seal-16.png" />
+    <link rel="apple-touch-icon" href="/icons/seal-180.png" />
     <script>
       document.documentElement.classList.add("js");
     </script>
       <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.*"}}]},"eagerness":"moderate"}]}</script>
-    <script type="module" crossorigin src="/assets/main-B-E66nmp.js"></script>
-    <script type="module" crossorigin src="/assets/sheet-C4XTJbwz.js"></script>
-    <script type="module" crossorigin src="/assets/post-B_cOgHec.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-DJEL0esL.css">
-    <link rel="stylesheet" crossorigin href="/assets/post-B6r3RVuZ.css">
-    <link rel="stylesheet" crossorigin href="/assets/cp-CTCiKTuo.css">
-    <link rel="stylesheet" crossorigin href="/assets/story-DcNx3Brx.css">
-      <meta property="og:title" content="XRP Ledger Batch Transactions Security Audit Report · Common Prefix" />
+    <script type="module" crossorigin src="/assets/main-BQDWY5_z.js"></script>
+    <script type="module" crossorigin src="/assets/sheet-nKmUMqQk.js"></script>
+    <script type="module" crossorigin src="/assets/seal-CDodipdy.js"></script>
+    <script type="module" crossorigin src="/assets/post-fh7mUhpv.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-CFVXXdLx.css">
+    <link rel="stylesheet" crossorigin href="/assets/post-KHWCHLNC.css">
+    <link rel="stylesheet" crossorigin href="/assets/cp-B9Dsz-sJ.css">
+    <link rel="stylesheet" crossorigin href="/assets/story-D7CBB1cr.css">
+      <link rel="canonical" href="https://www.commonprefix.com/blog/xrp-ledger-batch-transactions-security-audit-report" />
+    <meta property="og:url" content="https://www.commonprefix.com/blog/xrp-ledger-batch-transactions-security-audit-report" />
+    <meta property="og:title" content="XRP Ledger Batch Transactions Security Audit Report · Common Prefix" />
     <meta property="og:description" content="A security audit of the XRP Ledger Batch Transactions feature (XLS-0056): seven findings across batch signing, fee calculation, execution modes, and P2P relay, including two critical and high-severity signing-scheme flaws and a DoS amplification vector." />
     <meta property="og:image" content="https://commonprefix.com/static/meta.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -38,7 +43,7 @@
           <span class="cp-cut cp-nav-logo"><img src="/cp-wordmark.svg" alt="Common Prefix" width="120" height="17" /></span>
         </a>
         <nav class="nav-links" aria-label="Sections">
-          <a href="/coder">Coder</a>
+          <a class="nav-coder" href="/coder">Coder</a>
           <a href="/team">Team</a>
           <a href="/research">Research</a>
           <a href="/blog" aria-current="page">Blog</a>
@@ -48,6 +53,7 @@
     </div>
 
     <main id="main">
+      <div class="cp-seal post-seal" aria-hidden="true"></div>
       <article class="wrap post">
         <a class="post-back" href="/blog"><span aria-hidden="true">←</span> Blog</a>
         <h1 class="h2 post-title">XRP Ledger Batch Transactions Security Audit Report</h1>
@@ -64,10 +70,10 @@
 <p>Common Prefix was engaged by Ripple to conduct a security audit of the Batch Transactions feature for the XRP Ledger protocol. Batch transactions enable native atomic multi-transaction bundles, allowing multiple inner transactions to be submitted and executed as a single outer batch transaction with configurable execution semantics.</p>
 
 <p>The audit scope covered the following pull requests in the <code>rippled</code> C++ reference implementation:
-<a href="https://github.com/XRPLF/rippled/pull/5060" target="_blank">PR #5060</a>,
-<a href="http://github.com/XRPLF/rippled/pull/6176" target="_blank">PR #6176</a>,
-<a href="http://github.com/XRPLF/rippled/pull/6069" target="_blank">PR #6069</a>,
-<a href="https://github.com/XRPLF/rippled/pull/6446" target="_blank">PR #6446</a>.</p>
+<a href="https://github.com/XRPLF/rippled/pull/5060" target="_blank" rel="noopener">PR #5060</a>,
+<a href="http://github.com/XRPLF/rippled/pull/6176" target="_blank" rel="noopener">PR #6176</a>,
+<a href="http://github.com/XRPLF/rippled/pull/6069" target="_blank" rel="noopener">PR #6069</a>,
+<a href="https://github.com/XRPLF/rippled/pull/6446" target="_blank" rel="noopener">PR #6446</a>.</p>
 
 <h3 id="findings-severity-breakdown">Findings Severity Breakdown</h3>
 

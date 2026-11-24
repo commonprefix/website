@@ -7,19 +7,24 @@
     <meta name="description" content="The second instalment explores the performance enhancements of Sei Giga." />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/allo-var-v1.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/seal-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/seal-16.png" />
+    <link rel="apple-touch-icon" href="/icons/seal-180.png" />
     <script>
       document.documentElement.classList.add("js");
     </script>
       <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.*"}}]},"eagerness":"moderate"}]}</script>
-    <script type="module" crossorigin src="/assets/main-B-E66nmp.js"></script>
-    <script type="module" crossorigin src="/assets/sheet-C4XTJbwz.js"></script>
-    <script type="module" crossorigin src="/assets/post-B_cOgHec.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-DJEL0esL.css">
-    <link rel="stylesheet" crossorigin href="/assets/post-B6r3RVuZ.css">
-    <link rel="stylesheet" crossorigin href="/assets/cp-CTCiKTuo.css">
-    <link rel="stylesheet" crossorigin href="/assets/story-DcNx3Brx.css">
-      <meta property="og:title" content="Sei Giga, Under the Hood - Part 2: Performance · Common Prefix" />
+    <script type="module" crossorigin src="/assets/main-BQDWY5_z.js"></script>
+    <script type="module" crossorigin src="/assets/sheet-nKmUMqQk.js"></script>
+    <script type="module" crossorigin src="/assets/seal-CDodipdy.js"></script>
+    <script type="module" crossorigin src="/assets/post-fh7mUhpv.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-CFVXXdLx.css">
+    <link rel="stylesheet" crossorigin href="/assets/post-KHWCHLNC.css">
+    <link rel="stylesheet" crossorigin href="/assets/cp-B9Dsz-sJ.css">
+    <link rel="stylesheet" crossorigin href="/assets/story-D7CBB1cr.css">
+      <link rel="canonical" href="https://www.commonprefix.com/blog/sei-giga-performance" />
+    <meta property="og:url" content="https://www.commonprefix.com/blog/sei-giga-performance" />
+    <meta property="og:title" content="Sei Giga, Under the Hood - Part 2: Performance · Common Prefix" />
     <meta property="og:description" content="The second instalment explores the performance enhancements of Sei Giga." />
     <meta property="og:image" content="https://commonprefix.com/static/meta.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -38,7 +43,7 @@
           <span class="cp-cut cp-nav-logo"><img src="/cp-wordmark.svg" alt="Common Prefix" width="120" height="17" /></span>
         </a>
         <nav class="nav-links" aria-label="Sections">
-          <a href="/coder">Coder</a>
+          <a class="nav-coder" href="/coder">Coder</a>
           <a href="/team">Team</a>
           <a href="/research">Research</a>
           <a href="/blog" aria-current="page">Blog</a>
@@ -48,6 +53,7 @@
     </div>
 
     <main id="main">
+      <div class="cp-seal post-seal" aria-hidden="true"></div>
       <article class="wrap post">
         <a class="post-back" href="/blog"><span aria-hidden="true">←</span> Blog</a>
         <h1 class="h2 post-title">Sei Giga, Under the Hood - Part 2: Performance</h1>
@@ -107,25 +113,25 @@
 
 
 <ol>
-<li id="fn:1"><a href="https://www.sei.io" target="_blank">https://www.sei.io</a></li>
+<li id="fn:1"><a href="https://www.sei.io" target="_blank" rel="noopener">https://www.sei.io</a></li>
 
-<li id="fn:2"><a href="https://arxiv.org/abs/1905.09274" target="_blank">https://arxiv.org/abs/1905.09274</a>; <a href="https://arxiv.org/abs/1810.08092" target="_blank">https://arxiv.org/abs/1810.08092</a>; <a href="https://eprint.iacr.org/2018/1119" target="_blank">https://eprint.iacr.org/2018/1119</a></li>
+<li id="fn:2"><a href="https://arxiv.org/abs/1905.09274" target="_blank" rel="noopener">https://arxiv.org/abs/1905.09274</a>; <a href="https://arxiv.org/abs/1810.08092" target="_blank" rel="noopener">https://arxiv.org/abs/1810.08092</a>; <a href="https://eprint.iacr.org/2018/1119" target="_blank" rel="noopener">https://eprint.iacr.org/2018/1119</a></li>
 
-<li id="fn:3"><a href="https://celestia.org/" target="_blank">https://celestia.org</a></li>
+<li id="fn:3"><a href="https://celestia.org/" target="_blank" rel="noopener">https://celestia.org</a></li>
 
 <li id="fn:4">This is a result of the infamous halting problem in computability theory.</li>
 
-<li id="fn:5">OCC has been explored in protocols like FastPay (<a href="https://arxiv.org/abs/2003.11506" target="_blank">https://arxiv.org/abs/2003.11506</a>)  and the more recent Sui Lutris (<a href="https://arxiv.org/abs/2310.18042" target="_blank">https://arxiv.org/abs/2310.18042</a>), which is the core component of Sui’s distributed ledger (<a href="https://sui.io/" target="_blank">https://sui.io</a>).</li>
+<li id="fn:5">OCC has been explored in protocols like FastPay (<a href="https://arxiv.org/abs/2003.11506" target="_blank" rel="noopener">https://arxiv.org/abs/2003.11506</a>)  and the more recent Sui Lutris (<a href="https://arxiv.org/abs/2310.18042" target="_blank" rel="noopener">https://arxiv.org/abs/2310.18042</a>), which is the core component of Sui’s distributed ledger (<a href="https://sui.io/" target="_blank" rel="noopener">https://sui.io</a>).</li>
 
-<li id="fn:6"><a href="https://blog.sei.io/research-64-85-of-ethereum-transactions-can-be-parallelized" target="_blank">https://blog.sei.io/research-64-85-of-ethereum-transactions-can-be-parallelized</a></li>
+<li id="fn:6"><a href="https://blog.sei.io/research-64-85-of-ethereum-transactions-can-be-parallelized" target="_blank" rel="noopener">https://blog.sei.io/research-64-85-of-ethereum-transactions-can-be-parallelized</a></li>
 
-<li id="fn:7"><a href="https://arxiv.org/abs/2505.05358" target="_blank">https://arxiv.org/abs/2505.05358</a></li>
+<li id="fn:7"><a href="https://arxiv.org/abs/2505.05358" target="_blank" rel="noopener">https://arxiv.org/abs/2505.05358</a></li>
 
-<li id="fn:8"><a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree" target="_blank">https://en.wikipedia.org/wiki/Log-structured_merge-tree</a></li>
+<li id="fn:8"><a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Log-structured_merge-tree</a></li>
 
-<li id="fn:9"><a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank">https://en.wikipedia.org/wiki/Merkle_tree</a></li>
+<li id="fn:9"><a href="https://en.wikipedia.org/wiki/Merkle_tree" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Merkle_tree</a></li>
 
-<li id="fn:10"><a href="https://link.springer.com/chapter/10.1007/978-3-030-95312-6_17" target="_blank">https://link.springer.com/chapter/10.<sup>1007</sup>&frasl;<sub>978</sub>-3-030-95312-6_17</a></li>
+<li id="fn:10"><a href="https://link.springer.com/chapter/10.1007/978-3-030-95312-6_17" target="_blank" rel="noopener">https://link.springer.com/chapter/10.<sup>1007</sup>&frasl;<sub>978</sub>-3-030-95312-6_17</a></li>
 
 <li id="fn:11">See Part 1 of our review.</li>
 </ol>

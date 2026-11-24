@@ -7,19 +7,24 @@
     <meta name="description" content="How Common Prefix is moving the XRP Ledger from well-tested to formally verified: tooling decisions, modeling methodology, bugs uncovered in the process, and what comes next." />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/allo-var-v1.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/seal-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/seal-16.png" />
+    <link rel="apple-touch-icon" href="/icons/seal-180.png" />
     <script>
       document.documentElement.classList.add("js");
     </script>
       <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.*"}}]},"eagerness":"moderate"}]}</script>
-    <script type="module" crossorigin src="/assets/main-B-E66nmp.js"></script>
-    <script type="module" crossorigin src="/assets/sheet-C4XTJbwz.js"></script>
-    <script type="module" crossorigin src="/assets/post-B_cOgHec.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-DJEL0esL.css">
-    <link rel="stylesheet" crossorigin href="/assets/post-B6r3RVuZ.css">
-    <link rel="stylesheet" crossorigin href="/assets/cp-CTCiKTuo.css">
-    <link rel="stylesheet" crossorigin href="/assets/story-DcNx3Brx.css">
-      <meta property="og:title" content="Formal Verification of XRPL: Foundations and First Proofs · Common Prefix" />
+    <script type="module" crossorigin src="/assets/main-BQDWY5_z.js"></script>
+    <script type="module" crossorigin src="/assets/sheet-nKmUMqQk.js"></script>
+    <script type="module" crossorigin src="/assets/seal-CDodipdy.js"></script>
+    <script type="module" crossorigin src="/assets/post-fh7mUhpv.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-CFVXXdLx.css">
+    <link rel="stylesheet" crossorigin href="/assets/post-KHWCHLNC.css">
+    <link rel="stylesheet" crossorigin href="/assets/cp-B9Dsz-sJ.css">
+    <link rel="stylesheet" crossorigin href="/assets/story-D7CBB1cr.css">
+      <link rel="canonical" href="https://www.commonprefix.com/blog/formal-verification-of-xrpl-foundations-and-first-proofs" />
+    <meta property="og:url" content="https://www.commonprefix.com/blog/formal-verification-of-xrpl-foundations-and-first-proofs" />
+    <meta property="og:title" content="Formal Verification of XRPL: Foundations and First Proofs · Common Prefix" />
     <meta property="og:description" content="How Common Prefix is moving the XRP Ledger from well-tested to formally verified: tooling decisions, modeling methodology, bugs uncovered in the process, and what comes next." />
     <meta property="og:image" content="https://commonprefix.com/static/meta.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -38,7 +43,7 @@
           <span class="cp-cut cp-nav-logo"><img src="/cp-wordmark.svg" alt="Common Prefix" width="120" height="17" /></span>
         </a>
         <nav class="nav-links" aria-label="Sections">
-          <a href="/coder">Coder</a>
+          <a class="nav-coder" href="/coder">Coder</a>
           <a href="/team">Team</a>
           <a href="/research">Research</a>
           <a href="/blog" aria-current="page">Blog</a>
@@ -48,6 +53,7 @@
     </div>
 
     <main id="main">
+      <div class="cp-seal post-seal" aria-hidden="true"></div>
       <article class="wrap post">
         <a class="post-back" href="/blog"><span aria-hidden="true">←</span> Blog</a>
         <h1 class="h2 post-title">Formal Verification of XRPL: Foundations and First Proofs</h1>
