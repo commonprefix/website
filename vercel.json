@@ -29,6 +29,69 @@
                     "value": "public, max-age=31536000, immutable"
                 }
             ]
+        },
+        {
+            "source": "/film.mp4",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, stale-while-revalidate=604800"
+                }
+            ]
+        },
+        {
+            "source": "/film-poster.jpg",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, stale-while-revalidate=604800"
+                }
+            ]
+        },
+        {
+            "source": "/film-poster.webp",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, stale-while-revalidate=604800"
+                }
+            ]
+        },
+        {
+            "source": "/partners/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, stale-while-revalidate=604800"
+                }
+            ]
+        },
+        {
+            "source": "/team-photos/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, stale-while-revalidate=604800"
+                }
+            ]
+        },
+        {
+            "source": "/icons/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, stale-while-revalidate=604800"
+                }
+            ]
+        },
+        {
+            "source": "/cp-(seal|eq|wordmark|wordmark-white).svg",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400, stale-while-revalidate=604800"
+                }
+            ]
         }
     ],
     "redirects": [
